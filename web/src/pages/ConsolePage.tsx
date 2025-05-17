@@ -592,11 +592,11 @@ export function ConsolePage() {
   return (
     <div data-component="ConsolePage" className="flex flex-col items-center justify-center min-h-screen">
       {/* Single Wave Renderer Visualization that switches based on recording state */}
-      <div className="w-full max-w-2xl mb-8">
-        <div className="rounded-lg p-4 shadow-lg">
-          <div className="w-full h-32 bg-gray-700 rounded relative">
+      <div className="w-64 max-w-2xl mb-8">
+        <div className="rounded-lg shadow-lg">
+          <div className="h-48 bg-gray-700 rounded relative">
             <div className="text-xs text-gray-400 absolute top-2 left-2">
-              {isRecording ? "You" : "AI"}
+              {isRecording ? "Listening" : "AgentZer0"}
             </div>
             
             {/* Keep both canvases but show/hide based on recording state */}
