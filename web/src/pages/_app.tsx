@@ -7,6 +7,7 @@ import '../components/toggle/Toggle.scss';
 import '../pages/ConsolePage.scss';
 import { useEffect } from 'react';
 import { supabseAuthClient } from '@/lib/supabase/auth';
+import Head from 'next/head';
 
 
 
@@ -29,5 +30,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       }
     });
   }, []);
-  return <main className={inter.className}><Component {...pageProps} /></main>;
+  return (
+    <>
+      <Head>
+        <link rel="icon" href="/agentzerotoken.ico" />
+        <title>Agent-Zer0</title>
+      </Head>
+      <main className={inter.className}><Component {...pageProps} /></main>
+    </>
+  );
 }
