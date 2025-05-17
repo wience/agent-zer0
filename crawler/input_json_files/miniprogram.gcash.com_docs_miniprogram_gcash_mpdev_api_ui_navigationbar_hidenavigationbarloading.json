@@ -1,0 +1,26 @@
+{
+  "markdown": "",
+  "metadata": {
+    "og:image": "",
+    "description": "Hide the navigation bar loading.",
+    "favicon": "https://gw.alipayobjects.com/mdn/rms_150082/afts/img/A*rOH-T5TEL-cAAAAAAAAAAABkARQnAQ",
+    "ogTitle": "my.hideNavigationBarLoading | Developer's Guide | Documentation",
+    "og:title": "my.hideNavigationBarLoading | Developer's Guide | Documentation",
+    "ogDescription": "Hide the navigation bar loading.",
+    "title": "my.hideNavigationBarLoading | Developer's Guide | Documentation",
+    "robots": "noarchive",
+    "ogUrl": "",
+    "og:description": "Hide the navigation bar loading.",
+    "ogImage": "",
+    "og:url": "",
+    "viewport": "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover",
+    "keywords": "",
+    "og:type": "website",
+    "scrapeId": "f73236b2-4da4-4f68-9cf6-06bd5376b2a6",
+    "sourceURL": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_ui_navigationbar_hidenavigationbarloading",
+    "url": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_ui_navigationbar_hidenavigationbarloading",
+    "statusCode": 200
+  },
+  "html": "<!DOCTYPE html><html><body></body></html>",
+  "warning": "This scrape job was throttled at your current concurrency limit. If you'd like to scrape faster, you can upgrade your plan."
+}

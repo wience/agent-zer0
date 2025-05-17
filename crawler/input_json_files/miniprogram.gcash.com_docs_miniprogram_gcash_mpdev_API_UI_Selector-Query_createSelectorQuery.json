@@ -1,0 +1,26 @@
+{
+  "markdown": "",
+  "metadata": {
+    "ogUrl": "",
+    "ogImage": "",
+    "og:description": "Return a SelectorQuery object instance.",
+    "og:url": "",
+    "favicon": "https://gw.alipayobjects.com/mdn/rms_150082/afts/img/A*rOH-T5TEL-cAAAAAAAAAAABkARQnAQ",
+    "description": "Return a SelectorQuery object instance.",
+    "viewport": "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover",
+    "keywords": "",
+    "og:title": "my.createSelectorQuery | Developer's Guide | Documentation",
+    "og:image": "",
+    "title": "my.createSelectorQuery | Developer's Guide | Documentation",
+    "ogTitle": "my.createSelectorQuery | Developer's Guide | Documentation",
+    "ogDescription": "Return a SelectorQuery object instance.",
+    "robots": "noarchive",
+    "og:type": "website",
+    "scrapeId": "8aadbc7d-8bc8-4504-be7f-aff95f299940",
+    "sourceURL": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_UI_Selector-Query_createSelectorQuery",
+    "url": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_UI_Selector-Query_createSelectorQuery",
+    "statusCode": 200
+  },
+  "html": "<!DOCTYPE html><html><body></body></html>",
+  "warning": "This scrape job was throttled at your current concurrency limit. If you'd like to scrape faster, you can upgrade your plan."
+}

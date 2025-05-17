@@ -1,0 +1,26 @@
+{
+  "markdown": "",
+  "metadata": {
+    "ogDescription": "The label can be used to improve the form component availability. Use the ‘for’ attribute to find the ‘id’ of the related component or place the component under the label.",
+    "favicon": "https://gw.alipayobjects.com/mdn/rms_150082/afts/img/A*rOH-T5TEL-cAAAAAAAAAAABkARQnAQ",
+    "description": "The label can be used to improve the form component availability. Use the ‘for’ attribute to find the ‘id’ of the related component or place the component under the label.",
+    "og:description": "The label can be used to improve the form component availability. Use the ‘for’ attribute to find the ‘id’ of the related component or place the component under the label.",
+    "og:title": "label | Developer's Guide | Documentation",
+    "ogTitle": "label | Developer's Guide | Documentation",
+    "ogUrl": "",
+    "ogImage": "https://marmot-local-dev.oss-ap-southeast-1.aliyuncs.com/storage/2020/1/14/29616b3d-4bc1-4cc5-8765-635752a53909.jpeg",
+    "og:image": "https://marmot-local-dev.oss-ap-southeast-1.aliyuncs.com/storage/2020/1/14/29616b3d-4bc1-4cc5-8765-635752a53909.jpeg",
+    "og:url": "",
+    "robots": "noarchive",
+    "keywords": "",
+    "viewport": "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover",
+    "title": "label | Developer's Guide | Documentation",
+    "og:type": "website",
+    "scrapeId": "11daea0c-f873-4693-9d35-34a25ca51981",
+    "sourceURL": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/component_form-component_label",
+    "url": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/component_form-component_label",
+    "statusCode": 200
+  },
+  "html": "<!DOCTYPE html><html><body></body></html>",
+  "warning": "This scrape job was throttled at your current concurrency limit. If you'd like to scrape faster, you can upgrade your plan."
+}

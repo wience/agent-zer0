@@ -1,0 +1,26 @@
+{
+  "markdown": "",
+  "metadata": {
+    "og:type": "website",
+    "ogImage": "",
+    "og:image": "",
+    "og:description": "Confirm box.",
+    "ogUrl": "",
+    "ogDescription": "Confirm box.",
+    "og:url": "",
+    "keywords": "",
+    "ogTitle": "my.confirm | Developer's Guide | Documentation",
+    "og:title": "my.confirm | Developer's Guide | Documentation",
+    "title": "my.confirm | Developer's Guide | Documentation",
+    "robots": "noarchive",
+    "description": "Confirm box.",
+    "viewport": "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover",
+    "favicon": "https://gw.alipayobjects.com/mdn/rms_150082/afts/img/A*rOH-T5TEL-cAAAAAAAAAAABkARQnAQ",
+    "scrapeId": "ab7e4e49-4842-46e3-b46e-e56c18941f8a",
+    "sourceURL": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_ui_feedback_confirm",
+    "url": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_ui_feedback_confirm",
+    "statusCode": 200
+  },
+  "html": "<!DOCTYPE html><html><body></body></html>",
+  "warning": "This scrape job was throttled at your current concurrency limit. If you'd like to scrape faster, you can upgrade your plan."
+}
