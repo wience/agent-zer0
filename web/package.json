@@ -55,6 +55,7 @@
     "react-share": "^5.1.1",
     "sass": "^1.78.0",
     "save": "^2.9.0",
+    "siriwave": "^2.4.0",
     "tailwind-merge": "^2.5.3",
     "tailwind-variants": "^0.3.0",
     "tailwindcss-animate": "^1.0.7",

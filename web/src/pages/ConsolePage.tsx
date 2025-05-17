@@ -11,6 +11,9 @@
 const LOCAL_RELAY_SERVER_URL: string =
   process.env.REACT_APP_LOCAL_RELAY_SERVER_URL || '';
 
+const OPENAI_API_KEY: string =
+  process.env.NEXT_PUBLIC_OPENAI_API_KEY || '';
+
 import { useEffect, useRef, useCallback, useState } from 'react';
 
 import { RealtimeClient } from '@openai/realtime-api-beta';
@@ -51,36 +54,34 @@ interface RealtimeEvent {
 }
 
 export function ConsolePage() {
-  const [apiKey, setApiKey] = useState<string>('');
   const clientRef = useRef<RealtimeClient | null>(null);
+  const [isWaitingForAIResponse, setIsWaitingForAIResponse] = useState(false);
+  const [isConversationLogOpen, setIsConversationLogOpen] = useState(false);
 
+  // Initialize RealtimeClient immediately on component mount
   useEffect(() => {
-    // call localStorage operations inside useEffect to ensure they run only on the client side
-    const storedApiKey = localStorage.getItem('tmp::voice_api_key') || '';
-    setApiKey(storedApiKey);
-
-    if (!LOCAL_RELAY_SERVER_URL && !storedApiKey) {
-      const newApiKey = prompt('OpenAI API Key') || '';
-      if (newApiKey) {
-        localStorage.setItem('tmp::voice_api_key', newApiKey);
-        setApiKey(newApiKey);
+    // Debug log to see what's in the environment variable
+    console.log('OPENAI_API_KEY value:', OPENAI_API_KEY);
+    console.log('Environment variables available:', process.env);
+    
+    try {
+      if (LOCAL_RELAY_SERVER_URL || OPENAI_API_KEY) {
+        clientRef.current = new RealtimeClient(
+          LOCAL_RELAY_SERVER_URL
+            ? { url: LOCAL_RELAY_SERVER_URL }
+            : {
+                apiKey: OPENAI_API_KEY,
+                dangerouslyAllowAPIKeyInBrowser: true,
+              },
+        );
+        console.log('RealtimeClient initialized successfully');
+      } else {
+        console.error('No API key or relay server URL provided');
       }
+    } catch (error) {
+      console.error('Failed to initialize RealtimeClient:', error);
     }
   }, []);
-
-  useEffect(() => {
-    // Initialize RealtimeClient when apiKey is available
-    if (apiKey || LOCAL_RELAY_SERVER_URL) {
-      clientRef.current = new RealtimeClient(
-        LOCAL_RELAY_SERVER_URL
-          ? { url: LOCAL_RELAY_SERVER_URL }
-          : {
-              apiKey: apiKey,
-              dangerouslyAllowAPIKeyInBrowser: true,
-            },
-      );
-    }
-  }, [apiKey]);
 
   /**
    * Instantiate:
@@ -151,16 +152,10 @@ export function ConsolePage() {
   }, []);
 
   /**
-   * When you click the API key
+   * Display API key information
    */
-  const resetAPIKey = useCallback(() => {
-    const newApiKey = prompt('OpenAI API Key');
-    if (newApiKey !== null) {
-      localStorage.clear();
-      localStorage.setItem('tmp::voice_api_key', newApiKey);
-      setApiKey(newApiKey);
-      window.location.reload();
-    }
+  const showAPIKeyInfo = useCallback(() => {
+    console.log('API key is managed through environment variables');
   }, []);
 
   /**
@@ -269,6 +264,22 @@ export function ConsolePage() {
   };
 
   /**
+   * Toggle between starting and stopping recording
+   */
+  const toggleRecording = async () => {
+    if (isRecording) {
+      await stopRecording();
+      // After user stops recording, they need to wait for AI response
+      setIsWaitingForAIResponse(true);
+    } else {
+      // Only allow starting recording if not waiting for AI response
+      if (!isWaitingForAIResponse) {
+        await startRecording();
+      }
+    }
+  };
+
+  /**
    * Switch between Manual <> VAD mode for communication
    */
   const changeTurnEndType = async (value: string) => {
@@ -297,23 +308,31 @@ export function ConsolePage() {
       return;
     }
     console.log(`Triggering context API for ${transcript}`);
-    const response = await fetch(
-      `/api/context?query=${encodeURIComponent(transcript)}&openAIApiKey=${encodeURIComponent(localStorage.getItem('tmp::voice_api_key') || '')}`,
-    );
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const data = await response.json();
-    console.log(`Received context API response: ${data.message}`);
-    client.sendUserMessageContent([
-      {
-        type: 'input_text',
-        text: data.message,
-      },
-    ]);
-    if (client.getTurnDetectionType() === null) {
-      // if we are not in push-to-talk mode, create a response
-      client.createResponse();
+    
+    try {
+      const response = await fetch(
+        `/api/context?query=${encodeURIComponent(transcript)}&openAIApiKey=${encodeURIComponent(OPENAI_API_KEY)}`,
+      );
+      
+      if (!response.ok) {
+        console.error(`HTTP error: ${response.status}`);
+        return; // Don't throw, just log and continue
+      }
+      
+      const data = await response.json();
+      console.log(`Received context API response: ${data.message}`);
+      client.sendUserMessageContent([
+        {
+          type: 'input_text',
+          text: data.message,
+        },
+      ]);
+      if (client.getTurnDetectionType() === null) {
+        // if we are not in push-to-talk mode, create a response
+        client.createResponse();
+      }
+    } catch (error) {
+      console.error('Error in injectContext:', error);
     }
   };
 
@@ -549,6 +568,13 @@ export function ConsolePage() {
         );
         item.formatted.file = wavFile;
       }
+      
+      // Check if this is an AI response completion
+      if (item.role === 'assistant' && item.status === 'completed') {
+        // AI has responded, user can speak again
+        setIsWaitingForAIResponse(false);
+      }
+      
       setItems(items);
     });
 
@@ -564,190 +590,104 @@ export function ConsolePage() {
    * Render the application
    */
   return (
-    <div data-component="ConsolePage">
-      <div className="content-top">
-        <div className="content-api-key ml-auto">
-          {!LOCAL_RELAY_SERVER_URL && (
-            <Button
-              icon={Edit}
-              iconPosition="end"
-              buttonStyle="flush"
-              label={`api key: ${apiKey.slice(0, 3)}...`}
-              onClick={() => resetAPIKey()}
-            />
-          )}
+    <div data-component="ConsolePage" className="flex flex-col items-center justify-center min-h-screen">
+      {/* Single Wave Renderer Visualization that switches based on recording state */}
+      <div className="w-full max-w-2xl mb-8">
+        <div className="rounded-lg p-4 shadow-lg">
+          <div className="w-full h-32 bg-gray-700 rounded relative">
+            <div className="text-xs text-gray-400 absolute top-2 left-2">
+              {isRecording ? "You" : "AI"}
+            </div>
+            
+            {/* Keep both canvases but show/hide based on recording state */}
+            <div className={`absolute inset-0 ${isRecording ? 'block' : 'hidden'}`}>
+              <canvas ref={clientCanvasRef} className="w-full h-full" />
+            </div>
+            
+            <div className={`absolute inset-0 ${!isRecording ? 'block' : 'hidden'}`}>
+              <canvas ref={serverCanvasRef} className="w-full h-full" />
+            </div>
+          </div>
         </div>
       </div>
-      <div className="content-main">
-        <div className="content-logs">
-          <div className="content-block events">
-            <div className="visualization">
-              <div className="visualization-entry client">
-                <canvas ref={clientCanvasRef} />
-              </div>
-              <div className="visualization-entry server">
-                <canvas ref={serverCanvasRef} />
-              </div>
-            </div>
-            <div className="content-block-title">events</div>
-            <div className="content-block-body" ref={eventsScrollRef}>
-              {!realtimeEvents.length && `awaiting connection...`}
-              {realtimeEvents.map((realtimeEvent) => {
-                const count = realtimeEvent.count;
-                const event = { ...realtimeEvent.event };
-                if (event.type === 'input_audio_buffer.append') {
-                  event.audio = `[trimmed: ${event.audio.length} bytes]`;
-                } else if (event.type === 'response.audio.delta') {
-                  event.delta = `[trimmed: ${event.delta.length} bytes]`;
-                }
-                return (
-                  <div className="event" key={event.event_id}>
-                    <div className="event-timestamp">
-                      {formatTime(realtimeEvent.time)}
-                    </div>
-                    <div className="event-details">
-                      <div
-                        className="event-summary"
-                        onClick={() => {
-                          // toggle event details
-                          const id = event.event_id;
-                          const expanded = { ...expandedEvents };
-                          if (expanded[id]) {
-                            delete expanded[id];
-                          } else {
-                            expanded[id] = true;
-                          }
-                          setExpandedEvents(expanded);
-                        }}
-                      >
-                        <div
-                          className={`event-source ${
-                            event.type === 'error'
-                              ? 'error'
-                              : realtimeEvent.source
-                          }`}
-                        >
-                          {realtimeEvent.source === 'client' ? (
-                            <ArrowUp />
-                          ) : (
-                            <ArrowDown />
-                          )}
-                          <span>
-                            {event.type === 'error'
-                              ? 'error!'
-                              : realtimeEvent.source}
-                          </span>
-                        </div>
-                        <div className="event-type">
-                          {event.type}
-                          {count && ` (${count})`}
-                        </div>
-                      </div>
-                      {!!expandedEvents[event.event_id] && (
-                        <div className="event-payload">
-                          {JSON.stringify(event, null, 2)}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+      
+      {/* Control Buttons Below */}
+      <div className="flex items-center space-x-4">
+        <Button
+          label={isConnected ? 'disconnect' : 'Call Agent'}
+          iconPosition={isConnected ? 'end' : 'start'}
+          icon={isConnected ? X : Zap}
+          buttonStyle={isConnected ? 'regular' : 'action'}
+          onClick={
+            isConnected ? disconnectConversation : connectConversation
+          }
+        />
+        
+        {isConnected && canPushToTalk && (
+          <Button
+            label={isRecording ? 'stop recording' : 'start recording'}
+            buttonStyle={isRecording ? 'alert' : 'regular'}
+            disabled={!isRecording && isWaitingForAIResponse}
+            onClick={toggleRecording}
+          />
+        )}
+      </div>
+      
+      {/* Status Indicator */}
+      {isConnected && (
+        <div className="mt-4 text-sm text-gray-400">
+          {isWaitingForAIResponse ? "Waiting for AI response..." : "Ready to record"}
+        </div>
+      )}
+      
+      {/* Conversation Log Button */}
+      <div className="fixed bottom-4 right-4">
+        <button 
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center"
+          onClick={() => setIsConversationLogOpen(!isConversationLogOpen)}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
+          </svg>
+          Call History
+        </button>
+      </div>
+      
+      {/* Conversation Log Popup */}
+      {isConversationLogOpen && (
+        <div className="fixed bottom-20 right-4 w-96 md:w-1/3 max-w-2xl max-h-96 bg-white rounded-lg shadow-xl overflow-hidden">
+          <div className="bg-gray-800 text-white p-3 flex justify-between items-center">
+            <h3 className="font-medium">Conversation History</h3>
+            <button 
+              onClick={() => setIsConversationLogOpen(false)}
+              className="text-white hover:text-gray-300"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </button>
           </div>
-          <div className="content-block conversation">
-            <div className="content-block-title">conversation</div>
-            <div className="content-block-body" data-conversation-content>
-              {!items.length && `awaiting connection...`}
-              {items.map((conversationItem) => {
-                return (
-                  <div className="conversation-item" key={conversationItem.id}>
-                    <div className={`speaker ${conversationItem.role || ''}`}>
-                      <div>
-                        {(
-                          conversationItem.role || conversationItem.type
-                        ).replaceAll('_', ' ')}
-                      </div>
-                      <div
-                        className="close"
-                        onClick={() =>
-                          deleteConversationItem(conversationItem.id)
-                        }
-                      >
-                        <X />
-                      </div>
-                    </div>
-                    <div className={`speaker-content`}>
-                      {/* tool response */}
-                      {conversationItem.type === 'function_call_output' && (
-                        <div>{conversationItem.formatted.output}</div>
-                      )}
-                      {/* tool call */}
-                      {!!conversationItem.formatted.tool && (
-                        <div>
-                          {conversationItem.formatted.tool.name}(
-                          {conversationItem.formatted.tool.arguments})
-                        </div>
-                      )}
-                      {!conversationItem.formatted.tool &&
-                        conversationItem.role === 'user' && (
-                          <div>
-                            {conversationItem.formatted.transcript ||
-                              (conversationItem.formatted.audio?.length
-                                ? '(awaiting transcript)'
-                                : conversationItem.formatted.text ||
-                                  '(item sent)')}
-                          </div>
-                        )}
-                      {!conversationItem.formatted.tool &&
-                        conversationItem.role === 'assistant' && (
-                          <div>
-                            {conversationItem.formatted.transcript ||
-                              conversationItem.formatted.text ||
-                              '(truncated)'}
-                          </div>
-                        )}
-                      {conversationItem.formatted.file && (
-                        <audio
-                          src={conversationItem.formatted.file.url}
-                          controls
-                        />
-                      )}
-                    </div>
+          <div className="overflow-y-auto max-h-80 p-3 bg-gray-50">
+            {items.length === 0 ? (
+              <div className="text-center text-gray-500 py-4">No conversation yet</div>
+            ) : (
+              items.map((item) => (
+                <div key={item.id} className={`mb-3 p-2 rounded ${item.role === 'user' ? 'bg-blue-100' : 'bg-gray-200'}`}>
+                  <div className="font-semibold text-xs text-gray-700 mb-1">
+                    {item.role === 'user' ? 'You' : 'AI'}
                   </div>
-                );
-              })}
-            </div>
-          </div>
-          <div className="content-actions">
-            <Toggle
-              defaultValue={false}
-              labels={['manual', 'vad']}
-              values={['none', 'server_vad']}
-              onChange={(_, value) => changeTurnEndType(value)}
-            />
-            <div className="spacer" />
-            {isConnected && canPushToTalk && (
-              <Button
-                label={isRecording ? 'release to send' : 'push to talk'}
-                buttonStyle={isRecording ? 'alert' : 'regular'}
-                disabled={!isConnected || !canPushToTalk}
-                onMouseDown={startRecording}
-                onMouseUp={stopRecording}
-              />
+                  <div>
+                    {item.role === 'user' 
+                      ? (item.formatted.transcript || item.formatted.text || '(awaiting transcript)')
+                      : (item.formatted.transcript || item.formatted.text || '(generating response...)')
+                    }
+                  </div>
+                </div>
+              ))
             )}
-            <div className="spacer" />
-            <Button
-              label={isConnected ? 'disconnect' : 'connect'}
-              iconPosition={isConnected ? 'end' : 'start'}
-              icon={isConnected ? X : Zap}
-              buttonStyle={isConnected ? 'regular' : 'action'}
-              onClick={
-                isConnected ? disconnectConversation : connectConversation
-              }
-            />
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
