@@ -83,6 +83,7 @@ export function ConsolePage() {
   const [isConversationLogOpen, setIsConversationLogOpen] = useState(false);
   const [isChattingWithAgent, setIsChattingWithAgent] = useState(false);
   const [agentChatId, setAgentChatId] = useState<string | null>(null);
+  const [showTransferModal, setShowTransferModal] = useState(false);
 
   // Initialize RealtimeClient immediately on component mount
   useEffect(() => {
@@ -605,6 +606,12 @@ export function ConsolePage() {
       if (item.role === 'assistant' && item.status === 'completed') {
         // AI has responded, user can speak again
         setIsWaitingForAIResponse(false);
+
+        // Check if the response suggests transferring to a human agent
+        if (item.formatted.transcript && 
+            item.formatted.transcript.toLowerCase().includes('would you like me to transfer you to a human agent')) {
+          setShowTransferModal(true);
+        }
       }
 
       setItems(items);
@@ -1068,6 +1075,39 @@ export function ConsolePage() {
                 ))}
               </div>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Transfer Modal */}
+      {showTransferModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-6 max-w-md w-full shadow-xl">
+            <h3 className="text-xl font-bold mb-4 text-blue-800">Transfer to Live Agent</h3>
+            <p className="mb-6 text-gray-700">Would you like to be transferred to a live customer support agent?</p>
+            <div className="flex space-x-4">
+              <button
+                onClick={() => {
+                  sendToAgent();
+                  setShowTransferModal(false);
+                  disconnectConversation();
+                }}
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg shadow transition-colors flex items-center justify-center"
+              >
+                <UserIcon className="h-5 w-5 mr-2" />
+                Connect with Agent
+              </button>
+              <button
+                onClick={() => {
+                  setShowTransferModal(false);
+                  disconnectConversation();
+                }}
+                className="flex-1 bg-red-500 hover:bg-red-600 text-white font-medium py-3 px-4 rounded-lg shadow transition-colors flex items-center justify-center"
+              >
+                <Phone className="h-5 w-5 mr-2 transform rotate-135" />
+                End Call
+              </button>
+            </div>
           </div>
         </div>
       )}
