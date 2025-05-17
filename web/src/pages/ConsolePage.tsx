@@ -22,7 +22,7 @@ import { WavRecorder, WavStreamPlayer } from '../lib/wavtools/index.js';
 import { instructions } from '../utils/conversation_config.js';
 import { WavRenderer } from '../utils/wav_renderer';
 
-import { X, Edit, Zap, ArrowUp, ArrowDown, Phone, PhoneOff } from 'react-feather';
+import { X, Edit, Zap, ArrowUp, ArrowDown } from 'react-feather';
 import { Button } from '../components/button/Button';
 import { Toggle } from '../components/toggle/Toggle';
 
@@ -616,8 +616,8 @@ export function ConsolePage() {
         <Button
           label={isConnected ? 'disconnect' : 'Call Agent'}
           iconPosition={isConnected ? 'end' : 'start'}
-          icon={isConnected ? PhoneOff : Phone}
-          buttonStyle="action"
+          icon={isConnected ? X : Zap}
+          buttonStyle={isConnected ? 'regular' : 'action'}
           onClick={
             isConnected ? disconnectConversation : connectConversation
           }
