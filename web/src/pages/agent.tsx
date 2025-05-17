@@ -285,7 +285,47 @@ const AgentDashboard = () => {
         }
     };
 
-    // Fetch conversations from Supabase
+    // Add function to send agent message
+    const sendAgentMessage = async (text: string) => {
+        if (!selectedConversation) return;
+
+        try {
+            // Get current conversation
+            const { data: currentConversation } = await supabseAuthClient.supabase
+                .from('conversations')
+                .select('conversation_data')
+                .eq('id', selectedConversation)
+                .single();
+
+            if (!currentConversation) return;
+
+            // Add new message to conversation
+            const updatedConversation = {
+                conversation_data: [
+                    ...currentConversation.conversation_data,
+                    {
+                        role: 'assistant',
+                        text: text,
+                        created_at: new Date().toISOString()
+                    }
+                ]
+            };
+
+            // Update conversation in Supabase
+            const { error } = await supabseAuthClient.supabase
+                .from('conversations')
+                .update(updatedConversation)
+                .eq('id', selectedConversation);
+
+            if (error) {
+                console.error('Error sending agent message:', error);
+            }
+        } catch (error) {
+            console.error('Error sending agent message:', error);
+        }
+    };
+
+    // Modify useEffect to subscribe to real-time updates
     useEffect(() => {
         async function fetchConversations() {
             try {
@@ -339,21 +379,42 @@ const AgentDashboard = () => {
 
         fetchConversations();
 
-        // Set up a subscription to listen for new conversations
-        const subscription = supabseAuthClient.supabase
+        // Set up a subscription to listen for new conversations and updates
+        const conversationsSubscription = supabseAuthClient.supabase
             .channel('conversations_channel')
             .on('postgres_changes', {
-                event: 'INSERT',
+                event: '*',
                 schema: 'public',
                 table: 'conversations'
             }, (payload) => {
-                // When a new conversation is added, refresh the list
-                fetchConversations();
+                if (payload.eventType === 'INSERT') {
+                    // Refresh the list for new conversations
+                    fetchConversations();
+                } else if (payload.eventType === 'UPDATE' && payload.new) {
+                    // Update the conversation in the list
+                    setConversations(prevConversations =>
+                        prevConversations.map(conv =>
+                            conv.id === payload.new.id
+                                ? {
+                                    ...conv,
+                                    conversation_data: payload.new.conversation_data,
+                                    lastMessage: payload.new.conversation_data[payload.new.conversation_data.length - 1]?.text.slice(0, 60) + '...',
+                                    status: payload.new.status
+                                }
+                                : conv
+                        )
+                    );
+
+                    // Update transcript if this is the selected conversation
+                    if (selectedConversation === payload.new.id) {
+                        setConversationTranscript(payload.new.conversation_data);
+                    }
+                }
             })
             .subscribe();
 
         return () => {
-            subscription.unsubscribe();
+            conversationsSubscription.unsubscribe();
         };
     }, []);
 
@@ -458,8 +519,8 @@ const AgentDashboard = () => {
                                             key={conv.id}
                                             onClick={() => handleConversationSelect(conv.id)}
                                             className={`p-4 rounded-lg cursor-pointer transition-all ${selectedConversation === conv.id
-                                                    ? 'bg-blue-50 border-2 border-blue-200 shadow-sm'
-                                                    : 'bg-gray-50 border border-gray-200 hover:bg-gray-100'
+                                                ? 'bg-blue-50 border-2 border-blue-200 shadow-sm'
+                                                : 'bg-gray-50 border border-gray-200 hover:bg-gray-100'
                                                 }`}
                                         >
                                             <div className="flex justify-between items-start mb-2">
@@ -497,10 +558,12 @@ const AgentDashboard = () => {
                         {selectedConversation && (
                             <div className="flex-1 bg-white rounded-lg shadow-sm flex flex-col min-h-0">
                                 <div className="flex-none p-4 border-b border-gray-200 flex justify-between items-center">
-                                    <h2 className="text-lg font-semibold">Conversation History</h2>
-                                    <Button variant="outline" size="sm" className="text-gray-600">
-                                        Export
-                                    </Button>
+                                    <h2 className="text-lg font-semibold">Live Chat</h2>
+                                    <div className="flex space-x-2">
+                                        <Button variant="outline" size="sm" className="text-gray-600">
+                                            Export
+                                        </Button>
+                                    </div>
                                 </div>
                                 <div className="flex-1 p-4 overflow-y-auto min-h-0">
                                     {conversationTranscript.length === 0 ? (
@@ -512,21 +575,53 @@ const AgentDashboard = () => {
                                             {conversationTranscript.map((message, index) => (
                                                 <div
                                                     key={index}
-                                                    className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                                                    className={`flex ${message.role === 'user' ? 'justify-start' : 'justify-end'}`}
                                                 >
-                                                    <div className={`max-w-[80%] p-3 rounded-lg ${message.role === 'user'
-                                                        ? 'bg-blue-500 text-white'
-                                                        : 'bg-gray-100 text-gray-800'
-                                                        }`}>
+                                                    <div
+                                                        className={`max-w-[80%] p-3 rounded-lg ${message.role === 'user'
+                                                            ? 'bg-gray-100 text-gray-800'
+                                                            : 'bg-blue-500 text-white'
+                                                            }`}
+                                                    >
                                                         <div className="text-xs mb-1 opacity-75">
-                                                            {message.role === 'user' ? 'Customer' : 'AI Assistant'}
+                                                            {message.role === 'user' ? 'Customer' : 'Agent'}
                                                         </div>
                                                         <p className="text-sm">{message.text}</p>
+                                                        <div className="text-xs mt-1 opacity-75">
+                                                            {new Date(message.created_at).toLocaleTimeString()}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             ))}
                                         </div>
                                     )}
+                                </div>
+                                {/* Add message input */}
+                                <div className="flex-none p-4 border-t border-gray-200">
+                                    <div className="flex space-x-2">
+                                        <Input
+                                            type="text"
+                                            placeholder="Type your message..."
+                                            className="flex-1"
+                                            onKeyPress={(e) => {
+                                                if (e.key === 'Enter' && e.currentTarget.value.trim()) {
+                                                    sendAgentMessage(e.currentTarget.value.trim());
+                                                    e.currentTarget.value = '';
+                                                }
+                                            }}
+                                        />
+                                        <Button
+                                            onClick={() => {
+                                                const input = document.querySelector('input[type="text"]') as HTMLInputElement;
+                                                if (input && input.value.trim()) {
+                                                    sendAgentMessage(input.value.trim());
+                                                    input.value = '';
+                                                }
+                                            }}
+                                        >
+                                            Send
+                                        </Button>
+                                    </div>
                                 </div>
                             </div>
                         )}

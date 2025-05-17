@@ -56,10 +56,22 @@ interface RealtimeEvent {
   event: { [key: string]: any };
 }
 
+// Add type for payload
+interface ConversationPayload {
+  new?: {
+    conversation_data: any[];
+    id: string;
+    status: string;
+  };
+  eventType: string;
+}
+
 export function ConsolePage() {
   const clientRef = useRef<RealtimeClient | null>(null);
   const [isWaitingForAIResponse, setIsWaitingForAIResponse] = useState(false);
   const [isConversationLogOpen, setIsConversationLogOpen] = useState(false);
+  const [isChattingWithAgent, setIsChattingWithAgent] = useState(false);
+  const [agentChatId, setAgentChatId] = useState<string | null>(null);
 
   // Initialize RealtimeClient immediately on component mount
   useEffect(() => {
@@ -602,13 +614,8 @@ export function ConsolePage() {
       const formattedConversation = conversationItems.map(item => ({
         role: item.role,
         text: item.formatted.transcript || item.formatted.text || '',
-        // Use created_at or a default date if timestamp doesn't exist
         created_at: new Date().toISOString()
       }));
-
-
-
-      console.log('formattedConversation', formattedConversation);
 
       // Insert conversation into Supabase
       const { data, error } = await supabseAuthClient.supabase
@@ -616,20 +623,83 @@ export function ConsolePage() {
         .insert({
           conversation_data: formattedConversation,
           status: 'new'
-        });
-
-      console.log('data', data);
+        })
+        .select()
+        .single();
 
       if (error) {
         console.error('Error sending conversation to agent:', error);
-        // Show error toast or notification
         return;
       }
 
       console.log('Conversation sent to agent successfully:', data);
-      // Show success toast or notification
+
+      // Set the chat ID and switch to agent chat mode
+      setAgentChatId(data.id);
+      setIsChattingWithAgent(true);
+
+      // Subscribe to real-time updates for this conversation
+      const subscription = supabseAuthClient.supabase
+        .channel(`conversation_${data.id}`)
+        .on(
+          'postgres_changes' as any,
+          {
+            event: '*',
+            schema: 'public',
+            table: 'conversations',
+            filter: `id=eq.${data.id}`
+          },
+          (payload: ConversationPayload) => {
+            // Update the conversation with new messages
+            if (payload.new?.conversation_data) {
+              setItems(payload.new.conversation_data);
+            }
+          }
+        )
+        .subscribe();
+
     } catch (error) {
       console.error('Error sending conversation to agent:', error);
+    }
+  };
+
+  // Add function to send message to agent
+  const sendMessageToAgent = async (text: string) => {
+    if (!agentChatId) return;
+
+    try {
+      // Get current conversation
+      const { data: currentConversation } = await supabseAuthClient.supabase
+        .from('conversations')
+        .select('conversation_data')
+        .eq('id', agentChatId)
+        .single();
+
+      if (!currentConversation) return;
+
+      // Add new message to conversation
+      const updatedConversation = {
+        conversation_data: [
+          ...currentConversation.conversation_data,
+          {
+            role: 'user',
+            text: text,
+            created_at: new Date().toISOString()
+          }
+        ]
+      };
+
+      // Update conversation in Supabase
+      const { error } = await supabseAuthClient.supabase
+        .from('conversations')
+        .update(updatedConversation)
+        .eq('id', agentChatId);
+
+      if (error) {
+        console.error('Error sending message to agent:', error);
+      }
+    } catch (error) {
+      console.error('Error sending message to agent:', error);
     }
   };
 
@@ -638,160 +708,154 @@ export function ConsolePage() {
    */
   return (
     <div data-component="ConsolePage" className="flex flex-col min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* GCash Header styled like in agent.tsx */}
+      {/* GCash Header */}
       <header className="w-full p-5 border-b border-gray-200 flex justify-between items-center bg-blue-600 text-white">
         <div className="flex items-center space-x-2">
           <h1 className="text-xl font-bold">GCash Support Center</h1>
-          <div className="bg-white text-blue-600 text-xs font-medium px-2 py-0.5 rounded-full">AI-Powered</div>
+          <div className="bg-white text-blue-600 text-xs font-medium px-2 py-0.5 rounded-full">
+            {isChattingWithAgent ? 'Live Agent' : 'AI-Powered'}
+          </div>
         </div>
         <div className="flex items-center space-x-2">
           <div className="w-3 h-3 bg-green-400 rounded-full"></div>
           <span>Online</span>
         </div>
       </header>
-      
+
       <div className="flex flex-col items-center justify-center flex-1 py-8">
-        {/* Wave Visualization Container with GCASH styling */}
-        <div className="w-64 max-w-md mb-8">
-          <div className="rounded-lg shadow-lg overflow-hidden border-2 border-blue-500">
-            <div className="h-48 bg-blue-900 rounded relative">
-              <div className="bg-blue-700 text-white px-3 py-2 flex items-center justify-between">
-                <span className="font-medium">
-                  {isRecording ? "Listening..." : "GCash Virtual Assistant"}
-                </span>
-                <div className="flex items-center space-x-2">
-                  <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-400 animate-pulse' : 'bg-gray-400'}`}></div>
+        {isChattingWithAgent ? (
+          // Agent Chat UI
+          <div className="flex-1 flex flex-col p-4 w-full max-w-4xl">
+            {/* Chat Messages */}
+            <div className="flex-1 overflow-y-auto mb-4 space-y-4">
+              {items.map((item, index) => (
+                <div
+                  key={index}
+                  className={`flex ${item.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                >
+                  <div
+                    className={`max-w-[70%] p-3 rounded-lg ${item.role === 'user'
+                      ? 'bg-blue-500 text-white'
+                      : 'bg-gray-100 text-gray-800'
+                      }`}
+                  >
+                    <p>{item.formatted.text || item.formatted.transcript}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Chat Input */}
+            <div className="flex items-center space-x-2 p-4 border-t">
+              <input
+                type="text"
+                className="flex-1 p-2 border rounded-lg"
+                placeholder="Type your message..."
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter' && e.currentTarget.value.trim()) {
+                    sendMessageToAgent(e.currentTarget.value.trim());
+                    e.currentTarget.value = '';
+                  }
+                }}
+              />
+              <button
+                className="bg-blue-500 text-white p-2 rounded-lg"
+                onClick={() => setIsChattingWithAgent(false)}
+              >
+                End Chat
+              </button>
+            </div>
+          </div>
+        ) : (
+          <>
+            {/* Wave Visualization Container */}
+            <div className="w-64 max-w-md mb-8">
+              <div className="rounded-lg shadow-lg overflow-hidden border-2 border-blue-500">
+                <div className="h-48 bg-blue-900 rounded relative">
+                  <div className="bg-blue-700 text-white px-3 py-2 flex items-center justify-between">
+                    <span className="font-medium">
+                      {isRecording ? "Listening..." : "GCash Virtual Assistant"}
+                    </span>
+                    <div className="flex items-center space-x-2">
+                      <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-400 animate-pulse' : 'bg-gray-400'}`}></div>
+                    </div>
+                  </div>
+
+                  <div className={`absolute inset-0 pt-10 ${isRecording ? 'block' : 'hidden'}`}>
+                    <canvas ref={clientCanvasRef} className="w-full h-full" />
+                  </div>
+
+                  <div className={`absolute inset-0 pt-10 ${!isRecording ? 'block' : 'hidden'}`}>
+                    <canvas ref={serverCanvasRef} className="w-full h-full" />
+                  </div>
                 </div>
               </div>
-              
-              {/* Keep both canvases but show/hide based on recording state */}
-              <div className={`absolute inset-0 pt-10 ${isRecording ? 'block' : 'hidden'}`}>
-                <canvas ref={clientCanvasRef} className="w-full h-full" />
-              </div>
-              
-              <div className={`absolute inset-0 pt-10 ${!isRecording ? 'block' : 'hidden'}`}>
-                <canvas ref={serverCanvasRef} className="w-full h-full" />
-              </div>
             </div>
-          </div>
-        </div>
-        
-        {/* Control Buttons with GCash styling */}
-        <div className="flex flex-col items-center space-y-4">
-          {!isConnected ? (
-            <button
-              onClick={connectConversation}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full px-8 py-3 flex items-center shadow-lg transition duration-300"
-            >
-              <PhoneCall className="h-5 w-5 mr-2" />
-              <span>Connect to GCash Support</span>
-            </button>
-          ) : (
+
+            {/* Control Buttons */}
             <div className="flex flex-col items-center space-y-4">
-              <div className="flex items-center space-x-3">
-                {canPushToTalk && (
-                  <button
-                    onClick={toggleRecording}
-                    disabled={!isRecording && isWaitingForAIResponse}
-                    className={`${isRecording 
-                      ? 'bg-red-500 hover:bg-red-600' 
-                      : isWaitingForAIResponse 
-                        ? 'bg-gray-400 cursor-not-allowed' 
-                        : 'bg-blue-600 hover:bg-blue-700'
-                    } text-white font-medium rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition duration-300`}
-                  >
-                    {isRecording ? <Square className="h-6 w-6" /> : <Mic className="h-6 w-6" />}
-                  </button>
-                )}
-                
+              {!isConnected ? (
                 <button
-                  onClick={disconnectConversation}
-                  className="bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition duration-300"
+                  onClick={connectConversation}
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full px-8 py-3 flex items-center shadow-lg transition duration-300"
                 >
-                  <Phone className="h-6 w-6 transform rotate-135" />
+                  <PhoneCall className="h-5 w-5 mr-2" />
+                  <span>Connect to GCash Support</span>
                 </button>
-              </div>
-              
-              {/* Status Indicator */}
-              <div className="text-sm text-blue-700 font-medium">
-                {isWaitingForAIResponse ? 
-                  <span className="flex items-center">
-                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Processing your request...
-                  </span> : 
-                  <span className="flex items-center">
-                    <span className="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
-                    Ready to help
-                  </span>
-                }
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-      
-      {/* Conversation Log Button - Keep in same position */}
-      <div className="fixed bottom-4 right-4">
-        <button 
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center transition duration-300"
-    <div data-component="ConsolePage" className="flex flex-col items-center justify-center min-h-screen">
-      {/* Single Wave Renderer Visualization that switches based on recording state */}
-      <div className="w-full max-w-2xl mb-8">
-        <div className="rounded-lg p-4 shadow-lg">
-          <div className="w-full h-32 bg-gray-700 rounded relative">
-            <div className="text-xs text-gray-400 absolute top-2 left-2">
-              {isRecording ? "You" : "AI"}
-            </div>
+              ) : (
+                <div className="flex flex-col items-center space-y-4">
+                  <div className="flex items-center space-x-3">
+                    {canPushToTalk && (
+                      <button
+                        onClick={toggleRecording}
+                        disabled={!isRecording && isWaitingForAIResponse}
+                        className={`${isRecording
+                          ? 'bg-red-500 hover:bg-red-600'
+                          : isWaitingForAIResponse
+                            ? 'bg-gray-400 cursor-not-allowed'
+                            : 'bg-blue-600 hover:bg-blue-700'
+                          } text-white font-medium rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition duration-300`}
+                      >
+                        {isRecording ? <Square className="h-6 w-6" /> : <Mic className="h-6 w-6" />}
+                      </button>
+                    )}
 
-            {/* Keep both canvases but show/hide based on recording state */}
-            <div className={`absolute inset-0 ${isRecording ? 'block' : 'hidden'}`}>
-              <canvas ref={clientCanvasRef} className="w-full h-full" />
+                    <button
+                      onClick={disconnectConversation}
+                      className="bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition duration-300"
+                    >
+                      <Phone className="h-6 w-6 transform rotate-135" />
+                    </button>
+                  </div>
+
+                  {/* Status Indicator */}
+                  <div className="text-sm text-blue-700 font-medium">
+                    {isWaitingForAIResponse ?
+                      <span className="flex items-center">
+                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Processing your request...
+                      </span> :
+                      <span className="flex items-center">
+                        <span className="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
+                        Ready to help
+                      </span>
+                    }
+                  </div>
+                </div>
+              )}
             </div>
-
-            <div className={`absolute inset-0 ${!isRecording ? 'block' : 'hidden'}`}>
-              <canvas ref={serverCanvasRef} className="w-full h-full" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Control Buttons Below */}
-      <div className="flex items-center space-x-4">
-        <Button
-          label={isConnected ? 'disconnect' : 'Call Agent'}
-          iconPosition={isConnected ? 'end' : 'start'}
-          icon={isConnected ? X : Zap}
-          buttonStyle={isConnected ? 'regular' : 'action'}
-          onClick={
-            isConnected ? disconnectConversation : connectConversation
-          }
-        />
-
-        {isConnected && canPushToTalk && (
-          <Button
-            label={isRecording ? 'stop recording' : 'start recording'}
-            buttonStyle={isRecording ? 'alert' : 'regular'}
-            disabled={!isRecording && isWaitingForAIResponse}
-            onClick={toggleRecording}
-          />
+          </>
         )}
       </div>
-
-      {/* Status Indicator */}
-      {isConnected && (
-        <div className="mt-4 text-sm text-gray-400">
-          {isWaitingForAIResponse ? "Waiting for AI response..." : "Ready to record"}
-        </div>
-      )}
 
       {/* Conversation Log Button */}
       <div className="fixed bottom-4 right-4">
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center"
           onClick={() => setIsConversationLogOpen(!isConversationLogOpen)}
+          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center transition duration-300"
         >
           <MessageCircle className="h-5 w-5 mr-2" />
           Call Logs
@@ -833,11 +897,10 @@ export function ConsolePage() {
               </div>
             ) : (
               items.map((item) => (
-                <div key={item.id} className={`mb-3 p-3 rounded-lg ${
-                  item.role === 'user' 
-                    ? 'bg-blue-100 ml-4' 
-                    : 'bg-white border border-blue-200 mr-4 shadow-sm'
-                }`}>
+                <div key={item.id} className={`mb-3 p-3 rounded-lg ${item.role === 'user'
+                  ? 'bg-blue-100 ml-4'
+                  : 'bg-white border border-blue-200 mr-4 shadow-sm'
+                  }`}>
                   <div className="font-semibold text-xs mb-1 flex items-center">
                     {item.role === 'user' ? (
                       <>
@@ -852,7 +915,7 @@ export function ConsolePage() {
                     )}
                   </div>
                   <div className="text-gray-800">
-                    {item.role === 'user' 
+                    {item.role === 'user'
                       ? (item.formatted.transcript || item.formatted.text || '(processing...)')
                       : (item.formatted.transcript || item.formatted.text || '(generating response...)')
                     }
