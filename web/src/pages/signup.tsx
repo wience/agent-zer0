@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { signUpWithEmailPassword } from '@/lib/api/utils';
 import { Toaster } from 'react-hot-toast';
-import { CompanyLogo } from '@/components/logo/CompanyLogo';
 import { AnimatedBeamDemo } from '@/components/animated/AnimatedBeamDemo';
 import ShineBorder from '@/components/ui/shine-border';
 import { SignupForm } from '@/components/forms/SignUp';
@@ -45,7 +44,6 @@ export default function SignUpPage() {
         color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
       >
         <div className="flex items-center justify-center mb-2">
-          <CompanyLogo />
         </div>
         <AnimatedBeamDemo />
         <WordPullUp
@@ -53,7 +51,7 @@ export default function SignUpPage() {
           words="Sign up now to talk 💬 to your docs"
         />
         <SignupForm isLoading={isLoading} handleSignup={handleSignup} />
-        
+
         <p className="mt-6 text-center text-sm text-gray-600">
           Already have an account?{' '}
           <Link href="/signin" className="text-rose-500 hover:underline">

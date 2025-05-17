@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Toaster } from 'react-hot-toast';
 import { loginWithEmailPassword } from '@/lib/api/utils';
-import { CompanyLogo } from '@/components/logo/CompanyLogo';
 import { AnimatedBeamDemo } from '@/components/animated/AnimatedBeamDemo';
 import ShineBorder from "@/components/ui/shine-border";
 import WordPullUp from "@/components/ui/word-pull-up";
@@ -13,7 +12,7 @@ import { useLoader } from '@/hooks/use-loader';
 
 export default function SignInPage() {
   const router = useRouter();
-  const { isLoading, showLoader, hideLoader, LoaderComponent } = useLoader({loaderType: 'ripple'})
+  const { isLoading, showLoader, hideLoader, LoaderComponent } = useLoader({ loaderType: 'ripple' })
 
   const handleSignIn = async ({ email, password }: { email: string, password: string }) => {
     showLoader()
@@ -38,13 +37,8 @@ export default function SignInPage() {
         color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
       >
         <div className="flex items-center justify-center mb-2">
-          <CompanyLogo />
         </div>
-        <AnimatedBeamDemo />
-        <WordPullUp
-          className="text-2xl font-bold tracking-[-0.02em] italic text-[#0EA5E9] dark:text-white md:leading-[5rem]"
-          words="Sign in to talk 💬 to your docs"
-        />
+        <p className="text-2xl font-bold tracking-[-0.02em] italic text-[#0EA5E9] dark:text-white md:leading-[5rem]">AGENT-ZERO</p>
         <SignInForm isLoading={isLoading} handleSignIn={handleSignIn} />
         <p className="mt-6 text-center text-sm text-gray-600">
           Don &apos;t have an account?{' '}
