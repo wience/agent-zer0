@@ -428,7 +428,7 @@ export function ConsolePage() {
               clientCanvas,
               clientCtx,
               result.values,
-              '#0066CC',
+              '#FFFFFF',
               10,
               0,
               8,
@@ -450,7 +450,7 @@ export function ConsolePage() {
               serverCanvas,
               serverCtx,
               result.values,
-              '#0066CC',
+              '#FFFFFF',
               10,
               0,
               8,
@@ -974,7 +974,8 @@ export function ConsolePage() {
 
                     <button
                       onClick={disconnectConversation}
-                      className="bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition duration-300"
+                      disabled={isRecording}
+                      className={`${isRecording ? 'bg-gray-400 cursor-not-allowed' : 'bg-red-600 hover:bg-red-700'} text-white font-medium rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition duration-300`}
                     >
                       <Phone className="h-6 w-6 transform rotate-135" />
                     </button>
