@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { supabseAuthClient } from '@/lib/supabase/auth';
-import { GeminiService, FlowData, FlowOption, FlowStep } from '../services/gemini';
+import { GeminiService, FlowData, FlowOption, FlowStep, CXInsights } from '../services/gemini';
 
 // UI Components
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Badge } from '../components/ui/badge';
 import { AIInsights, Insight } from '../components/ui/ai-insights';
+import { CXInsightsPanel } from '../components/ui/cx-insights';
 
 // Types for Conversation
 interface ConversationMessage {
@@ -273,23 +274,26 @@ const AgentDashboard = () => {
         suggestedActions: ['Check KYC status', 'Verify recent login activity']
     });
 
-    // Handle AI insight actions
-    const handleInsightAction = (insight: Insight, action: string) => {
-        console.log(`Action ${action} taken on insight:`, insight);
+    // Add new state for CX insights
+    const [cxInsights, setCXInsights] = useState<CXInsights | null>(null);
+    const [insightsLoading, setInsightsLoading] = useState(false);
 
-        // Add the action to the response if it's an "apply" action
-        if (action === 'apply') {
-            if (insight.type === 'action') {
-                setCustomerQuery(insight.content);
-            }
+    // Add subscription ref to maintain subscription across renders
+    const subscriptionRef = useRef<any>(null);
+
+    // Update handleInsightAction to match new signature
+    const handleInsightAction = (action: string) => {
+        if (action) {
+            setCustomerQuery(action);
         }
     };
 
-    // Fetch conversations from Supabase
+    // Modify useEffect to handle real-time updates
     useEffect(() => {
         async function fetchConversations() {
             try {
                 setLoading(true);
+                setInsightsLoading(true);
 
                 const { data: conversationsData, error } = await supabseAuthClient.supabase
                     .from('conversations')
@@ -301,16 +305,13 @@ const AgentDashboard = () => {
                     return;
                 }
 
-                console.log('conversationsData', conversationsData);
                 if (conversationsData && conversationsData.length > 0) {
                     // Transform the data to match our Conversation interface
                     const formattedConversations = conversationsData.map((conv): Conversation => {
-                        // Get the last message from conversation_data
                         const lastMsg = conv.conversation_data && conv.conversation_data.length > 0
                             ? conv.conversation_data[conv.conversation_data.length - 1].text
                             : 'No messages';
 
-                        // Format relative time
                         const timeAgo = getRelativeTime(new Date(conv.created_at));
 
                         return {
@@ -324,38 +325,189 @@ const AgentDashboard = () => {
 
                     setConversations(formattedConversations);
 
-                    // Select the first conversation by default
+                    // Select the first conversation by default if none selected
                     if (formattedConversations.length > 0 && !selectedConversation) {
                         setSelectedConversation(formattedConversations[0].id);
                         setConversationTranscript(formattedConversations[0].conversation_data || []);
+
+                        // Generate CX insights for the first conversation
+                        try {
+                            const geminiService = new GeminiService(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '');
+                            const insights = await geminiService.generateCXInsights(formattedConversations[0].conversation_data || []);
+                            setCXInsights(insights);
+                        } catch (error) {
+                            console.error('Error generating CX insights:', error);
+                        }
                     }
                 }
             } catch (error) {
                 console.error('Error in fetchConversations:', error);
             } finally {
                 setLoading(false);
+                setInsightsLoading(false);
             }
         }
 
         fetchConversations();
 
-        // Set up a subscription to listen for new conversations
-        const subscription = supabseAuthClient.supabase
-            .channel('conversations_channel')
-            .on('postgres_changes', {
-                event: 'INSERT',
-                schema: 'public',
-                table: 'conversations'
-            }, (payload) => {
-                // When a new conversation is added, refresh the list
-                fetchConversations();
-            })
+        // Set up a subscription to listen for new conversations and updates
+        const conversationsSubscription = supabseAuthClient.supabase
+            .channel('agent_conversations')
+            .on(
+                'postgres_changes' as any,
+                {
+                    event: '*',
+                    schema: 'public',
+                    table: 'conversations'
+                },
+                (payload) => {
+                    if (payload.eventType === 'INSERT') {
+                        // Add new conversation to the list
+                        const conv = payload.new;
+                        const lastMsg = conv.conversation_data && conv.conversation_data.length > 0
+                            ? conv.conversation_data[conv.conversation_data.length - 1].text
+                            : 'No messages';
+
+                        const newConversation: Conversation = {
+                            id: conv.id,
+                            status: conv.status || 'waiting',
+                            lastMessage: lastMsg.slice(0, 60) + (lastMsg.length > 60 ? '...' : ''),
+                            time: getRelativeTime(new Date(conv.created_at)),
+                            conversation_data: conv.conversation_data
+                        };
+
+                        setConversations(prev => [newConversation, ...prev]);
+                    } else if (payload.eventType === 'UPDATE' && payload.new) {
+                        // Update existing conversation
+                        setConversations(prevConversations =>
+                            prevConversations.map(conv => {
+                                if (conv.id === payload.new.id) {
+                                    const lastMsg = payload.new.conversation_data && payload.new.conversation_data.length > 0
+                                        ? payload.new.conversation_data[payload.new.conversation_data.length - 1].text
+                                        : 'No messages';
+
+                                    return {
+                                        ...conv,
+                                        status: payload.new.status || conv.status,
+                                        lastMessage: lastMsg.slice(0, 60) + (lastMsg.length > 60 ? '...' : ''),
+                                        conversation_data: payload.new.conversation_data,
+                                        time: getRelativeTime(new Date(payload.new.created_at))
+                                    };
+                                }
+                                return conv;
+                            })
+                        );
+
+                        // Update transcript if this is the selected conversation
+                        if (selectedConversation === payload.new.id) {
+                            setConversationTranscript(payload.new.conversation_data);
+                        }
+                    } else if (payload.eventType === 'DELETE') {
+                        // Remove conversation from list
+                        setConversations(prev => prev.filter(conv => conv.id !== payload.old.id));
+
+                        // If this was the selected conversation, select the first available one
+                        if (selectedConversation === payload.old.id) {
+                            setConversations(prev => {
+                                if (prev.length > 0) {
+                                    setSelectedConversation(prev[0].id);
+                                    setConversationTranscript(prev[0].conversation_data || []);
+                                } else {
+                                    setSelectedConversation(null);
+                                    setConversationTranscript([]);
+                                }
+                                return prev;
+                            });
+                        }
+                    }
+                }
+            )
             .subscribe();
 
+        // Cleanup function
         return () => {
-            subscription.unsubscribe();
+            if (conversationsSubscription) {
+                conversationsSubscription.unsubscribe();
+            }
         };
-    }, []);
+    }, [selectedConversation]); // Add selectedConversation as dependency
+
+    // Modify sendAgentMessage to handle optimistic updates
+    const sendAgentMessage = async (text: string) => {
+        if (!selectedConversation) return;
+
+        try {
+            // Get current conversation
+            const { data: currentConversation } = await supabseAuthClient.supabase
+                .from('conversations')
+                .select('conversation_data')
+                .eq('id', selectedConversation)
+                .single();
+
+            if (!currentConversation) return;
+
+            const newMessage = {
+                role: 'assistant',
+                text: text,
+                created_at: new Date().toISOString()
+            };
+
+            // Add new message to conversation
+            const updatedConversation = {
+                conversation_data: [
+                    ...currentConversation.conversation_data,
+                    newMessage
+                ]
+            };
+
+            // Optimistically update the UI
+            setConversationTranscript(updatedConversation.conversation_data);
+
+            // Update conversation in Supabase
+            const { error } = await supabseAuthClient.supabase
+                .from('conversations')
+                .update(updatedConversation)
+                .eq('id', selectedConversation);
+
+            if (error) {
+                console.error('Error sending agent message:', error);
+                // Revert optimistic update on error
+                setConversationTranscript(currentConversation.conversation_data);
+            }
+        } catch (error) {
+            console.error('Error sending agent message:', error);
+        }
+    };
+
+    // Add function to generate CX insights
+    const generateCXInsights = async (conversationData: any[]) => {
+        try {
+            setInsightsLoading(true);
+            const geminiService = new GeminiService(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '');
+            const insights = await geminiService.generateCXInsights(conversationData);
+            setCXInsights(insights);
+        } catch (error) {
+            console.error('Error generating CX insights:', error);
+        } finally {
+            setInsightsLoading(false);
+        }
+    };
+
+    // Modify handleConversationSelect to include CX insights generation
+    const handleConversationSelect = (convId: string) => {
+        setSelectedConversation(convId);
+
+        // Find the selected conversation and set its transcript
+        const selectedConv = conversations.find(conv => conv.id === convId);
+        if (selectedConv && selectedConv.conversation_data) {
+            setConversationTranscript(selectedConv.conversation_data);
+            // Generate new insights for the selected conversation
+            generateCXInsights(selectedConv.conversation_data);
+        } else {
+            setConversationTranscript([]);
+            setCXInsights(null);
+        }
+    };
 
     // Helper function to determine priority based on content
     const getPriorityFromContent = (content: string): string => {
@@ -386,19 +538,6 @@ const AgentDashboard = () => {
             return `${Math.floor(diffInSeconds / 3600)} hours ago`;
         } else {
             return `${Math.floor(diffInSeconds / 86400)} days ago`;
-        }
-    };
-
-    // Handle conversation selection
-    const handleConversationSelect = (convId: string) => {
-        setSelectedConversation(convId);
-
-        // Find the selected conversation and set its transcript
-        const selectedConv = conversations.find(conv => conv.id === convId);
-        if (selectedConv && selectedConv.conversation_data) {
-            setConversationTranscript(selectedConv.conversation_data);
-        } else {
-            setConversationTranscript([]);
         }
     };
 
@@ -458,8 +597,8 @@ const AgentDashboard = () => {
                                             key={conv.id}
                                             onClick={() => handleConversationSelect(conv.id)}
                                             className={`p-4 rounded-lg cursor-pointer transition-all ${selectedConversation === conv.id
-                                                    ? 'bg-blue-50 border-2 border-blue-200 shadow-sm'
-                                                    : 'bg-gray-50 border border-gray-200 hover:bg-gray-100'
+                                                ? 'bg-blue-50 border-2 border-blue-200 shadow-sm'
+                                                : 'bg-gray-50 border border-gray-200 hover:bg-gray-100'
                                                 }`}
                                         >
                                             <div className="flex justify-between items-start mb-2">
@@ -497,10 +636,12 @@ const AgentDashboard = () => {
                         {selectedConversation && (
                             <div className="flex-1 bg-white rounded-lg shadow-sm flex flex-col min-h-0">
                                 <div className="flex-none p-4 border-b border-gray-200 flex justify-between items-center">
-                                    <h2 className="text-lg font-semibold">Conversation History</h2>
-                                    <Button variant="outline" size="sm" className="text-gray-600">
-                                        Export
-                                    </Button>
+                                    <h2 className="text-lg font-semibold">Live Chat</h2>
+                                    <div className="flex space-x-2">
+                                        <Button variant="outline" size="sm" className="text-gray-600">
+                                            Export
+                                        </Button>
+                                    </div>
                                 </div>
                                 <div className="flex-1 p-4 overflow-y-auto min-h-0">
                                     {conversationTranscript.length === 0 ? (
@@ -512,21 +653,90 @@ const AgentDashboard = () => {
                                             {conversationTranscript.map((message, index) => (
                                                 <div
                                                     key={index}
-                                                    className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                                                    className={`flex ${message.role === 'user' ? 'justify-start' : 'justify-end'}`}
                                                 >
-                                                    <div className={`max-w-[80%] p-3 rounded-lg ${message.role === 'user'
-                                                        ? 'bg-blue-500 text-white'
-                                                        : 'bg-gray-100 text-gray-800'
-                                                        }`}>
+                                                    <div
+                                                        className={`max-w-[80%] p-3 rounded-lg ${message.role === 'user'
+                                                            ? 'bg-gray-100 text-gray-800'
+                                                            : 'bg-blue-500 text-white'
+                                                            }`}
+                                                    >
                                                         <div className="text-xs mb-1 opacity-75">
-                                                            {message.role === 'user' ? 'Customer' : 'AI Assistant'}
+                                                            {message.role === 'user' ? 'Customer' : 'Agent'}
                                                         </div>
                                                         <p className="text-sm">{message.text}</p>
+                                                        <div className="text-xs mt-1 opacity-75">
+                                                            {new Date(message.created_at).toLocaleTimeString()}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             ))}
                                         </div>
                                     )}
+                                </div>
+                                {/* Add message input */}
+                                <div className="flex-none p-4 border-t border-gray-200">
+                                    <div className="flex flex-col space-y-2">
+                                        <div className="flex items-center space-x-2 bg-gray-50 p-2 rounded-lg">
+                                            <div className="flex-1 relative">
+                                                <input
+                                                    type="text"
+                                                    placeholder="Type your message..."
+                                                    className="w-full p-3 pr-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                                                    onKeyPress={(e) => {
+                                                        if (e.key === 'Enter' && e.currentTarget.value.trim()) {
+                                                            sendAgentMessage(e.currentTarget.value.trim());
+                                                            e.currentTarget.value = '';
+                                                        }
+                                                    }}
+                                                />
+                                                <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
+                                                    <button
+                                                        className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+                                                        title="Attach file"
+                                                    >
+                                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                                                        </svg>
+                                                    </button>
+                                                    <button
+                                                        className="p-2 text-blue-500 hover:text-blue-600 transition-colors"
+                                                        title="Send message"
+                                                        onClick={() => {
+                                                            const input = document.querySelector('input[type="text"]') as HTMLInputElement;
+                                                            if (input && input.value.trim()) {
+                                                                sendAgentMessage(input.value.trim());
+                                                                input.value = '';
+                                                            }
+                                                        }}
+                                                    >
+                                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center justify-between text-xs text-gray-500">
+                                            <div className="flex items-center space-x-2">
+                                                <span>Shift + Enter for new line</span>
+                                                <span>•</span>
+                                                <span>Enter to send</span>
+                                            </div>
+                                            <div className="flex items-center space-x-2">
+                                                <button className="hover:text-blue-500 transition-colors" title="Quick responses">
+                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                                                    </svg>
+                                                </button>
+                                                <button className="hover:text-blue-500 transition-colors" title="Emoji">
+                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         )}
@@ -536,45 +746,66 @@ const AgentDashboard = () => {
                     <div className="col-span-3 flex flex-col h-full space-y-4 min-h-0">
                         <div className="flex-1 bg-white rounded-lg shadow-sm overflow-y-auto">
                             <div className="p-4 border-b border-gray-200">
-                                <h2 className="text-lg font-semibold">AI Insights</h2>
-                                <p className="text-sm text-gray-500">Real-time analysis and suggestions</p>
+                                <div className="flex justify-between items-center">
+                                    <div>
+                                        <h2 className="text-lg font-semibold">CX Insights</h2>
+                                        <p className="text-sm text-gray-500">Real-time customer experience analysis</p>
+                                    </div>
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        className="h-8 w-8 p-0"
+                                        onClick={() => {
+                                            if (selectedConversation) {
+                                                const conv = conversations.find(c => c.id === selectedConversation);
+                                                if (conv?.conversation_data) {
+                                                    generateCXInsights(conv.conversation_data);
+                                                }
+                                            }
+                                        }}
+                                        disabled={insightsLoading || !selectedConversation}
+                                    >
+                                        <svg
+                                            className={`w-4 h-4 ${insightsLoading ? 'animate-spin' : ''}`}
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                                            />
+                                        </svg>
+                                    </Button>
+                                </div>
                             </div>
                             <div className="p-4">
-                                <AIInsights
-                                    insights={[
-                                        {
-                                            type: 'sentiment',
-                                            content: customerInsights.sentiment,
-                                            priority: 'medium'
-                                        },
-                                        {
-                                            type: 'customer',
-                                            content: customerInsights.loyalty,
-                                            priority: 'low'
-                                        },
-                                        {
-                                            type: 'action',
-                                            content: 'Check KYC status',
-                                            priority: 'high'
-                                        }
-                                    ]}
-                                    onAction={handleInsightAction}
-                                />
-                            </div>
-                        </div>
-
-                        {/* Suggested Responses */}
-                        <div className="flex-none bg-white rounded-lg shadow-sm p-4">
-                            <h2 className="text-lg font-semibold mb-3">Suggested Responses</h2>
-                            <div className="space-y-2">
-                                {suggestedResponses.map((response, index) => (
-                                    <div
-                                        key={index}
-                                        className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 cursor-pointer"
-                                    >
-                                        <p className="text-sm text-gray-700">{response}</p>
+                                {cxInsights ? (
+                                    <CXInsightsPanel
+                                        insights={cxInsights}
+                                        onActionClick={handleInsightAction}
+                                        isLoading={insightsLoading}
+                                    />
+                                ) : (
+                                    <div className="text-center text-gray-500 py-10">
+                                        {selectedConversation ? (
+                                            <CXInsightsPanel
+                                                insights={{
+                                                    sentiment: { score: 0, label: '', confidence: 0, keyPhrases: [] },
+                                                    profile: { customerType: '', engagementLevel: '', preferredChannels: [], recentInteractions: 0 },
+                                                    issue: { category: '', priority: '', complexity: '', estimatedResolutionTime: '', similarPastIssues: 0 },
+                                                    actionableInsights: [],
+                                                    keyTakeaways: []
+                                                }}
+                                                isLoading={true}
+                                            />
+                                        ) : (
+                                            'Select a conversation to view insights'
+                                        )}
                                     </div>
-                                ))}
+                                )}
                             </div>
                         </div>
                     </div>
