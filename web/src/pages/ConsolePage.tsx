@@ -66,6 +66,17 @@ interface ConversationPayload {
   eventType: string;
 }
 
+// Add this type for better message handling
+interface ChatMessage {
+  role: string;
+  text: string;
+  created_at: string;
+  formatted?: {
+    text?: string;
+    transcript?: string;
+  };
+}
+
 export function ConsolePage() {
   const clientRef = useRef<RealtimeClient | null>(null);
   const [isWaitingForAIResponse, setIsWaitingForAIResponse] = useState(false);
@@ -144,6 +155,12 @@ export function ConsolePage() {
     lng: -122.418137,
   });
   const [, setMarker] = useState<Coordinates | null>(null);
+
+  // Add state for agent chat messages
+  const [agentChatMessages, setAgentChatMessages] = useState<ChatMessage[]>([]);
+
+  // Add state for input message
+  const [inputMessage, setInputMessage] = useState('');
 
   /**
    * Utility for formatting the timing of logs
@@ -601,7 +618,20 @@ export function ConsolePage() {
     };
   }, [clientRef.current]);
 
-  // Add a function to send the conversation transcript to Supabase
+  // Add subscription ref to maintain subscription across renders
+  const subscriptionRef = useRef<any>(null);
+
+  // Add useEffect to handle real-time updates
+  useEffect(() => {
+    // Cleanup previous subscription if exists
+    return () => {
+      if (subscriptionRef.current) {
+        subscriptionRef.current.unsubscribe();
+      }
+    };
+  }, []);
+
+  // Modify sendToAgent to handle message format conversion
   const sendToAgent = async () => {
     const client = clientRef.current;
     if (!client) throw new Error('RealtimeClient is not initialized');
@@ -637,9 +667,15 @@ export function ConsolePage() {
       // Set the chat ID and switch to agent chat mode
       setAgentChatId(data.id);
       setIsChattingWithAgent(true);
+      setAgentChatMessages(data.conversation_data);
 
-      // Subscribe to real-time updates for this conversation
-      const subscription = supabseAuthClient.supabase
+      // Unsubscribe from previous subscription if exists
+      if (subscriptionRef.current) {
+        subscriptionRef.current.unsubscribe();
+      }
+
+      // Create new subscription
+      subscriptionRef.current = supabseAuthClient.supabase
         .channel(`conversation_${data.id}`)
         .on(
           'postgres_changes' as any,
@@ -650,9 +686,11 @@ export function ConsolePage() {
             filter: `id=eq.${data.id}`
           },
           (payload: ConversationPayload) => {
-            // Update the conversation with new messages
-            if (payload.new?.conversation_data) {
-              setItems(payload.new.conversation_data);
+            console.log('Received real-time update:', payload);
+
+            if (payload.eventType === 'UPDATE' && payload.new?.conversation_data) {
+              console.log('Updated conversation data:', payload.new.conversation_data);
+              setAgentChatMessages(payload.new.conversation_data);
             }
           }
         )
@@ -663,7 +701,7 @@ export function ConsolePage() {
     }
   };
 
-  // Add function to send message to agent
+  // Modify sendMessageToAgent to use the new message format
   const sendMessageToAgent = async (text: string) => {
     if (!agentChatId) return;
 
@@ -677,17 +715,22 @@ export function ConsolePage() {
 
       if (!currentConversation) return;
 
+      const newMessage: ChatMessage = {
+        role: 'user',
+        text: text,
+        created_at: new Date().toISOString()
+      };
+
       // Add new message to conversation
       const updatedConversation = {
         conversation_data: [
           ...currentConversation.conversation_data,
-          {
-            role: 'user',
-            text: text,
-            created_at: new Date().toISOString()
-          }
+          newMessage
         ]
       };
+
+      // Optimistically update the UI
+      setAgentChatMessages(updatedConversation.conversation_data);
 
       // Update conversation in Supabase
       const { error } = await supabseAuthClient.supabase
@@ -697,9 +740,38 @@ export function ConsolePage() {
 
       if (error) {
         console.error('Error sending message to agent:', error);
+        // Revert optimistic update on error
+        setAgentChatMessages(currentConversation.conversation_data);
       }
     } catch (error) {
       console.error('Error sending message to agent:', error);
+    }
+  };
+
+  // Add cleanup when chat ends
+  const endChat = () => {
+    if (subscriptionRef.current) {
+      subscriptionRef.current.unsubscribe();
+      subscriptionRef.current = null;
+    }
+    setIsChattingWithAgent(false);
+    setAgentChatId(null);
+    setAgentChatMessages([]);
+  };
+
+  // Add function to handle message sending
+  const handleSendMessage = () => {
+    if (inputMessage.trim()) {
+      sendMessageToAgent(inputMessage.trim());
+      setInputMessage('');
+    }
+  };
+
+  // Add function to handle input key press
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSendMessage();
     }
   };
 
@@ -725,44 +797,117 @@ export function ConsolePage() {
       <div className="flex flex-col items-center justify-center flex-1 py-8">
         {isChattingWithAgent ? (
           // Agent Chat UI
-          <div className="flex-1 flex flex-col p-4 w-full max-w-4xl">
+          <div className="flex-1 flex flex-col p-4 pb-24 w-full max-w-4xl bg-white rounded-lg shadow-lg mb-20">
+            {/* Chat Header */}
+            <div className="flex items-center justify-between pb-4 border-b border-gray-200">
+              <div className="flex items-center space-x-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="font-medium text-gray-700">Live Chat with Agent</span>
+              </div>
+              <div className="text-sm text-gray-500">
+                {agentChatMessages.length} messages
+              </div>
+            </div>
+
             {/* Chat Messages */}
-            <div className="flex-1 overflow-y-auto mb-4 space-y-4">
-              {items.map((item, index) => (
-                <div
-                  key={index}
-                  className={`flex ${item.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
-                  <div
-                    className={`max-w-[70%] p-3 rounded-lg ${item.role === 'user'
-                      ? 'bg-blue-500 text-white'
-                      : 'bg-gray-100 text-gray-800'
-                      }`}
+            <div
+              className="flex-1 overflow-y-auto my-4 space-y-4 px-2 scroll-smooth"
+              style={{ maxHeight: 'calc(100vh - 400px)' }}
+            >
+              {agentChatMessages.length === 0 ? (
+                <div className="flex flex-col items-center justify-center h-full space-y-3 text-gray-500">
+                  <svg
+                    className="w-12 h-12 text-gray-300"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
-                    <p>{item.formatted.text || item.formatted.transcript}</p>
-                  </div>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                    />
+                  </svg>
+                  <p>Starting chat with agent...</p>
+                  <p className="text-sm">Please wait while we connect you</p>
                 </div>
-              ))}
+              ) : (
+                agentChatMessages.map((message, index) => (
+                  <div
+                    key={index}
+                    className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                  >
+                    <div
+                      className={`max-w-[70%] p-3 rounded-lg shadow-sm ${message.role === 'user'
+                        ? 'bg-blue-500 text-white'
+                        : 'bg-gray-100 text-gray-800'
+                        }`}
+                    >
+                      <div className="text-xs mb-1 opacity-75 flex items-center space-x-1">
+                        {message.role === 'user' ? (
+                          <>
+                            <span>You</span>
+                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                            </svg>
+                          </>
+                        ) : (
+                          <>
+                            <span>Agent</span>
+                            <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clipRule="evenodd" />
+                            </svg>
+                          </>
+                        )}
+                      </div>
+                      <p className="whitespace-pre-wrap break-words">{message.text}</p>
+                      <div className="text-xs mt-1 opacity-75">
+                        {new Date(message.created_at).toLocaleTimeString()}
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
 
             {/* Chat Input */}
-            <div className="flex items-center space-x-2 p-4 border-t">
-              <input
-                type="text"
-                className="flex-1 p-2 border rounded-lg"
-                placeholder="Type your message..."
-                onKeyPress={(e) => {
-                  if (e.key === 'Enter' && e.currentTarget.value.trim()) {
-                    sendMessageToAgent(e.currentTarget.value.trim());
-                    e.currentTarget.value = '';
-                  }
-                }}
-              />
+            <div className="flex flex-col space-y-3 mt-auto pt-4 border-t border-gray-200">
+              <div className="flex items-center space-x-2 bg-gray-50 p-2 rounded-lg">
+                <div className="flex-1 relative">
+                  <input
+                    type="text"
+                    value={inputMessage}
+                    onChange={(e) => setInputMessage(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    className="w-full p-3 pr-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                    placeholder="Type your message..."
+                  />
+                  <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center space-x-1">
+                    <button
+                      onClick={handleSendMessage}
+                      disabled={!inputMessage.trim()}
+                      className={`p-2 rounded-full transition-colors ${inputMessage.trim()
+                        ? 'text-blue-500 hover:bg-blue-50'
+                        : 'text-gray-300 cursor-not-allowed'
+                        }`}
+                      title="Send message"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
               <button
-                className="bg-blue-500 text-white p-2 rounded-lg"
-                onClick={() => setIsChattingWithAgent(false)}
+                onClick={endChat}
+                className="w-full p-3 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
               >
-                End Chat
+                <span>End Chat</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
             </div>
           </div>
@@ -882,9 +1027,7 @@ export function ConsolePage() {
                 onClick={() => setIsConversationLogOpen(false)}
                 className="text-white hover:text-gray-300"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
+                <X className="h-5 w-5" />
               </button>
             </div>
           </div>
@@ -896,32 +1039,34 @@ export function ConsolePage() {
                 <p className="text-xs text-blue-500 mt-1">Connect to start calling with GCash support</p>
               </div>
             ) : (
-              items.map((item) => (
-                <div key={item.id} className={`mb-3 p-3 rounded-lg ${item.role === 'user'
-                  ? 'bg-blue-100 ml-4'
-                  : 'bg-white border border-blue-200 mr-4 shadow-sm'
-                  }`}>
-                  <div className="font-semibold text-xs mb-1 flex items-center">
-                    {item.role === 'user' ? (
-                      <>
-                        <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center mr-1 text-xs">U</div>
-                        <span className="text-blue-800">You</span>
-                      </>
-                    ) : (
-                      <>
-                        <div className="w-6 h-6 rounded-full bg-blue-800 text-white flex items-center justify-center mr-1 text-xs">G</div>
-                        <span className="text-blue-800">GCash Support</span>
-                      </>
-                    )}
+              <div className="space-y-4">
+                {items.map((item, index) => (
+                  <div
+                    key={index}
+                    className={`mb-3 p-3 rounded-lg ${item.role === 'user'
+                      ? 'bg-blue-100 ml-4'
+                      : 'bg-white border border-blue-200 mr-4 shadow-sm'
+                      }`}
+                  >
+                    <div className="font-semibold text-xs mb-1 flex items-center">
+                      {item.role === 'user' ? (
+                        <>
+                          <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center mr-1 text-xs">U</div>
+                          <span className="text-blue-800">You</span>
+                        </>
+                      ) : (
+                        <>
+                          <div className="w-6 h-6 rounded-full bg-blue-800 text-white flex items-center justify-center mr-1 text-xs">G</div>
+                          <span className="text-blue-800">GCash Support</span>
+                        </>
+                      )}
+                    </div>
+                    <div className="text-gray-800">
+                      {item.formatted.transcript || item.formatted.text || '(processing...)'}
+                    </div>
                   </div>
-                  <div className="text-gray-800">
-                    {item.role === 'user'
-                      ? (item.formatted.transcript || item.formatted.text || '(processing...)')
-                      : (item.formatted.transcript || item.formatted.text || '(generating response...)')
-                    }
-                  </div>
-                </div>
-              ))
+                ))}
+              </div>
             )}
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { supabseAuthClient } from '@/lib/supabase/auth';
 import { GeminiService, FlowData, FlowOption, FlowStep } from '../services/gemini';
@@ -273,6 +273,9 @@ const AgentDashboard = () => {
         suggestedActions: ['Check KYC status', 'Verify recent login activity']
     });
 
+    // Add subscription ref to maintain subscription across renders
+    const subscriptionRef = useRef<any>(null);
+
     // Handle AI insight actions
     const handleInsightAction = (insight: Insight, action: string) => {
         console.log(`Action ${action} taken on insight:`, insight);
@@ -285,47 +288,7 @@ const AgentDashboard = () => {
         }
     };
 
-    // Add function to send agent message
-    const sendAgentMessage = async (text: string) => {
-        if (!selectedConversation) return;
-
-        try {
-            // Get current conversation
-            const { data: currentConversation } = await supabseAuthClient.supabase
-                .from('conversations')
-                .select('conversation_data')
-                .eq('id', selectedConversation)
-                .single();
-
-            if (!currentConversation) return;
-
-            // Add new message to conversation
-            const updatedConversation = {
-                conversation_data: [
-                    ...currentConversation.conversation_data,
-                    {
-                        role: 'assistant',
-                        text: text,
-                        created_at: new Date().toISOString()
-                    }
-                ]
-            };
-
-            // Update conversation in Supabase
-            const { error } = await supabseAuthClient.supabase
-                .from('conversations')
-                .update(updatedConversation)
-                .eq('id', selectedConversation);
-
-            if (error) {
-                console.error('Error sending agent message:', error);
-            }
-        } catch (error) {
-            console.error('Error sending agent message:', error);
-        }
-    };
-
-    // Modify useEffect to subscribe to real-time updates
+    // Modify useEffect to handle real-time updates
     useEffect(() => {
         async function fetchConversations() {
             try {
@@ -341,16 +304,13 @@ const AgentDashboard = () => {
                     return;
                 }
 
-                console.log('conversationsData', conversationsData);
                 if (conversationsData && conversationsData.length > 0) {
                     // Transform the data to match our Conversation interface
                     const formattedConversations = conversationsData.map((conv): Conversation => {
-                        // Get the last message from conversation_data
                         const lastMsg = conv.conversation_data && conv.conversation_data.length > 0
                             ? conv.conversation_data[conv.conversation_data.length - 1].text
                             : 'No messages';
 
-                        // Format relative time
                         const timeAgo = getRelativeTime(new Date(conv.created_at));
 
                         return {
@@ -364,7 +324,7 @@ const AgentDashboard = () => {
 
                     setConversations(formattedConversations);
 
-                    // Select the first conversation by default
+                    // Select the first conversation by default if none selected
                     if (formattedConversations.length > 0 && !selectedConversation) {
                         setSelectedConversation(formattedConversations[0].id);
                         setConversationTranscript(formattedConversations[0].conversation_data || []);
@@ -381,42 +341,145 @@ const AgentDashboard = () => {
 
         // Set up a subscription to listen for new conversations and updates
         const conversationsSubscription = supabseAuthClient.supabase
-            .channel('conversations_channel')
-            .on('postgres_changes', {
-                event: '*',
-                schema: 'public',
-                table: 'conversations'
-            }, (payload) => {
-                if (payload.eventType === 'INSERT') {
-                    // Refresh the list for new conversations
-                    fetchConversations();
-                } else if (payload.eventType === 'UPDATE' && payload.new) {
-                    // Update the conversation in the list
-                    setConversations(prevConversations =>
-                        prevConversations.map(conv =>
-                            conv.id === payload.new.id
-                                ? {
-                                    ...conv,
-                                    conversation_data: payload.new.conversation_data,
-                                    lastMessage: payload.new.conversation_data[payload.new.conversation_data.length - 1]?.text.slice(0, 60) + '...',
-                                    status: payload.new.status
-                                }
-                                : conv
-                        )
-                    );
+            .channel('agent_conversations')
+            .on(
+                'postgres_changes' as any,
+                {
+                    event: '*',
+                    schema: 'public',
+                    table: 'conversations'
+                },
+                (payload) => {
+                    if (payload.eventType === 'INSERT') {
+                        // Add new conversation to the list
+                        const conv = payload.new;
+                        const lastMsg = conv.conversation_data && conv.conversation_data.length > 0
+                            ? conv.conversation_data[conv.conversation_data.length - 1].text
+                            : 'No messages';
 
-                    // Update transcript if this is the selected conversation
-                    if (selectedConversation === payload.new.id) {
-                        setConversationTranscript(payload.new.conversation_data);
+                        const newConversation: Conversation = {
+                            id: conv.id,
+                            status: conv.status || 'waiting',
+                            lastMessage: lastMsg.slice(0, 60) + (lastMsg.length > 60 ? '...' : ''),
+                            time: getRelativeTime(new Date(conv.created_at)),
+                            conversation_data: conv.conversation_data
+                        };
+
+                        setConversations(prev => [newConversation, ...prev]);
+                    } else if (payload.eventType === 'UPDATE' && payload.new) {
+                        // Update existing conversation
+                        setConversations(prevConversations =>
+                            prevConversations.map(conv => {
+                                if (conv.id === payload.new.id) {
+                                    const lastMsg = payload.new.conversation_data && payload.new.conversation_data.length > 0
+                                        ? payload.new.conversation_data[payload.new.conversation_data.length - 1].text
+                                        : 'No messages';
+
+                                    return {
+                                        ...conv,
+                                        status: payload.new.status || conv.status,
+                                        lastMessage: lastMsg.slice(0, 60) + (lastMsg.length > 60 ? '...' : ''),
+                                        conversation_data: payload.new.conversation_data,
+                                        time: getRelativeTime(new Date(payload.new.created_at))
+                                    };
+                                }
+                                return conv;
+                            })
+                        );
+
+                        // Update transcript if this is the selected conversation
+                        if (selectedConversation === payload.new.id) {
+                            setConversationTranscript(payload.new.conversation_data);
+                        }
+                    } else if (payload.eventType === 'DELETE') {
+                        // Remove conversation from list
+                        setConversations(prev => prev.filter(conv => conv.id !== payload.old.id));
+
+                        // If this was the selected conversation, select the first available one
+                        if (selectedConversation === payload.old.id) {
+                            setConversations(prev => {
+                                if (prev.length > 0) {
+                                    setSelectedConversation(prev[0].id);
+                                    setConversationTranscript(prev[0].conversation_data || []);
+                                } else {
+                                    setSelectedConversation(null);
+                                    setConversationTranscript([]);
+                                }
+                                return prev;
+                            });
+                        }
                     }
                 }
-            })
+            )
             .subscribe();
 
+        // Cleanup function
         return () => {
-            conversationsSubscription.unsubscribe();
+            if (conversationsSubscription) {
+                conversationsSubscription.unsubscribe();
+            }
         };
-    }, []);
+    }, [selectedConversation]); // Add selectedConversation as dependency
+
+    // Modify sendAgentMessage to handle optimistic updates
+    const sendAgentMessage = async (text: string) => {
+        if (!selectedConversation) return;
+
+        try {
+            // Get current conversation
+            const { data: currentConversation } = await supabseAuthClient.supabase
+                .from('conversations')
+                .select('conversation_data')
+                .eq('id', selectedConversation)
+                .single();
+
+            if (!currentConversation) return;
+
+            const newMessage = {
+                role: 'assistant',
+                text: text,
+                created_at: new Date().toISOString()
+            };
+
+            // Add new message to conversation
+            const updatedConversation = {
+                conversation_data: [
+                    ...currentConversation.conversation_data,
+                    newMessage
+                ]
+            };
+
+            // Optimistically update the UI
+            setConversationTranscript(updatedConversation.conversation_data);
+
+            // Update conversation in Supabase
+            const { error } = await supabseAuthClient.supabase
+                .from('conversations')
+                .update(updatedConversation)
+                .eq('id', selectedConversation);
+
+            if (error) {
+                console.error('Error sending agent message:', error);
+                // Revert optimistic update on error
+                setConversationTranscript(currentConversation.conversation_data);
+            }
+        } catch (error) {
+            console.error('Error sending agent message:', error);
+        }
+    };
+
+    // Add function to handle conversation selection with subscription
+    const handleConversationSelect = (convId: string) => {
+        setSelectedConversation(convId);
+
+        // Find the selected conversation and set its transcript
+        const selectedConv = conversations.find(conv => conv.id === convId);
+        if (selectedConv && selectedConv.conversation_data) {
+            setConversationTranscript(selectedConv.conversation_data);
+        } else {
+            setConversationTranscript([]);
+        }
+    };
 
     // Helper function to determine priority based on content
     const getPriorityFromContent = (content: string): string => {
@@ -447,19 +510,6 @@ const AgentDashboard = () => {
             return `${Math.floor(diffInSeconds / 3600)} hours ago`;
         } else {
             return `${Math.floor(diffInSeconds / 86400)} days ago`;
-        }
-    };
-
-    // Handle conversation selection
-    const handleConversationSelect = (convId: string) => {
-        setSelectedConversation(convId);
-
-        // Find the selected conversation and set its transcript
-        const selectedConv = conversations.find(conv => conv.id === convId);
-        if (selectedConv && selectedConv.conversation_data) {
-            setConversationTranscript(selectedConv.conversation_data);
-        } else {
-            setConversationTranscript([]);
         }
     };
 
@@ -598,29 +648,66 @@ const AgentDashboard = () => {
                                 </div>
                                 {/* Add message input */}
                                 <div className="flex-none p-4 border-t border-gray-200">
-                                    <div className="flex space-x-2">
-                                        <Input
-                                            type="text"
-                                            placeholder="Type your message..."
-                                            className="flex-1"
-                                            onKeyPress={(e) => {
-                                                if (e.key === 'Enter' && e.currentTarget.value.trim()) {
-                                                    sendAgentMessage(e.currentTarget.value.trim());
-                                                    e.currentTarget.value = '';
-                                                }
-                                            }}
-                                        />
-                                        <Button
-                                            onClick={() => {
-                                                const input = document.querySelector('input[type="text"]') as HTMLInputElement;
-                                                if (input && input.value.trim()) {
-                                                    sendAgentMessage(input.value.trim());
-                                                    input.value = '';
-                                                }
-                                            }}
-                                        >
-                                            Send
-                                        </Button>
+                                    <div className="flex flex-col space-y-2">
+                                        <div className="flex items-center space-x-2 bg-gray-50 p-2 rounded-lg">
+                                            <div className="flex-1 relative">
+                                                <input
+                                                    type="text"
+                                                    placeholder="Type your message..."
+                                                    className="w-full p-3 pr-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                                                    onKeyPress={(e) => {
+                                                        if (e.key === 'Enter' && e.currentTarget.value.trim()) {
+                                                            sendAgentMessage(e.currentTarget.value.trim());
+                                                            e.currentTarget.value = '';
+                                                        }
+                                                    }}
+                                                />
+                                                <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
+                                                    <button
+                                                        className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+                                                        title="Attach file"
+                                                    >
+                                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                                                        </svg>
+                                                    </button>
+                                                    <button
+                                                        className="p-2 text-blue-500 hover:text-blue-600 transition-colors"
+                                                        title="Send message"
+                                                        onClick={() => {
+                                                            const input = document.querySelector('input[type="text"]') as HTMLInputElement;
+                                                            if (input && input.value.trim()) {
+                                                                sendAgentMessage(input.value.trim());
+                                                                input.value = '';
+                                                            }
+                                                        }}
+                                                    >
+                                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center justify-between text-xs text-gray-500">
+                                            <div className="flex items-center space-x-2">
+                                                <span>Shift + Enter for new line</span>
+                                                <span>•</span>
+                                                <span>Enter to send</span>
+                                            </div>
+                                            <div className="flex items-center space-x-2">
+                                                <button className="hover:text-blue-500 transition-colors" title="Quick responses">
+                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                                                    </svg>
+                                                </button>
+                                                <button className="hover:text-blue-500 transition-colors" title="Emoji">
+                                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
