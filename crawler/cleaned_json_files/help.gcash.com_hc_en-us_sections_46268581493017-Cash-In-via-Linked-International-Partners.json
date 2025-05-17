@@ -1,10 +1,28 @@
 {
+  "article_id": null,
   "title": "Cash In via Linked International Partners",
+  "url": "https://help.gcash.com/hc/en-us/sections/46268581493017-Cash-In-via-Linked-International-Partners",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[How do I link my Payoneer to GCash?](https://help.gcash.com/hc/en-us/articles/900002482846-How-do-I-link-my-Payoneer-to-GCash)\n\n[How do I cash in to GCash using Payoneer?](https://help.gcash.com/hc/en-us/articles/900002482806-How-do-I-cash-in-to-GCash-using-Payoneer)\n\n[How do I link my PayPal to GCash?](https://help.gcash.com/hc/en-us/articles/360019948834-How-do-I-link-my-PayPal-to-GCash)\n\n[How do I cash in to GCash using PayPal?](https://help.gcash.com/hc/en-us/articles/360020281973-How-do-I-cash-in-to-GCash-using-PayPal)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How do I link my Payoneer to GCash?",
-    "How do I cash in to GCash using Payoneer?",
-    "How do I link my PayPal to GCash?",
-    "How do I cash in to GCash using PayPal?"
-  ]
+    {
+      "title": "How do I link my Payoneer to GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/900002482846-How-do-I-link-my-Payoneer-to-GCash"
+    },
+    {
+      "title": "How do I cash in to GCash using Payoneer?",
+      "url": "https://help.gcash.com/hc/en-us/articles/900002482806-How-do-I-cash-in-to-GCash-using-Payoneer"
+    },
+    {
+      "title": "How do I link my PayPal to GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360019948834-How-do-I-link-my-PayPal-to-GCash"
+    },
+    {
+      "title": "How do I cash in to GCash using PayPal?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360020281973-How-do-I-cash-in-to-GCash-using-PayPal"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

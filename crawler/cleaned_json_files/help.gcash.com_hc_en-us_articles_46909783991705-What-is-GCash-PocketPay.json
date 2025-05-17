@@ -1,15 +1,53 @@
 {
+  "article_id": "46909783991705",
   "title": "What is GCash PocketPay?",
+  "url": "https://help.gcash.com/hc/en-us/articles/46909783991705-What-is-GCash-PocketPay",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n## Articles in this section\n\n- [What is GCash PocketPay?](https://help.gcash.com/hc/en-us/articles/46909783991705-What-is-GCash-PocketPay)\n- [I have a problem with my SoundPay device. What do I do?](https://help.gcash.com/hc/en-us/articles/44671600037401-I-have-a-problem-with-my-SoundPay-device-What-do-I-do)\n- [What is SoundPay?](https://help.gcash.com/hc/en-us/articles/44671219480345-What-is-SoundPay)\n- [Official GCash for Business MSME Distributors](https://help.gcash.com/hc/en-us/articles/39383685151513-Official-GCash-for-Business-MSME-Distributors)\n\n## Promoted articles\n\n- [What are the steps to get a Fully Verified GCash account?](https://help.gcash.com/hc/en-us/articles/360017722393-What-are-the-steps-to-get-a-Fully-Verified-GCash-account)\n- [Accepted IDs for GCash Verification](https://help.gcash.com/hc/en-us/articles/900000948786-Accepted-IDs-for-GCash-Verification)\n- [How do I send money to another GCash account?](https://help.gcash.com/hc/en-us/articles/360017566614-How-do-I-send-money-to-another-GCash-account)\n\nPocketPay is a mobile application under the GCash for Business suite designed to transform NFC-enabled smartphones into payment terminals, allowing merchants to accept card payments directly from their devices. This app enables a seamless and efficient transaction process, leveraging contactless payment technologies.\n\n### **Key Features of PocketPay:**\n\n**Card Payment Acceptance**: Users can accept card payments using their NFC-enabled Android phones, providing a portable solution for on-the-go transactions.\n\n**Secure Login**: Users can log in to the PocketPay app using their email or phone number, bolstered by multi-factor authentication to enhance security.\n\n**Flexible Receipt Options**: Users have the option to receive receipts via SMS or email.\n\n**Transaction Management**: Users can manage command actions, including processing returns or refunds, directly through the mobile platform.\n\n### **How do I set up PocketPay for my business?**\n\n1. **Download the PocketPay App:** Ensure that your business uses an NFC-enabled Android phone. Download the PocketPay app from the Google Play Store.\n2. **Create a GCash for Business Account:** If you do not already have one, register for a GCash for Business account. This is necessary as PocketPay is linked to your GCash for Business account. (Link to **How to apply for GCash for Business account)**\n3. **Log in to the PocketPay App:** Open the PocketPay app and log in using your email or phone number associated with your GCash for Business account. Multi-factor authentication (MFA) and one-device binding are implemented to ensure a secure login experience **.**\n4. **Set Up Your Payment Terminal:** Follow the in-app prompts to transform your NFC-enabled Android phone into a payment terminal. Ensure that your device is configured to accept card payments directly.\n5. **Test Transactions:** Conduct a test transaction to ensure that the app is working correctly and can process payments from your customers. This step is crucial to verify that your setup is complete and operational.\n6. **Customization and Training:** Familiarize yourself with the features of the app, such as generating electronic receipts (SMS or email) and managing returns or refunds through the mobile platform\n\n### **How can I delete my PocketPay account linked to my smartphone?**\n\nTo initiate the deletion of your PocketPay account, you must have a GCash for Business linked to your PocketPay app.\n\n**R** **equest Deletion:**\n\nPrepare the necessary details in order to successfully request for account deletion:\n\n- Mobile number linked to PocketPay account\n- Email used to sign up for a GCash for Business account\n- Reason for deleting PocketPay account:\n  - I no longer wish to use the PocketPay app\n  - I am not happy with the product\n  - My device linked to the PocketPay terminal is stolen\n  - My device linked to the PocketPay terminal is lost\n  - Others\n\n**Submit Request:**\n\nOnce you have prepared the requirements, please email [**partnersupport@gcash.com**](mailto:partnersupport@gcash.com). Please note that once your account has been deleted, you will need to go through the account linking process once again.\n\nA customer service representative will review the details you shared and work on your request. Your profile will be updated within 3 days, and you'll receive an SMS confirmation on your GCash-registered number.\n\n[Previous](https://help.gcash.com/hc/en-us/articles/46909783991705-What-is-GCash-PocketPay#)\n\n[Next](https://help.gcash.com/hc/en-us/articles/44671600037401-I-have-a-problem-with-my-SoundPay-device-What-do-I-do)\n\nI have a problem with my SoundPay device. What do I do?\n\n- [What is GCash PocketPay?](https://help.gcash.com/hc/en-us/articles/46909783991705-What-is-GCash-PocketPay)\n- [I have a problem with my SoundPay device. What do I do?](https://help.gcash.com/hc/en-us/articles/44671600037401-I-have-a-problem-with-my-SoundPay-device-What-do-I-do)\n- [What is SoundPay?](https://help.gcash.com/hc/en-us/articles/44671219480345-What-is-SoundPay)\n- [Official GCash for Business MSME Distributors](https://help.gcash.com/hc/en-us/articles/39383685151513-Official-GCash-for-Business-MSME-Distributors)\n\n46909783991705\n\nBack to Top",
-  "related_articles": [
+  "categories": [
     "What is GCash PocketPay?",
     "I have a problem with my SoundPay device. What do I do?",
     "What is SoundPay?",
-    "Official GCash for Business MSME Distributors",
-    "What are the steps to get a Fully Verified GCash account?",
-    "Accepted IDs for GCash Verification",
-    "How do I send money to another GCash account?",
-    "Previous",
-    "Next"
-  ]
+    "Official GCash for Business MSME Distributors"
+  ],
+  "related_articles": [
+    {
+      "title": "What is GCash PocketPay?",
+      "url": "https://help.gcash.com/hc/en-us/articles/46909783991705-What-is-GCash-PocketPay"
+    },
+    {
+      "title": "I have a problem with my SoundPay device. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/44671600037401-I-have-a-problem-with-my-SoundPay-device-What-do-I-do"
+    },
+    {
+      "title": "What is SoundPay?",
+      "url": "https://help.gcash.com/hc/en-us/articles/44671219480345-What-is-SoundPay"
+    },
+    {
+      "title": "Official GCash for Business MSME Distributors",
+      "url": "https://help.gcash.com/hc/en-us/articles/39383685151513-Official-GCash-for-Business-MSME-Distributors"
+    },
+    {
+      "title": "What are the steps to get a Fully Verified GCash account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017722393-What-are-the-steps-to-get-a-Fully-Verified-GCash-account"
+    },
+    {
+      "title": "Accepted IDs for GCash Verification",
+      "url": "https://help.gcash.com/hc/en-us/articles/900000948786-Accepted-IDs-for-GCash-Verification"
+    },
+    {
+      "title": "How do I send money to another GCash account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017566614-How-do-I-send-money-to-another-GCash-account"
+    },
+    {
+      "title": "Previous",
+      "url": "https://help.gcash.com/hc/en-us/articles/46909783991705-What-is-GCash-PocketPay#"
+    },
+    {
+      "title": "Next",
+      "url": "https://help.gcash.com/hc/en-us/articles/44671600037401-I-have-a-problem-with-my-SoundPay-device-What-do-I-do"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "PocketPay is a mobile application under the GCash for Business suite designed to transform NFC-enabled smartphones into payment..."
 }

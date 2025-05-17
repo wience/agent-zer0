@@ -1,11 +1,32 @@
 {
+  "article_id": null,
   "title": "Buy and sell crypto via GCrypto",
+  "url": "https://help.gcash.com/hc/en-us/sections/31268565735193-Buy-and-sell-crypto-via-GCrypto",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[How do I use limit orders in GCrypto?](https://help.gcash.com/hc/en-us/articles/39911228301337-How-do-I-use-limit-orders-in-GCrypto)\n\n[How do I check the status of my GCrypto order?](https://help.gcash.com/hc/en-us/articles/31307289104153-How-do-I-check-the-status-of-my-GCrypto-order)\n\n[How can I sell crypto in GCrypto?](https://help.gcash.com/hc/en-us/articles/31306888871833-How-can-I-sell-crypto-in-GCrypto)\n\n[What are the minimum and maximum limits for an order in GCrypto?](https://help.gcash.com/hc/en-us/articles/31305985539865-What-are-the-minimum-and-maximum-limits-for-an-order-in-GCrypto)\n\n[How can I buy crypto in GCrypto?](https://help.gcash.com/hc/en-us/articles/9781977718425-How-can-I-buy-crypto-in-GCrypto)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How do I use limit orders in GCrypto?",
-    "How do I check the status of my GCrypto order?",
-    "How can I sell crypto in GCrypto?",
-    "What are the minimum and maximum limits for an order in GCrypto?",
-    "How can I buy crypto in GCrypto?"
-  ]
+    {
+      "title": "How do I use limit orders in GCrypto?",
+      "url": "https://help.gcash.com/hc/en-us/articles/39911228301337-How-do-I-use-limit-orders-in-GCrypto"
+    },
+    {
+      "title": "How do I check the status of my GCrypto order?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31307289104153-How-do-I-check-the-status-of-my-GCrypto-order"
+    },
+    {
+      "title": "How can I sell crypto in GCrypto?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31306888871833-How-can-I-sell-crypto-in-GCrypto"
+    },
+    {
+      "title": "What are the minimum and maximum limits for an order in GCrypto?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31305985539865-What-are-the-minimum-and-maximum-limits-for-an-order-in-GCrypto"
+    },
+    {
+      "title": "How can I buy crypto in GCrypto?",
+      "url": "https://help.gcash.com/hc/en-us/articles/9781977718425-How-can-I-buy-crypto-in-GCrypto"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

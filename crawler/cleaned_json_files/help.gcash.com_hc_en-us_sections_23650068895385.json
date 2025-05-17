@@ -1,9 +1,24 @@
 {
+  "article_id": null,
   "title": "Jobs",
+  "url": "https://help.gcash.com/hc/en-us/sections/23650068895385",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[How do I withdraw my earnings from Jobs on GCash?](https://help.gcash.com/hc/en-us/articles/41423213263769-How-do-I-withdraw-my-earnings-from-Jobs-on-GCash)\n\n[How can I apply for Jobs on GCash?](https://help.gcash.com/hc/en-us/articles/19171464377369-How-can-I-apply-for-Jobs-on-GCash)\n\n[How do I refer someone for Jobs on GCash?](https://help.gcash.com/hc/en-us/articles/23431265122969-How-do-I-refer-someone-for-Jobs-on-GCash)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How do I withdraw my earnings from Jobs on GCash?",
-    "How can I apply for Jobs on GCash?",
-    "How do I refer someone for Jobs on GCash?"
-  ]
+    {
+      "title": "How do I withdraw my earnings from Jobs on GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/41423213263769-How-do-I-withdraw-my-earnings-from-Jobs-on-GCash"
+    },
+    {
+      "title": "How can I apply for Jobs on GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/19171464377369-How-can-I-apply-for-Jobs-on-GCash"
+    },
+    {
+      "title": "How do I refer someone for Jobs on GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/23431265122969-How-do-I-refer-someone-for-Jobs-on-GCash"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

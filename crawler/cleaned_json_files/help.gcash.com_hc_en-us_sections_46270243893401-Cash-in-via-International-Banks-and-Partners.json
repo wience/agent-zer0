@@ -1,10 +1,28 @@
 {
+  "article_id": null,
   "title": "Cash in via International Banks and Partners",
+  "url": "https://help.gcash.com/hc/en-us/sections/46270243893401-Cash-in-via-International-Banks-and-Partners",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[How do I link my US bank account to GCash?](https://help.gcash.com/hc/en-us/articles/31650526006169-How-do-I-link-my-US-bank-account-to-GCash)\n\n[What are the official US bank channels for Cash in?](https://help.gcash.com/hc/en-us/articles/31650294812185-What-are-the-official-US-bank-channels-for-Cash-in)\n\n[How do I cash in to GCash with a EU/UK or US Bank account?](https://help.gcash.com/hc/en-us/articles/360025275074-How-do-I-cash-in-to-GCash-with-a-EU-UK-or-US-Bank-account)\n\n[What are the official EU/UK bank channels for Cash in?](https://help.gcash.com/hc/en-us/articles/38713174904985-What-are-the-official-EU-UK-bank-channels-for-Cash-in)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How do I link my US bank account to GCash?",
-    "What are the official US bank channels for Cash in?",
-    "How do I cash in to GCash with a EU/UK or US Bank account?",
-    "What are the official EU/UK bank channels for Cash in?"
-  ]
+    {
+      "title": "How do I link my US bank account to GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31650526006169-How-do-I-link-my-US-bank-account-to-GCash"
+    },
+    {
+      "title": "What are the official US bank channels for Cash in?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31650294812185-What-are-the-official-US-bank-channels-for-Cash-in"
+    },
+    {
+      "title": "How do I cash in to GCash with a EU/UK or US Bank account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360025275074-How-do-I-cash-in-to-GCash-with-a-EU-UK-or-US-Bank-account"
+    },
+    {
+      "title": "What are the official EU/UK bank channels for Cash in?",
+      "url": "https://help.gcash.com/hc/en-us/articles/38713174904985-What-are-the-official-EU-UK-bank-channels-for-Cash-in"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

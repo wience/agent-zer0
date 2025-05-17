@@ -1,10 +1,28 @@
 {
+  "article_id": null,
   "title": "GLoan Sakto",
+  "url": "https://help.gcash.com/hc/en-us/sections/40719944177817-GLoan-Sakto",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[How do I pay for my GLoan Sakto?](https://help.gcash.com/hc/en-us/articles/40675961653913-How-do-I-pay-for-my-GLoan-Sakto)\n\n[Am I qualified for GLoan Sakto?](https://help.gcash.com/hc/en-us/articles/40675903982361-Am-I-qualified-for-GLoan-Sakto)\n\n[What is the difference between GLoan and GLoan Sakto?](https://help.gcash.com/hc/en-us/articles/40675860785177-What-is-the-difference-between-GLoan-and-GLoan-Sakto)\n\n[What is GLoan Sakto?](https://help.gcash.com/hc/en-us/articles/21435929589657-What-is-GLoan-Sakto)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How do I pay for my GLoan Sakto?",
-    "Am I qualified for GLoan Sakto?",
-    "What is the difference between GLoan and GLoan Sakto?",
-    "What is GLoan Sakto?"
-  ]
+    {
+      "title": "How do I pay for my GLoan Sakto?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40675961653913-How-do-I-pay-for-my-GLoan-Sakto"
+    },
+    {
+      "title": "Am I qualified for GLoan Sakto?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40675903982361-Am-I-qualified-for-GLoan-Sakto"
+    },
+    {
+      "title": "What is the difference between GLoan and GLoan Sakto?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40675860785177-What-is-the-difference-between-GLoan-and-GLoan-Sakto"
+    },
+    {
+      "title": "What is GLoan Sakto?",
+      "url": "https://help.gcash.com/hc/en-us/articles/21435929589657-What-is-GLoan-Sakto"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

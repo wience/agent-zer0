@@ -1,11 +1,32 @@
 {
+  "article_id": null,
   "title": "GSave Overseas by CIMB",
+  "url": "https://help.gcash.com/hc/en-us/sections/38545535229081-GSave-Overseas-by-CIMB",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[How do I apply for a GSave Overseas account?](https://help.gcash.com/hc/en-us/articles/38547564790809-How-do-I-apply-for-a-GSave-Overseas-account)\n\n[What are the GSave Overseas Interest Rates?](https://help.gcash.com/hc/en-us/articles/38547938236185-What-are-the-GSave-Overseas-Interest-Rates)\n\n[How do I withdraw from my GSave Overseas account?](https://help.gcash.com/hc/en-us/articles/39124269488793-How-do-I-withdraw-from-my-GSave-Overseas-account)\n\n[How do I deposit in my GSave Overseas account?](https://help.gcash.com/hc/en-us/articles/39124080738457-How-do-I-deposit-in-my-GSave-Overseas-account)\n\n[How do I delete my GSave Overseas account?](https://help.gcash.com/hc/en-us/articles/38545636825497-How-do-I-delete-my-GSave-Overseas-account)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How do I apply for a GSave Overseas account?",
-    "What are the GSave Overseas Interest Rates?",
-    "How do I withdraw from my GSave Overseas account?",
-    "How do I deposit in my GSave Overseas account?",
-    "How do I delete my GSave Overseas account?"
-  ]
+    {
+      "title": "How do I apply for a GSave Overseas account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/38547564790809-How-do-I-apply-for-a-GSave-Overseas-account"
+    },
+    {
+      "title": "What are the GSave Overseas Interest Rates?",
+      "url": "https://help.gcash.com/hc/en-us/articles/38547938236185-What-are-the-GSave-Overseas-Interest-Rates"
+    },
+    {
+      "title": "How do I withdraw from my GSave Overseas account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/39124269488793-How-do-I-withdraw-from-my-GSave-Overseas-account"
+    },
+    {
+      "title": "How do I deposit in my GSave Overseas account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/39124080738457-How-do-I-deposit-in-my-GSave-Overseas-account"
+    },
+    {
+      "title": "How do I delete my GSave Overseas account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/38545636825497-How-do-I-delete-my-GSave-Overseas-account"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "A digital savings account from GCash and CIMB Bank Philippines, allowing users to save, earn interest, and manage funds conveniently..."
 }

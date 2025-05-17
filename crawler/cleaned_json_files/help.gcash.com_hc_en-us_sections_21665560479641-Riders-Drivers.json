@@ -1,7 +1,16 @@
 {
+  "article_id": null,
   "title": "Riders/Drivers",
+  "url": "https://help.gcash.com/hc/en-us/sections/21665560479641-Riders-Drivers",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[Top up vouchers para sa Grab/Angkas riders](https://help.gcash.com/hc/en-us/articles/23366075172633-Top-up-vouchers-para-sa-Grab-Angkas-riders)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "Top up vouchers para sa Grab/Angkas riders"
-  ]
+    {
+      "title": "Top up vouchers para sa Grab/Angkas riders",
+      "url": "https://help.gcash.com/hc/en-us/articles/23366075172633-Top-up-vouchers-para-sa-Grab-Angkas-riders"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

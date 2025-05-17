@@ -1,13 +1,40 @@
 {
+  "article_id": null,
   "title": "eC-Savings by Cebuana Lhuillier Rural Bank",
+  "url": "https://help.gcash.com/hc/en-us/sections/39567114901529-eC-Savings-by-Cebuana-Lhuillier-Rural-Bank",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[Can I open an eC-Savings GSave account?](https://help.gcash.com/hc/en-us/articles/43848987281049-Can-I-open-an-eC-Savings-GSave-account)\n\n[What is the interest rate for eC-Savings by Cebuana Lhuillier Rural Bank?](https://help.gcash.com/hc/en-us/articles/43849045104409-What-is-the-interest-rate-for-eC-Savings-by-Cebuana-Lhuillier-Rural-Bank)\n\n[What are the deposit and withdrawal limits of my eC-Savings by Cebuana Lhuillier Rural Bank?](https://help.gcash.com/hc/en-us/articles/43849243566233-What-are-the-deposit-and-withdrawal-limits-of-my-eC-Savings-by-Cebuana-Lhuillier-Rural-Bank)\n\n[How can I make a deposit to my eC-Savings GSave account?](https://help.gcash.com/hc/en-us/articles/43849130697369-How-can-I-make-a-deposit-to-my-eC-Savings-GSave-account)\n\n[How can I withdraw from my eC-Savings GSave account?](https://help.gcash.com/hc/en-us/articles/43849223273241-How-can-I-withdraw-from-my-eC-Savings-GSave-account)\n\n[How do I change the mobile number linked to my eC-Savings GSave account?](https://help.gcash.com/hc/en-us/articles/43849081170585-How-do-I-change-the-mobile-number-linked-to-my-eC-Savings-GSave-account)\n\n[How do I close my eC-Savings GSave account?](https://help.gcash.com/hc/en-us/articles/43848645259673-How-do-I-close-my-eC-Savings-GSave-account)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "Can I open an eC-Savings GSave account?",
-    "What is the interest rate for eC-Savings by Cebuana Lhuillier Rural Bank?",
-    "What are the deposit and withdrawal limits of my eC-Savings by Cebuana Lhuillier Rural Bank?",
-    "How can I make a deposit to my eC-Savings GSave account?",
-    "How can I withdraw from my eC-Savings GSave account?",
-    "How do I change the mobile number linked to my eC-Savings GSave account?",
-    "How do I close my eC-Savings GSave account?"
-  ]
+    {
+      "title": "Can I open an eC-Savings GSave account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/43848987281049-Can-I-open-an-eC-Savings-GSave-account"
+    },
+    {
+      "title": "What is the interest rate for eC-Savings by Cebuana Lhuillier Rural Bank?",
+      "url": "https://help.gcash.com/hc/en-us/articles/43849045104409-What-is-the-interest-rate-for-eC-Savings-by-Cebuana-Lhuillier-Rural-Bank"
+    },
+    {
+      "title": "What are the deposit and withdrawal limits of my eC-Savings by Cebuana Lhuillier Rural Bank?",
+      "url": "https://help.gcash.com/hc/en-us/articles/43849243566233-What-are-the-deposit-and-withdrawal-limits-of-my-eC-Savings-by-Cebuana-Lhuillier-Rural-Bank"
+    },
+    {
+      "title": "How can I make a deposit to my eC-Savings GSave account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/43849130697369-How-can-I-make-a-deposit-to-my-eC-Savings-GSave-account"
+    },
+    {
+      "title": "How can I withdraw from my eC-Savings GSave account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/43849223273241-How-can-I-withdraw-from-my-eC-Savings-GSave-account"
+    },
+    {
+      "title": "How do I change the mobile number linked to my eC-Savings GSave account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/43849081170585-How-do-I-change-the-mobile-number-linked-to-my-eC-Savings-GSave-account"
+    },
+    {
+      "title": "How do I close my eC-Savings GSave account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/43848645259673-How-do-I-close-my-eC-Savings-GSave-account"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

@@ -1,10 +1,28 @@
 {
+  "article_id": null,
   "title": "AMEX Virtual Pay",
+  "url": "https://help.gcash.com/hc/en-us/sections/20498112028441-AMEX-Virtual-Pay",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[How do I renew my AMEX Virtual Pay Card after it expires?](https://help.gcash.com/hc/en-us/articles/40802287759641-How-do-I-renew-my-AMEX-Virtual-Pay-Card-after-it-expires)\n\n[How do I get a new AMEX Virtual Pay Card CVV or Security Code?](https://help.gcash.com/hc/en-us/articles/40802145637145-How-do-I-get-a-new-AMEX-Virtual-Pay-Card-CVV-or-Security-Code)\n\n[How do I activate my AMEX Virtual Pay Card in GCash?](https://help.gcash.com/hc/en-us/articles/360017594274-How-do-I-activate-my-AMEX-Virtual-Pay-Card-in-GCash)\n\n[How do I pay using my AMEX Virtual Pay Card?](https://help.gcash.com/hc/en-us/articles/4402446008345-How-do-I-pay-using-my-AMEX-Virtual-Pay-Card)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How do I renew my AMEX Virtual Pay Card after it expires?",
-    "How do I get a new AMEX Virtual Pay Card CVV or Security Code?",
-    "How do I activate my AMEX Virtual Pay Card in GCash?",
-    "How do I pay using my AMEX Virtual Pay Card?"
-  ]
+    {
+      "title": "How do I renew my AMEX Virtual Pay Card after it expires?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40802287759641-How-do-I-renew-my-AMEX-Virtual-Pay-Card-after-it-expires"
+    },
+    {
+      "title": "How do I get a new AMEX Virtual Pay Card CVV or Security Code?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40802145637145-How-do-I-get-a-new-AMEX-Virtual-Pay-Card-CVV-or-Security-Code"
+    },
+    {
+      "title": "How do I activate my AMEX Virtual Pay Card in GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017594274-How-do-I-activate-my-AMEX-Virtual-Pay-Card-in-GCash"
+    },
+    {
+      "title": "How do I pay using my AMEX Virtual Pay Card?",
+      "url": "https://help.gcash.com/hc/en-us/articles/4402446008345-How-do-I-pay-using-my-AMEX-Virtual-Pay-Card"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Activate an AMEX Virtual Pay card for more seamless payments"
 }

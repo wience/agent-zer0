@@ -1,8 +1,20 @@
 {
+  "article_id": null,
   "title": "Find Help",
+  "url": "https://help.gcash.com/hc/en-us/sections/28250414115481-Find-Help",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[How to get help or submit a ticket in GCash](https://help.gcash.com/hc/en-us/articles/28161617605145-How-to-get-help-or-submit-a-ticket-in-GCash)\n\n[How can I follow up on my GCash ticket?](https://help.gcash.com/hc/en-us/articles/900006590163-How-can-I-follow-up-on-my-GCash-ticket)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How to get help or submit a ticket in GCash",
-    "How can I follow up on my GCash ticket?"
-  ]
+    {
+      "title": "How to get help or submit a ticket in GCash",
+      "url": "https://help.gcash.com/hc/en-us/articles/28161617605145-How-to-get-help-or-submit-a-ticket-in-GCash"
+    },
+    {
+      "title": "How can I follow up on my GCash ticket?",
+      "url": "https://help.gcash.com/hc/en-us/articles/900006590163-How-can-I-follow-up-on-my-GCash-ticket"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

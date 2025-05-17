@@ -1,10 +1,28 @@
 {
+  "article_id": null,
   "title": "Top Up or Withdraw with GCrypto",
+  "url": "https://help.gcash.com/hc/en-us/sections/31268521864217-Top-Up-or-Withdraw-with-GCrypto",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[How can I withdraw from my GCrypto Trading Wallet?](https://help.gcash.com/hc/en-us/articles/31304830152089-How-can-I-withdraw-from-my-GCrypto-Trading-Wallet)\n\n[How much are the transaction limits for the GCrypto Trading Wallet?](https://help.gcash.com/hc/en-us/articles/31303981320473-How-much-are-the-transaction-limits-for-the-GCrypto-Trading-Wallet)\n\n[What is the GCrypto Trading Wallet?](https://help.gcash.com/hc/en-us/articles/31303868127897-What-is-the-GCrypto-Trading-Wallet)\n\n[How can I top up my GCrypto Trading Wallet?](https://help.gcash.com/hc/en-us/articles/10200245771545-How-can-I-top-up-my-GCrypto-Trading-Wallet)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How can I withdraw from my GCrypto Trading Wallet?",
-    "How much are the transaction limits for the GCrypto Trading Wallet?",
-    "What is the GCrypto Trading Wallet?",
-    "How can I top up my GCrypto Trading Wallet?"
-  ]
+    {
+      "title": "How can I withdraw from my GCrypto Trading Wallet?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31304830152089-How-can-I-withdraw-from-my-GCrypto-Trading-Wallet"
+    },
+    {
+      "title": "How much are the transaction limits for the GCrypto Trading Wallet?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31303981320473-How-much-are-the-transaction-limits-for-the-GCrypto-Trading-Wallet"
+    },
+    {
+      "title": "What is the GCrypto Trading Wallet?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31303868127897-What-is-the-GCrypto-Trading-Wallet"
+    },
+    {
+      "title": "How can I top up my GCrypto Trading Wallet?",
+      "url": "https://help.gcash.com/hc/en-us/articles/10200245771545-How-can-I-top-up-my-GCrypto-Trading-Wallet"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

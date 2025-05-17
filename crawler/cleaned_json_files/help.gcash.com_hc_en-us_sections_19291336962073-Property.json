@@ -1,7 +1,16 @@
 {
+  "article_id": null,
   "title": "Property",
+  "url": "https://help.gcash.com/hc/en-us/sections/19291336962073-Property",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[FPG Insurance Home Fire Protection](https://help.gcash.com/hc/en-us/articles/10442839854105-FPG-Insurance-Home-Fire-Protection)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "FPG Insurance Home Fire Protection"
-  ]
+    {
+      "title": "FPG Insurance Home Fire Protection",
+      "url": "https://help.gcash.com/hc/en-us/articles/10442839854105-FPG-Insurance-Home-Fire-Protection"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Protect your property in case of unexpected incidents"
 }

@@ -1,14 +1,44 @@
 {
+  "article_id": null,
   "title": "GCash Advisories",
+  "url": "https://help.gcash.com/hc/en-us/sections/22717320336281",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[GCash Pro Platform Termination](https://help.gcash.com/hc/en-us/articles/45732029791513-GCash-Pro-Platform-Termination)\n\n[Advisory on Automated Fuel Dispenser (Self-Service Gas Pumps) Payments using GCash Cards](https://help.gcash.com/hc/en-us/articles/44449603684377-Advisory-on-Automated-Fuel-Dispenser-Self-Service-Gas-Pumps-Payments-using-GCash-Cards)\n\n[Advisory for iPhone Users affected Express Send Feature Issue](https://help.gcash.com/hc/en-us/articles/40583772018073-Advisory-for-iPhone-Users-affected-Express-Send-Feature-Issue)\n\n[GCash Pera Outlet (GPO) Plus Advisory](https://help.gcash.com/hc/en-us/articles/37831595333017-GCash-Pera-Outlet-GPO-Plus-Advisory)\n\n[Advisory on Revenue Regulation 16-2023](https://help.gcash.com/hc/en-us/articles/31622004752153-Advisory-on-Revenue-Regulation-16-2023)\n\n[Advisory for using GCash on iPhone with iOS 13 and Below](https://help.gcash.com/hc/en-us/articles/26245453156633-Advisory-for-using-GCash-on-iPhone-with-iOS-13-and-Below)\n\n[Shift of SMS messages to GCash App Inbox](https://help.gcash.com/hc/en-us/articles/10040298426137-Shift-of-SMS-messages-to-GCash-App-Inbox)\n\n[GCash Updated Terms and Conditions](https://help.gcash.com/hc/en-us/articles/22717341874585-GCash-Updated-Terms-and-Conditions)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "GCash Pro Platform Termination",
-    "Advisory on Automated Fuel Dispenser (Self-Service Gas Pumps) Payments using GCash Cards",
-    "Advisory for iPhone Users affected Express Send Feature Issue",
-    "GCash Pera Outlet (GPO) Plus Advisory",
-    "Advisory on Revenue Regulation 16-2023",
-    "Advisory for using GCash on iPhone with iOS 13 and Below",
-    "Shift of SMS messages to GCash App Inbox",
-    "GCash Updated Terms and Conditions"
-  ]
+    {
+      "title": "GCash Pro Platform Termination",
+      "url": "https://help.gcash.com/hc/en-us/articles/45732029791513-GCash-Pro-Platform-Termination"
+    },
+    {
+      "title": "Advisory on Automated Fuel Dispenser (Self-Service Gas Pumps) Payments using GCash Cards",
+      "url": "https://help.gcash.com/hc/en-us/articles/44449603684377-Advisory-on-Automated-Fuel-Dispenser-Self-Service-Gas-Pumps-Payments-using-GCash-Cards"
+    },
+    {
+      "title": "Advisory for iPhone Users affected Express Send Feature Issue",
+      "url": "https://help.gcash.com/hc/en-us/articles/40583772018073-Advisory-for-iPhone-Users-affected-Express-Send-Feature-Issue"
+    },
+    {
+      "title": "GCash Pera Outlet (GPO) Plus Advisory",
+      "url": "https://help.gcash.com/hc/en-us/articles/37831595333017-GCash-Pera-Outlet-GPO-Plus-Advisory"
+    },
+    {
+      "title": "Advisory on Revenue Regulation 16-2023",
+      "url": "https://help.gcash.com/hc/en-us/articles/31622004752153-Advisory-on-Revenue-Regulation-16-2023"
+    },
+    {
+      "title": "Advisory for using GCash on iPhone with iOS 13 and Below",
+      "url": "https://help.gcash.com/hc/en-us/articles/26245453156633-Advisory-for-using-GCash-on-iPhone-with-iOS-13-and-Below"
+    },
+    {
+      "title": "Shift of SMS messages to GCash App Inbox",
+      "url": "https://help.gcash.com/hc/en-us/articles/10040298426137-Shift-of-SMS-messages-to-GCash-App-Inbox"
+    },
+    {
+      "title": "GCash Updated Terms and Conditions",
+      "url": "https://help.gcash.com/hc/en-us/articles/22717341874585-GCash-Updated-Terms-and-Conditions"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

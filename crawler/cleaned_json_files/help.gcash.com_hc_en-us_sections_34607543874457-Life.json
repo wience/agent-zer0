@@ -1,8 +1,20 @@
 {
+  "article_id": null,
   "title": "Life",
+  "url": "https://help.gcash.com/hc/en-us/sections/34607543874457-Life",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[Singlife Cash for Income Loss due to Any Cause](https://help.gcash.com/hc/en-us/articles/900006779383-Singlife-Cash-for-Income-Loss-due-to-Any-Cause)\n\n[Singlife Cash for Funeral Costs](https://help.gcash.com/hc/en-us/articles/32223493277081-Singlife-Cash-for-Funeral-Costs)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "Singlife Cash for Income Loss due to Any Cause",
-    "Singlife Cash for Funeral Costs"
-  ]
+    {
+      "title": "Singlife Cash for Income Loss due to Any Cause",
+      "url": "https://help.gcash.com/hc/en-us/articles/900006779383-Singlife-Cash-for-Income-Loss-due-to-Any-Cause"
+    },
+    {
+      "title": "Singlife Cash for Funeral Costs",
+      "url": "https://help.gcash.com/hc/en-us/articles/32223493277081-Singlife-Cash-for-Funeral-Costs"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

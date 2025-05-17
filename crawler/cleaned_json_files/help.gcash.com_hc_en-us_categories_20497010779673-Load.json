@@ -1,24 +1,84 @@
 {
+  "article_id": null,
   "title": "Load",
+  "url": "https://help.gcash.com/hc/en-us/categories/20497010779673-Load",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n**Buy Load**\n\n- [How can I cancel my scheduled mobile and broadband load autoload?](https://help.gcash.com/hc/en-us/articles/40521897454745-How-can-I-cancel-my-scheduled-mobile-and-broadband-load-autoload)\n- [How can I schedule autoload for mobile and broadband load?](https://help.gcash.com/hc/en-us/articles/40521720364185-How-can-I-schedule-autoload-for-mobile-and-broadband-load)\n- [Can I buy an eSIM using GCash?](https://help.gcash.com/hc/en-us/articles/34186930116889-Can-I-buy-an-eSIM-using-GCash)\n- [How can I activate my eSIM after buying it on GCash?](https://help.gcash.com/hc/en-us/articles/34183170218393-How-can-I-activate-my-eSIM-after-buying-it-on-GCash)\n- [How can I use GCash to buy load?](https://help.gcash.com/hc/en-us/articles/4413709634969-How-can-I-use-GCash-to-buy-load)\n- [What are the telco load convenience fees in GCash?](https://help.gcash.com/hc/en-us/articles/900005872843-What-are-the-telco-load-convenience-fees-in-GCash)\n\n**Get Help with Load**\n\n- [I can’t buy load using GCash. What do I do?](https://help.gcash.com/hc/en-us/articles/30280703379353-I-can-t-buy-load-using-GCash-What-do-I-do)\n- [I didn't receive my telco or non-telco load. What do I do?](https://help.gcash.com/hc/en-us/articles/30281038586649-I-didn-t-receive-my-telco-or-non-telco-load-What-do-I-do)\n- [I bought load on GCash but entered the wrong number or details. What do I do?](https://help.gcash.com/hc/en-us/articles/30281882432281-I-bought-load-on-GCash-but-entered-the-wrong-number-or-details-What-do-I-do)\n- [I received the wrong or incomplete load credit. What do I do?](https://help.gcash.com/hc/en-us/articles/30281354419865-I-received-the-wrong-or-incomplete-load-credit-What-do-I-do)\n- [I was charged multiple times when I bought load on GCash. What do I do?](https://help.gcash.com/hc/en-us/articles/30281393343769-I-was-charged-multiple-times-when-I-bought-load-on-GCash-What-do-I-do)\n- [The E-PIN I bought from GCash was invalid. What do I do?](https://help.gcash.com/hc/en-us/articles/30281453006745-The-E-PIN-I-bought-from-GCash-was-invalid-What-do-I-do)\n\n**Borrow Load**\n\n- [What are the GCash Borrow Load fees I need to know about?](https://help.gcash.com/hc/en-us/articles/40476455413017-What-are-the-GCash-Borrow-Load-fees-I-need-to-know-about)\n- [I have a concern with GCash Borrow Load. What do I do?](https://help.gcash.com/hc/en-us/articles/40476345424153-I-have-a-concern-with-GCash-Borrow-Load-What-do-I-do)\n- [How can I repay my GCash Borrow Load?](https://help.gcash.com/hc/en-us/articles/40476168459929-How-can-I-repay-my-GCash-Borrow-Load)\n- [What are the GCash Borrow Load promos available?](https://help.gcash.com/hc/en-us/articles/40475956597017-What-are-the-GCash-Borrow-Load-promos-available)\n- [Can I borrow load on GCash?](https://help.gcash.com/hc/en-us/articles/40475792516377-Can-I-borrow-load-on-GCash)\n- [I canceled my Borrow Load transaction but it still pushed through. What do I do?](https://help.gcash.com/hc/en-us/articles/40475592668441-I-canceled-my-Borrow-Load-transaction-but-it-still-pushed-through-What-do-I-do)\n[See all 7 articles](https://help.gcash.com/hc/en-us/sections/22837621024409-Borrow-Load)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How can I cancel my scheduled mobile and broadband load autoload?",
-    "How can I schedule autoload for mobile and broadband load?",
-    "Can I buy an eSIM using GCash?",
-    "How can I activate my eSIM after buying it on GCash?",
-    "How can I use GCash to buy load?",
-    "What are the telco load convenience fees in GCash?",
-    "I can’t buy load using GCash. What do I do?",
-    "I didn't receive my telco or non-telco load. What do I do?",
-    "I bought load on GCash but entered the wrong number or details. What do I do?",
-    "I received the wrong or incomplete load credit. What do I do?",
-    "I was charged multiple times when I bought load on GCash. What do I do?",
-    "The E-PIN I bought from GCash was invalid. What do I do?",
-    "What are the GCash Borrow Load fees I need to know about?",
-    "I have a concern with GCash Borrow Load. What do I do?",
-    "How can I repay my GCash Borrow Load?",
-    "What are the GCash Borrow Load promos available?",
-    "Can I borrow load on GCash?",
-    "I canceled my Borrow Load transaction but it still pushed through. What do I do?"
-  ]
+    {
+      "title": "How can I cancel my scheduled mobile and broadband load autoload?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40521897454745-How-can-I-cancel-my-scheduled-mobile-and-broadband-load-autoload"
+    },
+    {
+      "title": "How can I schedule autoload for mobile and broadband load?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40521720364185-How-can-I-schedule-autoload-for-mobile-and-broadband-load"
+    },
+    {
+      "title": "Can I buy an eSIM using GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/34186930116889-Can-I-buy-an-eSIM-using-GCash"
+    },
+    {
+      "title": "How can I activate my eSIM after buying it on GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/34183170218393-How-can-I-activate-my-eSIM-after-buying-it-on-GCash"
+    },
+    {
+      "title": "How can I use GCash to buy load?",
+      "url": "https://help.gcash.com/hc/en-us/articles/4413709634969-How-can-I-use-GCash-to-buy-load"
+    },
+    {
+      "title": "What are the telco load convenience fees in GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/900005872843-What-are-the-telco-load-convenience-fees-in-GCash"
+    },
+    {
+      "title": "I can’t buy load using GCash. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30280703379353-I-can-t-buy-load-using-GCash-What-do-I-do"
+    },
+    {
+      "title": "I didn't receive my telco or non-telco load. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30281038586649-I-didn-t-receive-my-telco-or-non-telco-load-What-do-I-do"
+    },
+    {
+      "title": "I bought load on GCash but entered the wrong number or details. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30281882432281-I-bought-load-on-GCash-but-entered-the-wrong-number-or-details-What-do-I-do"
+    },
+    {
+      "title": "I received the wrong or incomplete load credit. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30281354419865-I-received-the-wrong-or-incomplete-load-credit-What-do-I-do"
+    },
+    {
+      "title": "I was charged multiple times when I bought load on GCash. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30281393343769-I-was-charged-multiple-times-when-I-bought-load-on-GCash-What-do-I-do"
+    },
+    {
+      "title": "The E-PIN I bought from GCash was invalid. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30281453006745-The-E-PIN-I-bought-from-GCash-was-invalid-What-do-I-do"
+    },
+    {
+      "title": "What are the GCash Borrow Load fees I need to know about?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40476455413017-What-are-the-GCash-Borrow-Load-fees-I-need-to-know-about"
+    },
+    {
+      "title": "I have a concern with GCash Borrow Load. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40476345424153-I-have-a-concern-with-GCash-Borrow-Load-What-do-I-do"
+    },
+    {
+      "title": "How can I repay my GCash Borrow Load?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40476168459929-How-can-I-repay-my-GCash-Borrow-Load"
+    },
+    {
+      "title": "What are the GCash Borrow Load promos available?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40475956597017-What-are-the-GCash-Borrow-Load-promos-available"
+    },
+    {
+      "title": "Can I borrow load on GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40475792516377-Can-I-borrow-load-on-GCash"
+    },
+    {
+      "title": "I canceled my Borrow Load transaction but it still pushed through. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40475592668441-I-canceled-my-Borrow-Load-transaction-but-it-still-pushed-through-What-do-I-do"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Buy mobile, broadband, and non-telco load anytime, anywhere with your GCash app"
 }

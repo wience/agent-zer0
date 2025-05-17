@@ -1,24 +1,84 @@
 {
+  "article_id": null,
   "title": "GFunds",
+  "url": "https://help.gcash.com/hc/en-us/sections/360004696433-GFunds",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n**Get Started with GFunds**\n\n- [How can I apply for GFunds?](https://help.gcash.com/hc/en-us/articles/360017753033-How-can-I-apply-for-GFunds)\n- [What is the Risk Profile Questionnaire (RPQ) in GFunds?](https://help.gcash.com/hc/en-us/articles/900004631723-What-is-the-Risk-Profile-Questionnaire-RPQ-in-GFunds)\n- [What investment products are available on GFunds?](https://help.gcash.com/hc/en-us/articles/5951847409049-What-investment-products-are-available-on-GFunds)\n- [Does GFunds have a minimum maintaining balance to keep funds?](https://help.gcash.com/hc/en-us/articles/30839343392153-Does-GFunds-have-a-minimum-maintaining-balance-to-keep-funds)\n- [What are the GFunds fees I need to know about?](https://help.gcash.com/hc/en-us/articles/30841717008025-What-are-the-GFunds-fees-I-need-to-know-about)\n[See all 6 articles](https://help.gcash.com/hc/en-us/sections/30828845027225-Get-Started-with-GFunds)\n\n**Buy and Sell funds with GFunds**\n\n- [How can I buy funds in GFunds?](https://help.gcash.com/hc/en-us/articles/5351243796377-How-can-I-buy-funds-in-GFunds)\n- [How can I sell/withdraw funds from GFunds?](https://help.gcash.com/hc/en-us/articles/30843460974489-How-can-I-sell-withdraw-funds-from-GFunds)\n- [How do I schedule automatic investments in GFunds?](https://help.gcash.com/hc/en-us/articles/30844023946137-How-do-I-schedule-automatic-investments-in-GFunds)\n- [How do I track my pending Buy and Sell orders in GFunds?](https://help.gcash.com/hc/en-us/articles/900004505786-How-do-I-track-my-pending-Buy-and-Sell-orders-in-GFunds)\n- [When will I receive my GFunds Buy or Sell orders?](https://help.gcash.com/hc/en-us/articles/900004505746-When-will-I-receive-my-GFunds-Buy-or-Sell-orders)\n\n**Manage your GFunds Account**\n\n- [How do I close my GFunds account?](https://help.gcash.com/hc/en-us/articles/30844779903897-How-do-I-close-my-GFunds-account)\n- [How do I update my account information in GFunds?](https://help.gcash.com/hc/en-us/articles/900005381886-How-do-I-update-my-account-information-in-GFunds)\n\n**Get Help with GFunds**\n\n- [My Sell Order has not been reflected in my GFunds account. What do I do?](https://help.gcash.com/hc/en-us/articles/41040351575833-My-Sell-Order-has-not-been-reflected-in-my-GFunds-account-What-do-I-do)\n- [I can’t buy or sell funds in GFunds. What do I do?](https://help.gcash.com/hc/en-us/articles/35735707460505-I-can-t-buy-or-sell-funds-in-GFunds-What-do-I-do)\n- [I can’t open a GFunds account. What do I do?](https://help.gcash.com/hc/en-us/articles/30845311649561-I-can-t-open-a-GFunds-account-What-do-I-do)\n- [I can’t access my GFunds account. What do I do?](https://help.gcash.com/hc/en-us/articles/30845136114201-I-can-t-access-my-GFunds-account-What-do-I-do)\n- [Why am I not qualified for GFunds?](https://help.gcash.com/hc/en-us/articles/30845376740249-Why-am-I-not-qualified-for-GFunds)\n[See all 6 articles](https://help.gcash.com/hc/en-us/sections/30830586318745-Get-Help-with-GFunds)\n\n[Are there funds on GFunds that pay dividends?](https://help.gcash.com/hc/en-us/articles/4414649972505-Are-there-funds-on-GFunds-that-pay-dividends)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How can I apply for GFunds?",
-    "What is the Risk Profile Questionnaire (RPQ) in GFunds?",
-    "What investment products are available on GFunds?",
-    "Does GFunds have a minimum maintaining balance to keep funds?",
-    "What are the GFunds fees I need to know about?",
-    "How can I buy funds in GFunds?",
-    "How can I sell/withdraw funds from GFunds?",
-    "How do I schedule automatic investments in GFunds?",
-    "How do I track my pending Buy and Sell orders in GFunds?",
-    "When will I receive my GFunds Buy or Sell orders?",
-    "How do I close my GFunds account?",
-    "How do I update my account information in GFunds?",
-    "My Sell Order has not been reflected in my GFunds account. What do I do?",
-    "I can’t buy or sell funds in GFunds. What do I do?",
-    "I can’t open a GFunds account. What do I do?",
-    "I can’t access my GFunds account. What do I do?",
-    "Why am I not qualified for GFunds?",
-    "Are there funds on GFunds that pay dividends?"
-  ]
+    {
+      "title": "How can I apply for GFunds?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017753033-How-can-I-apply-for-GFunds"
+    },
+    {
+      "title": "What is the Risk Profile Questionnaire (RPQ) in GFunds?",
+      "url": "https://help.gcash.com/hc/en-us/articles/900004631723-What-is-the-Risk-Profile-Questionnaire-RPQ-in-GFunds"
+    },
+    {
+      "title": "What investment products are available on GFunds?",
+      "url": "https://help.gcash.com/hc/en-us/articles/5951847409049-What-investment-products-are-available-on-GFunds"
+    },
+    {
+      "title": "Does GFunds have a minimum maintaining balance to keep funds?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30839343392153-Does-GFunds-have-a-minimum-maintaining-balance-to-keep-funds"
+    },
+    {
+      "title": "What are the GFunds fees I need to know about?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30841717008025-What-are-the-GFunds-fees-I-need-to-know-about"
+    },
+    {
+      "title": "How can I buy funds in GFunds?",
+      "url": "https://help.gcash.com/hc/en-us/articles/5351243796377-How-can-I-buy-funds-in-GFunds"
+    },
+    {
+      "title": "How can I sell/withdraw funds from GFunds?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30843460974489-How-can-I-sell-withdraw-funds-from-GFunds"
+    },
+    {
+      "title": "How do I schedule automatic investments in GFunds?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30844023946137-How-do-I-schedule-automatic-investments-in-GFunds"
+    },
+    {
+      "title": "How do I track my pending Buy and Sell orders in GFunds?",
+      "url": "https://help.gcash.com/hc/en-us/articles/900004505786-How-do-I-track-my-pending-Buy-and-Sell-orders-in-GFunds"
+    },
+    {
+      "title": "When will I receive my GFunds Buy or Sell orders?",
+      "url": "https://help.gcash.com/hc/en-us/articles/900004505746-When-will-I-receive-my-GFunds-Buy-or-Sell-orders"
+    },
+    {
+      "title": "How do I close my GFunds account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30844779903897-How-do-I-close-my-GFunds-account"
+    },
+    {
+      "title": "How do I update my account information in GFunds?",
+      "url": "https://help.gcash.com/hc/en-us/articles/900005381886-How-do-I-update-my-account-information-in-GFunds"
+    },
+    {
+      "title": "My Sell Order has not been reflected in my GFunds account. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/41040351575833-My-Sell-Order-has-not-been-reflected-in-my-GFunds-account-What-do-I-do"
+    },
+    {
+      "title": "I can’t buy or sell funds in GFunds. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/35735707460505-I-can-t-buy-or-sell-funds-in-GFunds-What-do-I-do"
+    },
+    {
+      "title": "I can’t open a GFunds account. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30845311649561-I-can-t-open-a-GFunds-account-What-do-I-do"
+    },
+    {
+      "title": "I can’t access my GFunds account. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30845136114201-I-can-t-access-my-GFunds-account-What-do-I-do"
+    },
+    {
+      "title": "Why am I not qualified for GFunds?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30845376740249-Why-am-I-not-qualified-for-GFunds"
+    },
+    {
+      "title": "Are there funds on GFunds that pay dividends?",
+      "url": "https://help.gcash.com/hc/en-us/articles/4414649972505-Are-there-funds-on-GFunds-that-pay-dividends"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Buy, manage, and sell investment products from our trusted partner providers"
 }

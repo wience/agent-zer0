@@ -1,21 +1,72 @@
 {
+  "article_id": null,
   "title": "Cash In",
+  "url": "https://help.gcash.com/hc/en-us/categories/360001959874",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n**Cash in via Linked Local Bank Partners**\n\n- [How do I link my Unionbank account to GCash?](https://help.gcash.com/hc/en-us/articles/40229264624793-How-do-I-link-my-Unionbank-account-to-GCash)\n- [How do I link my BPI to GCash?](https://help.gcash.com/hc/en-us/articles/360017898153-How-do-I-link-my-BPI-to-GCash)\n- [How do I cash in to GCash with my linked BPI account?](https://help.gcash.com/hc/en-us/articles/10282024155801-How-do-I-cash-in-to-GCash-with-my-linked-BPI-account)\n\n**Cash in via our Local Partners**\n\n- [I cashed in an over the counter store or a machine but I didn’t receive the money. What do I do?](https://help.gcash.com/hc/en-us/articles/45824474817945-I-cashed-in-an-over-the-counter-store-or-a-machine-but-I-didn-t-receive-the-money-What-do-I-do)\n- [Can I cash in to GCash with coins?](https://help.gcash.com/hc/en-us/articles/44671093605401-Can-I-cash-in-to-GCash-with-coins)\n- [Can I cash in to my GCash wallet using a Credit/Debit Card?](https://help.gcash.com/hc/en-us/articles/40228147605017-Can-I-cash-in-to-my-GCash-wallet-using-a-Credit-Debit-Card)\n- [How do I cash in to GCash from my online banking app or website?](https://help.gcash.com/hc/en-us/articles/40227839506457-How-do-I-cash-in-to-GCash-from-my-online-banking-app-or-website)\n- [Where can I cash in over-the-counter to my GCash account?](https://help.gcash.com/hc/en-us/articles/36156472206105-Where-can-I-cash-in-over-the-counter-to-my-GCash-account)\n- [How do I cash in to GCash from InstaPay or PESONet?](https://help.gcash.com/hc/en-us/articles/900006927603-How-do-I-cash-in-to-GCash-from-InstaPay-or-PESONet)\n[See all 7 articles](https://help.gcash.com/hc/en-us/sections/360004695933-Cash-in-via-our-Local-Partners)\n\n**Get help with Cash In**\n\n- [Why does my bank account unlink from GCash even though I already linked it before?](https://help.gcash.com/hc/en-us/articles/40231082838297-Why-does-my-bank-account-unlink-from-GCash-even-though-I-already-linked-it-before)\n- [I cashed in using international remittance but I didn’t receive the money. What do I do?](https://help.gcash.com/hc/en-us/articles/40230536902809-I-cashed-in-using-international-remittance-but-I-didn-t-receive-the-money-What-do-I-do)\n- [What are the GCash Cash In fees I need to know about?](https://help.gcash.com/hc/en-us/articles/360017595774-What-are-the-GCash-Cash-In-fees-I-need-to-know-about)\n- [I cashed in to the wrong GCash account. What can I do?](https://help.gcash.com/hc/en-us/articles/28754278401305-I-cashed-in-to-the-wrong-GCash-account-What-can-I-do)\n- [I transferred money or cashed in from a bank or e-wallet but I didn’t receive the money. What do I do?](https://help.gcash.com/hc/en-us/articles/28525930255769-I-transferred-money-or-cashed-in-from-a-bank-or-e-wallet-but-I-didn-t-receive-the-money-What-do-I-do)\n- [I cannot link my bank to GCash. What do I do?](https://help.gcash.com/hc/en-us/articles/28525410015257-I-cannot-link-my-bank-to-GCash-What-do-I-do)\n[See all 7 articles](https://help.gcash.com/hc/en-us/sections/20495739400217-Get-help-with-Cash-In)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How do I link my Unionbank account to GCash?",
-    "How do I link my BPI to GCash?",
-    "How do I cash in to GCash with my linked BPI account?",
-    "I cashed in an over the counter store or a machine but I didn’t receive the money. What do I do?",
-    "Can I cash in to GCash with coins?",
-    "Can I cash in to my GCash wallet using a Credit/Debit Card?",
-    "How do I cash in to GCash from my online banking app or website?",
-    "Where can I cash in over-the-counter to my GCash account?",
-    "How do I cash in to GCash from InstaPay or PESONet?",
-    "Why does my bank account unlink from GCash even though I already linked it before?",
-    "I cashed in using international remittance but I didn’t receive the money. What do I do?",
-    "What are the GCash Cash In fees I need to know about?",
-    "I cashed in to the wrong GCash account. What can I do?",
-    "I transferred money or cashed in from a bank or e-wallet but I didn’t receive the money. What do I do?",
-    "I cannot link my bank to GCash. What do I do?"
-  ]
+    {
+      "title": "How do I link my Unionbank account to GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40229264624793-How-do-I-link-my-Unionbank-account-to-GCash"
+    },
+    {
+      "title": "How do I link my BPI to GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017898153-How-do-I-link-my-BPI-to-GCash"
+    },
+    {
+      "title": "How do I cash in to GCash with my linked BPI account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/10282024155801-How-do-I-cash-in-to-GCash-with-my-linked-BPI-account"
+    },
+    {
+      "title": "I cashed in an over the counter store or a machine but I didn’t receive the money. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/45824474817945-I-cashed-in-an-over-the-counter-store-or-a-machine-but-I-didn-t-receive-the-money-What-do-I-do"
+    },
+    {
+      "title": "Can I cash in to GCash with coins?",
+      "url": "https://help.gcash.com/hc/en-us/articles/44671093605401-Can-I-cash-in-to-GCash-with-coins"
+    },
+    {
+      "title": "Can I cash in to my GCash wallet using a Credit/Debit Card?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40228147605017-Can-I-cash-in-to-my-GCash-wallet-using-a-Credit-Debit-Card"
+    },
+    {
+      "title": "How do I cash in to GCash from my online banking app or website?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40227839506457-How-do-I-cash-in-to-GCash-from-my-online-banking-app-or-website"
+    },
+    {
+      "title": "Where can I cash in over-the-counter to my GCash account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/36156472206105-Where-can-I-cash-in-over-the-counter-to-my-GCash-account"
+    },
+    {
+      "title": "How do I cash in to GCash from InstaPay or PESONet?",
+      "url": "https://help.gcash.com/hc/en-us/articles/900006927603-How-do-I-cash-in-to-GCash-from-InstaPay-or-PESONet"
+    },
+    {
+      "title": "Why does my bank account unlink from GCash even though I already linked it before?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40231082838297-Why-does-my-bank-account-unlink-from-GCash-even-though-I-already-linked-it-before"
+    },
+    {
+      "title": "I cashed in using international remittance but I didn’t receive the money. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40230536902809-I-cashed-in-using-international-remittance-but-I-didn-t-receive-the-money-What-do-I-do"
+    },
+    {
+      "title": "What are the GCash Cash In fees I need to know about?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017595774-What-are-the-GCash-Cash-In-fees-I-need-to-know-about"
+    },
+    {
+      "title": "I cashed in to the wrong GCash account. What can I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/28754278401305-I-cashed-in-to-the-wrong-GCash-account-What-can-I-do"
+    },
+    {
+      "title": "I transferred money or cashed in from a bank or e-wallet but I didn’t receive the money. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/28525930255769-I-transferred-money-or-cashed-in-from-a-bank-or-e-wallet-but-I-didn-t-receive-the-money-What-do-I-do"
+    },
+    {
+      "title": "I cannot link my bank to GCash. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/28525410015257-I-cannot-link-my-bank-to-GCash-What-do-I-do"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Learn how to add or withdraw funds from your GCash account."
 }

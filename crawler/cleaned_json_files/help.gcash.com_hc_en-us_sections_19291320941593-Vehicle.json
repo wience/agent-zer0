@@ -1,10 +1,28 @@
 {
+  "article_id": null,
   "title": "Vehicle",
+  "url": "https://help.gcash.com/hc/en-us/sections/19291320941593-Vehicle",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[BPI MS Compulsory Third Party Liability Insurance](https://help.gcash.com/hc/en-us/articles/6709500387481-BPI-MS-Compulsory-Third-Party-Liability-Insurance)\n\n[FPG Insurance Compulsory Third Party Liability (CTPL)](https://help.gcash.com/hc/en-us/articles/10444956195097-FPG-Insurance-Compulsory-Third-Party-Liability-CTPL)\n\n[Standard Insurance Car Protect](https://help.gcash.com/hc/en-us/articles/14465379575193-Standard-Insurance-Car-Protect)\n\n[Standard Insurance Compulsory Third Party Liability (CTPL)](https://help.gcash.com/hc/en-us/articles/14464629819161-Standard-Insurance-Compulsory-Third-Party-Liability-CTPL)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "BPI MS Compulsory Third Party Liability Insurance",
-    "FPG Insurance Compulsory Third Party Liability (CTPL)",
-    "Standard Insurance Car Protect",
-    "Standard Insurance Compulsory Third Party Liability (CTPL)"
-  ]
+    {
+      "title": "BPI MS Compulsory Third Party Liability Insurance",
+      "url": "https://help.gcash.com/hc/en-us/articles/6709500387481-BPI-MS-Compulsory-Third-Party-Liability-Insurance"
+    },
+    {
+      "title": "FPG Insurance Compulsory Third Party Liability (CTPL)",
+      "url": "https://help.gcash.com/hc/en-us/articles/10444956195097-FPG-Insurance-Compulsory-Third-Party-Liability-CTPL"
+    },
+    {
+      "title": "Standard Insurance Car Protect",
+      "url": "https://help.gcash.com/hc/en-us/articles/14465379575193-Standard-Insurance-Car-Protect"
+    },
+    {
+      "title": "Standard Insurance Compulsory Third Party Liability (CTPL)",
+      "url": "https://help.gcash.com/hc/en-us/articles/14464629819161-Standard-Insurance-Compulsory-Third-Party-Liability-CTPL"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Stay worry-free on the road by protecting you and your vehicle"
 }

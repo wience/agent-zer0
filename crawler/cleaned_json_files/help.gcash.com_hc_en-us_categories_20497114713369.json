@@ -1,15 +1,48 @@
 {
+  "article_id": null,
   "title": "Bills",
+  "url": "https://help.gcash.com/hc/en-us/categories/20497114713369",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n**Pay Bills**\n\n- [How do I pay my bills using GCash?](https://help.gcash.com/hc/en-us/articles/900004373166-How-do-I-pay-my-bills-using-GCash)\n- [How can I add/save my favorite billers in GCash?](https://help.gcash.com/hc/en-us/articles/30283013296793-How-can-I-add-save-my-favorite-billers-in-GCash)\n- [How do I schedule my bills payment in GCash?](https://help.gcash.com/hc/en-us/articles/360020931693-How-do-I-schedule-my-bills-payment-in-GCash)\n\n**Get Help with Bills**\n\n- [I can’t pay bills using GCash. What do I do?](https://help.gcash.com/hc/en-us/articles/30283132306329-I-can-t-pay-bills-using-GCash-What-do-I-do)\n- [I did not receive my top-up after using Bills. What do I do?](https://help.gcash.com/hc/en-us/articles/43474227595417-I-did-not-receive-my-top-up-after-using-Bills-What-do-I-do)\n- [My GCash bill payment was not posted or confirmed by the biller. What do I do?](https://help.gcash.com/hc/en-us/articles/30283229084185-My-GCash-bill-payment-was-not-posted-or-confirmed-by-the-biller-What-do-I-do)\n- [I was charged multiple times for my bills payment. What do I do?](https://help.gcash.com/hc/en-us/articles/30283455559449-I-was-charged-multiple-times-for-my-bills-payment-What-do-I-do)\n- [I entered the wrong details when paying my bills with GCash. What do I do?](https://help.gcash.com/hc/en-us/articles/30283468296089-I-entered-the-wrong-details-when-paying-my-bills-with-GCash-What-do-I-do)\n- [My GCash bills payment failed. What do I do?](https://help.gcash.com/hc/en-us/articles/43589087034265-My-GCash-bills-payment-failed-What-do-I-do)\n[See all 8 articles](https://help.gcash.com/hc/en-us/sections/30283136376217-Get-Help-with-Bills)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How do I pay my bills using GCash?",
-    "How can I add/save my favorite billers in GCash?",
-    "How do I schedule my bills payment in GCash?",
-    "I can’t pay bills using GCash. What do I do?",
-    "I did not receive my top-up after using Bills. What do I do?",
-    "My GCash bill payment was not posted or confirmed by the biller. What do I do?",
-    "I was charged multiple times for my bills payment. What do I do?",
-    "I entered the wrong details when paying my bills with GCash. What do I do?",
-    "My GCash bills payment failed. What do I do?"
-  ]
+    {
+      "title": "How do I pay my bills using GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/900004373166-How-do-I-pay-my-bills-using-GCash"
+    },
+    {
+      "title": "How can I add/save my favorite billers in GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30283013296793-How-can-I-add-save-my-favorite-billers-in-GCash"
+    },
+    {
+      "title": "How do I schedule my bills payment in GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360020931693-How-do-I-schedule-my-bills-payment-in-GCash"
+    },
+    {
+      "title": "I can’t pay bills using GCash. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30283132306329-I-can-t-pay-bills-using-GCash-What-do-I-do"
+    },
+    {
+      "title": "I did not receive my top-up after using Bills. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/43474227595417-I-did-not-receive-my-top-up-after-using-Bills-What-do-I-do"
+    },
+    {
+      "title": "My GCash bill payment was not posted or confirmed by the biller. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30283229084185-My-GCash-bill-payment-was-not-posted-or-confirmed-by-the-biller-What-do-I-do"
+    },
+    {
+      "title": "I was charged multiple times for my bills payment. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30283455559449-I-was-charged-multiple-times-for-my-bills-payment-What-do-I-do"
+    },
+    {
+      "title": "I entered the wrong details when paying my bills with GCash. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30283468296089-I-entered-the-wrong-details-when-paying-my-bills-with-GCash-What-do-I-do"
+    },
+    {
+      "title": "My GCash bills payment failed. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/43589087034265-My-GCash-bills-payment-failed-What-do-I-do"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Skip the lines and pay your bills to over 400+ billers even on-the-go!"
 }

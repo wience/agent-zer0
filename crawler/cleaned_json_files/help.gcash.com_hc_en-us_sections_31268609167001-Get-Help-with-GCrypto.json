@@ -1,13 +1,40 @@
 {
+  "article_id": null,
   "title": "Get Help with GCrypto",
+  "url": "https://help.gcash.com/hc/en-us/sections/31268609167001-Get-Help-with-GCrypto",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[My crypto transaction has not been reflected in my GCrypto Wallet. What do I do?](https://help.gcash.com/hc/en-us/articles/31310333948697-My-crypto-transaction-has-not-been-reflected-in-my-GCrypto-Wallet-What-do-I-do)\n\n[I can’t send or receive crypto in GCrypto. What do I do?](https://help.gcash.com/hc/en-us/articles/31309702924441-I-can-t-send-or-receive-crypto-in-GCrypto-What-do-I-do)\n\n[I topped up my GCrypto wallet but it has not been reflected yet. What do I do?](https://help.gcash.com/hc/en-us/articles/31309647263001-I-topped-up-my-GCrypto-wallet-but-it-has-not-been-reflected-yet-What-do-I-do)\n\n[I can’t access my GCrypto account. What do I do?](https://help.gcash.com/hc/en-us/articles/31309514462873-I-can-t-access-my-GCrypto-account-What-do-I-do)\n\n[I can’t buy/sell on GCrypto. What do I do?](https://help.gcash.com/hc/en-us/articles/31309437398041-I-can-t-buy-sell-on-GCrypto-What-do-I-do)\n\n[I didn’t receive a verification code for my GCrypto order. What do I do?](https://help.gcash.com/hc/en-us/articles/31309336362649-I-didn-t-receive-a-verification-code-for-my-GCrypto-order-What-do-I-do)\n\n[I can’t open an account in GCrypto. What do I do?](https://help.gcash.com/hc/en-us/articles/31309254502553-I-can-t-open-an-account-in-GCrypto-What-do-I-do)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "My crypto transaction has not been reflected in my GCrypto Wallet. What do I do?",
-    "I can’t send or receive crypto in GCrypto. What do I do?",
-    "I topped up my GCrypto wallet but it has not been reflected yet. What do I do?",
-    "I can’t access my GCrypto account. What do I do?",
-    "I can’t buy/sell on GCrypto. What do I do?",
-    "I didn’t receive a verification code for my GCrypto order. What do I do?",
-    "I can’t open an account in GCrypto. What do I do?"
-  ]
+    {
+      "title": "My crypto transaction has not been reflected in my GCrypto Wallet. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31310333948697-My-crypto-transaction-has-not-been-reflected-in-my-GCrypto-Wallet-What-do-I-do"
+    },
+    {
+      "title": "I can’t send or receive crypto in GCrypto. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31309702924441-I-can-t-send-or-receive-crypto-in-GCrypto-What-do-I-do"
+    },
+    {
+      "title": "I topped up my GCrypto wallet but it has not been reflected yet. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31309647263001-I-topped-up-my-GCrypto-wallet-but-it-has-not-been-reflected-yet-What-do-I-do"
+    },
+    {
+      "title": "I can’t access my GCrypto account. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31309514462873-I-can-t-access-my-GCrypto-account-What-do-I-do"
+    },
+    {
+      "title": "I can’t buy/sell on GCrypto. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31309437398041-I-can-t-buy-sell-on-GCrypto-What-do-I-do"
+    },
+    {
+      "title": "I didn’t receive a verification code for my GCrypto order. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31309336362649-I-didn-t-receive-a-verification-code-for-my-GCrypto-order-What-do-I-do"
+    },
+    {
+      "title": "I can’t open an account in GCrypto. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31309254502553-I-can-t-open-an-account-in-GCrypto-What-do-I-do"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

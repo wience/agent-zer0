@@ -1,9 +1,24 @@
 {
+  "article_id": null,
   "title": "Transfer money from GCash to a bank/e-wallet",
+  "url": "https://help.gcash.com/hc/en-us/sections/360004657814-Transfer-money-from-GCash-to-a-bank-e-wallet",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[How do I transfer money to a bank/e-wallet from my GCash account?](https://help.gcash.com/hc/en-us/articles/360017566414-How-do-I-transfer-money-to-a-bank-e-wallet-from-my-GCash-account)\n\n[How do I save my bank accounts for Bank Transfers using GCash?](https://help.gcash.com/hc/en-us/articles/30245229511321-How-do-I-save-my-bank-accounts-for-Bank-Transfers-using-GCash)\n\n[How can I schedule a bank transfer in GCash?](https://help.gcash.com/hc/en-us/articles/30245233595929-How-can-I-schedule-a-bank-transfer-in-GCash)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How do I transfer money to a bank/e-wallet from my GCash account?",
-    "How do I save my bank accounts for Bank Transfers using GCash?",
-    "How can I schedule a bank transfer in GCash?"
-  ]
+    {
+      "title": "How do I transfer money to a bank/e-wallet from my GCash account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017566414-How-do-I-transfer-money-to-a-bank-e-wallet-from-my-GCash-account"
+    },
+    {
+      "title": "How do I save my bank accounts for Bank Transfers using GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30245229511321-How-do-I-save-my-bank-accounts-for-Bank-Transfers-using-GCash"
+    },
+    {
+      "title": "How can I schedule a bank transfer in GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30245233595929-How-can-I-schedule-a-bank-transfer-in-GCash"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Experience easy, convenient, and secure fund transfers from GCash to other banks."
 }

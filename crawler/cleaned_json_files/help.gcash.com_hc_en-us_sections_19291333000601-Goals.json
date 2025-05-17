@@ -1,9 +1,24 @@
 {
+  "article_id": null,
   "title": "Goals",
+  "url": "https://help.gcash.com/hc/en-us/sections/19291333000601-Goals",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[Singlife Cash for Goals](https://help.gcash.com/hc/en-us/articles/17683969595417-Singlife-Cash-for-Goals)\n\n[Singlife Cash for Goals (Education)](https://help.gcash.com/hc/en-us/articles/9885221094809-Singlife-Cash-for-Goals-Education)\n\n[Singlife Ready, Set, Grow](https://help.gcash.com/hc/en-us/articles/18340243460249-Singlife-Ready-Set-Grow)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "Singlife Cash for Goals",
-    "Singlife Cash for Goals (Education)",
-    "Singlife Ready, Set, Grow"
-  ]
+    {
+      "title": "Singlife Cash for Goals",
+      "url": "https://help.gcash.com/hc/en-us/articles/17683969595417-Singlife-Cash-for-Goals"
+    },
+    {
+      "title": "Singlife Cash for Goals (Education)",
+      "url": "https://help.gcash.com/hc/en-us/articles/9885221094809-Singlife-Cash-for-Goals-Education"
+    },
+    {
+      "title": "Singlife Ready, Set, Grow",
+      "url": "https://help.gcash.com/hc/en-us/articles/18340243460249-Singlife-Ready-Set-Grow"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Reach your financial goals with ready-made investment packages"
 }

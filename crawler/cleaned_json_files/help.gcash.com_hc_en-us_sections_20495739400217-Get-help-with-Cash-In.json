@@ -1,13 +1,40 @@
 {
+  "article_id": null,
   "title": "Get help with Cash In",
+  "url": "https://help.gcash.com/hc/en-us/sections/20495739400217-Get-help-with-Cash-In",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[Why does my bank account unlink from GCash even though I already linked it before?](https://help.gcash.com/hc/en-us/articles/40231082838297-Why-does-my-bank-account-unlink-from-GCash-even-though-I-already-linked-it-before)\n\n[I cashed in using international remittance but I didn’t receive the money. What do I do?](https://help.gcash.com/hc/en-us/articles/40230536902809-I-cashed-in-using-international-remittance-but-I-didn-t-receive-the-money-What-do-I-do)\n\n[What are the GCash Cash In fees I need to know about?](https://help.gcash.com/hc/en-us/articles/360017595774-What-are-the-GCash-Cash-In-fees-I-need-to-know-about)\n\n[I cashed in to the wrong GCash account. What can I do?](https://help.gcash.com/hc/en-us/articles/28754278401305-I-cashed-in-to-the-wrong-GCash-account-What-can-I-do)\n\n[I transferred money or cashed in from a bank or e-wallet but I didn’t receive the money. What do I do?](https://help.gcash.com/hc/en-us/articles/28525930255769-I-transferred-money-or-cashed-in-from-a-bank-or-e-wallet-but-I-didn-t-receive-the-money-What-do-I-do)\n\n[I cannot link my bank to GCash. What do I do?](https://help.gcash.com/hc/en-us/articles/28525410015257-I-cannot-link-my-bank-to-GCash-What-do-I-do)\n\n[I can’t cash in to my GCash wallet. What do I do?](https://help.gcash.com/hc/en-us/articles/28525786707225-I-can-t-cash-in-to-my-GCash-wallet-What-do-I-do)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "Why does my bank account unlink from GCash even though I already linked it before?",
-    "I cashed in using international remittance but I didn’t receive the money. What do I do?",
-    "What are the GCash Cash In fees I need to know about?",
-    "I cashed in to the wrong GCash account. What can I do?",
-    "I transferred money or cashed in from a bank or e-wallet but I didn’t receive the money. What do I do?",
-    "I cannot link my bank to GCash. What do I do?",
-    "I can’t cash in to my GCash wallet. What do I do?"
-  ]
+    {
+      "title": "Why does my bank account unlink from GCash even though I already linked it before?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40231082838297-Why-does-my-bank-account-unlink-from-GCash-even-though-I-already-linked-it-before"
+    },
+    {
+      "title": "I cashed in using international remittance but I didn’t receive the money. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40230536902809-I-cashed-in-using-international-remittance-but-I-didn-t-receive-the-money-What-do-I-do"
+    },
+    {
+      "title": "What are the GCash Cash In fees I need to know about?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017595774-What-are-the-GCash-Cash-In-fees-I-need-to-know-about"
+    },
+    {
+      "title": "I cashed in to the wrong GCash account. What can I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/28754278401305-I-cashed-in-to-the-wrong-GCash-account-What-can-I-do"
+    },
+    {
+      "title": "I transferred money or cashed in from a bank or e-wallet but I didn’t receive the money. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/28525930255769-I-transferred-money-or-cashed-in-from-a-bank-or-e-wallet-but-I-didn-t-receive-the-money-What-do-I-do"
+    },
+    {
+      "title": "I cannot link my bank to GCash. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/28525410015257-I-cannot-link-my-bank-to-GCash-What-do-I-do"
+    },
+    {
+      "title": "I can’t cash in to my GCash wallet. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/28525786707225-I-can-t-cash-in-to-my-GCash-wallet-What-do-I-do"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

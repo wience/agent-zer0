@@ -1,12 +1,36 @@
 {
+  "article_id": null,
   "title": "MySaveUp by BPI",
+  "url": "https://help.gcash.com/hc/en-us/sections/4935148926489-MySaveUp-by-BPI",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[Can I open a #MySaveUp by BPI account?](https://help.gcash.com/hc/en-us/articles/30335443503385-Can-I-open-a-MySaveUp-by-BPI-account)\n\n[What is the interest rate in #MySaveUp by BPI?](https://help.gcash.com/hc/en-us/articles/30242240950809-What-is-the-interest-rate-in-MySaveUp-by-BPI)\n\n[How can I make a deposit to my #MySaveUp by BPI account?](https://help.gcash.com/hc/en-us/articles/5134504808473-How-can-I-make-a-deposit-to-my-MySaveUp-by-BPI-account)\n\n[How can I withdraw from my #MySaveUp by BPI account?](https://help.gcash.com/hc/en-us/articles/30242279662233-How-can-I-withdraw-from-my-MySaveUp-by-BPI-account)\n\n[How can I update the mobile number linked to my #MySaveUp by BPI account?](https://help.gcash.com/hc/en-us/articles/5846368238873-How-can-I-update-the-mobile-number-linked-to-my-MySaveUp-by-BPI-account)\n\n[How can I close my #MySaveUp by BPI account?](https://help.gcash.com/hc/en-us/articles/30242463562905-How-can-I-close-my-MySaveUp-by-BPI-account)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "Can I open a #MySaveUp by BPI account?",
-    "What is the interest rate in #MySaveUp by BPI?",
-    "How can I make a deposit to my #MySaveUp by BPI account?",
-    "How can I withdraw from my #MySaveUp by BPI account?",
-    "How can I update the mobile number linked to my #MySaveUp by BPI account?",
-    "How can I close my #MySaveUp by BPI account?"
-  ]
+    {
+      "title": "Can I open a #MySaveUp by BPI account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30335443503385-Can-I-open-a-MySaveUp-by-BPI-account"
+    },
+    {
+      "title": "What is the interest rate in #MySaveUp by BPI?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30242240950809-What-is-the-interest-rate-in-MySaveUp-by-BPI"
+    },
+    {
+      "title": "How can I make a deposit to my #MySaveUp by BPI account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/5134504808473-How-can-I-make-a-deposit-to-my-MySaveUp-by-BPI-account"
+    },
+    {
+      "title": "How can I withdraw from my #MySaveUp by BPI account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30242279662233-How-can-I-withdraw-from-my-MySaveUp-by-BPI-account"
+    },
+    {
+      "title": "How can I update the mobile number linked to my #MySaveUp by BPI account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/5846368238873-How-can-I-update-the-mobile-number-linked-to-my-MySaveUp-by-BPI-account"
+    },
+    {
+      "title": "How can I close my #MySaveUp by BPI account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30242463562905-How-can-I-close-my-MySaveUp-by-BPI-account"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Create an all-digital #MySaveUp account and enjoy free transfers between GCash and high interest rates."
 }

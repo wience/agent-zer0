@@ -1,8 +1,20 @@
 {
+  "article_id": null,
   "title": "Top-up or Withdraw with GStocks PH",
+  "url": "https://help.gcash.com/hc/en-us/sections/12859311600921-Top-up-or-Withdraw-with-GStocks-PH",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[How can I top up my GStocks PH account?](https://help.gcash.com/hc/en-us/articles/17542490721689-How-can-I-top-up-my-GStocks-PH-account)\n\n[How can I withdraw from my GStocks PH Wallet account?](https://help.gcash.com/hc/en-us/articles/31210579108633-How-can-I-withdraw-from-my-GStocks-PH-Wallet-account)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How can I top up my GStocks PH account?",
-    "How can I withdraw from my GStocks PH Wallet account?"
-  ]
+    {
+      "title": "How can I top up my GStocks PH account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/17542490721689-How-can-I-top-up-my-GStocks-PH-account"
+    },
+    {
+      "title": "How can I withdraw from my GStocks PH Wallet account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31210579108633-How-can-I-withdraw-from-my-GStocks-PH-Wallet-account"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

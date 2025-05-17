@@ -1,21 +1,72 @@
 {
+  "article_id": null,
   "title": "GCash for Business",
+  "url": "https://help.gcash.com/hc/en-us/categories/4407779324185-GCash-for-Business",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n**Enterprise**\n\n- [PowerPay Plus via GCashBiz](https://help.gcash.com/hc/en-us/articles/23399464445849-PowerPay-Plus-via-GCashBiz)\n- [Funds Disbursement Service via GCash Biz](https://help.gcash.com/hc/en-us/articles/15769253153177-Funds-Disbursement-Service-via-GCash-Biz)\n- [GCash for Business Scan to Pay with In-store QR](https://help.gcash.com/hc/en-us/articles/900006198423-GCash-for-Business-Scan-to-Pay-with-In-store-QR)\n\n**Sari-Sari Store**\n\n- [GCash Pera Outlet Terms and Conditions](https://help.gcash.com/hc/en-us/articles/46184546420633-GCash-Pera-Outlet-Terms-and-Conditions)\n- [GCash Pera Outlet Commissions and Fees](https://help.gcash.com/hc/en-us/articles/45731364203801-GCash-Pera-Outlet-Commissions-and-Fees)\n- [Paano mag fund-in sa GPO Wallet?](https://help.gcash.com/hc/en-us/articles/45731124127513-Paano-mag-fund-in-sa-GPO-Wallet)\n- [Mag-apply bilang isang GCash Pera Outlet Partner](https://help.gcash.com/hc/en-us/articles/4408281111577-Mag-apply-bilang-isang-GCash-Pera-Outlet-Partner)\n- [Official GCash Pera Outlet Distributors](https://help.gcash.com/hc/en-us/articles/8933242417817-Official-GCash-Pera-Outlet-Distributors)\n- [Alamin ang status ng GCash Pera Outlet application](https://help.gcash.com/hc/en-us/articles/23470661850521-Alamin-ang-status-ng-GCash-Pera-Outlet-application)\n[See all 11 articles](https://help.gcash.com/hc/en-us/sections/4407792390297-Sari-Sari-Store)\n\n**MSME**\n\n- [What is GCash PocketPay?](https://help.gcash.com/hc/en-us/articles/46909783991705-What-is-GCash-PocketPay)\n- [I have a problem with my SoundPay device. What do I do?](https://help.gcash.com/hc/en-us/articles/44671600037401-I-have-a-problem-with-my-SoundPay-device-What-do-I-do)\n- [What is SoundPay?](https://help.gcash.com/hc/en-us/articles/44671219480345-What-is-SoundPay)\n- [Official GCash for Business MSME Distributors](https://help.gcash.com/hc/en-us/articles/39383685151513-Official-GCash-for-Business-MSME-Distributors)\n\n**Account Management**\n\n- [Nominate Authorized Representatives for your business](https://help.gcash.com/hc/en-us/articles/23624753147417-Nominate-Authorized-Representatives-for-your-business)\n\n**Riders/Drivers**\n\n- [Top up vouchers para sa Grab/Angkas riders](https://help.gcash.com/hc/en-us/articles/23366075172633-Top-up-vouchers-para-sa-Grab-Angkas-riders)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "PowerPay Plus via GCashBiz",
-    "Funds Disbursement Service via GCash Biz",
-    "GCash for Business Scan to Pay with In-store QR",
-    "GCash Pera Outlet Terms and Conditions",
-    "GCash Pera Outlet Commissions and Fees",
-    "Paano mag fund-in sa GPO Wallet?",
-    "Mag-apply bilang isang GCash Pera Outlet Partner",
-    "Official GCash Pera Outlet Distributors",
-    "Alamin ang status ng GCash Pera Outlet application",
-    "What is GCash PocketPay?",
-    "I have a problem with my SoundPay device. What do I do?",
-    "What is SoundPay?",
-    "Official GCash for Business MSME Distributors",
-    "Nominate Authorized Representatives for your business",
-    "Top up vouchers para sa Grab/Angkas riders"
-  ]
+    {
+      "title": "PowerPay Plus via GCashBiz",
+      "url": "https://help.gcash.com/hc/en-us/articles/23399464445849-PowerPay-Plus-via-GCashBiz"
+    },
+    {
+      "title": "Funds Disbursement Service via GCash Biz",
+      "url": "https://help.gcash.com/hc/en-us/articles/15769253153177-Funds-Disbursement-Service-via-GCash-Biz"
+    },
+    {
+      "title": "GCash for Business Scan to Pay with In-store QR",
+      "url": "https://help.gcash.com/hc/en-us/articles/900006198423-GCash-for-Business-Scan-to-Pay-with-In-store-QR"
+    },
+    {
+      "title": "GCash Pera Outlet Terms and Conditions",
+      "url": "https://help.gcash.com/hc/en-us/articles/46184546420633-GCash-Pera-Outlet-Terms-and-Conditions"
+    },
+    {
+      "title": "GCash Pera Outlet Commissions and Fees",
+      "url": "https://help.gcash.com/hc/en-us/articles/45731364203801-GCash-Pera-Outlet-Commissions-and-Fees"
+    },
+    {
+      "title": "Paano mag fund-in sa GPO Wallet?",
+      "url": "https://help.gcash.com/hc/en-us/articles/45731124127513-Paano-mag-fund-in-sa-GPO-Wallet"
+    },
+    {
+      "title": "Mag-apply bilang isang GCash Pera Outlet Partner",
+      "url": "https://help.gcash.com/hc/en-us/articles/4408281111577-Mag-apply-bilang-isang-GCash-Pera-Outlet-Partner"
+    },
+    {
+      "title": "Official GCash Pera Outlet Distributors",
+      "url": "https://help.gcash.com/hc/en-us/articles/8933242417817-Official-GCash-Pera-Outlet-Distributors"
+    },
+    {
+      "title": "Alamin ang status ng GCash Pera Outlet application",
+      "url": "https://help.gcash.com/hc/en-us/articles/23470661850521-Alamin-ang-status-ng-GCash-Pera-Outlet-application"
+    },
+    {
+      "title": "What is GCash PocketPay?",
+      "url": "https://help.gcash.com/hc/en-us/articles/46909783991705-What-is-GCash-PocketPay"
+    },
+    {
+      "title": "I have a problem with my SoundPay device. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/44671600037401-I-have-a-problem-with-my-SoundPay-device-What-do-I-do"
+    },
+    {
+      "title": "What is SoundPay?",
+      "url": "https://help.gcash.com/hc/en-us/articles/44671219480345-What-is-SoundPay"
+    },
+    {
+      "title": "Official GCash for Business MSME Distributors",
+      "url": "https://help.gcash.com/hc/en-us/articles/39383685151513-Official-GCash-for-Business-MSME-Distributors"
+    },
+    {
+      "title": "Nominate Authorized Representatives for your business",
+      "url": "https://help.gcash.com/hc/en-us/articles/23624753147417-Nominate-Authorized-Representatives-for-your-business"
+    },
+    {
+      "title": "Top up vouchers para sa Grab/Angkas riders",
+      "url": "https://help.gcash.com/hc/en-us/articles/23366075172633-Top-up-vouchers-para-sa-Grab-Angkas-riders"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Learn how you can manage your business with GCash"
 }

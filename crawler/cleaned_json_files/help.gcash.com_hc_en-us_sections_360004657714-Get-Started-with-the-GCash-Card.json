@@ -1,11 +1,32 @@
 {
+  "article_id": null,
   "title": "Get Started with the GCash Card",
+  "url": "https://help.gcash.com/hc/en-us/sections/360004657714-Get-Started-with-the-GCash-Card",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[What can I do with my GCash VISA/Mastercard Card?](https://help.gcash.com/hc/en-us/articles/360017730834-What-can-I-do-with-my-GCash-VISA-Mastercard-Card)\n\n[How can I order a GCash VISA Card?](https://help.gcash.com/hc/en-us/articles/30286702730265-How-can-I-order-a-GCash-VISA-Card)\n\n[Can GCash deliver my GCash Card to my location?](https://help.gcash.com/hc/en-us/articles/21043404386585-Can-GCash-deliver-my-GCash-Card-to-my-location)\n\n[How do I withdraw cash using my GCash VISA/Mastercard Card?](https://help.gcash.com/hc/en-us/articles/360017595494-How-do-I-withdraw-cash-using-my-GCash-VISA-Mastercard-Card)\n\n[GCash Card Fast FAQS](https://help.gcash.com/hc/en-us/articles/21907534783769-GCash-Card-Fast-FAQS)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "What can I do with my GCash VISA/Mastercard Card?",
-    "How can I order a GCash VISA Card?",
-    "Can GCash deliver my GCash Card to my location?",
-    "How do I withdraw cash using my GCash VISA/Mastercard Card?",
-    "GCash Card Fast FAQS"
-  ]
+    {
+      "title": "What can I do with my GCash VISA/Mastercard Card?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017730834-What-can-I-do-with-my-GCash-VISA-Mastercard-Card"
+    },
+    {
+      "title": "How can I order a GCash VISA Card?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30286702730265-How-can-I-order-a-GCash-VISA-Card"
+    },
+    {
+      "title": "Can GCash deliver my GCash Card to my location?",
+      "url": "https://help.gcash.com/hc/en-us/articles/21043404386585-Can-GCash-deliver-my-GCash-Card-to-my-location"
+    },
+    {
+      "title": "How do I withdraw cash using my GCash VISA/Mastercard Card?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017595494-How-do-I-withdraw-cash-using-my-GCash-VISA-Mastercard-Card"
+    },
+    {
+      "title": "GCash Card Fast FAQS",
+      "url": "https://help.gcash.com/hc/en-us/articles/21907534783769-GCash-Card-Fast-FAQS"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

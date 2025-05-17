@@ -1,13 +1,40 @@
 {
+  "article_id": null,
   "title": "Borrow Load",
+  "url": "https://help.gcash.com/hc/en-us/sections/22837621024409-Borrow-Load",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[What are the GCash Borrow Load fees I need to know about?](https://help.gcash.com/hc/en-us/articles/40476455413017-What-are-the-GCash-Borrow-Load-fees-I-need-to-know-about)\n\n[I have a concern with GCash Borrow Load. What do I do?](https://help.gcash.com/hc/en-us/articles/40476345424153-I-have-a-concern-with-GCash-Borrow-Load-What-do-I-do)\n\n[How can I repay my GCash Borrow Load?](https://help.gcash.com/hc/en-us/articles/40476168459929-How-can-I-repay-my-GCash-Borrow-Load)\n\n[What are the GCash Borrow Load promos available?](https://help.gcash.com/hc/en-us/articles/40475956597017-What-are-the-GCash-Borrow-Load-promos-available)\n\n[Can I borrow load on GCash?](https://help.gcash.com/hc/en-us/articles/40475792516377-Can-I-borrow-load-on-GCash)\n\n[I canceled my Borrow Load transaction but it still pushed through. What do I do?](https://help.gcash.com/hc/en-us/articles/40475592668441-I-canceled-my-Borrow-Load-transaction-but-it-still-pushed-through-What-do-I-do)\n\n[GCash Borrow Load](https://help.gcash.com/hc/en-us/articles/8934604455065-GCash-Borrow-Load)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "What are the GCash Borrow Load fees I need to know about?",
-    "I have a concern with GCash Borrow Load. What do I do?",
-    "How can I repay my GCash Borrow Load?",
-    "What are the GCash Borrow Load promos available?",
-    "Can I borrow load on GCash?",
-    "I canceled my Borrow Load transaction but it still pushed through. What do I do?",
-    "GCash Borrow Load"
-  ]
+    {
+      "title": "What are the GCash Borrow Load fees I need to know about?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40476455413017-What-are-the-GCash-Borrow-Load-fees-I-need-to-know-about"
+    },
+    {
+      "title": "I have a concern with GCash Borrow Load. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40476345424153-I-have-a-concern-with-GCash-Borrow-Load-What-do-I-do"
+    },
+    {
+      "title": "How can I repay my GCash Borrow Load?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40476168459929-How-can-I-repay-my-GCash-Borrow-Load"
+    },
+    {
+      "title": "What are the GCash Borrow Load promos available?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40475956597017-What-are-the-GCash-Borrow-Load-promos-available"
+    },
+    {
+      "title": "Can I borrow load on GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40475792516377-Can-I-borrow-load-on-GCash"
+    },
+    {
+      "title": "I canceled my Borrow Load transaction but it still pushed through. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40475592668441-I-canceled-my-Borrow-Load-transaction-but-it-still-pushed-through-What-do-I-do"
+    },
+    {
+      "title": "GCash Borrow Load",
+      "url": "https://help.gcash.com/hc/en-us/articles/8934604455065-GCash-Borrow-Load"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

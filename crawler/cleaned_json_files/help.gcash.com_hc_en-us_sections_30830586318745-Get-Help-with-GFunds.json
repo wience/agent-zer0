@@ -1,12 +1,36 @@
 {
+  "article_id": null,
   "title": "Get Help with GFunds",
+  "url": "https://help.gcash.com/hc/en-us/sections/30830586318745-Get-Help-with-GFunds",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[My Sell Order has not been reflected in my GFunds account. What do I do?](https://help.gcash.com/hc/en-us/articles/41040351575833-My-Sell-Order-has-not-been-reflected-in-my-GFunds-account-What-do-I-do)\n\n[I can’t buy or sell funds in GFunds. What do I do?](https://help.gcash.com/hc/en-us/articles/35735707460505-I-can-t-buy-or-sell-funds-in-GFunds-What-do-I-do)\n\n[I can’t open a GFunds account. What do I do?](https://help.gcash.com/hc/en-us/articles/30845311649561-I-can-t-open-a-GFunds-account-What-do-I-do)\n\n[I can’t access my GFunds account. What do I do?](https://help.gcash.com/hc/en-us/articles/30845136114201-I-can-t-access-my-GFunds-account-What-do-I-do)\n\n[Why am I not qualified for GFunds?](https://help.gcash.com/hc/en-us/articles/30845376740249-Why-am-I-not-qualified-for-GFunds)\n\n[My Buy Order has not been reflected in my GFunds account. What do I do?](https://help.gcash.com/hc/en-us/articles/30845990526105-My-Buy-Order-has-not-been-reflected-in-my-GFunds-account-What-do-I-do)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "My Sell Order has not been reflected in my GFunds account. What do I do?",
-    "I can’t buy or sell funds in GFunds. What do I do?",
-    "I can’t open a GFunds account. What do I do?",
-    "I can’t access my GFunds account. What do I do?",
-    "Why am I not qualified for GFunds?",
-    "My Buy Order has not been reflected in my GFunds account. What do I do?"
-  ]
+    {
+      "title": "My Sell Order has not been reflected in my GFunds account. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/41040351575833-My-Sell-Order-has-not-been-reflected-in-my-GFunds-account-What-do-I-do"
+    },
+    {
+      "title": "I can’t buy or sell funds in GFunds. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/35735707460505-I-can-t-buy-or-sell-funds-in-GFunds-What-do-I-do"
+    },
+    {
+      "title": "I can’t open a GFunds account. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30845311649561-I-can-t-open-a-GFunds-account-What-do-I-do"
+    },
+    {
+      "title": "I can’t access my GFunds account. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30845136114201-I-can-t-access-my-GFunds-account-What-do-I-do"
+    },
+    {
+      "title": "Why am I not qualified for GFunds?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30845376740249-Why-am-I-not-qualified-for-GFunds"
+    },
+    {
+      "title": "My Buy Order has not been reflected in my GFunds account. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30845990526105-My-Buy-Order-has-not-been-reflected-in-my-GFunds-account-What-do-I-do"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

@@ -1,7 +1,16 @@
 {
+  "article_id": null,
   "title": "Get help with my Cash Out",
+  "url": "https://help.gcash.com/hc/en-us/sections/39566614572441-Get-help-with-my-Cash-Out",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[My QR code is expired or invalid when using RCBC Scan to Withdraw. What should I do?](https://help.gcash.com/hc/en-us/articles/39566605811993-My-QR-code-is-expired-or-invalid-when-using-RCBC-Scan-to-Withdraw-What-should-I-do)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "My QR code is expired or invalid when using RCBC Scan to Withdraw. What should I do?"
-  ]
+    {
+      "title": "My QR code is expired or invalid when using RCBC Scan to Withdraw. What should I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/39566605811993-My-QR-code-is-expired-or-invalid-when-using-RCBC-Scan-to-Withdraw-What-should-I-do"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

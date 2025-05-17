@@ -1,11 +1,32 @@
 {
+  "article_id": null,
   "title": "Manage your GStocks PH Account",
+  "url": "https://help.gcash.com/hc/en-us/sections/12859309407513-Manage-your-GStocks-PH-Account",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[How can I update my account information in my GStocks PH account?](https://help.gcash.com/hc/en-us/articles/31218818513305-How-can-I-update-my-account-information-in-my-GStocks-PH-account)\n\n[Are there dividend stocks available in GStocks PH?](https://help.gcash.com/hc/en-us/articles/31218842595353-Are-there-dividend-stocks-available-in-GStocks-PH)\n\n[What are the applicable cash or property dividend taxes in GStocks PH?](https://help.gcash.com/hc/en-us/articles/31219798745625-What-are-the-applicable-cash-or-property-dividend-taxes-in-GStocks-PH)\n\n[Can I transfer stockholdings to another Philippine stock brokerage firm in GStocks PH?](https://help.gcash.com/hc/en-us/articles/31225286057369-Can-I-transfer-stockholdings-to-another-Philippine-stock-brokerage-firm-in-GStocks-PH)\n\n[How can I close my GStocks PH account?](https://help.gcash.com/hc/en-us/articles/31259171664537-How-can-I-close-my-GStocks-PH-account)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How can I update my account information in my GStocks PH account?",
-    "Are there dividend stocks available in GStocks PH?",
-    "What are the applicable cash or property dividend taxes in GStocks PH?",
-    "Can I transfer stockholdings to another Philippine stock brokerage firm in GStocks PH?",
-    "How can I close my GStocks PH account?"
-  ]
+    {
+      "title": "How can I update my account information in my GStocks PH account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31218818513305-How-can-I-update-my-account-information-in-my-GStocks-PH-account"
+    },
+    {
+      "title": "Are there dividend stocks available in GStocks PH?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31218842595353-Are-there-dividend-stocks-available-in-GStocks-PH"
+    },
+    {
+      "title": "What are the applicable cash or property dividend taxes in GStocks PH?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31219798745625-What-are-the-applicable-cash-or-property-dividend-taxes-in-GStocks-PH"
+    },
+    {
+      "title": "Can I transfer stockholdings to another Philippine stock brokerage firm in GStocks PH?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31225286057369-Can-I-transfer-stockholdings-to-another-Philippine-stock-brokerage-firm-in-GStocks-PH"
+    },
+    {
+      "title": "How can I close my GStocks PH account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/31259171664537-How-can-I-close-my-GStocks-PH-account"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Buy, sell, and manage stocks from companies listed on the Philippine Stock Exchange (PSE) with no monthly or annual fees."
 }

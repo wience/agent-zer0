@@ -1,19 +1,68 @@
 {
+  "article_id": "10282024155801",
   "title": "How do I cash in to GCash with my linked BPI account?",
+  "url": "https://help.gcash.com/hc/en-us/articles/10282024155801-How-do-I-cash-in-to-GCash-with-my-linked-BPI-account",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n## Articles in this section\n\n- [How do I link my Unionbank account to GCash?](https://help.gcash.com/hc/en-us/articles/40229264624793-How-do-I-link-my-Unionbank-account-to-GCash)\n- [How do I link my BPI to GCash?](https://help.gcash.com/hc/en-us/articles/360017898153-How-do-I-link-my-BPI-to-GCash)\n- [How do I cash in to GCash with my linked BPI account?](https://help.gcash.com/hc/en-us/articles/10282024155801-How-do-I-cash-in-to-GCash-with-my-linked-BPI-account)\n\n## Promoted articles\n\n- [What are the steps to get a Fully Verified GCash account?](https://help.gcash.com/hc/en-us/articles/360017722393-What-are-the-steps-to-get-a-Fully-Verified-GCash-account)\n- [Accepted IDs for GCash Verification](https://help.gcash.com/hc/en-us/articles/900000948786-Accepted-IDs-for-GCash-Verification)\n- [How do I send money to another GCash account?](https://help.gcash.com/hc/en-us/articles/360017566614-How-do-I-send-money-to-another-GCash-account)\n\nCheck your [GCash Wallet and Transaction limits](https://help.gcash.com/hc/en-us/articles/360021112894-GCash-Wallet-and-Transaction-Limits), and follow these steps to cash in from a linked BPI account:\n\n1. On the GCash homepage, tap **Cash In**\n2. Tap **Local Banks**\n3. Select **BPI** or **UnionBank**\n4. Enter the cash-in amount and select the account\n5. Review the details and tap **Confirm**\n\nOnce successful, a confirmation screen will appear and your balance will update immediately. You’ll also receive a confirmation **via email and SMS** for this transaction.\n\n**If the transaction fails,** the total amount, including convenience fees, will be refunded to the original account.\n\nNote:\n\nA PHP 5.00 convenience fee will apply for cash-ins via linked accounts. Linking and cashing in to GCash with BPI or Unionbank boosts your wallet and transaction limit to PHP500,000.\n\n### **Need more Help?**\n\nFor other inquiries or concerns, check out the following articles:\n\n- [What are the GCash Cash In fees I need to know about?](https://help.gcash.com/hc/en-us/articles/360017595774)\n- [I can’t cash in to my GCash wallet. What do I do?](https://help.gcash.com/hc/en-us/articles/28525786707225)\n- [How do I cash in to GCash from my online banking app or website?](https://help.gcash.com/hc/en-us/articles/40227839506457)\n- [I didn't receive my cash in to my GCash wallet. What do I do?](https://help.gcash.com/hc/en-us/articles/28525930255769)\n\n[Previous](https://help.gcash.com/hc/en-us/articles/360017898153-How-do-I-link-my-BPI-to-GCash)\n\nHow do I link my BPI to GCash?\n\n[Next](https://help.gcash.com/hc/en-us/articles/10282024155801-How-do-I-cash-in-to-GCash-with-my-linked-BPI-account#)\n\n- [How do I link my Unionbank account to GCash?](https://help.gcash.com/hc/en-us/articles/40229264624793-How-do-I-link-my-Unionbank-account-to-GCash)\n- [How do I link my BPI to GCash?](https://help.gcash.com/hc/en-us/articles/360017898153-How-do-I-link-my-BPI-to-GCash)\n- [How do I cash in to GCash with my linked BPI account?](https://help.gcash.com/hc/en-us/articles/10282024155801-How-do-I-cash-in-to-GCash-with-my-linked-BPI-account)\n\n10282024155801\n\nBack to Top",
-  "related_articles": [
+  "categories": [
     "How do I link my Unionbank account to GCash?",
     "How do I link my BPI to GCash?",
-    "How do I cash in to GCash with my linked BPI account?",
-    "What are the steps to get a Fully Verified GCash account?",
-    "Accepted IDs for GCash Verification",
-    "How do I send money to another GCash account?",
-    "GCash Wallet and Transaction limits",
-    "What are the GCash Cash In fees I need to know about?",
-    "I can’t cash in to my GCash wallet. What do I do?",
-    "How do I cash in to GCash from my online banking app or website?",
-    "I didn't receive my cash in to my GCash wallet. What do I do?",
-    "Previous",
-    "Next"
-  ]
+    "How do I cash in to GCash with my linked BPI account?"
+  ],
+  "related_articles": [
+    {
+      "title": "How do I link my Unionbank account to GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40229264624793-How-do-I-link-my-Unionbank-account-to-GCash"
+    },
+    {
+      "title": "How do I link my BPI to GCash?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017898153-How-do-I-link-my-BPI-to-GCash"
+    },
+    {
+      "title": "How do I cash in to GCash with my linked BPI account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/10282024155801-How-do-I-cash-in-to-GCash-with-my-linked-BPI-account"
+    },
+    {
+      "title": "What are the steps to get a Fully Verified GCash account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017722393-What-are-the-steps-to-get-a-Fully-Verified-GCash-account"
+    },
+    {
+      "title": "Accepted IDs for GCash Verification",
+      "url": "https://help.gcash.com/hc/en-us/articles/900000948786-Accepted-IDs-for-GCash-Verification"
+    },
+    {
+      "title": "How do I send money to another GCash account?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017566614-How-do-I-send-money-to-another-GCash-account"
+    },
+    {
+      "title": "GCash Wallet and Transaction limits",
+      "url": "https://help.gcash.com/hc/en-us/articles/360021112894-GCash-Wallet-and-Transaction-Limits"
+    },
+    {
+      "title": "What are the GCash Cash In fees I need to know about?",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017595774"
+    },
+    {
+      "title": "I can’t cash in to my GCash wallet. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/28525786707225"
+    },
+    {
+      "title": "How do I cash in to GCash from my online banking app or website?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40227839506457"
+    },
+    {
+      "title": "I didn't receive my cash in to my GCash wallet. What do I do?",
+      "url": "https://help.gcash.com/hc/en-us/articles/28525930255769"
+    },
+    {
+      "title": "Previous",
+      "url": "https://help.gcash.com/hc/en-us/articles/360017898153-How-do-I-link-my-BPI-to-GCash"
+    },
+    {
+      "title": "Next",
+      "url": "https://help.gcash.com/hc/en-us/articles/10282024155801-How-do-I-cash-in-to-GCash-with-my-linked-BPI-account#"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Check your GCash Wallet and Transaction limits, and follow these steps to cash in from a linked BPI account:  On the GCash homepage, tap..."
 }

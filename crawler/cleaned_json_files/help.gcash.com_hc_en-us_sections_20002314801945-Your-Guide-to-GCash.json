@@ -1,13 +1,40 @@
 {
+  "article_id": null,
   "title": "Your Guide to GCash",
+  "url": "https://help.gcash.com/hc/en-us/sections/20002314801945-Your-Guide-to-GCash",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[My GCash payment or transaction was unsuccessful but my wallet was deducted. How do I get a refund?](https://help.gcash.com/hc/en-us/articles/40995097563673-My-GCash-payment-or-transaction-was-unsuccessful-but-my-wallet-was-deducted-How-do-I-get-a-refund)\n\n[Differences between Send Money, Bank Transfer, Cash In, Cash Out](https://help.gcash.com/hc/en-us/articles/40136231787929-Differences-between-Send-Money-Bank-Transfer-Cash-In-Cash-Out)\n\n[Manage your GCash account](https://help.gcash.com/hc/en-us/articles/38037184606105-Manage-your-GCash-account)\n\n[GCash Features for Basic vs Fully Verified Accounts](https://help.gcash.com/hc/en-us/articles/19576345096217-GCash-Features-for-Basic-vs-Fully-Verified-Accounts)\n\n[Get Started with GCash](https://help.gcash.com/hc/en-us/articles/19577792850457-Get-Started-with-GCash)\n\n[Reach your Money Goals](https://help.gcash.com/hc/en-us/articles/19577994564761-Reach-your-Money-Goals)\n\n[Protect Your GCash Account](https://help.gcash.com/hc/en-us/articles/19578518834457-Protect-Your-GCash-Account)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "My GCash payment or transaction was unsuccessful but my wallet was deducted. How do I get a refund?",
-    "Differences between Send Money, Bank Transfer, Cash In, Cash Out",
-    "Manage your GCash account",
-    "GCash Features for Basic vs Fully Verified Accounts",
-    "Get Started with GCash",
-    "Reach your Money Goals",
-    "Protect Your GCash Account"
-  ]
+    {
+      "title": "My GCash payment or transaction was unsuccessful but my wallet was deducted. How do I get a refund?",
+      "url": "https://help.gcash.com/hc/en-us/articles/40995097563673-My-GCash-payment-or-transaction-was-unsuccessful-but-my-wallet-was-deducted-How-do-I-get-a-refund"
+    },
+    {
+      "title": "Differences between Send Money, Bank Transfer, Cash In, Cash Out",
+      "url": "https://help.gcash.com/hc/en-us/articles/40136231787929-Differences-between-Send-Money-Bank-Transfer-Cash-In-Cash-Out"
+    },
+    {
+      "title": "Manage your GCash account",
+      "url": "https://help.gcash.com/hc/en-us/articles/38037184606105-Manage-your-GCash-account"
+    },
+    {
+      "title": "GCash Features for Basic vs Fully Verified Accounts",
+      "url": "https://help.gcash.com/hc/en-us/articles/19576345096217-GCash-Features-for-Basic-vs-Fully-Verified-Accounts"
+    },
+    {
+      "title": "Get Started with GCash",
+      "url": "https://help.gcash.com/hc/en-us/articles/19577792850457-Get-Started-with-GCash"
+    },
+    {
+      "title": "Reach your Money Goals",
+      "url": "https://help.gcash.com/hc/en-us/articles/19577994564761-Reach-your-Money-Goals"
+    },
+    {
+      "title": "Protect Your GCash Account",
+      "url": "https://help.gcash.com/hc/en-us/articles/19578518834457-Protect-Your-GCash-Account"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

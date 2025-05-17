@@ -1,8 +1,20 @@
 {
+  "article_id": null,
   "title": "Use your GCash Card",
+  "url": "https://help.gcash.com/hc/en-us/sections/30285825416473-Use-your-GCash-Card",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[How can I pay using my GCash Card?](https://help.gcash.com/hc/en-us/articles/900004214883-How-can-I-pay-using-my-GCash-Card)\n\n[How much are the fees and transaction limits for my GCash Card?](https://help.gcash.com/hc/en-us/articles/30286810141977-How-much-are-the-fees-and-transaction-limits-for-my-GCash-Card)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "How can I pay using my GCash Card?",
-    "How much are the fees and transaction limits for my GCash Card?"
-  ]
+    {
+      "title": "How can I pay using my GCash Card?",
+      "url": "https://help.gcash.com/hc/en-us/articles/900004214883-How-can-I-pay-using-my-GCash-Card"
+    },
+    {
+      "title": "How much are the fees and transaction limits for my GCash Card?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30286810141977-How-much-are-the-fees-and-transaction-limits-for-my-GCash-Card"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

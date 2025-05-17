@@ -1,11 +1,32 @@
 {
+  "article_id": null,
   "title": "Get Started with GGives",
+  "url": "https://help.gcash.com/hc/en-us/sections/30661545601177-Get-Started-with-GGives",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[Can I apply for GGives?](https://help.gcash.com/hc/en-us/articles/30662698019737-Can-I-apply-for-GGives)\n\n[How much can I borrow with GGives?](https://help.gcash.com/hc/en-us/articles/4404775298329-How-much-can-I-borrow-with-GGives)\n\n[What are the GGives fees I need to know about?](https://help.gcash.com/hc/en-us/articles/4409088901017-What-are-the-GGives-fees-I-need-to-know-about)\n\n[How can I use GGives to pay?](https://help.gcash.com/hc/en-us/articles/4408130159513-How-can-I-use-GGives-to-pay)\n\n[How can I increase my GGives limit?](https://help.gcash.com/hc/en-us/articles/30750694881689-How-can-I-increase-my-GGives-limit)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "Can I apply for GGives?",
-    "How much can I borrow with GGives?",
-    "What are the GGives fees I need to know about?",
-    "How can I use GGives to pay?",
-    "How can I increase my GGives limit?"
-  ]
+    {
+      "title": "Can I apply for GGives?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30662698019737-Can-I-apply-for-GGives"
+    },
+    {
+      "title": "How much can I borrow with GGives?",
+      "url": "https://help.gcash.com/hc/en-us/articles/4404775298329-How-much-can-I-borrow-with-GGives"
+    },
+    {
+      "title": "What are the GGives fees I need to know about?",
+      "url": "https://help.gcash.com/hc/en-us/articles/4409088901017-What-are-the-GGives-fees-I-need-to-know-about"
+    },
+    {
+      "title": "How can I use GGives to pay?",
+      "url": "https://help.gcash.com/hc/en-us/articles/4408130159513-How-can-I-use-GGives-to-pay"
+    },
+    {
+      "title": "How can I increase my GGives limit?",
+      "url": "https://help.gcash.com/hc/en-us/articles/30750694881689-How-can-I-increase-my-GGives-limit"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": ""
 }

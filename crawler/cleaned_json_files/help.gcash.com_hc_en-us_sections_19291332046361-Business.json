@@ -1,7 +1,16 @@
 {
+  "article_id": null,
   "title": "Business",
+  "url": "https://help.gcash.com/hc/en-us/sections/19291332046361-Business",
   "content": "#### ADVISORY:\n\nBank Transfer to Maya will be right back! Our partner is working to restore the service as soon as possible.\n\n[Malayan Insurance Negosyo Insure](https://help.gcash.com/hc/en-us/articles/16545706219929-Malayan-Insurance-Negosyo-Insure)\n\nBack to Top",
+  "categories": [],
   "related_articles": [
-    "Malayan Insurance Negosyo Insure"
-  ]
+    {
+      "title": "Malayan Insurance Negosyo Insure",
+      "url": "https://help.gcash.com/hc/en-us/articles/16545706219929-Malayan-Insurance-Negosyo-Insure"
+    }
+  ],
+  "images": [],
+  "jump_links": [],
+  "description": "Secure the future of your small business today"
 }
