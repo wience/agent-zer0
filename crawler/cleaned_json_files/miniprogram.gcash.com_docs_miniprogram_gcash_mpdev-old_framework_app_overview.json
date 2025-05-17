@@ -1,0 +1,9 @@
+{
+  "title": "App Introduction",
+  "content": "# App Introduction\n\n2021-05-09 18:43\n\n## Introduction\n\n`App()` represents top-level applications and manages all pages and global data and provides lifecycle method. It is also a construction method, for generating the `App` instance.\n\nA Mini Program is an `App` instance.\n\nTypically, at the root directory of each Mini Program, there are three files.\n\n- app.js: application logic\n\n- app.acss: application style (optional)\n\n- app.json: application configuration\n\n## Sample\n\nHere is a simple `app.json`.\n\ncopy\n\n```json\n{\n  \"pages\": [\\\n    \"pages/index/index\",\\\n    \"pages/logs/index\"\\\n  ],\n  \"window\": {\n    \"defaultTitle\": \"Demo\"\n  }\n}\n```\n\nThe configuration above indicates that two pages are included in the Mini Program, and the default title is `Demo` for the application.\n\nA simple app.js code is shown below. It has four life-cycle methods.\n\ncopy\n\n```javascript\nApp({\n  onLaunch(options) {\n  \t// called when opened\n  },\n  onShow(options) {\n  \t// called when opened or come foreground\n  },\n  onHide() {\n  \t// called when it goes background\n  },\n  onError(msg) {\n  \t// called on JavaScript error or API invoke exception\n    console.log(msg)\n  },\n  // global data\n  globalData: {\n    foo: true,\n  }\n})\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/framework_app_overview",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_framework_app_overview.json"
+}

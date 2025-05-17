@@ -1,0 +1,9 @@
+{
+  "title": "SelectorQuery.boundingClientRect",
+  "content": "# SelectorQuery.boundingClientRect\n\n2021-05-09 18:43\n\nPut the location of the current selected node into the query result. It is similar to the `getBoundingClientRect` of `DOM`, the returned value includes width, height, left, top, bottom, right. If current node is window object, only width and height will be returned.",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_selector-query_query_selectorquery-boundingclientrect",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_selector-query_query_selectorquery-boundingclientrect.json"
+}

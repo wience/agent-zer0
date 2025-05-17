@@ -1,0 +1,9 @@
+{
+  "title": "my.startPullDownRefresh",
+  "content": "# my.startPullDownRefresh\n\n2021-05-09 18:43\n\nStart the pull-to-refresh function. The pull-to-refresh animation is triggered upon the code execution, which is consistent with the manual pull-to-refresh effect.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.startPullDownRefresh()\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| success | Function | No | The callback function for a successful API call. |\n| fail | Function | No | The callback function for a failed API call. |\n| complete | Function | No | The callback function used when the API call is completed. This function is always executed no matter the call succeeds or fails. |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_pulldown_startpulldownrefresh",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_pulldown_startpulldownrefresh.json"
+}

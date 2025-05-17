@@ -1,0 +1,9 @@
+{
+  "title": "Alphabet",
+  "content": "# Alphabet\n\n2022-07-03 18:44\n\nYou can use the alphabet component to arrange content in the alphabetical order.\n\n## Sample code\n\n### .json\n\ncopy\n\n```json\n{\n  \"defaultTitle\": \"Alphabet\",\n  \"usingComponents\":{\n    \"alphabet\": \"mini-ali-ui/es/list/alphabet/index\",\n    \"am-icon\": \"mini-ali-ui/es/am-icon/index\"\n  }\n}\n\n```\n\n### .axml\n\ncopy\n\n```xml\n<view style=\"position: relative; height: 100vh;\">\n <alphabet alphabet=\"{{alphabet}}\" onClick=\"onAlphabetClick\" >\n \t<view slot=\"prefix\"><am-icon size=\"12\" type=\"check_\"/></view>\n </alphabet>\n</view>\n\n```\n\n### .js\n\ncopy\n\n```javascript\nPage({\n  data: {\n    alphabet: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],\n  },\n  onAlphabetClick(ev) {\n    my.alert({\n      content: JSON.stringify(ev.data),\n    });\n  },\n});\n```\n\n## Parameters\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| alphabet | Array | The alphabet that consists of letters. |\n\n**Note:**\n\nThe content is displayed by using the [list](https://miniprogram.alipay.com/docs/miniprogram/mpdev/extended-component_layout-navigation_list) component.",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/extended-component_others_alphabet",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_extended-component_others_alphabet.json"
+}

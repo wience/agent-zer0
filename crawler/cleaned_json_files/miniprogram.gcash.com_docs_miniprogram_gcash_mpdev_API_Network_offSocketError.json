@@ -1,0 +1,9 @@
+{
+  "title": "my.offSocketError",
+  "content": "# my.offSocketError\n\n2022-07-04 03:44\n\nUse this API to unlisten to WebSocket error events.\n\n## Sample Code\n\ncopy\n\n```javascript\nPage({\n  onLoad() {\n    this.callback = this.callback.bind(this);\n    my.onSocketError(this.callback);\n  },\n  onUnload() {\n    my.offSocketError(this.callback);\n  },\n  callback(res) {\n  },\n})\n```\n\n**Note:** The case is only for reference. Please use your own URL to test.\n\n## Whether to pass callback value or not\n\n- If the callback value is not passed, the callbacks of all events will be removed. The sample code is as follows:\n\ncopy\n\n```\nmy.offSocketError();\n```\n\n- If the callback value is passed, only the corresponding callback is removed. The sample code is as follows:\n\ncopy\n\n```\nmy.offSocketError(this.callback);\n```",
+  "date": "2022-07-04",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_Network_offSocketError",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_API_Network_offSocketError.json"
+}

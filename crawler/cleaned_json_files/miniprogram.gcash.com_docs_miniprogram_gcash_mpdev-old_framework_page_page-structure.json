@@ -1,0 +1,9 @@
+{
+  "title": "Page Structure",
+  "content": "# Page Structure\n\n2021-05-10 03:43\n\nThe page structure is defined by he `.axml` file in the `pages` directory, the content should follow the `axml` syntax.\n\nAXML is similar to HTML, and there are also some differences, please refer to [AXML](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/framework_axml-reference_axml-introduction) for more detail information.",
+  "date": "2021-05-10",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/framework_page_page-structure",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_framework_page_page-structure.json"
+}

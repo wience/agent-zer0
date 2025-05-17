@@ -1,0 +1,9 @@
+{
+  "title": "my.navigateBack",
+  "content": "# my.navigateBack\n\n2022-07-03 18:44\n\nClose the current page and return to the previous one or more pages. It is possible to use `getCurrentPages` to get the current page stack information and decide how many levels to return.\n\n## Sample Code\n\ncopy\n\n```javascript\n// Note: When calling navigateTo API, the page that called the method will be added to the stack.\n\n// This is the page one\nmy.navigateTo({\n  url: 'two?pageId=10000'\n})\n\n// This is the page two\nmy.navigateTo({\n  url: 'one?pageId=99999'\n})\n\n// navigateBack in page three , will return page one\nmy.navigateBack({\n  delta: 2\n})\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Default** | **Description** |\n| delta | Number | 1 | Number of pages to return. If delta is greater than the number of open pages, it returns to the home page. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_ui_route_navigateback",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_ui_route_navigateback.json"
+}

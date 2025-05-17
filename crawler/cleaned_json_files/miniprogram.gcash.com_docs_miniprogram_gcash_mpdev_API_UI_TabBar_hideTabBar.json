@@ -1,0 +1,9 @@
+{
+  "title": "my.hideTabBar",
+  "content": "# my.hideTabBar\n\n2022-07-03 18:44\n\nHide tab bar.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.hideTabBar({\n    animation: true\n})\n```\n\n## Parameters\n\nThe incoming parameter is of the Object type with the following attributes:\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| animation | Boolean | No | Need animation effect or not, none by default. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_UI_TabBar_hideTabBar",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_API_UI_TabBar_hideTabBar.json"
+}

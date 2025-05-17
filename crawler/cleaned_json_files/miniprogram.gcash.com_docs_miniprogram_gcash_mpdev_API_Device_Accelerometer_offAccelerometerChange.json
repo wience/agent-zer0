@@ -1,0 +1,9 @@
+{
+  "title": "my.offAccelerometerChange",
+  "content": "# my.offAccelerometerChange\n\n2022-07-03 18:44\n\nUse this API to stop listening to acceleration data event.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.offAccelerometerChange();\n```\n\n## Whether to pass callback value or not\n\n- If the callback value is not passed, the callbacks of all events will be removed. The sample code is as follows:\n\ncopy\n\n```\nmy.offAccelerometerChange();\n```\n\n- If the callback value is passed, only the corresponding callback is removed. The sample code is as follows:\n\ncopy\n\n```\nmy.offAccelerometerChange(this.callback);\n```",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_Device_Accelerometer_offAccelerometerChange",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_API_Device_Accelerometer_offAccelerometerChange.json"
+}

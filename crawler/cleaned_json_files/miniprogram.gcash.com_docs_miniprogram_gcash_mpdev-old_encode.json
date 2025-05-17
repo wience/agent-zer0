@@ -1,0 +1,9 @@
+{
+  "title": "Message encoding",
+  "content": "# Message encoding\n\n2021-05-09 18:43\n\nTo prevent errors or ambiguity caused by special charaters enclosed in a message, need to properly encode the message before message is transmitted.\n\n|     |     |\n| --- | --- |\n| **Encoding scenarios** | **Encoding method** |\n| For the byte data, such as the signature and the encrypted content, encode the data with the `base64`  algorithm before transmitting. | Use the `base64UrlEncode` function to encode data when [calculating to generate a signature](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/call_api#HGNu0). |\n| For the HTTP/HTTPS URL data, perform URL encoding first before transmitting. <br>For example: <br>- Original URL: [https://www.merchant.com/authorizationResult](https://www.merchant.com/authorizationResult)<br>- Encoded URL: `https%3A%2F%2Fwww.merchant.com%2FauthorizationResult` |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/encode",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_encode.json"
+}

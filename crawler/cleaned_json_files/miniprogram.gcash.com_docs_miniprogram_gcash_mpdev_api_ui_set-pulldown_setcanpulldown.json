@@ -1,0 +1,9 @@
+{
+  "title": "my.setCanPullDown",
+  "content": "# my.setCanPullDown\n\n2022-07-03 18:44\n\nSet whether to support pull-down on the page (supported by default on Mini Program pages).\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.setCanPullDown({\n  canPullDown:true\n})\n```\n\n## Parameters\n\nThe incoming parameter is of the Object type with the following attributes:\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| canPullDown | Boolean | Yes | Support pull-down or not. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_ui_set-pulldown_setcanpulldown",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_ui_set-pulldown_setcanpulldown.json"
+}

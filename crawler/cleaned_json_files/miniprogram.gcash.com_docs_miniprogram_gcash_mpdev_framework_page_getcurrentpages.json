@@ -1,0 +1,9 @@
+{
+  "title": "getCurrentPages",
+  "content": "# getCurrentPages\n\n2022-07-03 18:44\n\n`getCurrentPages()` is used to get the instance of the page stack, it will return an array of page. The first element is the home page, and the last element is the current page.\n\nThe framework maintains the current pages by stack. And the relationship of routing switch and page stack is shown in the following table.\n\n|     |     |\n| --- | --- |\n| **Routing** | **Page Stack Behavior** |\n| Initialization | Push new page into stack. |\n| Open a new page | Push new page into stack. |\n| Redirect of page | Pop current page from stack and push new page into stack. |\n| Page returned | Pop current page from stack. |\n| Tab switch | Pop all pages from stack except the new tab page. |\n\nFollowing codes can help to detect whether current stack reaches 5 layer of pages.\n\ncopy\n\n```javascript\nif (getCurrentPages().length === 5) {\n    my.redirectTo({\n        url: '/pages/logs/logs'\n    });\n} else {\n    my.navigateTo({\n        url: '/pages/index/index'\n    });\n}\n```\n\n**Note**: do not try to modify the page stack, or error about page routing and page status may happen.\n\n## FAQ\n\n**Q: How to get the path of current page by `getCurrentPages()`?**\n\nA: `JSON.stringify(getCurrentPages()[0].__proto__.route)` can get the path of current page.",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/framework_page_getcurrentpages",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_framework_page_getcurrentpages.json"
+}

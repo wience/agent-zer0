@@ -1,0 +1,9 @@
+{
+  "title": "Publish an event",
+  "content": "# Publish an event\n\n2022-07-07 17:08\n\nAfter you complete defining an event, you can choose **Save & Publish** to publish the event. The event configuration is then completed and the system will start to retrieve data in about 5 minutes.\n\n**Note:** After you publish an event, the **Event Name** and **Data Reporting Method** fields cannot be changed but other fields can still be modified.\n\n![Publish an event](https://yuque.antfin.com/images/lark/0/2021/png/5956329/1615448437129-2e612070-820f-42f0-858a-e87ad224056b.png#align=left&display=inline&height=847&margin=%5Bobject%20Object%5D&originHeight=847&originWidth=890&status=done&style=stroke&width=890)\n\n# Next steps\n\n[Analyze events and funnels](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/analyze-data)",
+  "date": "2022-07-07",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/publish-event",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_platform_publish-event.json"
+}

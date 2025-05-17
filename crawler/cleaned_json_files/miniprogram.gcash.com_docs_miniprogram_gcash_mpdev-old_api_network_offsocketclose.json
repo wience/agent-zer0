@@ -1,0 +1,9 @@
+{
+  "title": "my.offSocketClose",
+  "content": "# my.offSocketClose\n\n2021-05-09 18:43\n\nUse this API to unlisten to the event of disabling the WebSocket connection.\n\n## Sample Code\n\ncopy\n\n```javascript\nPage({\n  onLoad() {\n  my.onSocketClose(this.callback);\n  },\n  onUnload() {\n    my.offSocketClose(this.callback);\n    //    my.offSocketClose();\n  },\n  callback(res) {\n  my.alert({content: 'The connection is disabled!'});\n      this.setData({\n        sendMessageAbility: false,\n        closeLinkAbility: false,\n      });\n  },\n})\n```\n\n**Note:** The case is only for reference. Please use your own URL to test.\n\n## Whether to pass callback value or not\n\n- If the callback value is not passed, the callbacks of all events will be removed. The sample code is as follows:\n\ncopy\n\n```\nmy.offSocketClose();\n```\n\n- If the callback value is passed, only the corresponding callback is removed. The sample code is as follows:\n\ncopy\n\n```\nmy.offSocketClose(this.callback);\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_network_offsocketclose",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_network_offsocketclose.json"
+}

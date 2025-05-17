@@ -1,0 +1,9 @@
+{
+  "title": "UpdateManager.onUpdateReady",
+  "content": "# UpdateManager.onUpdateReady\n\n2022-07-03 18:44\n\nListen for the event that a newer mini program version is available. Instead of being triggered by the developer, the client side triggers the new version downloading actively. A callback is performed after the new version of the mini program is successfully downloaded.",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_update_updatemanager_updateready",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_update_updatemanager_updateready.json"
+}

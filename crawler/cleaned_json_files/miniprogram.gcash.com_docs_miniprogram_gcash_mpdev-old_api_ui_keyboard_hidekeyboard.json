@@ -1,0 +1,9 @@
+{
+  "title": "my.hideKeyboard",
+  "content": "# my.hideKeyboard\n\n2021-05-09 18:43\n\nHide the keyboard.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.hideKeyboard();\n```\n\n九色鹿",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_keyboard_hidekeyboard",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_keyboard_hidekeyboard.json"
+}

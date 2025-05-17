@@ -1,0 +1,9 @@
+{
+  "title": "progress",
+  "content": "# progress\n\n2021-05-09 18:43\n\nProgress bar.\n\nScan QR code to try:\n\n![progress](https://marmot-local-dev.oss-ap-southeast-1.aliyuncs.com/storage/2020/1/10/ec81133a-f9e7-444b-b651-6bc8a5138a2d.png#align=left&display=inline&height=196&margin=%5Bobject%20Object%5D&originHeight=196&originWidth=196&status=done&style=none&width=196)\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Default** | **Description** |\n| percent | Float |  | Percentage (0~100). |\n| show-info | Boolean | false | Show percentage value at right side. |\n| stroke-width | Number | 6 | Line weight, in px. |\n| active-color | Color | #09BB07 | Selected progress bar color. |\n| background-color | Color |  | Unselected progress bar color. |\n| active | Boolean | false | Loading animation from left to right or not. |\n\n### Screenshot\n\n![progress](https://marmot-local-dev.oss-ap-southeast-1.aliyuncs.com/storage/2020/1/14/16181c11-1ba9-444e-81b9-4c5c602031ec.png#align=left&display=inline&height=499&margin=%5Bobject%20Object%5D&originHeight=499&originWidth=750&status=done&style=stroke&width=750)\n\n### Sample Code\n\ncopy\n\n```html\n<progress percent=\"20\" show-info/>\n<progress percent=\"40\" active/>\n<progress percent=\"60\" stroke-width=\"10\"/>\n<progress percent=\"80\" active/>\n<progress percent=\"80\" color=\"#10AEFF\"/>\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/component_basic-content_progress",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_component_basic-content_progress.json"
+}

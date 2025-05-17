@@ -1,0 +1,9 @@
+{
+  "title": "my.makePhoneCall",
+  "content": "# my.makePhoneCall\n\n2022-07-03 18:44\n\nMake a phone call.\n\n**Note:** Mini Program Studio simulator does not support simulation temporarily. Please use the real machine to debug.\n\n## Sample Code\n\ncopy\n\n```javascript\n// API-DEMO page/API/make-phone-call/make-phone-call.json\n{\n    \"defaultTitle\": \"Make a phone call\"\n}\n```\n\ncopy\n\n```javascript\n// API-DEMO page/API/make-phone-call/make-phone-call.axml\n<view class=\"page\">\n  <view class=\"page-section\">\n    <view class=\"page-section-title\">my.makePhoneCall</view>\n    <view class=\"page-section-btns\">\n      <view onTap=\"makePhoneCall\">Make a phone call</view>\n    </view>\n  </view>\n</view>\n```\n\ncopy\n\n```javascript\n// API-DEMO page/API/make-phone-call/make-phone-call.js\nPage({\n  makePhoneCall() {\n    my.makePhoneCall({ number: '00000' });\n  },\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| number | String | Yes | Phone number. |\n\n## FAQ\n\n**'Is not a function' error after calling my.makePhoneCall?**\n\nThe Mini Program Studio simulator does not support simulation temporarily. Please use the real machine to debug.",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_Device_Call_makePhoneCall",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_API_Device_Call_makePhoneCall.json"
+}

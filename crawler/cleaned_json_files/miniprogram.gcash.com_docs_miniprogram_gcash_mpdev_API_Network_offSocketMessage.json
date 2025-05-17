@@ -1,0 +1,9 @@
+{
+  "title": "my.offSocketMessage",
+  "content": "# my.offSocketMessage\n\n2022-07-03 18:44\n\nUse this API to unlisten to the event of receiving server messages by WebSocket.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.connectSocket({\n  url: 'Server URL'\n})\n\nmy.onSocketMessage(function(res) {\n  console.log('Server content received：' + res.data)\n})\n\nmy.offSocketMessage();\n```\n\n**Note:** The case is only for reference. Please use your own URL to test.\n\n## Whether to pass callback value or not\n\n- If the callback value is not passed, the callbacks of all events will be removed. The sample code is as follows:\n\ncopy\n\n```\nmy.offSocketMessage();\n```\n\n- If the callback value is passed, only the corresponding callback is removed. The sample code is as follows:\n\ncopy\n\n```\nmy.offSocketMessage(this.callback);\n```",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_Network_offSocketMessage",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_API_Network_offSocketMessage.json"
+}

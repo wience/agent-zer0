@@ -1,0 +1,9 @@
+{
+  "title": "my.getAppIdSync",
+  "content": "# my.getAppIdSync\n\n2022-07-03 18:44\n\nUse this API to obtain the Mini Program App ID synchronously.\n\n## Sample Code\n\ncopy\n\n```javascript\nconst appIdRes = my.getAppIdSync();\nconsole.log(appIdRes.appId);\n```\n\n## Return Value\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| appId | String | The App ID of the current Mini Program. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_basic_getappidsync",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_basic_getappidsync.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "my.hideNavigationBarLoading",
+  "content": "# my.hideNavigationBarLoading\n\n2021-05-09 18:43\n\nHide the navigation bar loading.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.hideNavigationBarLoading();\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_navigationbar_hidenavigationbarloading",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_navigationbar_hidenavigationbarloading.json"
+}

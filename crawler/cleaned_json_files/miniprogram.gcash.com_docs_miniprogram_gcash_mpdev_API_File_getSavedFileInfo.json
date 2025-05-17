@@ -1,0 +1,9 @@
+{
+  "title": "my.getSavedFileInfo",
+  "content": "# my.getSavedFileInfo\n\n2022-07-03 18:44\n\nGet saved file information.\n\n## Sample Code\n\nThe [my.saveFile](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_file_savefile) saved address is required to use my.getSavedFileInfo\n\ncopy\n\n```javascript\nvar that = this;\nmy.chooseImage({\n  success: (res) => {\n    console.log(res.apFilePaths[0], 1212)\n    my.saveFile({\n      apFilePath: res.apFilePaths[0],\n      success: (result) => {\n        console.log(result, 1212)\n        my.getSavedFileInfo({\n          apFilePath: result.apFilePath,\n          success: (resu) => {\n            console.log(JSON.stringify(resu))\n            that.filePath = resu\n          }\n        })\n      },\n    });\n  },\n});\n```\n\n## Parameters\n\nObject type with the following attributes:\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| apFilePath | String | Yes | File path. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |\n\n### Success Callback Function\n\nThe incoming parameter is of the Object type with the following attributes:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| size | Number | File size. |\n| createTime | Number | Timestamp for the created time. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_File_getSavedFileInfo",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_API_File_getSavedFileInfo.json"
+}

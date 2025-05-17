@@ -1,0 +1,9 @@
+{
+  "title": "SelectorQuery.exec",
+  "content": "# SelectorQuery.exec\n\n2021-05-09 18:43\n\nPut the query result into callback function. The query result is an array according to the query sequence, the object in the array is the result of each query. If the selected node is the list of node, the query result of the single query is also an array.\n\n**Note**: The `exec` should be invoked after the `onReady` of the page.",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_selector-query_query_selectorquery-exec",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_selector-query_query_selectorquery-exec.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "my.removeStorageSync",
+  "content": "# my.removeStorageSync\n\n2022-07-03 18:44\n\nRemove cached data synchronously.\n\n> This is a synchronous interface.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.removeStorageSync({\n  key: 'currentCity',\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| key | String | Yes | Cache data key. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_Storage_removeStorageSync",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_API_Storage_removeStorageSync.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Upload",
+  "content": "# Upload\n\n2022-07-03 18:44\n\nAfter you complete the development and testing on the simulator or a real machine, the next step is to submit the Mini Program to your workspace in the Mini Program Development Portal and proceed with the subsequent operation to release the Mini Program to users.\n\nIn the Mini Program Studio, the one-key upload function is provided:\n\n![Upload](https://gw.alipayobjects.com/mdn/rms_5158ba/afts/img/A*y9JYRppzjPUAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=1622&margin=%5Bobject%20Object%5D&originHeight=1622&originWidth=2880&status=done&style=stroke&width=2880)\n\nBefore uploading, pay attention to the following points:\n\n1. Firstly, you need to associate the project to a created Mini Program.\n\n2. Online version or current uploaded version: For easy management, each upload has an incremental version. You can define your own versioning rule.\n\nNext, click `Upload`. As the volume of the Mini Program should not exceeds 2048 KB, if it is above the volume limit, a prompt will be displayed. We suggest you to reduce resources to reduce the volume.",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/mini-program-studio_upload",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_mini-program-studio_upload.json"
+}

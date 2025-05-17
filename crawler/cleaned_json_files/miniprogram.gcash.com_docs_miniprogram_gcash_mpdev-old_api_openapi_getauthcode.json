@@ -1,0 +1,9 @@
+{
+  "title": "my.getAuthCode",
+  "content": "# my.getAuthCode\n\n2021-05-10 22:04\n\nGet authentication code.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.getAuthCode({\n  scopes: 'auth_user',\n  success: (res) => {\n    my.alert({\n      content: res.authCode,\n    });\n  },\n});\n```\n\n## Parameters\n\n| Name | Type | Mandatory | Description |\n| scopes | String/Array | N | The scope of auth, there are two types: `auth_base`, <br>`auth_user`, by default, its value is `auth_base` |\n\n### Success Callback Function\n\nThe incoming parameter is of the Object type with the following attributes:\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| Field | Type | Mandatory | Description |\n| authCode | String | Y | Auth code |\n| authErrorScopes | Key-value | Y | The scope that failed to grant auth, key is the scope and value is the error |\n| authSuccessScopes | Array | Y | The scope that succeed to grant auth |",
+  "date": "2021-05-10",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_openapi_getauthcode",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_openapi_getauthcode.json"
+}

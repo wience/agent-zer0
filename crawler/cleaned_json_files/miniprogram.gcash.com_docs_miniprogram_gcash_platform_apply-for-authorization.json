@@ -1,0 +1,9 @@
+{
+  "title": "How to apply for authorization",
+  "content": "# How to apply for authorization\n\n2022-07-07 17:08\n\nThis procedure is available for ISV. When the ISV registers as a Third-Party Developer, the ISV can apply for the authorization.\n\n# Procedure\n\nTo apply for the authorization, complete the following steps:\n\n1. Apply for an account.\n2. Log into your account and go to the **Authorization** page.\n3. Provide the following information to apply for the authorization:\n\n- You company name\n- Merchant name\n- Merchant email\n- Client ID\n- Reason\n\n\nYour approval request is now submitted. You will be automatcially authorized after your request is approved by workspace admins.\n\n# More information\n\n[Overview](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/overview)\n\n[Authorization](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/authorization)\n\n[Member Role](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/member-role)\n\n[Workflow Procedures](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/workflow-procedures)\n\n[Manage Mini Program](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/mini-program)\n\n[Manage Workspace](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/workspace)\n\n[Settings](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/setting)",
+  "date": "2022-07-07",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/apply-for-authorization",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_platform_apply-for-authorization.json"
+}

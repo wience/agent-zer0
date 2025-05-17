@@ -1,0 +1,9 @@
+{
+  "title": "my.createCanvasContext",
+  "content": "# my.createCanvasContext\n\n2022-07-03 18:44\n\nCreate [canvas](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/component_canvas_canvas) context This canvas context works on the `<canvas/>` of the corresponding `canvasId` only.\n\n## Parameters\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| canvasId | String | ID defined on the `<canvas/>`. |\n\n## Return Value\n\n`CanvasContext`\n\n## Sample Code\n\ncopy\n\n```javascript\n//.js\nconst ctx = my.createCanvasContext('myCanvas')\n\nconst grd = ctx.createLinearGradient(30, 10, 120, 10)\ngrd.addColorStop(0, 'red')\ngrd.addColorStop(0.16, 'orange')\ngrd.addColorStop(0.33, 'yellow')\ngrd.addColorStop(0.5, 'green')\ngrd.addColorStop(0.66, 'cyan')\ngrd.addColorStop(0.83, 'blue')\ngrd.addColorStop(1, 'purple')\n\n// Fill color\nctx.setFillStyle(grd)\nctx.fillRect(10, 10, 150, 80)\nctx.draw()\n```",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_ui_canvas_createcanvascontext",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_ui_canvas_createcanvascontext.json"
+}

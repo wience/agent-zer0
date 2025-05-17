@@ -1,0 +1,9 @@
+{
+  "title": "my.getScreenOrientation",
+  "content": "# my.getScreenOrientation\n\n2022-07-03 18:44\n\nCall this API to get screen orientation.\n\n## Sample code\n\ncopy\n\n```javascript\nmy.getScreenOrientation({\n  success: (res) => {\n    my.alert({\n      title: 'success',\n      content: JSON.stringify(res)\n    })\n  },\n  fail: (res) => {\n    my.alert({\n      title: 'fail',\n      content: JSON.stringify(res)\n    })\n  }\n})\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| success | Function | No | Callback function upon call success |\n| fail | Function | No | Callback function upon call failure |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure) |\n\n### Success callback function\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| success | Boolean | Specifies whether the call is successful. When the value is `true`, the call is successful. |\n| orientation | String | Indicates the orientation of the screen, `portrait` or `landscape`. |\n\n### Fail callback function\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| error | Number | The error code for the failure |\n| errorMessage | String | The error message |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_device_screen_getscreenorientation",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_device_screen_getscreenorientation.json"
+}

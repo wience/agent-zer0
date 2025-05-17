@@ -1,0 +1,26 @@
+{
+  "markdown": "",
+  "metadata": {
+    "og:description": "Use this API to listen to the event of enabling the WebSocket connection.Sample Codemy.connectSocket({   url: 'test.php', });  my.onSocketOpen(function(res) {   console.",
+    "keywords": "",
+    "favicon": "https://gw.alipayobjects.com/mdn/rms_150082/afts/img/A*rOH-T5TEL-cAAAAAAAAAAABkARQnAQ",
+    "viewport": "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover",
+    "ogImage": "",
+    "ogDescription": "Use this API to listen to the event of enabling the WebSocket connection.Sample Codemy.connectSocket({   url: 'test.php', });  my.onSocketOpen(function(res) {   console.",
+    "description": "Use this API to listen to the event of enabling the WebSocket connection.Sample Codemy.connectSocket({   url: 'test.php', });  my.onSocketOpen(function(res) {   console.",
+    "title": "my.onSocketOpen | Developing Mini Programs | Documentation",
+    "og:url": "",
+    "og:image": "",
+    "ogUrl": "",
+    "robots": "noarchive",
+    "og:title": "my.onSocketOpen | Developing Mini Programs | Documentation",
+    "ogTitle": "my.onSocketOpen | Developing Mini Programs | Documentation",
+    "og:type": "website",
+    "scrapeId": "e6ad08ec-382d-42d1-a9ff-8ee5e21ed309",
+    "sourceURL": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_network_onsocketopen",
+    "url": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_network_onsocketopen",
+    "statusCode": 200
+  },
+  "html": "<!DOCTYPE html><html><body></body></html>",
+  "warning": "This scrape job was throttled at your current concurrency limit. If you'd like to scrape faster, you can upgrade your plan."
+}

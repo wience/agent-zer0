@@ -1,0 +1,9 @@
+{
+  "title": "my.removeSavedFile",
+  "content": "# my.removeSavedFile\n\n2022-07-03 18:44\n\nDelete a saved file.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.getSavedFileList({\n  success:(res)=>{\n    my.removeSavedFile({\n      apFilePath:res.fileList[0].apFilePath,\n      success:(res)=>{\n        console.log('remove success')\n      }\n    })\n  }\n});\n```\n\n## Parameters\n\nObject type with the following attributes:\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| apFilePath | String | Yes | File path. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_File_removeSavedFile",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_API_File_removeSavedFile.json"
+}

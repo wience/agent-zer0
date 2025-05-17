@@ -1,0 +1,9 @@
+{
+  "title": "my.getRunScene",
+  "content": "# my.getRunScene\n\n2022-07-03 18:44\n\nUse this API to obtain the running version of the current Mini Program.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.getRunScene({\n  success(result) {\n     my.alert({\n      title: 'Mini Program version',\n      content:`${result.envVersion}`\n    });\n  },\n})\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| success | Function | No | The callback function for a successful API call. |\n| fail | Function | No | The callback function for a failed API call. |\n| complete | Function | No | The callback function used when the API call is completed. This function is always executed no matter the call succeeds or fails. |\n\n### Success Callback Function\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| envVersion | String | The current running version of the Mini Program. Valid values are:<br>\\- `develop`: development version<br>\\- `release`: release version |\n\n### Fail Callback Function\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| error | String | The error code. |\n| errorMessage | String | The error message. |\n\n## Error Code\n\n|     |     |\n| --- | --- |\n| **Error Code** | **Description** |\n| 3 | An unknown error has occurred. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_basic_getrunscene",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_basic_getrunscene.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "my.navigateToMiniProgram",
+  "content": "# my.navigateToMiniProgram\n\n2021-05-09 18:43\n\nJump to another Mini Program.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.navigateToMiniProgram({\n    appId: 'xxxx',\n    extraData:{\n    \"data1\":\"test\"\n    },\n    success: (res) => {\n    console.log(JSON.stringify(res))\n    },\n    fail: (res) => {\n    console.log(JSON.stringify(res))\n    }\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| appId | String | Yes | The appId of the target Mini Program to jump to. |\n| path | String | No | The path of the target Mini Program to jump to, open the homepage if it is empty. |\n| extraData | Object | No | The extra data that needs to be passed to the target Mini Program, and the target Mini Program can get it in `App.onLaunch()` or `App.onShow()`. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_openapi_navigatetominiprogram",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_openapi_navigatetominiprogram.json"
+}

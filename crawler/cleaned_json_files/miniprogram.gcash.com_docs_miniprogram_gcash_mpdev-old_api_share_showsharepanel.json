@@ -1,0 +1,9 @@
+{
+  "title": "my.showSharePanel",
+  "content": "# my.showSharePanel\n\n2021-05-09 18:43\n\nUse this API to trigger the sharing.\n\n**Note:**\n\nWhen using this API to trigger the sharing, pass the value `code` to the request parameter `from` in [page.onShareAppMessage](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/framework_page_page-mechanism#5c99a32c).\n\n## Sample code\n\ncopy\n\n```javascript\n// .js\nmy.showSharePanel();\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_share_showsharepanel",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_share_showsharepanel.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Mini Program Studio",
+  "content": "# Mini Program Studio\n\n2022-07-03 18:44\n\nThe Mini Program Studio is a one-stop development tool that helps you to quickly write, deploy and debug mini programs. With the Integrated Development Environment (IDE), you can build mini programs across all languages. manage the project. In addition, you can use the studio for project management that helps to deal with collaboration across your teams.\n\n**Note:**\n\nMake sure you have implemented the IDE. If you have not implemented the IDE, choose [RESOURCES](https://miniprogram.gcash.com/downloads) in the Mini Program Portal to download.\n\n# Features\n\nYou can use this studio to do the following:\n\n- Create or open a mini program\n- Set up the project with a name and location\n- Associate with a mini program to upload code packages\n- Customize the compiling mode to pass parameters to the simulator\n- Develop and build a mini program\n\n- Manage the structure of mini program\n- Develop a mini program\n\n- Debug with a local simulator\n- Preview and debug with a real machine\n- Upload the mini program\n- Check the related information of the current development environment\n\nIn addition to the basic functions, you can also benefit from the following functions that are specific to mini programs:\n\n- Realtime preview\n- Autocomplete\n- Syntax prompt/suggestions\n\n# More Information\n\n[The Main Interface](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/mini-program-studio_interface_main-interface)",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/mini-program-studio_overview",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_mini-program-studio_overview.json"
+}

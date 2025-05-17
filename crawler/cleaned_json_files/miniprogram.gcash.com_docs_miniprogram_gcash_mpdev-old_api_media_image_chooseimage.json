@@ -1,0 +1,9 @@
+{
+  "title": "my.chooseImage",
+  "content": "# my.chooseImage\n\n2021-05-09 18:43\n\nChoose an image from the camera or gallery of a device.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.chooseImage({\n  success: (res) => {\n    img.src = res.apFilePaths[0];\n  },\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| sizeType | StringArray | No | Original image, compressed image, both by default. |\n| sourceType | String Array | No | Camera or album, \\[‘camera’,‘album’\\] by default. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |\n\n### Success Callback Function\n\nThe incoming parameter is of the Object type with the following attributes:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| apFilePaths | String Array | Image file description. |\n\n## Error Code\n\n|     |     |\n| --- | --- |\n| **Error** | **Description** |\n| 11 | User cancels operation. |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_media_image_chooseimage",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_media_image_chooseimage.json"
+}

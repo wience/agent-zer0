@@ -1,0 +1,9 @@
+{
+  "title": "my.offAppShow",
+  "content": "# my.offAppShow\n\n2022-07-03 18:44\n\nUnlisten for the event that the mini program is switched to foreground from background.\n\n## Sample code\n\n.axml\n\ncopy\n\n```xml\n<!-- .axml-->\n<button size=\"default\" onTap=\"offAppShowHanlder\" type=\"primary\">Unlisten for the event that the mini program is switched to foreground from background</button>\n```\n\n.js\n\ncopy\n\n```javascript\n//.js\nonLoad() {\n    my.onAppShow(this.onAppShowHandler)\n},\n//The method of listening for the event that the mini program is switched to foreground from background\nonAppShowHandler() {\n    console.log('The mini program is switched to foreground from background')\n},\n//The method of unlistening for the event that the mini program is switched to foreground from background\noffAppShowHanlder() {\n    my.offAppShow(this.onAppShowHandler)\n},\napphide() {\n    console.log('The mini program is switched to background from foreground')\n}\n```\n\n## Parameters\n\nThe parameter is in object type and has the following property:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| callback | Function | The callback function for the event that the mini program is switched to foreground. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_event_offappshow",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_event_offappshow.json"
+}

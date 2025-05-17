@@ -1,0 +1,9 @@
+{
+  "title": "my.clearStorage",
+  "content": "# my.clearStorage\n\n2022-07-03 18:44\n\nClear local data cache.\n\n> This is an asynchronous interface.\n>\n> Clearing the webview embedded storage data will not clear the storage data of the Mini Program.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.clearStorage();\n```",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_Storage_clearStorage",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_API_Storage_clearStorage.json"
+}

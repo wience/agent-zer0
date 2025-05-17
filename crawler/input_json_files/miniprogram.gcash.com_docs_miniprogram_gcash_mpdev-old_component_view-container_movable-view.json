@@ -1,0 +1,26 @@
+{
+  "markdown": "",
+  "metadata": {
+    "description": "movable-view can be dragged and slid in the page. The movable-view component must be in the movable-area component and must be a direct child node. Otherwise, the component can't move.",
+    "og:type": "website",
+    "ogDescription": "movable-view can be dragged and slid in the page. The movable-view component must be in the movable-area component and must be a direct child node. Otherwise, the component can't move.",
+    "title": "movable-view | Developing Mini Programs | Documentation",
+    "robots": "noarchive",
+    "og:image": "",
+    "og:description": "movable-view can be dragged and slid in the page. The movable-view component must be in the movable-area component and must be a direct child node. Otherwise, the component can't move.",
+    "ogTitle": "movable-view | Developing Mini Programs | Documentation",
+    "keywords": "",
+    "favicon": "https://gw.alipayobjects.com/mdn/rms_150082/afts/img/A*rOH-T5TEL-cAAAAAAAAAAABkARQnAQ",
+    "og:title": "movable-view | Developing Mini Programs | Documentation",
+    "ogImage": "",
+    "og:url": "",
+    "ogUrl": "",
+    "viewport": "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover",
+    "scrapeId": "fb8be387-a826-4dc8-8a73-97efd3ef0a6e",
+    "sourceURL": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/component_view-container_movable-view",
+    "url": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/component_view-container_movable-view",
+    "statusCode": 200
+  },
+  "html": "<!DOCTYPE html><html><body></body></html>",
+  "warning": "This scrape job was throttled at your current concurrency limit. If you'd like to scrape faster, you can upgrade your plan."
+}

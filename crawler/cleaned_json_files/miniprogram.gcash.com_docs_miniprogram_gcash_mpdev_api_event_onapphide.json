@@ -1,0 +1,9 @@
+{
+  "title": "my.onAppHide",
+  "content": "# my.onAppHide\n\n2022-07-03 18:44\n\nListen for the event that the mini program is switched to background from foreground. The triggered time of the API is the same with that of the [`onHide()` method](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/framework_app_register-mini-program#81dae014). To unlisten for the event that the mini program is switched to background from foreground, see [my.offAppHide](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_event_offapphide).\n\n## Sample code\n\n.axml\n\ncopy\n\n```xml\n<!-- .axml-->\n<button size=\"default\" onTap=\"offAppHideHanlder\" type=\"primary\">Unlisten for the event tha the mini program is switched to background</button>\n```\n\n.js\n\ncopy\n\n```javascript\n//.js\nonLoad() {\n    my.onAppHide(this.onAppHideHandler)\n},\n// The method of listening for the event that the mini program is switched to background\nonAppHideHandler() {\n    console.log('The method of listening for the event that the mini program is switched to background')\n},\n// The method of unlistening for the event that the mini program is switched to background\noffAppHideHanlder() {\n    my.offAppHide(this.onAppHideHandler)\n},\n```\n\n## Parameters\n\nThe parameter is in object type and has the following property:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| callback | Function | The callback function for the event that the mini program is switched to background. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_event_onapphide",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_event_onapphide.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "my.setBackgroundColor",
+  "content": "# my.setBackgroundColor\n\n2022-07-03 18:44\n\nDynamically set window background color.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.setBackgroundColor({\n  \tbackgroundColor: '#ff0000',\n    backgroundColorTop: '#00ff00',\n    backgroundColorBottom: '#ff00ff'\n})\n```\n\n## Parameters\n\nThe incoming parameter is of the Object type with the following attributes:\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| backgroundColor | HexColor | No | Window background color. For Android, this property is mandatory. |\n| backgroundColorTop | HexColor | No | Top window background color, supported in iOS only. |\n| backgroundColorBottom | HexColor | No | Bottom window background color, supported in iOS only. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_ui_set-background_setbackgroundcolor",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_ui_set-background_setbackgroundcolor.json"
+}

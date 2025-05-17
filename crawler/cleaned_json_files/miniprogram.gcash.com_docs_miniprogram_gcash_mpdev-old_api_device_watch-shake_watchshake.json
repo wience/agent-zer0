@@ -1,0 +1,9 @@
+{
+  "title": "my.watchShake",
+  "content": "# my.watchShake\n\n2021-05-10 03:43\n\nThe watchshake function. Every time this API is called, a callback is triggered after the mobile phone is shaken. You must call this API again to continue to listen to this event.\n\n## Sample Code\n\ncopy\n\n```json\n// API-DEMO page/API/watch-shake/watch-shake.json\n{\n    \"defaultTitle\": \"Shake\"\n}\n```\n\ncopy\n\n```html\n<!-- API-DEMO page/API/watch-shake/watch-shake.axml-->\n<view class=\"page\">\n  <button type=\"primary\" onTap=\"watchShake\">\n    Bind the shake function and click the shake button to see the effect.\n  </button>\n</view>\n```\n\ncopy\n\n```javascript\n// API-DEMO page/API/watch-shake/watch-shake.js\nPage({\n  watchShake() {\n    my.watchShake({\n      success: function() {\n        console.log('It moved')\n        my.alert({ title:'It moved o.o'});\n      }\n    });\n  },\n});\n```",
+  "date": "2021-05-10",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_device_watch-shake_watchshake",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_device_watch-shake_watchshake.json"
+}

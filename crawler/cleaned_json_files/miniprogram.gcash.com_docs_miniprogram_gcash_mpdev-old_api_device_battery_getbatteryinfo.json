@@ -1,0 +1,9 @@
+{
+  "title": "my.getBatteryInfo",
+  "content": "# my.getBatteryInfo\n\n2021-05-09 18:43\n\nUse this API to asynchronously obtain the battery level and the charging state of the current device. No parameters are required.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.getBatteryInfo({\n  success: (res) => {\n    my.alert({ content: 'System information：' + JSON.stringify(res), });\n    console.log({ content: 'System information：' + JSON.stringify(res), });\n  },\n  fail: (error) => {\n    my.alert({ content: 'Inquiry failed' + JSON.stringify(error), });\n  },\n  complete: () => {\n    my.alert({ title: 'Complete callback', });\n  },\n})\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| success | Function | No | The callback function for a successful API call. |\n| fail | Function | No | The callback function for a failed API call. |\n| complete | Function | No | The callback function used when the API call is completed. This function is always executed no matter the call succeeds or fails. |\n\n### Success callback function\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| level | Int | The battery level of the current device. |\n| isCharging | Boolean | This property indicates whether the device is charging. |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_device_battery_getbatteryinfo",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_device_battery_getbatteryinfo.json"
+}

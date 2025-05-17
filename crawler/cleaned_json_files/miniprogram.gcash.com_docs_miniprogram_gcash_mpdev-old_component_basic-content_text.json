@@ -1,0 +1,9 @@
+{
+  "title": "text",
+  "content": "# text\n\n2021-05-09 18:43\n\nText, supporting only nesting within component.\n\nScan QR code to try:\n\n![text](https://marmot-local-dev.oss-ap-southeast-1.aliyuncs.com/storage/2020/1/10/26f56e67-9264-4293-bc71-c2821a69389c.png#align=left&display=inline&height=196&margin=%5Bobject%20Object%5D&originHeight=196&originWidth=196&status=done&style=none&width=196)\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Default** | **Description** |\n| selectable | Boolean | false | Selectable or not. |\n| space | String |  | Show continuous spaces. |\n| decode | Boolean | false | Decode or not. |\n| number-of-lines | number |  | Multi-line omission, value must be greater than or equal to 1, same behavior as the -webkit-line-clamp attribute of css. |\n\n### Space Effective Value:\n\n|     |     |\n| --- | --- |\n| **Value** | **Description** |\n| nbsp | Space size as per font setting. |\n| ensp | Half-size space of character. |\n| emsp | Space size of character. |\n\n### Sample Code\n\ncopy\n\n```html\n<view class=\"page\">\n  <view class=\"text-view\">\n    <text>{{text}}</text>\n  </view>\n</view>\n```\n\ncopy\n\n```javascript\nPage({\n  data: {\n    text: 'Hello Mini Program',\n  },\n})\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/component_basic-content_text",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_component_basic-content_text.json"
+}

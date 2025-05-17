@@ -1,0 +1,26 @@
+{
+  "markdown": "",
+  "metadata": {
+    "description": "You can use the loading component to display the loading animation.PropertyTypeDescriptionclassNameStringSize of the loading animation. The default value is 100px.",
+    "og:description": "You can use the loading component to display the loading animation.PropertyTypeDescriptionclassNameStringSize of the loading animation. The default value is 100px.",
+    "title": "Loading | Developer's Guide | Documentation",
+    "ogImage": "",
+    "og:url": "",
+    "og:title": "Loading | Developer's Guide | Documentation",
+    "robots": "noarchive",
+    "favicon": "https://gw.alipayobjects.com/mdn/rms_150082/afts/img/A*rOH-T5TEL-cAAAAAAAAAAABkARQnAQ",
+    "ogUrl": "",
+    "ogDescription": "You can use the loading component to display the loading animation.PropertyTypeDescriptionclassNameStringSize of the loading animation. The default value is 100px.",
+    "viewport": "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover",
+    "og:type": "website",
+    "keywords": "",
+    "ogTitle": "Loading | Developer's Guide | Documentation",
+    "og:image": "",
+    "scrapeId": "b87a76cd-0872-4c45-aa61-9527b44b8214",
+    "sourceURL": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/extended-component_others_loading",
+    "url": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/extended-component_others_loading",
+    "statusCode": 200
+  },
+  "html": "<!DOCTYPE html><html><body></body></html>",
+  "warning": "This scrape job was throttled at your current concurrency limit. If you'd like to scrape faster, you can upgrade your plan."
+}

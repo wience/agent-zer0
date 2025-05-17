@@ -1,0 +1,9 @@
+{
+  "title": "Use Ref to Get Component Instance",
+  "content": "# Use Ref to Get Component Instance\n\n2022-07-03 18:44\n\nThe custom component supports using ref to get custom component instance. Use my.canIUse('component2') for compatibility handling.\n\n**Note**:\n\nref can be used as well for parent component to get children component instance.\n\n### Sample Code：\n\ncopy\n\n```javascript\n// /pages/index/index.js\nPage({\n  plus() {\n    this.counter.plus();\n  },\n  saveRef(ref) {\n    this.counter = ref;\n  },\n})\n```\n\ncopy\n\n```html\n<!-- /pages/index/index.axml -->\n<counter ref=\"saveRef\" />\n<button onTap=\"plus\">+</button>\n```\n\n**Note**: After ref is bound to saveRef, the saveRef method is triggered on component initialization.\n\ncopy\n\n```javascript\n// /components/counter/index.js\nComponent({\n  data: {\n    counter: 0,\n  },\n  methods: {\n    plus() {\n      this.setData({ counter: this.data.counter + 1 })\n    },\n  },\n})\n```\n\ncopy\n\n```html\n<!-- /components/counter/index.axml -->\n<view>{{counter}}</view>\n```",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/framework_custom-component_create-custom-component_use-ref-to-get-component-instance",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_framework_custom-component_create-custom-component_use-ref-to-get-component-instance.json"
+}

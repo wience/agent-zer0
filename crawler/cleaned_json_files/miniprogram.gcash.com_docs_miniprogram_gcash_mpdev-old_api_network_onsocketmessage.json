@@ -1,0 +1,9 @@
+{
+  "title": "my.onSocketMessage",
+  "content": "# my.onSocketMessage\n\n2021-05-09 18:43\n\nUse this API to listen to the event of receiving server messages by WebSocket.\n\n## Callback Return Value\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| data | String / ArrayBuffer | Messages returned by the server, in text string or base64 encoded string. |\n| isBuffer | Boolean | If the value of this field is `true`, the `data` field represents the received base64 encoded binary strings. If the value of this field is empty, the `data` field represents normal strings. |\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.connectSocket({\n  url: 'Server URL'\n})\n\nmy.onSocketMessage(function(res) {\n  console.log('Server content received：' + res.data)\n})\n```\n\n**Note:** The case is only for reference. Please use your own URL to test.",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_network_onsocketmessage",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_network_onsocketmessage.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Use Custom Component",
+  "content": "# Use Custom Component\n\n2021-05-09 18:43\n\n## Use Custom Component\n\n**Note:**\n\nThe event of custom component (such as onTap) is not supported by every custom component by default. It cannot be used unless the custom component itself supports clearly. For details on custom component support event, see the section of component constructor.\n\nThe use of custom component is similar to the basic component.\n\n1\\. In the page json file, specify the custom component to be used.\n\ncopy\n\n```json\n// /pages/index/index.json\n{\n  \"usingComponents\": {\n    \"customer\": \"/components/customer/index\"\n  }\n}\n```\n\n2. In the page axml file, use the custom component, which is similar to the basic components.\n\ncopy\n\n```html\n<!-- /pages/index/index.axml -->\n<view>\n  <customer />\n</view>\n```\n\n## Citing Custom Component:\n\ncopy\n\n```json\n// page.json  Note that it is not configured in app.json\n{\n  \"usingComponents\":{\n    \"your-custom-component\":\"mini-antui/es/list/index\",\n    \"your-custom-component2\":\"/components/card/index\",\n    \"your-custom-component3\":\"./result/index\",\n    \"your-custom-component4\":\"../result/index\"\n  }\n}\n// The project absolute path starts with /; the relative path starts with ./ or ../; the npm path does not start with /\n```\n\n## Reference Information\n\nFor installing the npm module, see [framework overview npm part](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/framework_overview)",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/framework_custom-component_use-custom-component",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_framework_custom-component_use-custom-component.json"
+}

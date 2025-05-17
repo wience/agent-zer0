@@ -1,0 +1,26 @@
+{
+  "markdown": "",
+  "metadata": {
+    "favicon": "https://gw.alipayobjects.com/mdn/rms_150082/afts/img/A*rOH-T5TEL-cAAAAAAAAAAABkARQnAQ",
+    "description": "Use this API to asynchronously obtain the battery level and the charging state of the current device. No parameters are required.",
+    "ogImage": "",
+    "title": "my.getBatteryInfo | Developer's Guide | Documentation",
+    "ogDescription": "Use this API to asynchronously obtain the battery level and the charging state of the current device. No parameters are required.",
+    "og:description": "Use this API to asynchronously obtain the battery level and the charging state of the current device. No parameters are required.",
+    "ogUrl": "",
+    "viewport": "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover",
+    "ogTitle": "my.getBatteryInfo | Developer's Guide | Documentation",
+    "og:title": "my.getBatteryInfo | Developer's Guide | Documentation",
+    "og:url": "",
+    "og:image": "",
+    "keywords": "",
+    "og:type": "website",
+    "robots": "noarchive",
+    "scrapeId": "9f4ade97-7d03-4cd1-b0a8-208ef5651548",
+    "sourceURL": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_device_battery_getbatteryinfo",
+    "url": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_device_battery_getbatteryinfo",
+    "statusCode": 200
+  },
+  "html": "<!DOCTYPE html><html><body></body></html>",
+  "warning": "This scrape job was throttled at your current concurrency limit. If you'd like to scrape faster, you can upgrade your plan."
+}

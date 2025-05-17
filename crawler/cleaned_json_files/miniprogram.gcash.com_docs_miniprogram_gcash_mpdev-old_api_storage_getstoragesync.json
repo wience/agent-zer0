@@ -1,0 +1,9 @@
+{
+  "title": "my.getStorageSync",
+  "content": "# my.getStorageSync\n\n2021-05-09 18:43\n\nGet cached data synchronously.\n\n> This is a synchronous interface.\n\n## Sample Code\n\ncopy\n\n```javascript\nlet res = my.getStorageSync({ key: 'currentCity' });\n my.alert({\n    content: JSON.stringify(res.data),\n });\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| key | String | Yes | Cache data key. |\n\n## Return Value\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| data | Object/String | Corresponding content of the key. |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_storage_getstoragesync",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_storage_getstoragesync.json"
+}

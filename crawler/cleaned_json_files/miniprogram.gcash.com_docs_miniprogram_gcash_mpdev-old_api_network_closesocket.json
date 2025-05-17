@@ -1,0 +1,9 @@
+{
+  "title": "my.closeSocket",
+  "content": "# my.closeSocket\n\n2021-05-09 18:43\n\nUse this API to disable the [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket) connection.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.onSocketOpen(function() {\n  my.closeSocket()\n})\n\nmy.onSocketClose(function(res) {\n  console.log('The WebSocket is closed!')\n})\n```\n\n**Note:** The case is only for reference. Please use your own URL to test.\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| success | Function | No | The callback function for a successful API call. |\n| fail | Function | No | The callback function for a failed API call. |\n| complete | Function | No | The callback function used when the API call is completed. This function is always executed no matter the call succeeds or fails. |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_network_closesocket",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_network_closesocket.json"
+}

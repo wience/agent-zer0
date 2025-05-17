@@ -1,0 +1,9 @@
+{
+  "title": "How to send your feedback",
+  "content": "# How to send your feedback\n\n2022-07-07 17:08\n\nIf you have any questions or suggestions on the mini program platform, you can send us your feedback in the header toolbar.\n\n# Procedures\n\n1. Open your workspace\n2. Select `Feedback` in the header toolbar and you can see `Feedback to the Console`.\n3. Enter the following details:\n\n- `Feedback Title`\n- `Feedback Type`\n- `Description`\n- `Attachment`\n\n4. Choose `Submit`, and your feedback is now sent to us.\n\n# More Information\n\n[Overview](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/overview)\n\n[Manage Mini Program](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/mini-program)",
+  "date": "2022-07-07",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/feedback",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_platform_feedback.json"
+}

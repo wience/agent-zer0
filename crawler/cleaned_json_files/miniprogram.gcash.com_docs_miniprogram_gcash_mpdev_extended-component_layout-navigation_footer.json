@@ -1,0 +1,9 @@
+{
+  "title": "Footer",
+  "content": "# Footer\n\n2022-07-03 18:44\n\nShow the page footer.\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Description** | **Type** | **Required** |\n| copyright | Copyright information. | String | No |\n| links | Footer link. | `Array<text, url>` | No |\n\n## Example\n\ncopy\n\n```json\n{\n  \"defaultTitle\": \"AntUI Component Library\",\n  \"usingComponents\":{\n    \"footer\": \"mini-antui/es/footer/index\"\n  }\n}\n```\n\ncopy\n\n```html\n<view>\n  <footer\n    copyright=\"{{copyright}}\"\n    links=\"{{links}}\" />\n</view>\n```\n\ncopy\n\n```javascript\nPage({\n data: {\n    copyright: '© 2004-2017 *.com. All rights reserved.',\n    links: [\\\n      { text: 'Bottom link', url: '../../list/demo/index' },\\\n      { text: 'Bottom link', url: '../../card/demo/index' },\\\n    ],\n },\n});\n```",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/extended-component_layout-navigation_footer",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_extended-component_layout-navigation_footer.json"
+}

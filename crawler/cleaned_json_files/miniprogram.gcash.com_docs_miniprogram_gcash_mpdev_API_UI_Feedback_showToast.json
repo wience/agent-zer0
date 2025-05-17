@@ -1,0 +1,9 @@
+{
+  "title": "my.showToast",
+  "content": "# my.showToast\n\n2022-07-03 18:44\n\nShow the toast dialog, which disappears with the specified duration.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.showToast({\n  type: 'success',\n  content: 'Success',\n  duration: 3000,\n  success: () => {\n    my.alert({\n      title: 'toast is missing',\n    });\n  },\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| content | String | No | Text content. |\n| type | String | No | Toast type, showing the related icon, none by default, Supporting `success`/ `fail`/ `exception`/ `none` Here. If it is `exception`, `content` is mandatory. |\n| duration | Number | No | Displaying duration, in ms, 2000 by default. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_UI_Feedback_showToast",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_API_UI_Feedback_showToast.json"
+}

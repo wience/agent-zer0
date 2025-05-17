@@ -1,0 +1,9 @@
+{
+  "title": "my.SDKVersion",
+  "content": "# my.SDKVersion\n\n2021-05-09 18:43\n\nGet the version of basic library (for reference only). **Do not rely on this value for code logic.**\n\n## Sample Code\n\ncopy\n\n```html\n<!-- API-DEMO page/API/sdk-version/sdk-version.axml-->\n<view class=\"page\">\n  <view class=\"page-description\">Get version of basic library API</view>\n  <view class=\"page-section\">\n    <view class=\"page-section-title\">my.SDKVersion</view>\n    <view class=\"page-section-demo\">\n      <button type=\"primary\" onTap=\"getSDKVersion\">Get version of basic library</button>\n    </view>\n  </view>\n</view>\n```\n\ncopy\n\n```javascript\n// API-DEMO page/API/sdk-version/sdk-version.js\nPage({\n  getSDKVersion() {\n    my.alert({\n      content: my.SDKVersion,\n    });\n  },\n});\n```\n\n## Return Value\n\nString, version of basic library",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_basic_sdkversion",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_basic_sdkversion.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "my.onSocketError",
+  "content": "# my.onSocketError\n\n2021-05-09 18:43\n\nUse this API to listen to WebSocket error events.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.connectSocket({\n  url: 'Developer's server URL'\n});\n\nmy.onSocketOpen(function(res){\n  console.log('The WebSocket connection is enabled!');\n});\n\nmy.onSocketError(function(res){\n  console.log('The WebSocket connection failed. Please check!');\n});\n```\n\n**Note:** The case is only for reference. Please use your own URL to test.\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| callback | Function | Yes | The callback function for the WebSocket error event. |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_network_onsocketerror",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_network_onsocketerror.json"
+}

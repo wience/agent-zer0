@@ -1,0 +1,26 @@
+{
+  "markdown": "",
+  "metadata": {
+    "og:image": "",
+    "description": "Listen for the event that the mini program is switched to foreground from background. The triggered time of the API is the same with that of the onShow() method.",
+    "ogTitle": "my.onAppShow | Developer's Guide | Documentation",
+    "ogImage": "",
+    "og:description": "Listen for the event that the mini program is switched to foreground from background. The triggered time of the API is the same with that of the onShow() method.",
+    "keywords": "",
+    "robots": "noarchive",
+    "ogUrl": "",
+    "og:url": "",
+    "favicon": "https://gw.alipayobjects.com/mdn/rms_150082/afts/img/A*rOH-T5TEL-cAAAAAAAAAAABkARQnAQ",
+    "og:type": "website",
+    "title": "my.onAppShow | Developer's Guide | Documentation",
+    "ogDescription": "Listen for the event that the mini program is switched to foreground from background. The triggered time of the API is the same with that of the onShow() method.",
+    "og:title": "my.onAppShow | Developer's Guide | Documentation",
+    "viewport": "width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover",
+    "scrapeId": "c4820841-7e81-4b86-b200-437047671eaa",
+    "sourceURL": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_event_onappshow",
+    "url": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_event_onappshow",
+    "statusCode": 200
+  },
+  "html": "<!DOCTYPE html><html><body></body></html>",
+  "warning": "This scrape job was throttled at your current concurrency limit. If you'd like to scrape faster, you can upgrade your plan."
+}

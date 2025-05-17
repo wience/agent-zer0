@@ -1,0 +1,9 @@
+{
+  "title": "my.getSiteInfo",
+  "content": "# my.getSiteInfo\n\n2022-07-25 00:03\n\nUse this API to obtain the site information.\n\n**Note:**\n\nPlease make sure you use the Appx with 1.24.6 or higher versions in order to use this API.\n\n## Sample code\n\ncopy\n\n```javascript\nmy.getSiteInfo({\n  success: (res) => {\n    my.alert({\n      content: JSON.stringify(res),\n    });\n  },\n  fail: (res) => {\n    my.alert({\n      content: JSON.stringify(res),\n    });\n  }\n});\n```\n\n## Input Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |\n\n### Success Callback Function\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| siteName | String | Following values are supported:<br>GCASH |\n\nAn example of a successfully returned message is as follows:\n\ncopy\n\n```json\n{\n  \"siteName\":\"GCASH\"\n}\n```",
+  "date": "2022-07-25",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_alipay-connect_getsiteinfo",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_alipay-connect_getsiteinfo.json"
+}

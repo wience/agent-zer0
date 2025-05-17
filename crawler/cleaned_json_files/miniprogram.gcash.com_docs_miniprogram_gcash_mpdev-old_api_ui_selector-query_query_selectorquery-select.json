@@ -1,0 +1,9 @@
+{
+  "title": "SelectorQuery.select",
+  "content": "# SelectorQuery.select\n\n2021-05-09 18:43\n\nSelect the first node that matches the selector, the selector can support ID selector and class selector.",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_selector-query_query_selectorquery-select",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_selector-query_query_selectorquery-select.json"
+}

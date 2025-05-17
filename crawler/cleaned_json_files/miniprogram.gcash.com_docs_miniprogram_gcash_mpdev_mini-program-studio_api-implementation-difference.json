@@ -1,0 +1,9 @@
+{
+  "title": "API Implementation Difference",
+  "content": "# API Implementation Difference\n\n2022-07-03 18:44\n\n> Due to the difference of running environment, the implementations of the following APIs are not consistent on the developer tool and the client. Please use real machine for debugging.\n\n|     |     |\n| --- | --- |\n| **API** | **Description** |\n| my.makePhoneCall | Popup prompt simulative call. |\n| my.navigateBackMiniProgram | Popup prompt simulative call. |\n| my.navigateToMiniProgram | Popup prompt simulative call. |\n| my.tradePay | Scheduled. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/mini-program-studio_api-implementation-difference",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_mini-program-studio_api-implementation-difference.json"
+}

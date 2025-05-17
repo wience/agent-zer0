@@ -1,0 +1,9 @@
+{
+  "title": "my.downloadFile",
+  "content": "# my.downloadFile\n\n2022-07-03 18:44\n\nDownload a file resource to a local location.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.downloadFile({\n  url: 'http://img.example.com/example.jpg',\n  success({ apFilePath }) {\n    my.previewImage({\n      urls: [apFilePath],\n    });\n  },\n  fail(res) {\n    my.alert({\n      content: res.errorMessage || res.error,\n    });\n  },\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| url | String | Yes | Downloading file address. |\n| header | Object | No | HTTP request Header. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |\n\n### Success Callback Function\n\nThe incoming parameter is of the Object type with the following attributes:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| apFilePath | String | Temporary file storage location. |\n\n## Error Code\n\n|     |     |\n| --- | --- |\n| **Error** | **Description** |\n| 12 | Downloading failed. |\n| 13 | No right. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_network_downloadfile",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_network_downloadfile.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "my.offBLECharacteristicValueChange",
+  "content": "# my.offBLECharacteristicValueChange\n\n2021-05-09 18:43\n\nUse this API to unlisten to the BLE device characteristic change event.\n\n**Note:**\n\nCurrently simulation in IDE is not supported. Please debug in production environment.\n\n## Sample Code\n\ncopy\n\n```javascript\nPage({\n  onLoad() {\n    this.callback = this.callback.bind(this);\n    my.onBLECharacteristicValueChange(this.callback);\n  },\n  onUnload() {\n    my.offBLECharacteristicValueChange(this.callback);\n  },\n  callback(res) {\n    console.log(res);\n  },\n})\n```\n\n## Parameters\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| deviceId | String | The Bluetooth device ID. |\n| serviceId | String | The UUID of the service corresponding to a Bluetooth characteristic. |\n| characteristicId | String | The Bluetooth device characteristic UUID. |\n| value | Hex String | The latest hexadecimal value of the characteristic. |\n\n## Whether to pass callback value or not\n\n- If the callback value is not passed, the callbacks of all events will be removed. The sample code is as follows:\n\ncopy\n\n```javascript\nmy.offBLECharacteristicValueChange();\n```\n\n- If the callback value is passed, only the corresponding callback is removed. The sample code is as follows:\n\ncopy\n\n```javascript\nmy.offBLECharacteristicValueChange(this.callback);\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_device_bluetooth_ble_offblecharacteristicvaluechange",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_device_bluetooth_ble_offblecharacteristicvaluechange.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Page FAQ",
+  "content": "# Page FAQ\n\n2021-05-09 18:43\n\n**Q: How to use cookie in Mini Program**\n\nA: Cookie is not suggested to be used in Mini Program, the cookie set by server side will not be forbidden and it will be set to the Mini Program process. In the next request, the cookie will be set into the request automatically. In front side, cookie can not be obtained and will do nothing about the cookie.\n\n**Q: How to get the parameters of onload in certain page**\n\nA: From `getCurrentPages`, the instance of page stack can be obtained, then parameters can be obtained.\n\n**Q: Can Mini Program able to listen to the close event? Which function will be invoked when clicking the close button?**\n\nA: Mini Program can not listen to the close event and nothing will be invoked when clicking the close button.\n\n**Q: Data does not refresh when calling setData**\n\nA: Please check the effectiveness of `this` instance and make sure the code logic is correct.\n\n**Q: Blank page displays when jumping to a new page, how to solve it**\n\nA: If using `request` to get data from server side, please make sure the domain whitelist is configured. If not, the data can not be requested, which may causing blank page.\n\n**Q: How to get the parameter in the link when jumping to a new page**\n\nA: Use `onLaunch` to listen to the initialization of Mini Program, the query can be obtained from the `onLaunch` parameter.\n\n**Q: How to import js in Mini Program**\n\nA: Use `import {Ajax} from '/util(or ./util)'` to import js\n\n**Q: How to trigger a function automatically without clicking**\n\nA: Call the function in `onload` or `onshow`.",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/framework_page_page-faq",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_framework_page_page-faq.json"
+}

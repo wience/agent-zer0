@@ -1,0 +1,9 @@
+{
+  "title": "Introduction",
+  "content": "# Introduction\n\n2022-07-04 03:44\n\nBy calling my.canIUse('component'), it is possible to judge whether the custom component function is usable in the current version. For the usage of my.canIUse(), see [canIUse](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_basic_caniuse).\n\nThe custom component function can abstract the functions to be reused into custom component so that it can be reused on different pages. It also allows publishing custom component on npm, so that it can be reused in different Mini Programs. For the usage of npm, see [npm](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/mini-program-studio_function-panel_npm-package-management).\n\n**The my.canIUse('component2') can be used to check if the current version supports the new custom component function.**\n\nTo use the related functions of component2, in the **Details** \\> **Project configuration** of the developer tool, check component2:\n\n![Introduction](https://ac.alipay.com/storage/2020/5/11/793a3d8d-5270-405b-9362-e6a670b9c842.png)",
+  "date": "2022-07-04",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/framework_custom-component_introduction",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_framework_custom-component_introduction.json"
+}

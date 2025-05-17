@@ -1,0 +1,9 @@
+{
+  "title": "Message transmission security",
+  "content": "# Message transmission security\n\n2021-05-09 18:43\n\nThe message transmission security is guaranteed with signing a request and validating the signature of the response.\n\n[Message signing and signature validation](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/call_api) is mandatory for all requests and response.",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/msg_transmission_security",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_msg_transmission_security.json"
+}

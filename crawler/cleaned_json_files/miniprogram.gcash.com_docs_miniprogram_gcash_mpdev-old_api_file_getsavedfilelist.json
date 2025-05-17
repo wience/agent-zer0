@@ -1,0 +1,9 @@
+{
+  "title": "my.getSavedFileList",
+  "content": "# my.getSavedFileList\n\n2021-05-09 18:43\n\nGet information of all saved files.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.getSavedFileList({\n  success:(res)=>{\n    console.log(JSON.stringfy(res))\n  }\n});\n```\n\n## Parameters\n\nObject type with the following attributes:\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |\n\n### Success Callback Function\n\nThe incoming parameter is of the Object type with the following attributes:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| fileList | List | File list. |\n\n### File Object Attribute\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| size | Number | File size. |\n| createTime | Number | Created time. |\n| apFilePath | String | File path. |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_file_getsavedfilelist",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_file_getsavedfilelist.json"
+}

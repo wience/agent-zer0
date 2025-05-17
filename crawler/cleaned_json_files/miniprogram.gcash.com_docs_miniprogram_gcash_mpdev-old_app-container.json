@@ -1,0 +1,9 @@
+{
+  "title": "About App Container",
+  "content": "# About App Container\n\n2021-05-09 18:43\n\nApp Container is a productive and secure runtime system that can run beautiful Mini Programs on mobile platforms of Android and iOS in any apps that are integrated with Mini Programs.\n\n## Features\n\nYou can benefit from the following features available:\n\n### Fast Development\n\nYou get a uniform and standardized application development experience. Code once, and the Mini Program can run on both Android and iOS apps. App Container provides developers with infrastructure APIs to easily access album, contact, device, storage or network status.\n\n### Expressive and Flexible UI\n\nApp Container provides rich UI components such as scroll-view, progress, slider, switch, picker, navigator and canvas, which allow developers to realize their idea more quickly. With App Container API, you can easily customize the user experience of title bar, loading view, error view and other UI components.\n\n### High Performance\n\nYou can easily ship a Mini Program to the app bundle and launch it fast in the offline mode. High Performance Renderer in the App Container allows Mini Program to be rendered fast, so that you can get a fast response.\n\n## Contact Us\n\nSend us an email at and integrate App Container today.",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/app-container",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_app-container.json"
+}

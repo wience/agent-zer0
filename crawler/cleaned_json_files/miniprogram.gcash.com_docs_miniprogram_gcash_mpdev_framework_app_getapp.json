@@ -1,0 +1,9 @@
+{
+  "title": "getApp",
+  "content": "# getApp\n\n2022-07-03 18:44\n\nA global `getApp()` function is available for obtaining the instance of currently running Mini Program. This is generally used in `page` to get the top-level `app`.\n\ncopy\n\n```javascript\nvar app = getApp()\nconsole.log(app.globalData) // Get globalData\n```\n\nNote:\n\n- Do not call `getApp()` in `App()`. Instead, use `this` to get the app instance.\n\n- After the instance is obtained with getApp(), do not call the lifecycle function of `App`.\n\n- Please distinguish `App` global data and `Page` global data.\n\nThe global data can be set in App(). The individual sub-pages can get the global application instance through the global function `getApp()`. Here is an example.\n\ncopy\n\n```javascript\n// app.js\nApp({\n  globalData: 1\n})\n```\n\ncopy\n\n```javascript\n// a.js\n// localValue effective only in a.js\nvar localValue = 'a'\n// generating app instance\nvar app = getApp()\n// get global data and change it\napp.globalData++\n```\n\ncopy\n\n```javascript\n// b.js\n// localValue effective only in b.js\nvar localValue = 'b'\n// if a.js runs first, the globalData returns 2\nconsole.log(getApp().globalData)\n```\n\nIn the codes shown above, both the `a.js` and `b.js` have declared the variable localValue, but they will not affect each other, because the variable and function of each script take effect only in their own scope.",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/framework_app_getapp",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_framework_app_getapp.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "my.getServerTime",
+  "content": "# my.getServerTime\n\n2021-05-09 18:43\n\nGet current server time in milliseconds\n\n## Sample Code\n\ncopy\n\n```html\n<!-- API-DEMO page/API/get-server-time/get-server-time.axml-->\n<view class=\"page\">\n  <view class=\"page-section\">\n    <view class=\"page-section-btns\">\n      <view onTap=\"getServerTime\">Get server time </view>\n    </view>\n  </view>\n</view>\n```\n\ncopy\n\n```javascript\n// API-DEMO page/API/get-server-time/get-server-time.js\nPage({\n  getServerTime(){\n    my.getServerTime({\n      success: (res) => {\n        my.alert({\n          content: res.time,\n        });\n      },\n    });\n  }\n})\n```\n\n## Parameters\n\nObject type with the following attributes:\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |\n\n### Success Callback Function\n\nThe incoming parameter is of the Object type with the following attributes:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| time | Number | Get current server time. A numerical value is returned, indicating the milliseconds since 0:0:0 January 1 1970 (UTC). |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_device_server_getservertime",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_device_server_getservertime.json"
+}

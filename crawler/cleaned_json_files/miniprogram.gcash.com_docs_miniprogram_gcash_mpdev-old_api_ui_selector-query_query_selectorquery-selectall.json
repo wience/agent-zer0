@@ -1,0 +1,9 @@
+{
+  "title": "SelectorQuery.selectAll",
+  "content": "# SelectorQuery.selectAll\n\n2021-05-09 18:43\n\nSelect all the nodes that match the selector, the selector can support ID selector and class selector.\n\n九色鹿",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_selector-query_query_selectorquery-selectall",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_selector-query_query_selectorquery-selectall.json"
+}

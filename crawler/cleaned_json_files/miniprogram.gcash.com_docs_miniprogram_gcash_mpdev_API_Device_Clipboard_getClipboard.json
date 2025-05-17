@@ -1,0 +1,9 @@
+{
+  "title": "my.getClipboard",
+  "content": "# my.getClipboard\n\n2022-07-03 18:44\n\nGet the clipboard data.\n\n## Sample Code\n\ncopy\n\n```javascript\nPage({\n  data: {\n    text: '3.1415926',\n    copy: '',\n  },\n\n  handlePaste() {\n    my.getClipboard({\n      success: ({ text }) => {\n        this.setData({ copy: text });\n      },\n    });\n  },\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |\n\n### Success Callback Function\n\nThe incoming parameter is of the Object type with the following attributes:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| text | String | Clipboard data. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_Device_Clipboard_getClipboard",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_API_Device_Clipboard_getClipboard.json"
+}

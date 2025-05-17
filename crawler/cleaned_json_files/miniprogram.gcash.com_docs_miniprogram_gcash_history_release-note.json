@@ -1,0 +1,9 @@
+{
+  "title": "What's New",
+  "content": "# What's New\n\n2021-05-10 04:19\n\nWhat's New provides you with new, enhanced or deleted product features and system capabilities.\n\n## 2021.4.27\n\n## Enhanced features\n\nIn the [Quality](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/analytics-quality) page, you can see statistics for HTTP requests, JSAPI calls, JS errors, and details of abnormal URLs.\n\n## 2021.4.14\n\n## Enhanced features\n\nIn the list page of [Manage Mini Program](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/mini-program), you can view the past performance, real-time analysis, and quality of each mini program and navigate to these pages.\n\nIn the detail page of a mini program, you can see the expiration time of the QR code for testing.\n\nIn the [Real-Time Analysis](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/analytics_realtime) page, you can see the success rate and error details of JSAPI calls.\n\n## Deleted features\n\nThe **Launch** feature is no longer available from the navigation menu.",
+  "date": "2021-05-10",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/history/release-note",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_history_release-note.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "my.offSocketOpen",
+  "content": "# my.offSocketOpen\n\n2021-05-09 18:43\n\nUse this API to unlisten to the event of enabling the WebSocket connection.\n\n## Sample Code\n\ncopy\n\n```javasc\nPage({\n  onLoad() {\n    this.callback = this.callback.bind(this);\n    my.onSocketOpen(this.callback);\n  },\n  onUnload() {\n    my.offSocketOpen(this.callback);\n  },\n  callback(res) {\n  },\n})\n```\n\n**Note:** The case is only for reference. Please use your own URL to test.\n\n## Whether to pass callback value or not\n\n- If the callback value is not passed, the callbacks of all events will be removed. The sample code is as follows:\n\ncopy\n\n```javascript\nmy.offSocketOpen();\n```\n\n- If the callback value is passed, only the corresponding callback is removed. The sample code is as follows:\n\ncopy\n\n```javascript\nmy.offSocketOpen(this.callback);\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_network_offsocketopen",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_network_offsocketopen.json"
+}
