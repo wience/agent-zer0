@@ -6,6 +6,8 @@
 
 Meet Agent-Zer0 - the customer service platform that's like having a team of super-smart agents working 24/7, but without the coffee breaks! We've combined cutting-edge AI with a sleek interface to create something that's not just another boring customer service tool.
 
+[Visit it Here](https://www.agent-zer0.vercel.app/)
+
 ### What's in the Box? 🎁
 
 #### Web Application (`/web`) - Your Command Center
@@ -109,15 +111,6 @@ Our very own digital archaeologist:
 - `python crawl.py` - Release the crawler
 - `python clean_gcash_files.py` - Clean up time
 
-## 🤝 Contributing
-
-Want to join the party? Here's how:
-
-1. Fork it (like a pro)
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request (and let's make it awesome)
 
 ## 📜 License
 
