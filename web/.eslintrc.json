@@ -1,0 +1,13 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript", "prettier"],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "env": {
+    "es2022": true
+  },
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "warn"
+  }
+
+}
