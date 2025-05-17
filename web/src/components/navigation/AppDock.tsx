@@ -54,7 +54,7 @@ const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/actualize-ae",
+        url: "https://github.com/wience/agent-zer0.git",
         icon: Icons.github,
       },
       email: {

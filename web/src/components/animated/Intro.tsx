@@ -31,7 +31,7 @@ export function Intro() {
                                 Agent
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 flex-grow">
-                                Hello World! Manage your AI agents and workflows.
+                                Step into your AI command center! Manage conversations, get smart suggestions, and watch your customer service game level up. 🚀
                             </p>
                             <div className="mt-4 text-indigo-600 dark:text-indigo-400 flex items-center text-sm font-medium">
                                 Get started
@@ -54,7 +54,7 @@ export function Intro() {
                                 Customer
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 flex-grow">
-                                Hello World! View and manage your customer interactions.
+                                Your personal support hub! Track interactions, get instant help, and experience customer service that actually gets you. 💫
                             </p>
                             <div className="mt-4 text-green-600 dark:text-green-400 flex items-center text-sm font-medium">
                                 Get started
@@ -77,7 +77,7 @@ export function Intro() {
                                 Business
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 flex-grow">
-                                Hello World! Upload and manage your business documents.
+                                Power up your business docs! Upload, organize, and let AI transform your knowledge base into customer service gold. 📈
                             </p>
                             <div className="mt-4 text-purple-600 dark:text-purple-400 flex items-center text-sm font-medium">
                                 Get started
