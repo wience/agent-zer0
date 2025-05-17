@@ -33,40 +33,35 @@ const ProcessFlow = ({ conversationTranscript }: { conversationTranscript: Conve
     const [breadcrumbs, setBreadcrumbs] = useState<string[]>(['Conversation Flow']);
     const [scriptDisplay, setScriptDisplay] = useState<string | null>(null);
     const [flowData, setFlowData] = useState<FlowData | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
-    useEffect(() => {
-        const generateFlow = async () => {
-            if (!conversationTranscript || conversationTranscript.length === 0) {
-                setFlowData(null);
-                setLoading(false);
-                return;
-            }
+    const generateFlow = async () => {
+        if (!conversationTranscript || conversationTranscript.length === 0) {
+            setError('No conversation data available to generate flow.');
+            return;
+        }
 
-            try {
-                setLoading(true);
-                setError(null);
+        try {
+            setLoading(true);
+            setError(null);
 
-                const geminiService = new GeminiService(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '');
-                const generatedFlowData = await geminiService.generateFlowData(conversationTranscript);
+            const geminiService = new GeminiService(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '');
+            const generatedFlowData = await geminiService.generateFlowData(conversationTranscript);
 
-                setFlowData(generatedFlowData);
+            setFlowData(generatedFlowData);
 
-                // Reset to start when flow data changes
-                setCurrentStep('start');
-                setBreadcrumbs(['Conversation Flow']);
-                setScriptDisplay(generatedFlowData.start?.scriptSuggestion || null);
-            } catch (err) {
-                console.error('Error generating flow:', err);
-                setError('Failed to generate conversation flow. Please try again.');
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        generateFlow();
-    }, [conversationTranscript]);
+            // Reset to start when flow data changes
+            setCurrentStep('start');
+            setBreadcrumbs(['Conversation Flow']);
+            setScriptDisplay(generatedFlowData.start?.scriptSuggestion || null);
+        } catch (err) {
+            console.error('Error generating flow:', err);
+            setError('Failed to generate conversation flow. Please try again.');
+        } finally {
+            setLoading(false);
+        }
+    };
 
     const handleOptionClick = (optionId: string) => {
         if (!flowData) return;
@@ -116,48 +111,60 @@ const ProcessFlow = ({ conversationTranscript }: { conversationTranscript: Conve
         );
     }
 
-    if (error) {
+    if (!flowData) {
         return (
-            <div className="bg-white rounded-lg border border-gray-200 p-4 h-full flex items-center justify-center">
-                <div className="text-center space-y-4">
-                    <p className="text-red-600">{error}</p>
-                    <Button
-                        variant="outline"
-                        onClick={() => window.location.reload()}
-                    >
-                        Try Again
-                    </Button>
-                </div>
-            </div>
-        );
-    }
-
-    if (!flowData || !flowData[currentStep]) {
-        return (
-            <div className="bg-white rounded-lg border border-gray-200 p-4 h-full flex items-center justify-center">
-                <p className="text-gray-600">No conversation flow available. Start a conversation to generate flow.</p>
+            <div className="bg-white rounded-lg border border-gray-200 p-4 h-full flex flex-col items-center justify-center space-y-4">
+                <p className="text-gray-600">No conversation flow available.</p>
+                <Button
+                    onClick={generateFlow}
+                    className="bg-blue-500 text-white hover:bg-blue-600"
+                    disabled={!conversationTranscript || conversationTranscript.length === 0}
+                >
+                    Generate Flow
+                </Button>
+                {error && <p className="text-red-600 text-sm">{error}</p>}
             </div>
         );
     }
 
     return (
         <div className="bg-white rounded-lg border border-gray-200 p-4 h-full flex flex-col shadow-sm">
-            {/* Header with help icon */}
+            {/* Header with controls */}
             <div className="flex justify-between items-center mb-3">
                 <h3 className="text-lg font-semibold text-gray-800">
                     {flowData?.[currentStep]?.title || 'Loading...'}
                 </h3>
-                <Button
-                    variant="ghost"
-                    size="sm"
-                    className="text-gray-500 hover:text-gray-700 h-8 w-8 p-0 rounded-full"
-                    title="Get Help"
-                >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-                </Button>
+                <div className="flex items-center space-x-2">
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={generateFlow}
+                        className="text-gray-600 hover:text-gray-800"
+                        title="Refresh Flow"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.3" />
+                        </svg>
+                    </Button>
+                    <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-gray-500 hover:text-gray-700 h-8 w-8 p-0 rounded-full"
+                        title="Get Help"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    </Button>
+                </div>
             </div>
 
-            {/* Simplified breadcrumb */}
+            {/* Error message if any */}
+            {error && (
+                <div className="mb-3 p-2 bg-red-50 border border-red-200 rounded-md text-red-600 text-sm">
+                    {error}
+                </div>
+            )}
+
+            {/* Rest of the component remains the same */}
             <div className="mb-3 flex flex-wrap items-center text-sm text-gray-600 bg-gray-50 p-2 rounded-md">
                 {breadcrumbs.map((crumb, index) => (
                     <div key={index} className="flex items-center">
@@ -172,12 +179,10 @@ const ProcessFlow = ({ conversationTranscript }: { conversationTranscript: Conve
                 ))}
             </div>
 
-            {/* Current step subtitle */}
             {flowData?.[currentStep]?.subtitle && (
                 <p className="text-sm text-gray-600 mb-3">{flowData[currentStep].subtitle}</p>
             )}
 
-            {/* Script suggestion with cleaner design */}
             {scriptDisplay && (
                 <div className="mb-4 p-3 bg-blue-50 border-l-4 border-blue-400 rounded-md">
                     <div className="flex justify-between items-start">
@@ -196,7 +201,6 @@ const ProcessFlow = ({ conversationTranscript }: { conversationTranscript: Conve
                 </div>
             )}
 
-            {/* Options with improved visual hierarchy */}
             <div className="flex-1 overflow-y-auto space-y-2 pr-2">
                 {flowData?.[currentStep]?.options.map((option: FlowOption) => (
                     <button
@@ -219,19 +223,16 @@ const ProcessFlow = ({ conversationTranscript }: { conversationTranscript: Conve
                 ))}
             </div>
 
-            {/* Simple back button */}
             {currentStep !== 'start' && (
                 <Button
                     variant="outline"
                     size="sm"
                     className="mt-4 self-start text-gray-600"
                     onClick={() => {
-                        // Go back to previous step
                         const newBreadcrumbs = [...breadcrumbs];
                         newBreadcrumbs.pop();
                         setBreadcrumbs(newBreadcrumbs);
 
-                        // Find the previous step
                         const prevStepTitle = newBreadcrumbs[newBreadcrumbs.length - 1];
                         if (prevStepTitle === 'Conversation Flow') {
                             setCurrentStep('start');
