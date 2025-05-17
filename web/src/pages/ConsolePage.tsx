@@ -22,7 +22,7 @@ import { WavRecorder, WavStreamPlayer } from '../lib/wavtools/index.js';
 import { instructions } from '../utils/conversation_config.js';
 import { WavRenderer } from '../utils/wav_renderer';
 
-import { X, Edit, Zap, ArrowUp, ArrowDown } from 'react-feather';
+import { X, Edit, Zap, ArrowUp, ArrowDown, Phone, PhoneOff } from 'react-feather';
 import { Button } from '../components/button/Button';
 import { Toggle } from '../components/toggle/Toggle';
 
@@ -56,6 +56,7 @@ interface RealtimeEvent {
 export function ConsolePage() {
   const clientRef = useRef<RealtimeClient | null>(null);
   const [isWaitingForAIResponse, setIsWaitingForAIResponse] = useState(false);
+  const [isConversationLogOpen, setIsConversationLogOpen] = useState(false);
 
   // Initialize RealtimeClient immediately on component mount
   useEffect(() => {
@@ -613,10 +614,10 @@ export function ConsolePage() {
       {/* Control Buttons Below */}
       <div className="flex items-center space-x-4">
         <Button
-          label={isConnected ? 'disconnect' : 'connect'}
+          label={isConnected ? 'disconnect' : 'Call Agent'}
           iconPosition={isConnected ? 'end' : 'start'}
-          icon={isConnected ? X : Zap}
-          buttonStyle={isConnected ? 'regular' : 'action'}
+          icon={isConnected ? PhoneOff : Phone}
+          buttonStyle="action"
           onClick={
             isConnected ? disconnectConversation : connectConversation
           }
@@ -636,6 +637,55 @@ export function ConsolePage() {
       {isConnected && (
         <div className="mt-4 text-sm text-gray-400">
           {isWaitingForAIResponse ? "Waiting for AI response..." : "Ready to record"}
+        </div>
+      )}
+      
+      {/* Conversation Log Button */}
+      <div className="fixed bottom-4 right-4">
+        <button 
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center"
+          onClick={() => setIsConversationLogOpen(!isConversationLogOpen)}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
+          </svg>
+          Call History
+        </button>
+      </div>
+      
+      {/* Conversation Log Popup */}
+      {isConversationLogOpen && (
+        <div className="fixed bottom-20 right-4 w-96 md:w-1/3 max-w-2xl max-h-96 bg-white rounded-lg shadow-xl overflow-hidden">
+          <div className="bg-gray-800 text-white p-3 flex justify-between items-center">
+            <h3 className="font-medium">Conversation History</h3>
+            <button 
+              onClick={() => setIsConversationLogOpen(false)}
+              className="text-white hover:text-gray-300"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </button>
+          </div>
+          <div className="overflow-y-auto max-h-80 p-3 bg-gray-50">
+            {items.length === 0 ? (
+              <div className="text-center text-gray-500 py-4">No conversation yet</div>
+            ) : (
+              items.map((item) => (
+                <div key={item.id} className={`mb-3 p-2 rounded ${item.role === 'user' ? 'bg-blue-100' : 'bg-gray-200'}`}>
+                  <div className="font-semibold text-xs text-gray-700 mb-1">
+                    {item.role === 'user' ? 'You' : 'AI'}
+                  </div>
+                  <div>
+                    {item.role === 'user' 
+                      ? (item.formatted.transcript || item.formatted.text || '(awaiting transcript)')
+                      : (item.formatted.transcript || item.formatted.text || '(generating response...)')
+                    }
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
         </div>
       )}
     </div>

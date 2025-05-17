@@ -7,6 +7,7 @@ import DotPattern from '@/components/ui/dot-pattern';
 export default function App() {
     return (
         <>
+            <AppDock />
             <ConsolePage />
         </>
     );
