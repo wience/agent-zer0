@@ -1,0 +1,9 @@
+{
+  "title": "my.getNetworkType",
+  "content": "# my.getNetworkType\n\n2022-07-03 18:44\n\nGet the current network status.\n\n## Sample Code\n\ncopy\n\n```javascript\nPage({\n  data: {\n    hasNetworkType: false\n  },\n  getNetworkType() {\n    my.getNetworkType({\n      success: (res) => {\n        this.setData({\n          hasNetworkType: true,\n          networkType: res.networkType\n        })\n      }\n    })\n  },\n  clear() {\n    this.setData({\n      hasNetworkType: false,\n      networkType: ''\n    })\n  },\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |\n\n### Success Callback Function\n\nThe incoming parameter is of the Object type with the following attributes:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| networkAvailable | Boolean | If the network is available. |\n| networkType | String | Network type, UNKNOWN / NOTREACHABLE / WIFI / 3G / 2G / 4G / WWAN. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_device_network_getnetworktype",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_device_network_getnetworktype.json"
+}

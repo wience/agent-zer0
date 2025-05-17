@@ -1,0 +1,9 @@
+{
+  "title": "Idempotency",
+  "content": "# Idempotency\n\n2022-07-07 17:08\n\nIf a request timeout error occurs when you call an API, you might attempt to resend the request. In this case, you can configure the specified idempotency fields in the request to help avoid unwanted duplication in case of failures and retries.\n\nAn API call is idempotent if it has the same result no matter how many times the API call is applied. For example, idempotency can guarantee that the payment is charged only once if the same API payment call is retried multiple times in the case of a timeout error. You can retry the request via using the same idempotency field to guarantee that no more than one charge is created.\n\n# Idempotency fields\n\nThe following table lists the idempotency fields of specific OpenAPI.\n\n|     |     |     |\n| --- | --- | --- |\n| **API name** | **Idempotency field** | **Rule** |\n| - [/v1/payments/pay](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/v1_pay) | paymentRequestId | This field is used for the idempotence control. For the payment requests which are initiated with the same `paymentRequestId` and reach a final status (S or F), the native app must return the unique result. |\n| - [/v1/payments/refund](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/v1_refund) | refundRequestId | This field is used for the idempotence control. For the refund requests which are initiated with the same `refundRequestId` and reach a final status (S or F), the native must return the unique result. |",
+  "date": "2022-07-07",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_idempotency",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_idempotency.json"
+}

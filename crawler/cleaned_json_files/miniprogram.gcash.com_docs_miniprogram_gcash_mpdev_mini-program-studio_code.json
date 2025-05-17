@@ -1,0 +1,9 @@
+{
+  "title": "Coding in the Editor",
+  "content": "# Coding in the Editor\n\n2022-07-03 18:44\n\nDefines the features when you code in the editor.\n\n# Feature\n\nIn addition to the basic editing functions, the Mini Program Studio provides you with the following functions that are specific to Mini Program:\n\n- Realtime preview: You can preview the your codes in the local simulator.\n- Autocomplete: Your codes are automatically completedly.\n\n- Syntax prompt/suggestions: You can also get suggestions on the syntax.\n\nFor more informaion, see the demos below:\n\n## Realtime Preview\n\n![Coding in the Editor](https://gw.alipayobjects.com/mdn/rms_5158ba/afts/img/A*c1-PQqfHudUAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=1622&margin=%5Bobject%20Object%5D&originHeight=1622&originWidth=2880&status=done&style=stroke&width=2880)\n\n## Autocomplete\n\n#### AXML Autocomplete\n\n![Coding in the Editor](https://gw.alipayobjects.com/mdn/rms_5158ba/afts/img/A*6OGaT5LXNqAAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=1622&margin=%5Bobject%20Object%5D&originHeight=1622&originWidth=2880&status=done&style=stroke&width=2880)\n\n#### API Autocomplete\n\n![Coding in the Editor](https://gw.alipayobjects.com/mdn/rms_5158ba/afts/img/A*Ikk0RLdz4jIAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=1622&margin=%5Bobject%20Object%5D&originHeight=1622&originWidth=2880&status=done&style=stroke&width=2880)",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/mini-program-studio_code",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_mini-program-studio_code.json"
+}

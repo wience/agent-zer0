@@ -1,0 +1,9 @@
+{
+  "title": "Global Style",
+  "content": "# Global Style\n\n2021-05-09 18:43\n\n`app.acss` is for global style, and is effective for all the pages in the Mini Program.\n\nPlease refer to [ACSS Reference](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/framework_acss-reference) for further `acss` details.",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/framework_app_global-style",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_framework_app_global-style.json"
+}

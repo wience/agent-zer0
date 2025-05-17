@@ -1,0 +1,9 @@
+{
+  "title": "my.offError",
+  "content": "# my.offError\n\n2022-07-03 18:44\n\nUnlisten for the event that JS errors occur in the mini program.\n\n## Sample code\n\ncopy\n\n```javascript\n// .js\nApp({\n  onShow() {\n    this.handleError = error => {\n      // Errors occur when running the mini program.\n      console.log(error);\n    }\n    // The type of error is String.\n    my.onError(this.handleError);\n  },\n  onHide() {\n    // Unlisten for the event that JS errors occur in the mini program.\n    my.offError(this.handleError);\n  }\n})\n```\n\n## Parameters\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| callback | Function | The callback function for the event that JS errors occur in the mini program. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_event_offerror",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_event_offerror.json"
+}

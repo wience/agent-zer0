@@ -1,0 +1,9 @@
+{
+  "title": "my.getBatteryInfoSync",
+  "content": "# my.getBatteryInfoSync\n\n2021-05-09 18:43\n\nUse this API to synchronously obtain the battery level and the charging state of the current device. No parameters are required.\n\n## Return Values\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| level | Int | The battery level of the current device. |\n| isCharging | Boolean | This property indicates whether the device is charging. |\n\n## Sample Code\n\ncopy\n\n```javascript\nvar res = my.getBatteryInfoSync();\nmy.alert({content: 'System information：'+JSON.stringify(res)});\nconsole.log({content: 'System information：'+JSON.stringify(res),});\n```\n\n九色鹿",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_device_battery_getbatteryinfosync",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_device_battery_getbatteryinfosync.json"
+}

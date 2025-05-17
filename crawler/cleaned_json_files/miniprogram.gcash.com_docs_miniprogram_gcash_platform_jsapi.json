@@ -1,0 +1,9 @@
+{
+  "title": "JSAPI",
+  "content": "# JSAPI\n\n2022-07-07 17:08\n\nYou can create JSAPIs as the metadata that can be used to construct the content of a feature. You can select multiple JSAPIs for a feature and assign this feature to a mini program. For more information, see [Feature](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/feature).\n\n# Features\n\nYou can perform the following activities:\n\n- Create new JSAPIs with the following details:\n\n- `JSAPI Name` (Mandatory)\n- `JSAPI Usage Scenarios` (Mandatory)\n- `App`: You can choose the native app to which the mini program with this JSAPI is released.\n- Request and response parameters (callback and return parameters)\n- `Error Code`\n- `Sample Code`\n\n**Note:**\n\nYou can refer to the JSAPI details in your IDE and enter the details to these above accordingly. For more information, see [JSAPI Reference](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_api-reference).\n\n- See JSAPIs in a list\n\nYou can see the name, description, status, and change history of the JSAPIs in a list.\n\n# More information\n\n[Overview](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/overview)\n\n[Manage Mini Programs](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/mini-program)\n\n[Feature](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/feature)",
+  "date": "2022-07-07",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/jsapi",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_platform_jsapi.json"
+}

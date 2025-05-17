@@ -1,0 +1,9 @@
+{
+  "title": "Card",
+  "content": "# Card\n\n2022-07-03 18:44\n\nCard.\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Description** | **Type** | **Required** |\n| thumb | Card thumbnail address. | String | No |\n| title | Card title. | String | Yes |\n| subTitle | Card subtitle. | String | No |\n| footer | Footer text. | String | No |\n| footerImg | Footer image address. | String | No |\n| onCardClick | Callback when the card is clicked. | (info: Object) => void | No |\n| info | Used to transfer data to the outside when the card is clicked. | String | No |\n\n## Example\n\ncopy\n\n```json\n{\n  \"defaultTitle\": \"AntUI Component Library\",\n  \"usingComponents\": {\n    \"card\": \"mini-antui/es/card/index\"\n  }\n}\n```\n\ncopy\n\n```html\n<card\n  thumb=\"{{thumb}}\"\n  title=\"Card Title\"\n  subTitle=\"Subtitle is not required\"\n  onClick=\"onCardClick\"\n  footer=\"Description\"\n  footerImg=\"{{footerImg}}\"\n  info=\"Click the card\"\n/>\n```\n\ncopy\n\n```javascript\nPage({\n\tdata: {\n\t\tthumb: 'https://img.example.com/example.png',\n\t\tfooterImg: 'https://img.example.com/example.png',\n\t},\n\tonCardClick: function(ev) {\n\t\tmy.showToast({\n  \t\t\tcontent: ev.info,\n\t\t});\n\t}\n});\n```",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/extended-component_layout-navigation_card",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_extended-component_layout-navigation_card.json"
+}

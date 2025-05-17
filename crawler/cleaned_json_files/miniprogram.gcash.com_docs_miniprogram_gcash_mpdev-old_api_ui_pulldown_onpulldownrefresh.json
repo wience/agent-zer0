@@ -1,0 +1,9 @@
+{
+  "title": "onPullDownRefresh",
+  "content": "# onPullDownRefresh\n\n2021-05-09 18:43\n\nOn the Page, customize the onPullDownRefresh function to listen to the pull-to-refresh event from the user.\n\n- The `\"pullRefresh\": true` options needs to be configured in the `.json` configuration file of the related page to enable the pull-to-refresh event.\n- when the data refresh is processed completely, call `my.stopPullDownRefresh` to stop the pull-to-refresh for that page.\n\n## Sample Code:\n\nIn the `pull-down-refresh.json` configuration file, the code configuration is as below:\n\ncopy\n\n```json\n{\n    \"pullRefresh\": true\n}\n```\n\nIn the Page, define the onPullDownRefresh processing function:\n\ncopy\n\n```javascript\nonPullDownRefresh() {\n    console.log('onPullDownRefresh', new Date())\n}\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_pulldown_onpulldownrefresh",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_pulldown_onpulldownrefresh.json"
+}

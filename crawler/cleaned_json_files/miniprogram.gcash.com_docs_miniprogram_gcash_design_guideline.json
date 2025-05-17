@@ -1,0 +1,9 @@
+{
+  "title": "Mini Program general design guidelines",
+  "content": "# Mini Program general design guidelines\n\n2021-05-10 04:11\n\nUser experience is important to deliver services with high quality for merchants in the Mini Program platform. Based on the fast speed and simplicity of the Mini Program and on the principle of fully respecting users' right to know and right to operate, these design guidelines and recommendations are intended to create a friendly, efficient, and consistent user experience within the wallet ecosystem, while fulfilling a variety of requirements, and achieving a mutually beneficial situation for both users and the Mini Program service providers.\n\n[Mini Program Design Guidelines\\_V1.0.sketch](https://idocs-assets.marmot-cloud.com/storage/idocs87c36dc8dac653c1/yuque/attachments/yuque/0/2021/sketch/561635/1611734145856-527f7b5b-1a84-4197-a279-3a952d9541d2.sketch)\n\n[Mini Program Design Guidelines\\_V1.0.pdf](https://idocs-assets.marmot-cloud.com/storage/idocs87c36dc8dac653c1/yuque/attachments/yuque/0/2021/pdf/561635/1611734146024-7ca542e2-e02b-4a52-b995-747e51a24412.pdf)\n\n![Mini Program Design Guidelines.png](https://yuque.antfin.com/images/lark/0/2020/png/179630/1592983220721-b7ca7294-1bec-483d-a60b-d17331304e54.png#align=left&display=inline&height=2493&margin=%5Bobject%20Object%5D&name=Mini%20Program%20Design%20Guidelines.png&originHeight=2493&originWidth=3000&size=925949&status=done&style=none&width=3000)",
+  "date": "2021-05-10",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/design/guideline",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_design_guideline.json"
+}

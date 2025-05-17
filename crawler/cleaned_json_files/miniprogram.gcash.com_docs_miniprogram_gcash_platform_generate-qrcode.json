@@ -1,0 +1,9 @@
+{
+  "title": "Generate QR codes",
+  "content": "# Generate QR codes\n\n2022-11-13 15:01\n\nThis topic provides steps to generate different promotion QR codes. A default QR code is available when a mini program is released. Depending on business requirements, you can also general multiple QR codes based on this default QR code so that multiple users can quickly run your mini program by scanning these QR codes.\n\n# Procedures\n\n1. Go to the **Manage Mini Programs** page and choose the mini program that you want to generate promotion QR codes. Then Click the **QR Code** tab and then **+Generate QR Code**.\n\n![image.png](https://ac.alipay.com/storage/2020/5/11/793a3d8d-5270-405b-9362-e6a670b9c842.png)\n\n2. Fill in the page URL, query parameter, and description of the mini program and click **Create**.\n\n![image.png](https://ac.alipay.com/storage/2020/5/11/793a3d8d-5270-405b-9362-e6a670b9c842.png)Now you have finished generating a promotion QR code.\n\n# Next steps\n\n[Remove mini programs](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/remove)",
+  "date": "2022-11-13",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/generate-qrcode",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_platform_generate-qrcode.json"
+}

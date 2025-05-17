@@ -1,0 +1,9 @@
+{
+  "title": "my.hideToast",
+  "content": "# my.hideToast\n\n2021-05-09 18:43\n\nHide the toast dialog.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.hideToast()\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| success | Function | No | The callback function for a successful API call. |\n| fail | Function | No | The callback function for a failed API call. |\n| complete | Function | No | The callback function used when the API call is completed. This function is always executed no matter the call succeeds or fails. |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_feedback_hidetoast",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_feedback_hidetoast.json"
+}

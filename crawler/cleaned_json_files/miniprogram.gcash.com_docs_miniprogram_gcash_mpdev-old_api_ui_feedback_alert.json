@@ -1,0 +1,9 @@
+{
+  "title": "my.alert",
+  "content": "# my.alert\n\n2021-05-09 18:43\n\nAlert box\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.alert({\n  title: 'Tips',\n  content: 'Your bill for this month has been released',\n  buttonText: 'Show',\n  success: () => {\n    my.alert({\n      title: 'Click「Show」',\n    });\n  },\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| title | String | No | Title of the alert box. |\n| content | String | No | Contents of the alert box. |\n| buttonText | String | No | Button text, which is OK by default. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_feedback_alert",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_feedback_alert.json"
+}

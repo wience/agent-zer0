@@ -1,0 +1,9 @@
+{
+  "title": "MapContext.getCenterLocation",
+  "content": "# MapContext.getCenterLocation\n\n2022-07-03 18:44\n\nGet the center location of the current map.\n\n## Parameters~~~~\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| success | Function | No | The callback method that indicates a successful call. |\n| fail | Function | No | The callback method that indicates a failed call. |\n| complete | Function | No | The callback method that indicates the call is completed (this will be executed regardless of whether the call succeeds or fails). |\n\n### Success callback function\n\nThe parameters are in object type and have the following properties:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| longitude | Number | Longitude. |\n| latitude | Number | Latitude. |\n\n## Sample code\n\ncopy\n\n```javascript\n// .js\nthis.mapCtx = my.createMapContext('map');\nthis.mapCtx.getCenterLocation({\nsuccess: res => {\nmy.alert({\n    content: 'longitude:' + res.longitude + '\\nlatitude:' + res.latitude,\n});\nconsole.log(res.longitude);\nconsole.log(res.latitude);\n}\n});\n```",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_map_getcenterlocation",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_map_getcenterlocation.json"
+}

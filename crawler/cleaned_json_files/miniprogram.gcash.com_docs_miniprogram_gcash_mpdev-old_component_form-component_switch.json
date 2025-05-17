@@ -1,0 +1,9 @@
+{
+  "title": "switch",
+  "content": "# switch\n\n2021-05-09 18:43\n\nSwitch.\n\nScan QR code to try:\n\n![switch](https://marmot-local-dev.oss-ap-southeast-1.aliyuncs.com/storage/2020/1/10/4a4e238c-d0a6-4647-9553-be8ecf4e79e8.png#align=left&display=inline&height=196&margin=%5Bobject%20Object%5D&originHeight=196&originWidth=196&status=done&style=none&width=196)\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| name | String | Component name, used for form submission to get data. |\n| checked | Boolean | Checked or not. |\n| disabled | Boolean | Disable or not. |\n| color | String | Component color. |\n| onChange | EventHandle | Trigger on checked change, event.detail={ value:checked}. |\n| color | Color | Switch color. |\n\n### Screenshot\n\n![switch](https://marmot-local-dev.oss-ap-southeast-1.aliyuncs.com/storage/2020/1/14/fd0e8199-af02-4390-9cdb-d39d2c275124.png#align=left&display=inline&height=436&margin=%5Bobject%20Object%5D&originHeight=436&originWidth=750&status=done&style=stroke&width=750)\n\n### Sample Code\n\ncopy\n\n```html\n<view class=\"page\">\n  <view class=\"switch-list\">\n    <view class=\"switch-item\">\n      <switch checked onChange=\"switchChange\"/>\n    </view>\n  </view>\n</view>\n```\n\ncopy\n\n```javascript\nPage({\n  switchChange (e){\n    console.log('switchChange event, value:', e.detail.value)\n  },\n})\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/component_form-component_switch",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_component_form-component_switch.json"
+}

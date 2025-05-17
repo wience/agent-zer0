@@ -1,0 +1,9 @@
+{
+  "title": "my.confirm",
+  "content": "# my.confirm\n\n2021-05-09 18:43\n\nConfirm box.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.confirm({\n  title: 'Tips',\n  content: 'Do you want to check the courier number: 1234567890?',\n  confirmButtonText: 'Inquire now',\n  cancelButtonText: 'Not needed',\n  success: (result) => {\n    my.alert({\n      title: `${result.confirm}`,\n    });\n  },\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| title | String | No | Title of the confirm box. |\n| content | String | No | Content of the confirm box. |\n| confirmButtonText | String | No | OK button text, which is “OK” by default. |\n| cancelButtonText | String | No | OK button text, which is “Cancel” by default. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |\n\n### Success Callback Function\n\nThe incoming parameter is of the Object type with the following attributes:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| confirm | Boolean | Click Confirm to return true; click Cancel to return false. |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_feedback_confirm",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_feedback_confirm.json"
+}

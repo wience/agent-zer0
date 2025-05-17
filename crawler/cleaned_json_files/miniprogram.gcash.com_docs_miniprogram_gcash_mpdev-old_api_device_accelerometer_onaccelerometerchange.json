@@ -1,0 +1,9 @@
+{
+  "title": "my.onAccelerometerChange",
+  "content": "# my.onAccelerometerChange\n\n2021-05-09 18:43\n\nUse this API to listen to the acceleration data event. The callback interval is 500ms. After the interface is called, the listening is automatically started. You can use [my.offAccelerometerChange](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_device_accelerometer_offaccelerometerchange) to stop listening.\\*\\*\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.onAccelerometerChange(function(res) {\n  console.log(res.x);\n  console.log(res.y);\n  console.log(res.z);\n})\n```\n\n## Parameters\n\nThe property is a callback function which uses object properties with the following property:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| x | Number | x-axis |\n| y | Number | y-axis |\n| z | Number | z-axis |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_device_accelerometer_onaccelerometerchange",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_device_accelerometer_onaccelerometerchange.json"
+}

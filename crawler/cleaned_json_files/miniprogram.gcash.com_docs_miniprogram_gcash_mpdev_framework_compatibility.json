@@ -1,0 +1,9 @@
+{
+  "title": "Compatibility",
+  "content": "# Compatibility\n\n2022-07-03 18:44\n\nThe component and API of Mini Program are improving and enriching, so some old sdk may not support the newly added abilities, so developers should handle the compatibility issue.\n\nThe `my.canIUse(String)` can help to detect whether the API, input parameter or returned value, component, property is supported in current version.\n\n## Handle Newly Added API\n\nFollowing codes show how to handle compatibility issue for newly added API.\n\ncopy\n\n```javascript\nif (my.getLocation) {\n\tmy.getLocation();\n} else {\n    my.alert({\n       title: 'Hint',\n       content: 'The function is not supported, please upgrade App'\n    });\n}\n```\n\n## Handle Newly Added Input Parameter of API\n\ncopy\n\n```javascript\nif (my.canIUse('getLocation.object.type')) {\n    // ...\n} else {\n\tconsole.log('The parameter is not supported')\n}\n```\n\n## Handle Newly Added Return Value of API\n\ncopy\n\n```javascript\nif (my.canIUse('getSystemInfo.return.storage')) {\n\t// ...\n} else {\n\tconsole.log('The returned value is not supported')\n}\n```\n\n## Handle Newly Added Property of Component\n\ncopy\n\n```javascript\nPage({\n  data: {\n    canIUse: my.canIUse('button.open-type.share')\n  }\n})\n```\n\ncopy\n\n```html\n<button a:if=\"{{canIUse}}\" open-type=\"share\">Share</button>\n<button a:else onTap=\"shareApp\">Share Mini Program</button>\n```",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/framework_compatibility",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_framework_compatibility.json"
+}

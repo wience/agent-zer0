@@ -1,0 +1,9 @@
+{
+  "title": "my.saveImage",
+  "content": "# my.saveImage\n\n2022-07-03 18:44\n\nSave the online images to a device camera gallery.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.saveImage({url:'https://img.example.com/example.jpg'});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| url | String | Yes | URL of the image to be saved. |\n| showActionSheet | Boolean | No | Whether to show the menu when saving image; By default, it is `false`. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |\n\n## Error Code\n\n|     |     |\n| --- | --- |\n| **Error** | **Description** |\n| 2 | Invalid parameter, no url parameter   transferred. |\n| 15 | Album right not enabled (iOS only). |\n| 16 | Insufficient album storage on   cellphone (iOS only). |\n| 17 | Other errors during picture saving. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_Media_Image_saveImage",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_API_Media_Image_saveImage.json"
+}

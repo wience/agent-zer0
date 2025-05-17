@@ -1,0 +1,9 @@
+{
+  "title": "my.getFileInfo",
+  "content": "# my.getFileInfo\n\n2022-07-03 18:44\n\nGet file information.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.getFileInfo({\n    apFilePath: 'https://resource/apml953bb093ebd2834530196f50a4413a87.video',\n  \tdigestAlgorithm: 'sha1',\n    success: (res)=> {\n        console.log(JSON.stringify(res))\n    }\n})\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| apFilePath | String | Yes | File path. |\n| digestAlgorithm | String | No | Digest algorithm, supporting `md5` and `sha1`, `md5` by default. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |\n\n### Success Callback Function\n\nThe incoming parameter is of the Object type with the following attributes:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| size | Number | File size. |\n| digest | String | Digest result. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/API_File_getFileInfo",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_API_File_getFileInfo.json"
+}

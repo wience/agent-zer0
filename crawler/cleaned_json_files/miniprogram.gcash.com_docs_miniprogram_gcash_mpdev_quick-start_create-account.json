@@ -1,0 +1,9 @@
+{
+  "title": "Apply for an account",
+  "content": "# Apply for an account\n\n2022-07-03 18:44\n\nBefore developing a Mini Program, you need to create a developer account, which allows you to create, develop or publish your Mini Program.\n\nPlease ask the workspace admin to invite you to join the workspace to be a Mini Program admin or a Mini Program developer. Note that developer can develop the Mini Program, and only the Mini Program admin can create and publish the Mini Program.\n\nBy clicking the link within the invitation email you received, you can create your account as below.\n\n![Apply for an account](https://gw.alipayobjects.com/mdn/rms_150082/afts/img/A*XTpvS6RQyqkAAAAAAAAAAABkARQnAQ#align=left&display=inline&height=1212&margin=%5Bobject%20Object%5D&originHeight=1212&originWidth=2872&status=done&style=stroke&width=2872)\n\nFill in the information, then you can finish the account creation process.",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/quick-start_create-account",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_quick-start_create-account.json"
+}

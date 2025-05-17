@@ -1,0 +1,9 @@
+{
+  "title": "my.offBluetoothDeviceFound",
+  "content": "# my.offBluetoothDeviceFound\n\n2021-05-09 18:43\n\nUse this API to remove the bluetooth devices that are found.\n\nIn order to prevent multiple callbacks of an event, which are resulted from multiple registered event listeners, it is recommended to call off method to listen for an event and close the previous event listener, before you call on method.\n\n**Note:**\n\nCurrently simulation in IDE is not supported. Please debug in the production environment.\n\n## Code Sample\n\ncopy\n\n```javascript\nmy.offBluetoothDeviceFound();\n```\n\n## Transmitting Callback Values\n\n- If you don't transmit the callback value, all the event listener callbacks will be removed. See the below code sample for more information:\n\n\n\ncopy\n\n\n\n```javascript\nmy.offBluetoothDeviceFoun();\n```\n\n\n- If you transmit the callback value, the corresponding callbacks will be removed. See the below code sample for more information:\n\n\n\ncopy\n\n\n\n```javascript\nmy.offBluetoothDeviceFoun(this.callback);\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_device_bluetooth_bluetooth_offbluetoothdevicefound",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_device_bluetooth_bluetooth_offbluetoothdevicefound.json"
+}

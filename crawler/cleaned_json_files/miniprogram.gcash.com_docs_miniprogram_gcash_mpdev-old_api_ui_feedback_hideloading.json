@@ -1,0 +1,9 @@
+{
+  "title": "my.hideLoading",
+  "content": "# my.hideLoading\n\n2021-05-09 18:43\n\nHide the loading dialog.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.hideLoading();\n\nPage({\n  onLoad() {\n    my.showLoading();\n    const that = this;\n    setTimeout(() => {\n      my.hideLoading({\n        page: that,  // Prevents switching to other pages when execution, page pointing is not accurate\n      });\n    }, 4000);\n  }\n})\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| page | Object | No | Specifically it means the current page instance. In some scenarios, it is required to specify the exact page for hideLoading. |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_feedback_hideloading",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_feedback_hideloading.json"
+}

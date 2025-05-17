@@ -1,0 +1,9 @@
+{
+  "title": "my.vibrate",
+  "content": "# my.vibrate\n\n2022-07-03 18:44\n\nCall the device vibrate function.\n\n## Sample Code\n\ncopy\n\n```json\n// API-DEMO page/API/vibrate/vibrate.json\n{\n    \"defaultTitle\": \"Vibrate\"\n}\n```\n\ncopy\n\n```html\n<!-- API-DEMO page/API/vibrate/vibrate.axml-->\n<view class=\"page\">\n\n  <button type=\"primary\" onTap=\"vibrate\">\n    Start vibration\n  </button>\n\n</view>\n```\n\ncopy\n\n```javascript\n// API-DEMO page/API/vibrate/vibrate.js\nPage({\n  vibrate() {\n    my.vibrate({\n      success: () => {\n        my.alert({ title: 'Vibration on'});\n      }\n    });\n  },\n});\n```",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_device_vibrate_vibrate",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_device_vibrate_vibrate.json"
+}

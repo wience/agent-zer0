@@ -1,0 +1,9 @@
+{
+  "title": "my.clearStorageSync",
+  "content": "# my.clearStorageSync\n\n2021-05-09 18:43\n\nClear local data cache synchronously.\n\n> This is a synchronous interface.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.clearStorageSync();\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_storage_clearstoragesync",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_storage_clearstoragesync.json"
+}

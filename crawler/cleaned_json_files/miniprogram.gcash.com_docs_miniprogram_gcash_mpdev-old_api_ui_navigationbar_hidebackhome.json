@@ -1,0 +1,9 @@
+{
+  "title": "my.hideBackHome",
+  "content": "# my.hideBackHome\n\n2021-05-09 18:43\n\nUse this API to hide the home button in the top navigation bar, and the return-home option in the tab bar in the upper right corner.\n\n**Notes**:\n\n- By default, the home button is displayed if the page where an user enters on starting the Mini Program is not the homepage.\n\n- If the tab bar is configured to redirect to pages/index/index in the app.json, the return-home option is not displayed.\n\n## Sample Code\n\ncopy\n\n```javascript\n//.js\nPage({\n  onReady() {\n    if (my.canIUse('hideBackHome')) {\n      my.hideBackHome();\n    }\n  },\n});\n```\n\ncopy\n\n```javascript\n//.js\nonLoad(){\n    my.reLaunch({\n    url:'../swiper/swiper'// An added page other than the homepage\n  })\n\n  setTimeout(() => {\n    //Hide the home button after 5 seconds\n    my.hideBackHome()\n  }, 5000)\n}\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_navigationbar_hidebackhome",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_navigationbar_hidebackhome.json"
+}

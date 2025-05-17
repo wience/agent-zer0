@@ -1,0 +1,9 @@
+{
+  "title": "my.removeStorage",
+  "content": "# my.removeStorage\n\n2021-05-09 18:43\n\nRemove cached data.\n\n> This is an asynchronous interface.\n>\n> Removing the webview embedded storage data will not remove the storage data of the Mini Program.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.removeStorage({\n  key: 'currentCity',\n  success: function(){\n    my.alert({content: 'remove success'});\n  }\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| key | String | Yes | Cache data key. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_storage_removestorage",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_storage_removestorage.json"
+}

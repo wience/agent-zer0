@@ -1,0 +1,9 @@
+{
+  "title": "The Main Interface",
+  "content": "# The Main Interface\n\n2021-05-09 18:43\n\nThe main interface of Mini Program Studio mainly contains following components:\n\n- Menu bar: including files, editor, window and other basic software settings, these settings are similar with the settings of normal development software.\n\n- Tool bar: including functions such as associating Mini Program, toggling displays, preview, remote debug, upload and other functions for Mini Program.\n\n- Function panel: including project file management, search, [git management](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/mini-program-studio_function-panel_git-management), [NPM package management](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/mini-program-studio_function-panel_npm-package-management) and other functions.\n\n- Editor: for Mini Program coding.\n\n- Simulator: [local simulator](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/mini-program-studio_debugging_ide-debugging) for previewing Mini Program and [remote debugging](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/mini-program-studio_debugging_remote-debugging).\n\n![The Main Interface](https://gw.alipayobjects.com/mdn/rms_5158ba/afts/img/A*NhBJQ5UyFXYAAAAAAAAAAAAAARQnAQ#align=left&display=inline&height=840&margin=%5Bobject%20Object%5D&originHeight=840&originWidth=1442&status=done&style=stroke&width=1442)",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/mini-program-studio_interface_main-interface",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_mini-program-studio_interface_main-interface.json"
+}

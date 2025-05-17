@@ -1,0 +1,9 @@
+{
+  "title": "UpdateManager.onCheckForUpdate",
+  "content": "# UpdateManager.onCheckForUpdate\n\n2022-07-03 18:44\n\nListen for the event that a request is sent to the server to check for updates. Instead of being triggered actively by the developer, checking the version update is triggered automatically during the mini program cold start.\n\n## Parameter\n\nThe parameter is in object type and has the following property:\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| hasUpdate | Boolean | Yes | An indicator of whether a new version is available. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_update_updatemanager_checkupdate",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_update_updatemanager_checkupdate.json"
+}

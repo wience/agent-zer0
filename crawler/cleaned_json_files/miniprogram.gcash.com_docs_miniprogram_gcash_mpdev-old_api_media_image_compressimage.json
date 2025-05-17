@@ -1,0 +1,9 @@
+{
+  "title": "my.compressImage",
+  "content": "# my.compressImage\n\n2021-05-10 03:43\n\nCompress large images to fulfill the size restrictions from some mini programs.\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| apFilePaths | Array | Yes | An array of the image paths to be compressed. |\n| compressLevel | int | No | The image quality after the compress. Valid values are:<br>- _0_: Low quality<br>- _1_: Medium quality<br>- _2:_ High quality<br>- _4_: The quality depends on the network. When the network is Wi-Fi, the image is compressed to the high-quality image. Otherwise, the image is compressed to the medium-quality image.<br>The default value is _4_. |\n| success | Function | No | The callback method that indicates a successful call. |\n| fail | Function | No | The callback method that indicates a failed call. |\n| complete | Function | No | The callback method that indicates the call is completed (this will be executed regardless of whether the call succeeds or fails). |\n\n## Success callback function\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| apFilePaths | Array | Yes | The local file path of the compressed image. |\n\n## Error code\n\n|     |     |     |\n| --- | --- | --- |\n| **Error Code** | **Error Message** | **Description** |\n| 2 | Compress failed | Failed to compress all images. |\n| Invalid parameter | Failed to compress one of all images. |",
+  "date": "2021-05-10",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_media_image_compressimage",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_media_image_compressimage.json"
+}

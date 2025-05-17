@@ -1,0 +1,9 @@
+{
+  "title": "my.canIUse",
+  "content": "# my.canIUse\n\n2021-05-09 18:43\n\nCheck whether the current Mini Program API, incoming parameter or return value, component, attribute, etc. are supported in the current version.\n\nThe parameters are called via `${API}.${type}.${param}.${option}` or `${component}.${attribute}.${option}` mode.\n\n- API is the name of the API\n\n- type value object/return/callback, indicating the api judgment type\n\n- param indicates an attribute name of the parameter\n\n- option indicates the detailed attribute value of the parameter attribute\n\n- component indicates the name of the component\n\n- attribute indicates the name of the component attribute\n\n- option indicates the value of the component attribute\n\n## Sample Code\n\ncopy\n\n```javascript\n// check whether newly added API is available\nmy.canIUse('getFileInfo')\n// check whether newly added property of API is available\nmy.canIUse('getLocation.object.type')\n// check whether newly added returned property of API is available\nmy.canIUse('getSystemInfo.return.brand')\n// check whether newly added property of component is available\nmy.canIUse('button.open-type.getAuthorize')\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_basic_caniuse",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_basic_caniuse.json"
+}

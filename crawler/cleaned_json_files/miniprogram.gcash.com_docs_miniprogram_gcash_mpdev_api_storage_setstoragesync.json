@@ -1,0 +1,9 @@
+{
+  "title": "my.setStorageSync",
+  "content": "# my.setStorageSync\n\n2022-07-03 18:44\n\nStore synchronously the data in the specified key in the local cache.\n\n> This is a synchronous interface.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.setStorageSync({\n  key: 'currentCity',\n  data: {\n    cityName: 'London',\n    adCode: '330100',\n    spell: ' London',\n  }\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| key | String | Yes | Cache data key. |\n| data | Object/String | Yes | Data to be cached. |\n\n九色鹿",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_storage_setstoragesync",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_storage_setstoragesync.json"
+}

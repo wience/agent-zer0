@@ -1,0 +1,9 @@
+{
+  "title": "Page Style",
+  "content": "# Page Style\n\n2021-05-09 18:43\n\nThe page style is defined by the `.acss` file in the `/pages` directory.\n\nEach page will have a root element `page`, the background color or page height can be configured, for example.\n\ncopy\n\n```css\npage {\n  background-color: #fff;\n}\n```\n\nThe detail information about acss can be referred in [ACSS](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/framework_acss-reference).",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/framework_page_page-style",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_framework_page_page-style.json"
+}

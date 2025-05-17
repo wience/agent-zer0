@@ -1,0 +1,9 @@
+{
+  "title": "SelectorQuery Overview",
+  "content": "# SelectorQuery Overview\n\n2021-05-09 18:43\n\nThe class of selector query object.\n\n## Functions\n\n|     |     |\n| --- | --- |\n| **Name** | **Description** |\n| [SelectorQuery.boundingClientRect](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_selector-query_query_selectorquery-boundingclientrect) | Put the location of current selected node into the query result. |\n| [SelectorQuery.exec](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_selector-query_query_selectorquery-exec) | Put the query result into the `Callback`. |\n| [SelectorQuery.scrollOffset](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_selector-query_query_selectorquery-scrolloffset) | Put the scroll of current selected node into the query result. |\n| [SelectorQuery.select](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_selector-query_query_selectorquery-select) | Select the first matched node. |\n| [SelectorQuery.selectAll](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_selector-query_query_selectorquery-selectall) | Select all the matched nodes. |\n| [SelectorQuery.selectViewport](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_selector-query_query_selectorquery-selectviewport) | The instance of select window. |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_selector-query_query_selectorquery-overview",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_selector-query_query_selectorquery-overview.json"
+}

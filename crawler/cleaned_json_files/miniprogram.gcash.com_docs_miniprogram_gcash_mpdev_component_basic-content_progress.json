@@ -1,0 +1,9 @@
+{
+  "title": "progress",
+  "content": "# progress\n\n2022-07-03 18:44\n\nProgress bar.\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Default** | **Description** |\n| percent | Float |  | Percentage (0~100). |\n| show-info | Boolean | false | Show percentage value at right side. |\n| stroke-width | Number | 6 | Line weight, in px. |\n| active-color | Color | #09BB07 | Selected progress bar color. |\n| background-color | Color |  | Unselected progress bar color. |\n| active | Boolean | false | Loading animation from left to right or not. |\n\n### Screenshot\n\n![image](https://marmot-local-dev.oss-ap-southeast-1.aliyuncs.com/storage/2020/1/14/16181c11-1ba9-444e-81b9-4c5c602031ec.png)\n\n### Sample Code\n\ncopy\n\n```html\n<progress percent=\"20\" show-info/>\n<progress percent=\"40\" active/>\n<progress percent=\"60\" stroke-width=\"10\"/>\n<progress percent=\"80\" active/>\n<progress percent=\"80\" color=\"#10AEFF\"/>\n```\n\n九色鹿",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/component_basic-content_progress",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_component_basic-content_progress.json"
+}

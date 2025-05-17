@@ -1,0 +1,9 @@
+{
+  "title": "my.setTabBarStyle",
+  "content": "# my.setTabBarStyle\n\n2022-07-03 18:44\n\nUse this API to set the overall style of the tab bar, such as the text color, background color and border style.\n\nFor more information, see [Tab bar FAQ](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_ui_tabbar_tabbarfaq).\n\n**Note:**\n\nCurrently simulation in IDE is not supported. Please debug in production environment.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.setTabBarStyle({\n    color: '#FF0000',\n    selectedColor: '#00FF00',\n    backgroundColor: '#0000FF',\n    borderStyle: 'white'\n})\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| color | HexColor | Yes | The default color of text on tab. |\n| selectedColor | HexColor | Yes | The color of the selected text on tab. |\n| backgroundColor | HexColor | Yes | The background color of tab. |\n| borderStyle | String | Yes | The border color of tab bar, which only supports `black` / `white`. |\n| success | Function | No | The callback function for a successful API call. |\n| fail | Function | No | The callback function for a failed API call. |\n| complete | Function | No | The callback function used when the API call is completed. This function is always executed no matter the call succeeds or fails. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_ui_tabbar_settabbarstyle",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_ui_tabbar_settabbarstyle.json"
+}

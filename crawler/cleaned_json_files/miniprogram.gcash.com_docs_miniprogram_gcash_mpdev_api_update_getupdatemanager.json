@@ -1,0 +1,9 @@
+{
+  "title": "my.getUpdateManager",
+  "content": "# my.getUpdateManager\n\n2022-07-03 18:44\n\nCall this API to create an UpdateManager object. The UpdateManager is a globally unique manager of the version update, which is used to manage the mini program updates.\n\n## Return value\n\nThe return value is [UpdateManager](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_update_updatemanager_overview).",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_update_getupdatemanager",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_update_getupdatemanager.json"
+}

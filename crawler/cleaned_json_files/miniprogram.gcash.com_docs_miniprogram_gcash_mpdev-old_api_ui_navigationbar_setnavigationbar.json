@@ -1,0 +1,9 @@
+{
+  "title": "my.setNavigationBar",
+  "content": "# my.setNavigationBar\n\n2021-05-09 18:43\n\nSet the navigation bar text and style.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.setNavigationBar({\n  title: 'hello',\n  backgroundColor: '#108ee9',\n  success() {\n    my.alert({\n      content: 'Success',\n    });\n  },\n  fail() {\n    my.alert({\n      content: 'Failed',\n    });\n  },\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| title | String | No | Navigation bar title. |\n| image | String | No | Picture link address, must be https. Use 3x high-definition pictures. If the image is set, the title parameter is inactive. |\n| backgroundColor | String | No | Navigation bar background color, supporting hex color value. |\n| borderBottomColor | String | No | Navigation bar bottom border color, supporting hex color value If the backgroundColor is set, the borderBottomColor does not take effect. The backgroundColor is used by default. |\n| reset | Boolean | No | Whether the navigation bar is reset to the default color, false by default. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_navigationbar_setnavigationbar",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_navigationbar_setnavigationbar.json"
+}

@@ -1,0 +1,9 @@
+{
+  "title": "MapContext.gestureEnable",
+  "content": "# MapContext.gestureEnable\n\n2022-07-04 03:44\n\nEnable or disable all gestures.\n\n- 1: enable all gestures.\n- 0: disable all gestures.\n\n## Parameter~~~~\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| isGestureEnable | Int | Yes | An indicator of whether the gestures are enabled. |\n\n## Sample code\n\ncopy\n\n```javascript\nthis.mapCtx = my.createMapContext('map');\nthis.mapCtx.gestureEnable({isGestureEnable:1});\n```",
+  "date": "2022-07-04",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_map_gestureenable",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_map_gestureenable.json"
+}

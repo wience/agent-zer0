@@ -1,0 +1,9 @@
+{
+  "title": "Performance",
+  "content": "# Performance\n\n2022-07-08 02:08\n\nYou can see the performance with historical data about the mini program. You can select one day before the current date, and see the following numbers on different card pages:\n\n- **Unique Visitor by User**\n\nThe number of unique visitors on the selected date that are calculated by the user ID.\n\n- **Unique Visitor by Device**\n\nThe number of unique visitors on the selected date that are calculated by the device ID.\n\n- **Page View**\n\nThe number of page views on the selected date.\n\n- **New Users**\n\nThe number of new users on the selected date.\n\n- **7-Day Active Users**\n\nThe number of active users within the past 7 days till the selected date.\n\n- **Accumulated Users**\n\nThe number of users that are accumulated from the first day of the mini program release to the selected date.\n\n![Performance of each MP.png](https://ac.alipay.com/storage/2020/5/11/793a3d8d-5270-405b-9362-e6a670b9c842.png)\n\nFor each card, you can also see the growth rates, including the daily growth rate, week-over-week growth rate, and month-over-month growth rate.\n\n## Next steps\n\n[Real-Time Analysis](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/analytics_realtime)\n\n## More information\n\n[Analytics](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/analytics)\n\n[Overview](https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/overview)",
+  "date": "2022-07-08",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/platform/analytics_performance",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_platform_analytics_performance.json"
+}

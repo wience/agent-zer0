@@ -1,0 +1,9 @@
+{
+  "title": "my.navigateTo",
+  "content": "# my.navigateTo\n\n2022-07-03 18:44\n\nMaintain the current page and jump to the specified page within the application. Use `my.navigateBack` to return to the original page.\n\n**Note: The maximum page depth is 10. In other words, the navigateTo can be called 10 times at most.**\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.navigateTo({\n  url: 'new_page?count=100'\n})\n\nPage({\n  onLoad(query){\n    my.alert({\n      content: JSON.stringify(query),\n    });\n  }\n})\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| url | String | Yes | The application for thejumping does not include the destination page path of the tabBar. The path can be followed by parameters. Rules for the parameters: The path and parameter are separated with `?`, the parameter key and the parameter value are connected with `=`, and different parameters must be separated with `&`, such as `path?key1=value1&key2=value2`. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_ui_route_navigateto",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_ui_route_navigateto.json"
+}

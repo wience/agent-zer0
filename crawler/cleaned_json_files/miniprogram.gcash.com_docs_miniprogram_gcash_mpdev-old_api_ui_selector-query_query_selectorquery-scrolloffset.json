@@ -1,0 +1,9 @@
+{
+  "title": "SelectorQuery.scrollOffset",
+  "content": "# SelectorQuery.scrollOffset\n\n2021-05-09 18:43\n\nPut the scroll information of current selected node into the query result, the returned value includes scrollTop, scrollLeft.",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_selector-query_query_selectorquery-scrolloffset",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_selector-query_query_selectorquery-scrolloffset.json"
+}

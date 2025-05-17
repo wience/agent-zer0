@@ -1,0 +1,9 @@
+{
+  "title": "my.reLaunch",
+  "content": "# my.reLaunch\n\n2021-05-09 18:43\n\nClose page stacks and jump to the specified page within the application.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.reLaunch({\n  url: '/page/index'\n})\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| url | String | Yes | Page path If the page is not a tabbar page, the path can be followed by parameters. Rules for the parameters: The path and parameter are separated with <br>`?`<br>, the parameter key and the parameter value are connected with <br>`=`<br>, and different parameters must be separated with <br>`&`<br>, such as <br>`path?key1=value1&key2=value2`<br>. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_ui_route_relaunch",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_ui_route_relaunch.json"
+}

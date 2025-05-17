@@ -1,0 +1,9 @@
+{
+  "title": "my.showLoading",
+  "content": "# my.showLoading\n\n2022-07-03 18:44\n\nShow the loading dialog.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.showLoading({\n  content: 'loading...',\n  delay: 1000,\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| content | String | No | Text contents of loading. |\n| delay | Number | No | Displaying delay, in ms, 0 by default If my.hideLoading was called before this time, it is not displayed. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_ui_feedback_showloading",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_ui_feedback_showloading.json"
+}

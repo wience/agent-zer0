@@ -1,0 +1,9 @@
+{
+  "title": "my.onCompassChange",
+  "content": "# my.onCompassChange\n\n2022-07-03 18:44\n\nUse this API to listen to the compass data change event. After the interface call, listening is automatically started. The callback interval is 500ms. You can use [my.offCompassChange](https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_device_compass_offcompasschange) to stop listening.\n\n## Sample Code\n\ncopy\n\n```\nmy.onCompassChange(function (res) {\n  console.log(res.direction);\n})\n```\n\n## Parameters\n\nThe property is a callback function which uses object properties with the following property:\n\n|     |     |     |\n| --- | --- | --- |\n| **Property** | **Type** | **Description** |\n| direction | Number | The degree of the direction that you are facing. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_device_compass_oncompasschange",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_device_compass_oncompasschange.json"
+}

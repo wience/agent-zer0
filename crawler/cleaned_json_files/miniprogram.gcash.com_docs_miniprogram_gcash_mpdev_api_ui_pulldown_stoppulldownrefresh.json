@@ -1,0 +1,9 @@
+{
+  "title": "my.stopPullDownRefresh",
+  "content": "# my.stopPullDownRefresh\n\n2022-07-03 18:44\n\nStop the pull-to-refresh for the current page.\n\n## Sample Code:\n\ncopy\n\n```javascript\nPage({\n  onPullDownRefresh(){\n    my.stopPullDownRefresh()\n  }\n})\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| success | Function | No | The callback function for a successful API call. |\n| fail | Function | No | The callback function for a failed API call. |\n| complete | Function | No | The callback function used when the API call is completed. This function is always executed no matter the call succeeds or fails. |",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_ui_pulldown_stoppulldownrefresh",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_ui_pulldown_stoppulldownrefresh.json"
+}

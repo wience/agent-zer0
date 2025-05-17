@@ -1,0 +1,9 @@
+{
+  "title": "Mixins",
+  "content": "# Mixins\n\n2021-05-09 18:43\n\nThe developer may implement multiple custom components which may have common logic to be processed. The Mini Program provides the mixins to meet the requirement.\n\n**Sample code:**\n\ncopy\n\n```javascript\n// /minxins/lifecylce.js\nexport default {\n  onInit(){},\n  deriveDataFromProps(nextProps){},\n  didMount(){},\n  didUpdate(prevProps,prevData){},\n  didUnmount(){},\n};\n```\n\ncopy\n\n```javascript\n// /pages/components/xx/index.js\nimport lifecylce from '../../minxins/lifecylce';\nconst initialState = {\n  data: {\n    y: 2\n  },\n};\nconst defaultProps = {\n  props: {\n    a: 3,\n  },\n};\nconst methods = {\n  methods: {\n  \tonTapHandler() {},\n  },\n}\nComponent({\n  mixins: [\\\n    lifecylce,\\\n    initialState,\\\n    defaultProps,\\\n    methods\\\n  ],\n  data: {\n    x: 1,\n  },\n});\n```",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/framework_custom-component_create-custom-component_mixins",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_framework_custom-component_create-custom-component_mixins.json"
+}

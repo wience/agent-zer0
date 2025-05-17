@@ -1,0 +1,9 @@
+{
+  "title": "my.setStorage",
+  "content": "# my.setStorage\n\n2021-05-09 18:43\n\nStore the data with a specified key in the local cache. This will overlaps\\ the original data using the same key.\n\n> This is an asynchronous interface.\n>\n> Support the isolation of webview-embedded storage and the Mini Program storage. Specifying key storage data in embedded  webview does not overlap the data corresponding to the same key of the Mini Program itself.\n\n## Sample Code\n\ncopy\n\n```javascript\nmy.setStorage({\n  key: 'currentCity',\n  data: {\n    cityName: 'London',\n    adCode: '330100',\n    spell: ' London',\n  },\n  success: function() {\n    my.alert({content: 'Set Success'});\n  }\n});\n```\n\n## Parameters\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| **Property** | **Type** | **Required** | **Description** |\n| key | String | Yes | Cache data key. |\n| data | Object/String | Yes | Data to be cached. |\n| success | Function | No | Callback function upon call success. |\n| fail | Function | No | Callback function upon call failure. |\n| complete | Function | No | Callback function upon call completion (to be executed upon either call success or failure). |\n\n> Note: When a single data is converted into a string, the string length is maximum 200\\*1024. For the same user, the cache of one Mini Program has an upper limit 10MB.",
+  "date": "2021-05-09",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev-old/api_storage_setstorage",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev-old_api_storage_setstorage.json"
+}

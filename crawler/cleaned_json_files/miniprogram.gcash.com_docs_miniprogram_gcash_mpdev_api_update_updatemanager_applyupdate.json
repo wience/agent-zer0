@@ -1,0 +1,9 @@
+{
+  "title": "UpdateManager.applyUpdate",
+  "content": "# UpdateManager.applyUpdate\n\n2022-07-03 18:44\n\nForce to restart the mini program and update to the latest version. This API is called after the `onUpdateReady` callback is received, which means that the new version of the mini program is downloaded.",
+  "date": "2022-07-03",
+  "source": "https://miniprogram.gcash.com/docs/miniprogram_gcash/mpdev/api_update_updatemanager_applyupdate",
+  "path": "miniprogram_gcash",
+  "type": "miniprogram",
+  "filename": "miniprogram.gcash.com_docs_miniprogram_gcash_mpdev_api_update_updatemanager_applyupdate.json"
+}
