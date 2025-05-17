@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { supabseAuthClient } from '@/lib/supabase/auth';
-import { GeminiService, FlowData, FlowOption, FlowStep } from '../services/gemini';
+import { GeminiService, FlowData, FlowOption, FlowStep, CXInsights } from '../services/gemini';
 
 // UI Components
 import { Button } from '../components/ui/button';
 import { Input } from '../components/ui/input';
 import { Badge } from '../components/ui/badge';
 import { AIInsights, Insight } from '../components/ui/ai-insights';
+import { CXInsightsPanel } from '../components/ui/cx-insights';
 
 // Types for Conversation
 interface ConversationMessage {
@@ -273,18 +274,17 @@ const AgentDashboard = () => {
         suggestedActions: ['Check KYC status', 'Verify recent login activity']
     });
 
+    // Add new state for CX insights
+    const [cxInsights, setCXInsights] = useState<CXInsights | null>(null);
+    const [insightsLoading, setInsightsLoading] = useState(false);
+
     // Add subscription ref to maintain subscription across renders
     const subscriptionRef = useRef<any>(null);
 
-    // Handle AI insight actions
-    const handleInsightAction = (insight: Insight, action: string) => {
-        console.log(`Action ${action} taken on insight:`, insight);
-
-        // Add the action to the response if it's an "apply" action
-        if (action === 'apply') {
-            if (insight.type === 'action') {
-                setCustomerQuery(insight.content);
-            }
+    // Update handleInsightAction to match new signature
+    const handleInsightAction = (action: string) => {
+        if (action) {
+            setCustomerQuery(action);
         }
     };
 
@@ -293,6 +293,7 @@ const AgentDashboard = () => {
         async function fetchConversations() {
             try {
                 setLoading(true);
+                setInsightsLoading(true);
 
                 const { data: conversationsData, error } = await supabseAuthClient.supabase
                     .from('conversations')
@@ -328,12 +329,22 @@ const AgentDashboard = () => {
                     if (formattedConversations.length > 0 && !selectedConversation) {
                         setSelectedConversation(formattedConversations[0].id);
                         setConversationTranscript(formattedConversations[0].conversation_data || []);
+
+                        // Generate CX insights for the first conversation
+                        try {
+                            const geminiService = new GeminiService(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '');
+                            const insights = await geminiService.generateCXInsights(formattedConversations[0].conversation_data || []);
+                            setCXInsights(insights);
+                        } catch (error) {
+                            console.error('Error generating CX insights:', error);
+                        }
                     }
                 }
             } catch (error) {
                 console.error('Error in fetchConversations:', error);
             } finally {
                 setLoading(false);
+                setInsightsLoading(false);
             }
         }
 
@@ -468,7 +479,21 @@ const AgentDashboard = () => {
         }
     };
 
-    // Add function to handle conversation selection with subscription
+    // Add function to generate CX insights
+    const generateCXInsights = async (conversationData: any[]) => {
+        try {
+            setInsightsLoading(true);
+            const geminiService = new GeminiService(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '');
+            const insights = await geminiService.generateCXInsights(conversationData);
+            setCXInsights(insights);
+        } catch (error) {
+            console.error('Error generating CX insights:', error);
+        } finally {
+            setInsightsLoading(false);
+        }
+    };
+
+    // Modify handleConversationSelect to include CX insights generation
     const handleConversationSelect = (convId: string) => {
         setSelectedConversation(convId);
 
@@ -476,8 +501,11 @@ const AgentDashboard = () => {
         const selectedConv = conversations.find(conv => conv.id === convId);
         if (selectedConv && selectedConv.conversation_data) {
             setConversationTranscript(selectedConv.conversation_data);
+            // Generate new insights for the selected conversation
+            generateCXInsights(selectedConv.conversation_data);
         } else {
             setConversationTranscript([]);
+            setCXInsights(null);
         }
     };
 
@@ -718,45 +746,66 @@ const AgentDashboard = () => {
                     <div className="col-span-3 flex flex-col h-full space-y-4 min-h-0">
                         <div className="flex-1 bg-white rounded-lg shadow-sm overflow-y-auto">
                             <div className="p-4 border-b border-gray-200">
-                                <h2 className="text-lg font-semibold">AI Insights</h2>
-                                <p className="text-sm text-gray-500">Real-time analysis and suggestions</p>
+                                <div className="flex justify-between items-center">
+                                    <div>
+                                        <h2 className="text-lg font-semibold">CX Insights</h2>
+                                        <p className="text-sm text-gray-500">Real-time customer experience analysis</p>
+                                    </div>
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        className="h-8 w-8 p-0"
+                                        onClick={() => {
+                                            if (selectedConversation) {
+                                                const conv = conversations.find(c => c.id === selectedConversation);
+                                                if (conv?.conversation_data) {
+                                                    generateCXInsights(conv.conversation_data);
+                                                }
+                                            }
+                                        }}
+                                        disabled={insightsLoading || !selectedConversation}
+                                    >
+                                        <svg
+                                            className={`w-4 h-4 ${insightsLoading ? 'animate-spin' : ''}`}
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+                                            />
+                                        </svg>
+                                    </Button>
+                                </div>
                             </div>
                             <div className="p-4">
-                                <AIInsights
-                                    insights={[
-                                        {
-                                            type: 'sentiment',
-                                            content: customerInsights.sentiment,
-                                            priority: 'medium'
-                                        },
-                                        {
-                                            type: 'customer',
-                                            content: customerInsights.loyalty,
-                                            priority: 'low'
-                                        },
-                                        {
-                                            type: 'action',
-                                            content: 'Check KYC status',
-                                            priority: 'high'
-                                        }
-                                    ]}
-                                    onAction={handleInsightAction}
-                                />
-                            </div>
-                        </div>
-
-                        {/* Suggested Responses */}
-                        <div className="flex-none bg-white rounded-lg shadow-sm p-4">
-                            <h2 className="text-lg font-semibold mb-3">Suggested Responses</h2>
-                            <div className="space-y-2">
-                                {suggestedResponses.map((response, index) => (
-                                    <div
-                                        key={index}
-                                        className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 cursor-pointer"
-                                    >
-                                        <p className="text-sm text-gray-700">{response}</p>
+                                {cxInsights ? (
+                                    <CXInsightsPanel
+                                        insights={cxInsights}
+                                        onActionClick={handleInsightAction}
+                                        isLoading={insightsLoading}
+                                    />
+                                ) : (
+                                    <div className="text-center text-gray-500 py-10">
+                                        {selectedConversation ? (
+                                            <CXInsightsPanel
+                                                insights={{
+                                                    sentiment: { score: 0, label: '', confidence: 0, keyPhrases: [] },
+                                                    profile: { customerType: '', engagementLevel: '', preferredChannels: [], recentInteractions: 0 },
+                                                    issue: { category: '', priority: '', complexity: '', estimatedResolutionTime: '', similarPastIssues: 0 },
+                                                    actionableInsights: [],
+                                                    keyTakeaways: []
+                                                }}
+                                                isLoading={true}
+                                            />
+                                        ) : (
+                                            'Select a conversation to view insights'
+                                        )}
                                     </div>
-                                ))}
+                                )}
                             </div>
                         </div>
                     </div>
