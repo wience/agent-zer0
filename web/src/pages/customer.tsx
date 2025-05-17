@@ -7,12 +7,6 @@ import DotPattern from '@/components/ui/dot-pattern';
 export default function App() {
     return (
         <>
-            <AppDock />
-            <DotPattern
-                className={cn(
-                    "[mask-image:radial-gradient(1000px_circle_at_center,white,transparent)]",
-                )}
-            />
             <ConsolePage />
         </>
     );
