@@ -6,7 +6,7 @@
 
 Meet Agent-Zer0 - the customer service platform that's like having a team of super-smart agents working 24/7, but without the coffee breaks! We've combined cutting-edge AI with a sleek interface to create something that's not just another boring customer service tool.
 
-[Visit it Here](https://www.agent-zer0.vercel.app/)
+[Visit it Here]([http://www.agent-zer0.vercel.app/](https://agent-zer0.vercel.app/))
 
 ### What's in the Box? 🎁
 
