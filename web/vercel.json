@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "buildCommand": "pnpm install --no-frozen-lockfile && pnpm build",
+  "outputDirectory": ".next",
+  "installCommand": "pnpm install --no-frozen-lockfile"
+} 
