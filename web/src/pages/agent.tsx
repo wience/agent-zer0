@@ -144,7 +144,7 @@ const ProcessFlow = ({ conversationTranscript }: { conversationTranscript: Conve
             {/* Header with help icon */}
             <div className="flex justify-between items-center mb-3">
                 <h3 className="text-lg font-semibold text-gray-800">
-                    {flowData[currentStep].title}
+                    {flowData?.[currentStep]?.title || 'Loading...'}
                 </h3>
                 <Button
                     variant="ghost"
@@ -172,32 +172,32 @@ const ProcessFlow = ({ conversationTranscript }: { conversationTranscript: Conve
             </div>
 
             {/* Current step subtitle */}
-            {flowData[currentStep].subtitle && (
+            {flowData?.[currentStep]?.subtitle && (
                 <p className="text-sm text-gray-600 mb-3">{flowData[currentStep].subtitle}</p>
             )}
 
             {/* Script suggestion with cleaner design */}
             {scriptDisplay && (
                 <div className="mb-4 p-3 bg-blue-50 border-l-4 border-blue-400 rounded-md">
-                    <div className="flex justify-between">
+                    <div className="flex justify-between items-start">
                         <h4 className="text-sm font-medium text-blue-800 mb-1">Suggested Response:</h4>
                         <Button
                             variant="ghost"
                             size="sm"
-                            className="text-xs text-blue-700 h-6 -mt-1"
+                            className="text-xs text-blue-700 h-6"
                             onClick={() => navigator.clipboard.writeText(scriptDisplay)}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
                             Copy
                         </Button>
                     </div>
-                    <p className="text-sm text-gray-700">{scriptDisplay}</p>
+                    <p className="text-sm text-gray-700 mt-2">{scriptDisplay}</p>
                 </div>
             )}
 
             {/* Options with improved visual hierarchy */}
-            <div className="space-y-2 mt-1">
-                {flowData[currentStep].options.map((option: FlowOption) => (
+            <div className="flex-1 overflow-y-auto space-y-2 pr-2">
+                {flowData?.[currentStep]?.options.map((option: FlowOption) => (
                     <button
                         key={option.id}
                         className="w-full p-3 rounded-md border border-gray-200 bg-white hover:bg-gray-50 
@@ -403,223 +403,183 @@ const AgentDashboard = () => {
     };
 
     return (
-        <div className="flex flex-col h-screen bg-gray-50 text-gray-800">
-            <Toaster position="top-right" reverseOrder={false} />
-
-            {/* Header */}
-            <header className="p-4 border-b border-gray-200 flex justify-between items-center bg-blue-600 text-white">
-                <div className="flex items-center space-x-2">
-                    <h1 className="text-xl font-bold">GCash Support Console</h1>
-                    <Badge className="bg-white text-blue-600">AI-Powered</Badge>
-                </div>
-                <div className="flex items-center space-x-4">
+        <div className="h-screen flex flex-col bg-gray-50 overflow-hidden">
+            {/* Header - Fixed height */}
+            <header className="flex-none bg-blue-600 text-white shadow-md">
+                <div className="px-6 py-4 flex justify-between items-center">
                     <div className="flex items-center space-x-2">
-                        <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                        <span>Online</span>
+                        <h1 className="text-xl font-bold">GCash Support Console</h1>
+                        <Badge className="bg-white text-blue-600">AI-Powered</Badge>
                     </div>
-                    <Button className="bg-white text-blue-600 hover:bg-gray-100">Settings</Button>
+                    <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-2">
+                            <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                            <span>Online</span>
+                        </div>
+                        <Button className="bg-white text-blue-600 hover:bg-gray-100">Settings</Button>
+                    </div>
                 </div>
             </header>
 
-            {/* Main content */}
-            <div className="flex flex-1 overflow-hidden">
-                {/* Left sidebar - Conversations */}
-                <div className="w-1/5 border-r border-gray-200 overflow-y-auto p-4 bg-white">
-                    <div className="mb-4">
-                        <h2 className="text-lg font-semibold mb-2 text-gray-800">Active Conversations</h2>
-                        <Input
-                            type="search"
-                            placeholder="Search conversations..."
-                            className="bg-white border-gray-300"
-                        />
-                    </div>
-
-                    {loading ? (
-                        <div className="flex justify-center items-center h-32">
-                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
-                        </div>
-                    ) : (
-                        <div className="space-y-2">
-                            {conversations.length === 0 ? (
-                                <div className="text-center text-gray-500 py-10">
-                                    No conversations yet
-                                </div>
-                            ) : (
-                                conversations.map(conv => (
-                                    <div
-                                        key={conv.id}
-                                        onClick={() => handleConversationSelect(conv.id)}
-                                        className={`p-3 rounded-lg cursor-pointer transition-colors ${selectedConversation === conv.id
-                                            ? 'bg-blue-50 border border-blue-200'
-                                            : 'bg-white border border-gray-200 hover:bg-gray-50'
-                                            }`}
-                                    >
-                                        <div className="flex justify-between items-start mb-1">
-                                            <span className="font-medium text-gray-800">Wince {conv.id.slice(0, 8)}...</span>
-                                            <Badge
-                                                className={`${conv.status === 'active'
-                                                    ? 'bg-green-500 text-white'
-                                                    : 'bg-gray-500 text-white'}`}
-                                            >
-                                                {conv.status}
-                                            </Badge>
-                                        </div>
-                                        <p className="text-sm text-gray-600 truncate">{conv.lastMessage}</p>
-                                        <div className="flex justify-end items-center mt-2">
-                                            <span className="text-xs text-gray-500">{conv.time}</span>
-                                        </div>
-                                    </div>
-                                ))
-                            )}
-                        </div>
-                    )}
-                </div>
-
-                {/* Main content area - Flow Diagram and Transcript */}
-                <div className="flex-1 flex flex-col bg-white">
-                    {/* Flow Diagram */}
-                    <div className="flex-1 p-4 overflow-hidden flex flex-col">
-                        <div className="mb-4 flex justify-between items-center">
-                            <h2 className="text-xl font-semibold text-gray-800">Support Cheat Sheet</h2>
-                            <div className="text-sm text-gray-500">
-                                Interactive guide for agents
+            {/* Main Content - Flexible height with scroll */}
+            <main className="flex-1 overflow-hidden p-6">
+                <div className="h-full grid grid-cols-12 gap-6 max-w-[1920px] mx-auto">
+                    {/* Left Sidebar - Conversations */}
+                    <div className="col-span-3 flex flex-col h-full space-y-4 min-h-0">
+                        {/* Search and Filters - Fixed height */}
+                        <div className="flex-none bg-white rounded-lg shadow-sm p-4">
+                            <h2 className="text-lg font-semibold mb-3">Active Conversations</h2>
+                            <Input
+                                type="search"
+                                placeholder="Search conversations..."
+                                className="bg-white border-gray-300 mb-3"
+                            />
+                            <div className="flex space-x-2">
+                                <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200 cursor-pointer">All</Badge>
+                                <Badge className="bg-gray-100 text-gray-800 hover:bg-gray-200 cursor-pointer">Active</Badge>
+                                <Badge className="bg-gray-100 text-gray-800 hover:bg-gray-200 cursor-pointer">Pending</Badge>
                             </div>
                         </div>
 
-                        {/* Process Flow Component */}
-                        <ProcessFlow conversationTranscript={conversationTranscript} />
-                    </div>
-
-                    {/* Conversation Transcript Section */}
-                    {selectedConversation && (
-                        <div className="p-4 border-t border-gray-200">
-                            <h3 className="text-lg font-semibold mb-3 text-gray-800">Customer Transcript</h3>
-                            <div className="bg-gray-50 rounded-lg p-4 h-64 overflow-y-auto">
-                                {conversationTranscript.length === 0 ? (
+                        {/* Conversation List - Scrollable */}
+                        <div className="flex-1 bg-white rounded-lg shadow-sm p-4 min-h-0 overflow-y-auto">
+                            <div className="space-y-3">
+                                {loading ? (
+                                    <div className="flex justify-center items-center h-32">
+                                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+                                    </div>
+                                ) : conversations.length === 0 ? (
                                     <div className="text-center text-gray-500 py-10">
-                                        No transcript available
+                                        No conversations yet
                                     </div>
                                 ) : (
-                                    conversationTranscript.map((message, index) => (
+                                    conversations.map(conv => (
                                         <div
-                                            key={index}
-                                            className={`mb-3 p-3 rounded-lg ${message.role === 'user'
-                                                ? 'bg-blue-100 ml-10'
-                                                : 'bg-gray-100 mr-10'
+                                            key={conv.id}
+                                            onClick={() => handleConversationSelect(conv.id)}
+                                            className={`p-4 rounded-lg cursor-pointer transition-all ${selectedConversation === conv.id
+                                                    ? 'bg-blue-50 border-2 border-blue-200 shadow-sm'
+                                                    : 'bg-gray-50 border border-gray-200 hover:bg-gray-100'
                                                 }`}
                                         >
-                                            <div className="font-semibold text-xs text-gray-700 mb-1">
-                                                {message.role === 'user' ? 'Customer' : 'AI Assistant'}
+                                            <div className="flex justify-between items-start mb-2">
+                                                <span className="font-medium text-gray-800">Wince {conv.id.slice(0, 8)}...</span>
+                                                <Badge className={conv.status === 'active' ? 'bg-green-500' : 'bg-gray-500'}>
+                                                    {conv.status}
+                                                </Badge>
                                             </div>
-                                            <p className="text-sm">{message.text}</p>
+                                            <p className="text-sm text-gray-600 mb-2">{conv.lastMessage}</p>
+                                            <div className="flex justify-between items-center text-xs text-gray-500">
+                                                <span>{conv.time}</span>
+                                                <span>ID: {conv.id.slice(0, 6)}</span>
+                                            </div>
                                         </div>
                                     ))
                                 )}
                             </div>
                         </div>
-                    )}
+                    </div>
+
+                    {/* Middle Section - Flow and Transcript */}
+                    <div className="col-span-6 flex flex-col h-full space-y-4 min-h-0">
+                        {/* Flow Diagram - Fixed height */}
+                        <div className="flex-none bg-white rounded-lg shadow-sm">
+                            <div className="p-4 border-b border-gray-200">
+                                <h2 className="text-lg font-semibold">Support Guide</h2>
+                                <p className="text-sm text-gray-500">Follow the steps to assist the customer</p>
+                            </div>
+                            <div className="p-4 max-h-[400px] overflow-y-auto">
+                                <ProcessFlow conversationTranscript={conversationTranscript} />
+                            </div>
+                        </div>
+
+                        {/* Conversation Transcript - Flexible height with scroll */}
+                        {selectedConversation && (
+                            <div className="flex-1 bg-white rounded-lg shadow-sm flex flex-col min-h-0">
+                                <div className="flex-none p-4 border-b border-gray-200 flex justify-between items-center">
+                                    <h2 className="text-lg font-semibold">Conversation History</h2>
+                                    <Button variant="outline" size="sm" className="text-gray-600">
+                                        Export
+                                    </Button>
+                                </div>
+                                <div className="flex-1 p-4 overflow-y-auto min-h-0">
+                                    {conversationTranscript.length === 0 ? (
+                                        <div className="text-center text-gray-500 py-10">
+                                            No messages yet
+                                        </div>
+                                    ) : (
+                                        <div className="space-y-4">
+                                            {conversationTranscript.map((message, index) => (
+                                                <div
+                                                    key={index}
+                                                    className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                                                >
+                                                    <div className={`max-w-[80%] p-3 rounded-lg ${message.role === 'user'
+                                                        ? 'bg-blue-500 text-white'
+                                                        : 'bg-gray-100 text-gray-800'
+                                                        }`}>
+                                                        <div className="text-xs mb-1 opacity-75">
+                                                            {message.role === 'user' ? 'Customer' : 'AI Assistant'}
+                                                        </div>
+                                                        <p className="text-sm">{message.text}</p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Right Sidebar - AI Insights */}
+                    <div className="col-span-3 flex flex-col h-full space-y-4 min-h-0">
+                        <div className="flex-1 bg-white rounded-lg shadow-sm overflow-y-auto">
+                            <div className="p-4 border-b border-gray-200">
+                                <h2 className="text-lg font-semibold">AI Insights</h2>
+                                <p className="text-sm text-gray-500">Real-time analysis and suggestions</p>
+                            </div>
+                            <div className="p-4">
+                                <AIInsights
+                                    insights={[
+                                        {
+                                            type: 'sentiment',
+                                            content: customerInsights.sentiment,
+                                            priority: 'medium'
+                                        },
+                                        {
+                                            type: 'customer',
+                                            content: customerInsights.loyalty,
+                                            priority: 'low'
+                                        },
+                                        {
+                                            type: 'action',
+                                            content: 'Check KYC status',
+                                            priority: 'high'
+                                        }
+                                    ]}
+                                    onAction={handleInsightAction}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Suggested Responses */}
+                        <div className="flex-none bg-white rounded-lg shadow-sm p-4">
+                            <h2 className="text-lg font-semibold mb-3">Suggested Responses</h2>
+                            <div className="space-y-2">
+                                {suggestedResponses.map((response, index) => (
+                                    <div
+                                        key={index}
+                                        className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 cursor-pointer"
+                                    >
+                                        <p className="text-sm text-gray-700">{response}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                {/* Right sidebar - Customer info & AI insights */}
-                <div className="w-1/5 border-l border-gray-200 p-4 overflow-y-auto bg-white">
-                    <div className="mb-6">
-                        <h2 className="text-lg font-semibold mb-3 text-gray-800">Customer Profile</h2>
-                        <div className="bg-white rounded-lg p-3 mb-2 border border-gray-200 shadow-sm">
-                            <div className="flex items-center mb-3">
-                                <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center font-bold text-lg mr-3 text-white">
-                                    MS
-                                </div>
-                                <div>
-                                    <h3 className="font-medium text-gray-800">Maria Santos</h3>
-                                    <p className="text-xs text-gray-500">GCash user since 2022</p>
-                                </div>
-                            </div>
-                            <div className="grid grid-cols-2 gap-2 text-sm">
-                                <div>
-                                    <p className="text-gray-500">Account Type:</p>
-                                    <p className="text-gray-800">Semi-Verified</p>
-                                </div>
-                                <div>
-                                    <p className="text-gray-500">Phone:</p>
-                                    <p className="text-gray-800">+63 917 123 4567</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Transaction Details */}
-                    <div className="mb-6">
-                        <h2 className="text-lg font-semibold mb-3 text-gray-800">Transaction Details</h2>
-                        <div className="bg-white rounded-lg p-3 border border-gray-200 shadow-sm">
-                            <div className="space-y-2 text-sm">
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500">Reference No:</span>
-                                    <span className="font-medium text-gray-800">GC23102567890</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500">Amount:</span>
-                                    <span className="font-medium text-gray-800">₱10,000.00</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500">Date/Time:</span>
-                                    <span className="font-medium text-gray-800">Oct 25, 2023 3:45 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500">Type:</span>
-                                    <span className="font-medium text-gray-800">Send Money (GCash to GCash)</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500">Status:</span>
-                                    <Badge className="bg-red-100 text-red-800 border border-red-200">Failed</Badge>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500">Error:</span>
-                                    <span className="text-red-600 font-medium">Transaction failed due to verification issues</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* AI Insights Component */}
-                    <div className="mb-6">
-                        <AIInsights
-                            conversationId={selectedConversation ?? ''}
-                            customerName="Customer"
-                            onInsightAction={handleInsightAction}
-                        />
-                    </div>
-
-                    <div>
-                        <h2 className="text-lg font-semibold mb-3 text-gray-800">Transaction History</h2>
-                        <div className="space-y-2">
-                            <div className="bg-white rounded-lg p-3 border border-gray-200 shadow-sm">
-                                <div className="flex justify-between mb-1">
-                                    <span className="font-medium text-gray-800">GC23102567890</span>
-                                    <Badge className="bg-red-100 text-red-800 border border-red-200">Failed</Badge>
-                                </div>
-                                <p className="text-sm text-gray-700">Send Money - ₱10,000.00</p>
-                                <p className="text-xs text-gray-500">Oct 25, 2023 3:45 PM</p>
-                            </div>
-                            <div className="bg-white rounded-lg p-3 border border-gray-200 shadow-sm">
-                                <div className="flex justify-between mb-1">
-                                    <span className="font-medium text-gray-800">GC23102398765</span>
-                                    <Badge className="bg-green-100 text-green-800 border border-green-200">Success</Badge>
-                                </div>
-                                <p className="text-sm text-gray-700">Cash In (7-Eleven) - ₱2,000.00</p>
-                                <p className="text-xs text-gray-500">Oct 23, 2023 10:12 AM</p>
-                            </div>
-                            <div className="bg-white rounded-lg p-3 border border-gray-200 shadow-sm">
-                                <div className="flex justify-between mb-1">
-                                    <span className="font-medium text-gray-800">GC23102087654</span>
-                                    <Badge className="bg-green-100 text-green-800 border border-green-200">Success</Badge>
-                                </div>
-                                <p className="text-sm text-gray-700">Pay Bills (PLDT) - ₱1,499.00</p>
-                                <p className="text-xs text-gray-500">Oct 20, 2023 5:30 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </main>
         </div>
     );
 };
