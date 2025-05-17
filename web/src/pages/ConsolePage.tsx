@@ -25,6 +25,9 @@ import { WavRenderer } from '../utils/wav_renderer';
 import { X, Edit, Zap, ArrowUp, ArrowDown, Mic, MicOff, MessageCircle, PhoneCall, Phone, Square } from 'react-feather';
 import { Button } from '../components/button/Button';
 import { Toggle } from '../components/toggle/Toggle';
+import { supabseAuthClient } from '@/lib/supabase/auth';
+import appConfig from '@/config/app-config';
+import { UserIcon } from 'lucide-react';
 
 /**
  * Type for result from get_weather() function call
@@ -63,16 +66,16 @@ export function ConsolePage() {
     // Debug log to see what's in the environment variable
     console.log('OPENAI_API_KEY value:', OPENAI_API_KEY);
     console.log('Environment variables available:', process.env);
-    
+
     try {
       if (LOCAL_RELAY_SERVER_URL || OPENAI_API_KEY) {
         clientRef.current = new RealtimeClient(
           LOCAL_RELAY_SERVER_URL
             ? { url: LOCAL_RELAY_SERVER_URL }
             : {
-                apiKey: OPENAI_API_KEY,
-                dangerouslyAllowAPIKeyInBrowser: true,
-              },
+              apiKey: OPENAI_API_KEY,
+              dangerouslyAllowAPIKeyInBrowser: true,
+            },
         );
         console.log('RealtimeClient initialized successfully');
       } else {
@@ -308,17 +311,17 @@ export function ConsolePage() {
       return;
     }
     console.log(`Triggering context API for ${transcript}`);
-    
+
     try {
       const response = await fetch(
         `/api/context?query=${encodeURIComponent(transcript)}&openAIApiKey=${encodeURIComponent(OPENAI_API_KEY)}`,
       );
-      
+
       if (!response.ok) {
         console.error(`HTTP error: ${response.status}`);
         return; // Don't throw, just log and continue
       }
-      
+
       const data = await response.json();
       console.log(`Received context API response: ${data.message}`);
       client.sendUserMessageContent([
@@ -568,13 +571,13 @@ export function ConsolePage() {
         );
         item.formatted.file = wavFile;
       }
-      
+
       // Check if this is an AI response completion
       if (item.role === 'assistant' && item.status === 'completed') {
         // AI has responded, user can speak again
         setIsWaitingForAIResponse(false);
       }
-      
+
       setItems(items);
     });
 
@@ -585,6 +588,50 @@ export function ConsolePage() {
       client.reset();
     };
   }, [clientRef.current]);
+
+  // Add a function to send the conversation transcript to Supabase
+  const sendToAgent = async () => {
+    const client = clientRef.current;
+    if (!client) throw new Error('RealtimeClient is not initialized');
+
+    const conversationItems = client.conversation.getItems();
+    if (conversationItems.length === 0) return;
+
+    try {
+      // Format the conversation for storage
+      const formattedConversation = conversationItems.map(item => ({
+        role: item.role,
+        text: item.formatted.transcript || item.formatted.text || '',
+        // Use created_at or a default date if timestamp doesn't exist
+        created_at: new Date().toISOString()
+      }));
+
+
+
+      console.log('formattedConversation', formattedConversation);
+
+      // Insert conversation into Supabase
+      const { data, error } = await supabseAuthClient.supabase
+        .from('conversations')
+        .insert({
+          conversation_data: formattedConversation,
+          status: 'new'
+        });
+
+      console.log('data', data);
+
+      if (error) {
+        console.error('Error sending conversation to agent:', error);
+        // Show error toast or notification
+        return;
+      }
+
+      console.log('Conversation sent to agent successfully:', data);
+      // Show success toast or notification
+    } catch (error) {
+      console.error('Error sending conversation to agent:', error);
+    }
+  };
 
   /**
    * Render the application
@@ -690,27 +737,92 @@ export function ConsolePage() {
       <div className="fixed bottom-4 right-4">
         <button 
           className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center transition duration-300"
+    <div data-component="ConsolePage" className="flex flex-col items-center justify-center min-h-screen">
+      {/* Single Wave Renderer Visualization that switches based on recording state */}
+      <div className="w-full max-w-2xl mb-8">
+        <div className="rounded-lg p-4 shadow-lg">
+          <div className="w-full h-32 bg-gray-700 rounded relative">
+            <div className="text-xs text-gray-400 absolute top-2 left-2">
+              {isRecording ? "You" : "AI"}
+            </div>
+
+            {/* Keep both canvases but show/hide based on recording state */}
+            <div className={`absolute inset-0 ${isRecording ? 'block' : 'hidden'}`}>
+              <canvas ref={clientCanvasRef} className="w-full h-full" />
+            </div>
+
+            <div className={`absolute inset-0 ${!isRecording ? 'block' : 'hidden'}`}>
+              <canvas ref={serverCanvasRef} className="w-full h-full" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Control Buttons Below */}
+      <div className="flex items-center space-x-4">
+        <Button
+          label={isConnected ? 'disconnect' : 'Call Agent'}
+          iconPosition={isConnected ? 'end' : 'start'}
+          icon={isConnected ? X : Zap}
+          buttonStyle={isConnected ? 'regular' : 'action'}
+          onClick={
+            isConnected ? disconnectConversation : connectConversation
+          }
+        />
+
+        {isConnected && canPushToTalk && (
+          <Button
+            label={isRecording ? 'stop recording' : 'start recording'}
+            buttonStyle={isRecording ? 'alert' : 'regular'}
+            disabled={!isRecording && isWaitingForAIResponse}
+            onClick={toggleRecording}
+          />
+        )}
+      </div>
+
+      {/* Status Indicator */}
+      {isConnected && (
+        <div className="mt-4 text-sm text-gray-400">
+          {isWaitingForAIResponse ? "Waiting for AI response..." : "Ready to record"}
+        </div>
+      )}
+
+      {/* Conversation Log Button */}
+      <div className="fixed bottom-4 right-4">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center"
           onClick={() => setIsConversationLogOpen(!isConversationLogOpen)}
         >
           <MessageCircle className="h-5 w-5 mr-2" />
           Call Logs
         </button>
       </div>
-      
-      {/* Conversation Log Popup - Keep same functionality */}
+
+      {/* Conversation Log Popup */}
       {isConversationLogOpen && (
-        <div className="fixed bottom-20 right-4 w-96 md:w-1/3 max-w-2xl max-h-96 bg-white rounded-lg shadow-xl overflow-hidden border border-blue-200">
-          <div className="bg-blue-600 text-white p-3 flex justify-between items-center">
+        <div className="fixed bottom-20 right-4 w-96 md:w-1/3 max-w-2xl max-h-96 bg-white rounded-lg shadow-xl overflow-hidden">
+          <div className="bg-gray-800 text-white p-3 flex justify-between items-center">
             <h3 className="font-medium flex items-center">
               <MessageCircle className="h-4 w-4 mr-2" />
               GCash Support Chat History
             </h3>
-            <button 
-              onClick={() => setIsConversationLogOpen(false)}
-              className="text-white hover:text-blue-100"
-            >
-              <X className="h-5 w-5" />
-            </button>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={sendToAgent}
+                className="text-white bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded text-sm flex items-center"
+              >
+                <UserIcon className="h-4 w-4 mr-1" />
+                Send to Agent
+              </button>
+              <button
+                onClick={() => setIsConversationLogOpen(false)}
+                className="text-white hover:text-gray-300"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </button>
+            </div>
           </div>
           <div className="overflow-y-auto max-h-80 p-3 bg-gray-50">
             {items.length === 0 ? (

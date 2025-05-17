@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
+import { supabseAuthClient } from '@/lib/supabase/auth';
+import { GeminiService, FlowData, FlowOption, FlowStep } from '../services/gemini';
 
 // UI Components
 import { Button } from '../components/ui/button';
@@ -7,212 +9,67 @@ import { Input } from '../components/ui/input';
 import { Badge } from '../components/ui/badge';
 import { AIInsights, Insight } from '../components/ui/ai-insights';
 
-// Types for Process Flow
-interface FlowOption {
+// Types for Conversation
+interface ConversationMessage {
+    role: string;
+    text: string;
+    created_at: string;
+}
+
+interface Conversation {
     id: string;
-    label: string;
-    description?: string;
-    scriptText?: string;
+    status: string;
+    lastMessage: string;
+    time: string;
+    conversation_data: ConversationMessage[];
 }
 
-interface FlowStep {
-    title: string;
-    subtitle?: string;
-    options: FlowOption[];
-    scriptSuggestion?: string;
-}
-
-interface FlowData {
-    [key: string]: FlowStep;
-}
+// Process Flow types are imported from gemini service
 
 // Process Flow Component
-const ProcessFlow = () => {
+const ProcessFlow = ({ conversationTranscript }: { conversationTranscript: ConversationMessage[] }) => {
     const [currentStep, setCurrentStep] = useState<string>('start');
     const [breadcrumbs, setBreadcrumbs] = useState<string[]>(['Conversation Flow']);
     const [scriptDisplay, setScriptDisplay] = useState<string | null>(null);
+    const [flowData, setFlowData] = useState<FlowData | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
-    const flowData: FlowData = {
-        start: {
-            title: 'Escalated Call Received',
-            subtitle: 'Begin by orienting yourself with customer information',
-            scriptSuggestion: "Thank you for your patience. My name is [Agent Name] and I'll be helping you resolve this issue today. I understand you've been experiencing problems with your transaction. Let me take a moment to review your information.",
-            options: [
-                {
-                    id: 'reviewInfo',
-                    label: 'Review AI Transcript & Customer Info',
-                    description: 'Check customer history, transaction details, and previous conversation'
-                }
-            ]
-        },
-        reviewInfo: {
-            title: 'Review AI Transcript & Customer Info',
-            subtitle: 'Understand the customers issue before proceeding',
-            scriptSuggestion: "I've reviewed your information. I see you're having an issue with a failed transaction that mentions verification issues. Let me check your account status to understand what might be causing this.",
-            options: [
-                {
-                    id: 'checkKYC',
-                    label: 'Check Customer KYC Status',
-                    description: 'Verify if customer has completed Know Your Customer requirements'
-                }
-            ]
-        },
-        checkKYC: {
-            title: 'Check Customer KYC Status',
-            subtitle: 'Determine if verification issues are KYC related',
-            options: [
-                {
-                    id: 'kycIncomplete',
-                    label: 'KYC Incomplete',
-                    description: 'Customer has not completed verification requirements'
-                },
-                {
-                    id: 'kycComplete',
-                    label: 'KYC Complete',
-                    description: 'Customer has completed all verification steps'
-                }
-            ]
-        },
-        kycIncomplete: {
-            title: 'KYC Incomplete',
-            subtitle: 'Guide customer through verification process',
-            scriptSuggestion: "I've checked your account and found that your verification process is incomplete. To complete larger transactions, GCash requires full verification of your identity. Would you like me to guide you through the verification process now?",
-            options: [
-                {
-                    id: 'explainDocuments',
-                    label: 'Explain Document Requirements',
-                    description: 'Detail which documents are needed and how to upload them',
-                    scriptText: "To complete your verification, you'll need to upload a valid government ID (like a driver's license, passport, or SSS ID) and take a selfie for facial verification. You can do this by going to Profile > Verify Now in your GCash app."
-                },
-                {
-                    id: 'endCallDocuments',
-                    label: 'End Call After Document Instructions',
-                    description: 'Conclude call after customer understands requirements',
-                    scriptText: "Once you've uploaded these documents, your account should be verified within 24-48 hours. After that, you'll be able to make larger transactions without encountering this verification issue. Is there anything else I can help you with today?"
-                }
-            ]
-        },
-        kycComplete: {
-            title: 'KYC Complete - Review Transaction Logs',
-            subtitle: 'Check for system errors in transaction history',
-            scriptSuggestion: "I see your account is fully verified. Let me check your transaction logs to identify what might be causing the verification error.",
-            options: [
-                {
-                    id: 'systemErrors',
-                    label: 'System Errors Detected',
-                    description: 'Technical issues found in transaction logs'
-                },
-                {
-                    id: 'noSystemErrors',
-                    label: 'No System Errors',
-                    description: 'No technical problems identified in logs'
-                }
-            ]
-        },
-        systemErrors: {
-            title: 'System Errors Detected',
-            subtitle: 'Handle technical issues requiring escalation',
-            scriptSuggestion: "I've identified some technical issues in the system that are affecting your transaction. This would require attention from our technical team.",
-            options: [
-                {
-                    id: 'escalateTechnical',
-                    label: 'Escalate to Technical Team',
-                    description: 'Create technical support ticket',
-                    scriptText: "I'll need to escalate this to our technical support team. They'll investigate the system error that's preventing your transaction. I'm creating a support ticket for you right now."
-                },
-                {
-                    id: 'informCustomerEscalation',
-                    label: 'Inform Customer About Escalation',
-                    description: 'Explain next steps after escalation',
-                    scriptText: "Your case has been escalated to our technical team. They'll work on resolving this issue as soon as possible. You'll receive a notification once it's fixed, typically within 24-48 hours. Is there a preferred contact method for updates on this issue?"
-                }
-            ]
-        },
-        noSystemErrors: {
-            title: 'No System Errors - Investigate Other Causes',
-            subtitle: 'Explore user-specific issues and recent account activity',
-            scriptSuggestion: "I don't see any system errors in your transaction logs. Let's look into other possible causes for this verification issue.",
-            options: [
-                {
-                    id: 'askActivity',
-                    label: 'Ask About Recent Account Activity',
-                    description: 'Inquire about unusual login attempts or transactions',
-                    scriptText: "Have you noticed any unusual activity on your account recently? For example, login attempts from unfamiliar devices or locations, or transactions you didn't authorize? Sometimes security measures can trigger verification requirements."
-                },
-                {
-                    id: 'troubleshootingGuidance',
-                    label: 'Provide Troubleshooting Guidance',
-                    description: 'Offer solutions based on customer response',
-                    scriptText: "Based on what you've shared, I recommend trying the following steps: 1) Log out and restart your GCash app, 2) Ensure you're using the latest app version, 3) Try the transaction again but with a smaller amount first to test. Would you like to try these steps while I stay on the line?"
-                }
-            ]
-        },
-        troubleshootingGuidance: {
-            title: 'Troubleshooting Guidance',
-            subtitle: 'Determine if issue is resolved after guidance',
-            scriptSuggestion: "Let's see if those troubleshooting steps have helped with your transaction issue.",
-            options: [
-                {
-                    id: 'issueResolved',
-                    label: 'Issue Resolved',
-                    description: 'Customer confirms problem is fixed',
-                    scriptText: "I'm glad to hear the issue has been resolved! Your transaction has gone through successfully. Is there anything else you need help with today?"
-                },
-                {
-                    id: 'issueNotResolved',
-                    label: 'Issue Not Resolved',
-                    description: 'Problem persists after troubleshooting',
-                    scriptText: "I understand the issue hasn't been resolved yet. At this point, I recommend creating a support ticket to track this case more closely. Our specialized team will investigate this further and contact you within 24-48 hours. Would that be okay with you?"
-                }
-            ]
-        },
-        issueResolved: {
-            title: 'Issue Resolved - Confirm Success',
-            subtitle: 'Verify transaction completed successfully',
-            scriptSuggestion: "Great! Let's confirm that your transaction has been processed correctly.",
-            options: [
-                {
-                    id: 'confirmTransaction',
-                    label: 'Confirm Successful Transfer',
-                    description: 'Verify funds have been transferred correctly',
-                    scriptText: "I can confirm that your transfer of ₱10,000 to account ending in 4567 has been successfully completed. The reference number is GC23102567890. I recommend keeping this reference number for your records."
-                },
-                {
-                    id: 'endCallSuccess',
-                    label: 'End Call After Confirmation',
-                    description: 'Conclude call with satisfied customer',
-                    scriptText: "Thank you for your patience throughout this process. Is there anything else I can help you with today? If not, please don't hesitate to contact GCash support if you have any questions in the future. Have a great day!"
-                }
-            ]
-        },
-        issueNotResolved: {
-            title: 'Issue Not Resolved - Follow Up Support',
-            subtitle: 'Offer additional assistance options',
-            scriptSuggestion: "I understand this is frustrating. Let me offer some follow-up support options.",
-            options: [
-                {
-                    id: 'createTicket',
-                    label: 'Create Support Ticket',
-                    description: 'Log detailed issue for specialized team',
-                    scriptText: "I'm creating a detailed support ticket for your case right now. This will be assigned to our specialized payments team who can investigate deeper. Your ticket number is #GC-23478. You'll receive updates via SMS and email."
-                },
-                {
-                    id: 'offerAlternatives',
-                    label: 'Suggest Alternatives',
-                    description: 'Provide workarounds for immediate needs',
-                    scriptText: "While we work on resolving this issue, may I suggest some alternatives for your immediate needs? You could try using GCash's 'Request Money' feature and have the recipient send funds to you instead, or you might consider using a different payment method temporarily."
-                },
-                {
-                    id: 'endCallTicket',
-                    label: 'End Call With Next Steps',
-                    description: 'Conclude call with clear follow-up plan',
-                    scriptText: "A specialized agent will contact you within 24-48 hours regarding your ticket #GC-23478. In the meantime, if you have any questions or if the issue resolves itself, you can update us by replying to the confirmation email you'll receive shortly. Thank you for your patience, and I apologize for the inconvenience caused."
-                }
-            ]
-        }
-    };
+    useEffect(() => {
+        const generateFlow = async () => {
+            if (!conversationTranscript || conversationTranscript.length === 0) {
+                setFlowData(null);
+                setLoading(false);
+                return;
+            }
+
+            try {
+                setLoading(true);
+                setError(null);
+
+                const geminiService = new GeminiService(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '');
+                const generatedFlowData = await geminiService.generateFlowData(conversationTranscript);
+
+                setFlowData(generatedFlowData);
+
+                // Reset to start when flow data changes
+                setCurrentStep('start');
+                setBreadcrumbs(['Conversation Flow']);
+                setScriptDisplay(generatedFlowData.start?.scriptSuggestion || null);
+            } catch (err) {
+                console.error('Error generating flow:', err);
+                setError('Failed to generate conversation flow. Please try again.');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        generateFlow();
+    }, [conversationTranscript]);
 
     const handleOptionClick = (optionId: string) => {
+        if (!flowData) return;
+
         const selectedOption = flowData[currentStep].options.find(opt => opt.id === optionId);
 
         if (flowData[optionId]) {
@@ -227,11 +84,13 @@ const ProcessFlow = () => {
     };
 
     const navigateToBreadcrumb = (index: number) => {
+        if (!flowData) return;
+
         if (index === 0) {
             // Home
             setCurrentStep('start');
             setBreadcrumbs(['Conversation Flow']);
-            setScriptDisplay(flowData['start'].scriptSuggestion || null);
+            setScriptDisplay(flowData['start']?.scriptSuggestion || null);
         } else {
             // Find the step that corresponds to this breadcrumb
             const steps = Object.keys(flowData);
@@ -245,12 +104,47 @@ const ProcessFlow = () => {
         }
     };
 
+    if (loading) {
+        return (
+            <div className="bg-white rounded-lg border border-gray-200 p-4 h-full flex items-center justify-center">
+                <div className="flex flex-col items-center space-y-4">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+                    <p className="text-gray-600">Generating conversation flow...</p>
+                </div>
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className="bg-white rounded-lg border border-gray-200 p-4 h-full flex items-center justify-center">
+                <div className="text-center space-y-4">
+                    <p className="text-red-600">{error}</p>
+                    <Button
+                        variant="outline"
+                        onClick={() => window.location.reload()}
+                    >
+                        Try Again
+                    </Button>
+                </div>
+            </div>
+        );
+    }
+
+    if (!flowData || !flowData[currentStep]) {
+        return (
+            <div className="bg-white rounded-lg border border-gray-200 p-4 h-full flex items-center justify-center">
+                <p className="text-gray-600">No conversation flow available. Start a conversation to generate flow.</p>
+            </div>
+        );
+    }
+
     return (
         <div className="bg-white rounded-lg border border-gray-200 p-4 h-full flex flex-col shadow-sm">
             {/* Header with help icon */}
             <div className="flex justify-between items-center mb-3">
                 <h3 className="text-lg font-semibold text-gray-800">
-                    {flowData[currentStep].title}
+                    {flowData?.[currentStep]?.title || 'Loading...'}
                 </h3>
                 <Button
                     variant="ghost"
@@ -278,32 +172,32 @@ const ProcessFlow = () => {
             </div>
 
             {/* Current step subtitle */}
-            {flowData[currentStep].subtitle && (
+            {flowData?.[currentStep]?.subtitle && (
                 <p className="text-sm text-gray-600 mb-3">{flowData[currentStep].subtitle}</p>
             )}
 
             {/* Script suggestion with cleaner design */}
             {scriptDisplay && (
                 <div className="mb-4 p-3 bg-blue-50 border-l-4 border-blue-400 rounded-md">
-                    <div className="flex justify-between">
+                    <div className="flex justify-between items-start">
                         <h4 className="text-sm font-medium text-blue-800 mb-1">Suggested Response:</h4>
                         <Button
                             variant="ghost"
                             size="sm"
-                            className="text-xs text-blue-700 h-6 -mt-1"
+                            className="text-xs text-blue-700 h-6"
                             onClick={() => navigator.clipboard.writeText(scriptDisplay)}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
                             Copy
                         </Button>
                     </div>
-                    <p className="text-sm text-gray-700">{scriptDisplay}</p>
+                    <p className="text-sm text-gray-700 mt-2">{scriptDisplay}</p>
                 </div>
             )}
 
             {/* Options with improved visual hierarchy */}
-            <div className="space-y-2 mt-1">
-                {flowData[currentStep].options.map((option: FlowOption) => (
+            <div className="flex-1 overflow-y-auto space-y-2 pr-2">
+                {flowData?.[currentStep]?.options.map((option: FlowOption) => (
                     <button
                         key={option.id}
                         className="w-full p-3 rounded-md border border-gray-200 bg-white hover:bg-gray-50 
@@ -340,7 +234,7 @@ const ProcessFlow = () => {
                         const prevStepTitle = newBreadcrumbs[newBreadcrumbs.length - 1];
                         if (prevStepTitle === 'Conversation Flow') {
                             setCurrentStep('start');
-                            setScriptDisplay(flowData['start'].scriptSuggestion || null);
+                            setScriptDisplay(flowData['start']?.scriptSuggestion || null);
                         } else {
                             const steps = Object.keys(flowData);
                             const prevStep = steps.find(step => flowData[step].title === prevStepTitle);
@@ -361,34 +255,11 @@ const ProcessFlow = () => {
 
 const AgentDashboard = () => {
     const [customerQuery, setCustomerQuery] = useState('');
-    const [conversations, setConversations] = useState([
-        {
-            id: '1',
-            customer: 'Maria Santos',
-            status: 'active',
-            priority: 'high',
-            lastMessage: 'My GCash transfer failed with "verification issues" error',
-            time: '2 mins ago'
-        },
-        {
-            id: '2',
-            customer: 'John Smith',
-            status: 'waiting',
-            priority: 'medium',
-            lastMessage: 'Can\'t verify my account after uploading ID',
-            time: '15 mins ago'
-        },
-        {
-            id: '3',
-            customer: 'Sarah Garcia',
-            status: 'waiting',
-            priority: 'high',
-            lastMessage: 'Transfer failed but funds were deducted',
-            time: '32 mins ago'
-        }
-    ]);
+    const [conversations, setConversations] = useState<Conversation[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [selectedConversation, setSelectedConversation] = useState<string | null>(null);
+    const [conversationTranscript, setConversationTranscript] = useState<ConversationMessage[]>([]);
 
-    const [selectedConversation, setSelectedConversation] = useState('1');
     const [suggestedResponses, setSuggestedResponses] = useState([
         'I understand you\'re having an issue with a failed transaction due to verification issues. I\'ll help you troubleshoot this problem.',
         'I\'ll check your account\'s verification status to see why your transaction is being blocked. Could you please confirm the reference number of the failed transaction?',
@@ -414,194 +285,304 @@ const AgentDashboard = () => {
         }
     };
 
-    return (
-        <div className="flex flex-col h-screen bg-gray-50 text-gray-800">
-            <Toaster position="top-right" reverseOrder={false} />
+    // Fetch conversations from Supabase
+    useEffect(() => {
+        async function fetchConversations() {
+            try {
+                setLoading(true);
 
-            {/* Header */}
-            <header className="p-4 border-b border-gray-200 flex justify-between items-center bg-blue-600 text-white">
-                <div className="flex items-center space-x-2">
-                    <h1 className="text-xl font-bold">GCash Support Console</h1>
-                    <Badge className="bg-white text-blue-600">AI-Powered</Badge>
-                </div>
-                <div className="flex items-center space-x-4">
+                const { data: conversationsData, error } = await supabseAuthClient.supabase
+                    .from('conversations')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) {
+                    console.error('Error fetching conversations:', error);
+                    return;
+                }
+
+                console.log('conversationsData', conversationsData);
+                if (conversationsData && conversationsData.length > 0) {
+                    // Transform the data to match our Conversation interface
+                    const formattedConversations = conversationsData.map((conv): Conversation => {
+                        // Get the last message from conversation_data
+                        const lastMsg = conv.conversation_data && conv.conversation_data.length > 0
+                            ? conv.conversation_data[conv.conversation_data.length - 1].text
+                            : 'No messages';
+
+                        // Format relative time
+                        const timeAgo = getRelativeTime(new Date(conv.created_at));
+
+                        return {
+                            id: conv.id,
+                            status: conv.status || 'waiting',
+                            lastMessage: lastMsg.slice(0, 60) + (lastMsg.length > 60 ? '...' : ''),
+                            time: timeAgo,
+                            conversation_data: conv.conversation_data
+                        };
+                    });
+
+                    setConversations(formattedConversations);
+
+                    // Select the first conversation by default
+                    if (formattedConversations.length > 0 && !selectedConversation) {
+                        setSelectedConversation(formattedConversations[0].id);
+                        setConversationTranscript(formattedConversations[0].conversation_data || []);
+                    }
+                }
+            } catch (error) {
+                console.error('Error in fetchConversations:', error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchConversations();
+
+        // Set up a subscription to listen for new conversations
+        const subscription = supabseAuthClient.supabase
+            .channel('conversations_channel')
+            .on('postgres_changes', {
+                event: 'INSERT',
+                schema: 'public',
+                table: 'conversations'
+            }, (payload) => {
+                // When a new conversation is added, refresh the list
+                fetchConversations();
+            })
+            .subscribe();
+
+        return () => {
+            subscription.unsubscribe();
+        };
+    }, []);
+
+    // Helper function to determine priority based on content
+    const getPriorityFromContent = (content: string): string => {
+        const urgentKeywords = ['urgent', 'emergency', 'failed', 'error', 'issue', 'problem'];
+        const mediumKeywords = ['help', 'assistance', 'question', 'confused'];
+
+        const lowerContent = content.toLowerCase();
+
+        if (urgentKeywords.some(keyword => lowerContent.includes(keyword))) {
+            return 'high';
+        } else if (mediumKeywords.some(keyword => lowerContent.includes(keyword))) {
+            return 'medium';
+        }
+
+        return 'low';
+    };
+
+    // Helper function to format relative time
+    const getRelativeTime = (date: Date): string => {
+        const now = new Date();
+        const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+        if (diffInSeconds < 60) {
+            return `${diffInSeconds} secs ago`;
+        } else if (diffInSeconds < 3600) {
+            return `${Math.floor(diffInSeconds / 60)} mins ago`;
+        } else if (diffInSeconds < 86400) {
+            return `${Math.floor(diffInSeconds / 3600)} hours ago`;
+        } else {
+            return `${Math.floor(diffInSeconds / 86400)} days ago`;
+        }
+    };
+
+    // Handle conversation selection
+    const handleConversationSelect = (convId: string) => {
+        setSelectedConversation(convId);
+
+        // Find the selected conversation and set its transcript
+        const selectedConv = conversations.find(conv => conv.id === convId);
+        if (selectedConv && selectedConv.conversation_data) {
+            setConversationTranscript(selectedConv.conversation_data);
+        } else {
+            setConversationTranscript([]);
+        }
+    };
+
+    return (
+        <div className="h-screen flex flex-col bg-gray-50 overflow-hidden">
+            {/* Header - Fixed height */}
+            <header className="flex-none bg-blue-600 text-white shadow-md">
+                <div className="px-6 py-4 flex justify-between items-center">
                     <div className="flex items-center space-x-2">
-                        <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                        <span>Online</span>
+                        <h1 className="text-xl font-bold">GCash Support Console</h1>
+                        <Badge className="bg-white text-blue-600">AI-Powered</Badge>
                     </div>
-                    <Button className="bg-white text-blue-600 hover:bg-gray-100">Settings</Button>
+                    <div className="flex items-center space-x-4">
+                        <div className="flex items-center space-x-2">
+                            <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+                            <span>Online</span>
+                        </div>
+                        <Button className="bg-white text-blue-600 hover:bg-gray-100">Settings</Button>
+                    </div>
                 </div>
             </header>
 
-            {/* Main content */}
-            <div className="flex flex-1 overflow-hidden">
-                {/* Left sidebar - Conversations */}
-                <div className="w-1/5 border-r border-gray-200 overflow-y-auto p-4 bg-white">
-                    <div className="mb-4">
-                        <h2 className="text-lg font-semibold mb-2 text-gray-800">Active Conversations</h2>
-                        <Input
-                            type="search"
-                            placeholder="Search conversations..."
-                            className="bg-white border-gray-300"
-                        />
+            {/* Main Content - Flexible height with scroll */}
+            <main className="flex-1 overflow-hidden p-6">
+                <div className="h-full grid grid-cols-12 gap-6 max-w-[1920px] mx-auto">
+                    {/* Left Sidebar - Conversations */}
+                    <div className="col-span-3 flex flex-col h-full space-y-4 min-h-0">
+                        {/* Search and Filters - Fixed height */}
+                        <div className="flex-none bg-white rounded-lg shadow-sm p-4">
+                            <h2 className="text-lg font-semibold mb-3">Active Conversations</h2>
+                            <Input
+                                type="search"
+                                placeholder="Search conversations..."
+                                className="bg-white border-gray-300 mb-3"
+                            />
+                            <div className="flex space-x-2">
+                                <Badge className="bg-blue-100 text-blue-800 hover:bg-blue-200 cursor-pointer">All</Badge>
+                                <Badge className="bg-gray-100 text-gray-800 hover:bg-gray-200 cursor-pointer">Active</Badge>
+                                <Badge className="bg-gray-100 text-gray-800 hover:bg-gray-200 cursor-pointer">Pending</Badge>
+                            </div>
+                        </div>
+
+                        {/* Conversation List - Scrollable */}
+                        <div className="flex-1 bg-white rounded-lg shadow-sm p-4 min-h-0 overflow-y-auto">
+                            <div className="space-y-3">
+                                {loading ? (
+                                    <div className="flex justify-center items-center h-32">
+                                        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+                                    </div>
+                                ) : conversations.length === 0 ? (
+                                    <div className="text-center text-gray-500 py-10">
+                                        No conversations yet
+                                    </div>
+                                ) : (
+                                    conversations.map(conv => (
+                                        <div
+                                            key={conv.id}
+                                            onClick={() => handleConversationSelect(conv.id)}
+                                            className={`p-4 rounded-lg cursor-pointer transition-all ${selectedConversation === conv.id
+                                                    ? 'bg-blue-50 border-2 border-blue-200 shadow-sm'
+                                                    : 'bg-gray-50 border border-gray-200 hover:bg-gray-100'
+                                                }`}
+                                        >
+                                            <div className="flex justify-between items-start mb-2">
+                                                <span className="font-medium text-gray-800">Wince {conv.id.slice(0, 8)}...</span>
+                                                <Badge className={conv.status === 'active' ? 'bg-green-500' : 'bg-gray-500'}>
+                                                    {conv.status}
+                                                </Badge>
+                                            </div>
+                                            <p className="text-sm text-gray-600 mb-2">{conv.lastMessage}</p>
+                                            <div className="flex justify-between items-center text-xs text-gray-500">
+                                                <span>{conv.time}</span>
+                                                <span>ID: {conv.id.slice(0, 6)}</span>
+                                            </div>
+                                        </div>
+                                    ))
+                                )}
+                            </div>
+                        </div>
                     </div>
 
-                    <div className="space-y-2">
-                        {conversations.map(conv => (
-                            <div
-                                key={conv.id}
-                                onClick={() => setSelectedConversation(conv.id)}
-                                className={`p-3 rounded-lg cursor-pointer transition-colors ${selectedConversation === conv.id
-                                    ? 'bg-blue-50 border border-blue-200'
-                                    : 'bg-white border border-gray-200 hover:bg-gray-50'
-                                    }`}
-                            >
-                                <div className="flex justify-between items-start mb-1">
-                                    <span className="font-medium text-gray-800">{conv.customer}</span>
-                                    <Badge
-                                        className={`${conv.priority === 'high'
-                                            ? 'bg-red-500 text-white'
-                                            : conv.priority === 'medium'
-                                                ? 'bg-amber-500 text-white'
-                                                : 'bg-green-500 text-white'
-                                            }`}
+                    {/* Middle Section - Flow and Transcript */}
+                    <div className="col-span-6 flex flex-col h-full space-y-4 min-h-0">
+                        {/* Flow Diagram - Fixed height */}
+                        <div className="flex-none bg-white rounded-lg shadow-sm">
+                            <div className="p-4 border-b border-gray-200">
+                                <h2 className="text-lg font-semibold">Support Guide</h2>
+                                <p className="text-sm text-gray-500">Follow the steps to assist the customer</p>
+                            </div>
+                            <div className="p-4 max-h-[400px] overflow-y-auto">
+                                <ProcessFlow conversationTranscript={conversationTranscript} />
+                            </div>
+                        </div>
+
+                        {/* Conversation Transcript - Flexible height with scroll */}
+                        {selectedConversation && (
+                            <div className="flex-1 bg-white rounded-lg shadow-sm flex flex-col min-h-0">
+                                <div className="flex-none p-4 border-b border-gray-200 flex justify-between items-center">
+                                    <h2 className="text-lg font-semibold">Conversation History</h2>
+                                    <Button variant="outline" size="sm" className="text-gray-600">
+                                        Export
+                                    </Button>
+                                </div>
+                                <div className="flex-1 p-4 overflow-y-auto min-h-0">
+                                    {conversationTranscript.length === 0 ? (
+                                        <div className="text-center text-gray-500 py-10">
+                                            No messages yet
+                                        </div>
+                                    ) : (
+                                        <div className="space-y-4">
+                                            {conversationTranscript.map((message, index) => (
+                                                <div
+                                                    key={index}
+                                                    className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                                                >
+                                                    <div className={`max-w-[80%] p-3 rounded-lg ${message.role === 'user'
+                                                        ? 'bg-blue-500 text-white'
+                                                        : 'bg-gray-100 text-gray-800'
+                                                        }`}>
+                                                        <div className="text-xs mb-1 opacity-75">
+                                                            {message.role === 'user' ? 'Customer' : 'AI Assistant'}
+                                                        </div>
+                                                        <p className="text-sm">{message.text}</p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Right Sidebar - AI Insights */}
+                    <div className="col-span-3 flex flex-col h-full space-y-4 min-h-0">
+                        <div className="flex-1 bg-white rounded-lg shadow-sm overflow-y-auto">
+                            <div className="p-4 border-b border-gray-200">
+                                <h2 className="text-lg font-semibold">AI Insights</h2>
+                                <p className="text-sm text-gray-500">Real-time analysis and suggestions</p>
+                            </div>
+                            <div className="p-4">
+                                <AIInsights
+                                    insights={[
+                                        {
+                                            type: 'sentiment',
+                                            content: customerInsights.sentiment,
+                                            priority: 'medium'
+                                        },
+                                        {
+                                            type: 'customer',
+                                            content: customerInsights.loyalty,
+                                            priority: 'low'
+                                        },
+                                        {
+                                            type: 'action',
+                                            content: 'Check KYC status',
+                                            priority: 'high'
+                                        }
+                                    ]}
+                                    onAction={handleInsightAction}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Suggested Responses */}
+                        <div className="flex-none bg-white rounded-lg shadow-sm p-4">
+                            <h2 className="text-lg font-semibold mb-3">Suggested Responses</h2>
+                            <div className="space-y-2">
+                                {suggestedResponses.map((response, index) => (
+                                    <div
+                                        key={index}
+                                        className="p-3 bg-gray-50 rounded-lg border border-gray-200 hover:bg-gray-100 cursor-pointer"
                                     >
-                                        {conv.priority}
-                                    </Badge>
-                                </div>
-                                <p className="text-sm text-gray-600 truncate">{conv.lastMessage}</p>
-                                <div className="flex justify-between items-center mt-2">
-                                    <Badge className={`${conv.status === 'active' ? 'bg-green-100 text-green-800 border border-green-200' : 'bg-gray-100 text-gray-800 border border-gray-200'
-                                        }`}>
-                                        {conv.status}
-                                    </Badge>
-                                    <span className="text-xs text-gray-500">{conv.time}</span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Main content area - Flow Diagram */}
-                <div className="flex-1 flex flex-col bg-white">
-                    {/* Flow Diagram */}
-                    <div className="flex-1 p-4 overflow-hidden flex flex-col">
-                        <div className="mb-4 flex justify-between items-center">
-                            <h2 className="text-xl font-semibold text-gray-800">Support Cheat Sheet</h2>
-                            <div className="text-sm text-gray-500">
-                                Interactive guide for agents
-                            </div>
-                        </div>
-
-                        {/* Process Flow Component */}
-                        <ProcessFlow />
-                    </div>
-
-
-                </div>
-
-                {/* Right sidebar - Customer info & AI insights */}
-                <div className="w-1/5 border-l border-gray-200 p-4 overflow-y-auto bg-white">
-                    <div className="mb-6">
-                        <h2 className="text-lg font-semibold mb-3 text-gray-800">Customer Profile</h2>
-                        <div className="bg-white rounded-lg p-3 mb-2 border border-gray-200 shadow-sm">
-                            <div className="flex items-center mb-3">
-                                <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center font-bold text-lg mr-3 text-white">
-                                    MS
-                                </div>
-                                <div>
-                                    <h3 className="font-medium text-gray-800">Maria Santos</h3>
-                                    <p className="text-xs text-gray-500">GCash user since 2022</p>
-                                </div>
-                            </div>
-                            <div className="grid grid-cols-2 gap-2 text-sm">
-                                <div>
-                                    <p className="text-gray-500">Account Type:</p>
-                                    <p className="text-gray-800">Semi-Verified</p>
-                                </div>
-                                <div>
-                                    <p className="text-gray-500">Phone:</p>
-                                    <p className="text-gray-800">+63 917 123 4567</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Transaction Details */}
-                    <div className="mb-6">
-                        <h2 className="text-lg font-semibold mb-3 text-gray-800">Transaction Details</h2>
-                        <div className="bg-white rounded-lg p-3 border border-gray-200 shadow-sm">
-                            <div className="space-y-2 text-sm">
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500">Reference No:</span>
-                                    <span className="font-medium text-gray-800">GC23102567890</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500">Amount:</span>
-                                    <span className="font-medium text-gray-800">₱10,000.00</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500">Date/Time:</span>
-                                    <span className="font-medium text-gray-800">Oct 25, 2023 3:45 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500">Type:</span>
-                                    <span className="font-medium text-gray-800">Send Money (GCash to GCash)</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500">Status:</span>
-                                    <Badge className="bg-red-100 text-red-800 border border-red-200">Failed</Badge>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="text-gray-500">Error:</span>
-                                    <span className="text-red-600 font-medium">Transaction failed due to verification issues</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* AI Insights Component */}
-                    <div className="mb-6">
-                        <AIInsights
-                            conversationId={selectedConversation}
-                            customerName="Maria Santos"
-                            onInsightAction={handleInsightAction}
-                        />
-                    </div>
-
-                    <div>
-                        <h2 className="text-lg font-semibold mb-3 text-gray-800">Transaction History</h2>
-                        <div className="space-y-2">
-                            <div className="bg-white rounded-lg p-3 border border-gray-200 shadow-sm">
-                                <div className="flex justify-between mb-1">
-                                    <span className="font-medium text-gray-800">GC23102567890</span>
-                                    <Badge className="bg-red-100 text-red-800 border border-red-200">Failed</Badge>
-                                </div>
-                                <p className="text-sm text-gray-700">Send Money - ₱10,000.00</p>
-                                <p className="text-xs text-gray-500">Oct 25, 2023 3:45 PM</p>
-                            </div>
-                            <div className="bg-white rounded-lg p-3 border border-gray-200 shadow-sm">
-                                <div className="flex justify-between mb-1">
-                                    <span className="font-medium text-gray-800">GC23102398765</span>
-                                    <Badge className="bg-green-100 text-green-800 border border-green-200">Success</Badge>
-                                </div>
-                                <p className="text-sm text-gray-700">Cash In (7-Eleven) - ₱2,000.00</p>
-                                <p className="text-xs text-gray-500">Oct 23, 2023 10:12 AM</p>
-                            </div>
-                            <div className="bg-white rounded-lg p-3 border border-gray-200 shadow-sm">
-                                <div className="flex justify-between mb-1">
-                                    <span className="font-medium text-gray-800">GC23102087654</span>
-                                    <Badge className="bg-green-100 text-green-800 border border-green-200">Success</Badge>
-                                </div>
-                                <p className="text-sm text-gray-700">Pay Bills (PLDT) - ₱1,499.00</p>
-                                <p className="text-xs text-gray-500">Oct 20, 2023 5:30 PM</p>
+                                        <p className="text-sm text-gray-700">{response}</p>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
         </div>
     );
 };
 
 export default AgentDashboard;
+

@@ -4,6 +4,7 @@
   "type": "module",
   "private": true,
   "dependencies": {
+    "@google/genai": "^0.14.1",
     "@hookform/resolvers": "^3.9.1",
     "@langchain/community": "^0.3.15",
     "@langchain/core": "^0.3.18",
