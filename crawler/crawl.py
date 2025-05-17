@@ -1,65 +1,70 @@
-import time
+from firecrawl import FirecrawlApp, JsonConfig
+from pydantic import BaseModel, Field
 import json
-import requests
-from urllib.parse import urljoin, urlparse
-from bs4 import BeautifulSoup  # Beautiful Soup for HTML parsing :contentReference[oaicite:6]{index=6}
+from tqdm import tqdm
+import time
 
-def crawl_gcash_help(start_url, max_pages=500, delay=1.0):
-    domain = urlparse(start_url).netloc
-    visited = set()
-    queue = [start_url]
-    results = []
+# Initialize the FirecrawlApp with your API key
+app = FirecrawlApp(api_key="fc-5535e4c895bc4e7b9484991459ddcf37")  # Replace with your actual API key
 
-    while queue and len(results) < max_pages:
-        url = queue.pop(0)
-        if url in visited:
-            continue
-        visited.add(url)
+# Define schema for GCash help articles
+class GCashHelpSchema(BaseModel):
+    title: str = Field(description="The title of the help article")
+    category: str = Field(description="The category or section the article belongs to")
+    main_content: str = Field(description="The main content or body of the help article")
+    faqs: list = Field(description="Frequently asked questions if present", default=[])
 
-        # Fetch page
-        resp = requests.get(url)
-        resp.raise_for_status()
-        soup = BeautifulSoup(resp.text, "html.parser")  # parse with default HTML parser :contentReference[oaicite:7]{index=7}
+# Configure extraction
+json_config = JsonConfig(
+    extractionSchema=GCashHelpSchema.model_json_schema(),
+    mode="llm-extraction",
+    pageOptions={"onlyMainContent": True}
+)
 
-        # Extract title
-        title_tag = soup.find("h1")
-        title = title_tag.get_text(strip=True) if title_tag else "No title"
+def scrape_urls(urls):
+    """Scrape multiple URLs and return all results"""
+    all_results = {}
+    
+    # Process each URL
+    for url in tqdm(urls, desc="Scraping URLs"):
+        try:
+            # Extract data from the URL
+            result = app.scrape_url(
+                url,
+                formats=["json"],
+                json_options=json_config
+            )
+            
+            # Add to results dictionary with URL as key
+            all_results[url] = result
+            
+            # Add a small delay to avoid rate limiting
+            
+        except Exception as e:
+            print(f"Error scraping {url}: {str(e)}")
+            all_results[url] = {"error": str(e)}
+    
+    return all_results
 
-        # Extract article body paragraphs
-        body = soup.find("div", class_="article-body")
-        paragraphs = body.find_all("p") if body else []
-        content = "\n".join(p.get_text(strip=True) for p in paragraphs)
-
-        # Extract Related Articles links
-        related = []
-        rel_sec = soup.find("section", class_="related-articles")
-        if rel_sec:
-            for a in rel_sec.find_all("a", href=True):
-                related.append(urljoin(start_url, a["href"]))
-
-        # Record this page
-        results.append({
-            "page_number": len(results) + 1,
-            "url": url,
-            "title": title,
-            "content": content,
-            "related_links": related
-        })
-
-        # Enqueue new article links under the same domain
-        for a in soup.find_all("a", href=True):
-            href = urljoin(start_url, a["href"])
-            parsed = urlparse(href)
-            if parsed.netloc == domain and "/hc/en-us/articles/" in parsed.path and href not in visited:
-                queue.append(href)
-
-        time.sleep(delay)  # polite 1 s delay between requests :contentReference[oaicite:8]{index=8}
-
-    return results
+def main():
+    # Read URLs from file
+    with open('paste.txt', 'r') as file:
+        content = file.read()
+    
+    # Extract URLs (assuming one URL per line)
+    urls = [line.strip() for line in content.split('\n') 
+            if line.strip() and line.strip().startswith("http")]
+    
+    print(f"Found {len(urls)} URLs to scrape")
+    
+    # Scrape all URLs
+    results = scrape_urls(urls)
+    
+    # Save all results to a single JSON file
+    with open('gcash_help_data.json', 'w', encoding='utf-8') as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+    
+    print(f"Results saved to gcash_help_data.json")
 
 if __name__ == "__main__":
-    seed = "https://help.gcash.com/"
-    data = crawl_gcash_help(seed)
-    with open("gcash_help_articles.json", "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-    print(f"Crawled {len(data)} pages.")
+    main()

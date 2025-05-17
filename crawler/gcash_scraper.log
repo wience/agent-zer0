@@ -1,0 +1,65 @@
+2025-05-17 18:40:52,816 - INFO - Loaded 837 URLs from gcash_urls.txt
+2025-05-17 18:40:52,816 - INFO - Found 837 unique URLs
+2025-05-17 18:40:52,816 - INFO - Processing batch 1/168 (5 URLs)
+2025-05-17 18:40:52,817 - INFO - Scraping URL: https://help.gcash.com/hc/en-us
+2025-05-17 18:40:52,817 - ERROR - Error scraping https://help.gcash.com/hc/en-us: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:40:52,817 - INFO - Scraping URL: https://help.gcash.com/hc/en-us/articles/39714168606105
+2025-05-17 18:40:52,817 - ERROR - Error scraping https://help.gcash.com/hc/en-us/articles/39714168606105: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:40:52,817 - INFO - Scraping URL: https://help.gcash.com/hc/en-us/articles/41422642490905
+2025-05-17 18:40:52,817 - ERROR - Error scraping https://help.gcash.com/hc/en-us/articles/41422642490905: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:40:52,817 - INFO - Scraping URL: https://help.gcash.com/hc/en-us/articles/43848987281049
+2025-05-17 18:40:52,817 - ERROR - Error scraping https://help.gcash.com/hc/en-us/articles/43848987281049: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:40:52,817 - INFO - Scraping URL: https://help.gcash.com/hc/en-us/articles/30283229084185
+2025-05-17 18:40:52,817 - ERROR - Error scraping https://help.gcash.com/hc/en-us/articles/30283229084185: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:40:54,818 - INFO - Processing batch 2/168 (5 URLs)
+2025-05-17 18:40:54,819 - INFO - Scraping URL: https://help.gcash.com/hc/en-us/categories/360001975993
+2025-05-17 18:40:54,819 - ERROR - Error scraping https://help.gcash.com/hc/en-us/categories/360001975993: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:40:54,819 - INFO - Scraping URL: https://help.gcash.com/hc/en-us/articles/41042765699353
+2025-05-17 18:40:54,819 - ERROR - Error scraping https://help.gcash.com/hc/en-us/articles/41042765699353: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:40:54,819 - INFO - Scraping URL: https://help.gcash.com/hc/en-us/articles/40477864099865
+2025-05-17 18:40:54,819 - ERROR - Error scraping https://help.gcash.com/hc/en-us/articles/40477864099865: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:40:54,819 - INFO - Scraping URL: https://help.gcash.com/hc/en-us/categories/4407779324185
+2025-05-17 18:40:54,819 - ERROR - Error scraping https://help.gcash.com/hc/en-us/categories/4407779324185: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:40:54,819 - INFO - Scraping URL: https://help.gcash.com/hc/en-us/articles/360017566894-GScore
+2025-05-17 18:40:54,820 - ERROR - Error scraping https://help.gcash.com/hc/en-us/articles/360017566894-GScore: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:41:22,530 - INFO - Loaded 837 URLs from gcash_urls.txt
+2025-05-17 18:41:22,530 - INFO - Found 837 unique URLs
+2025-05-17 18:41:22,530 - INFO - Scraping: https://help.gcash.com/hc/en-us (Attempt 1/3)
+2025-05-17 18:41:25,094 - WARNING - Failed to fetch https://help.gcash.com/hc/en-us: Status code 403
+2025-05-17 18:41:27,099 - INFO - Scraping: https://help.gcash.com/hc/en-us (Attempt 2/3)
+2025-05-17 18:41:27,349 - WARNING - Failed to fetch https://help.gcash.com/hc/en-us: Status code 403
+2025-05-17 18:43:05,151 - INFO - Loaded 837 URLs from gcash_urls.txt
+2025-05-17 18:43:05,152 - INFO - Found 837 unique URLs
+2025-05-17 18:43:05,152 - INFO - Processing batch 1/279 (3 URLs)
+2025-05-17 18:43:05,152 - INFO - Extracting data from: https://help.gcash.com/hc/en-us (Attempt 1/4)
+2025-05-17 18:43:05,152 - ERROR - Error extracting data from https://help.gcash.com/hc/en-us: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:43:05,152 - INFO - Retrying in 7.64 seconds...
+2025-05-17 18:43:05,152 - INFO - Extracting data from: https://help.gcash.com/hc/en-us/articles/39714168606105 (Attempt 1/4)
+2025-05-17 18:43:05,152 - ERROR - Error extracting data from https://help.gcash.com/hc/en-us/articles/39714168606105: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:43:05,152 - INFO - Retrying in 7.78 seconds...
+2025-05-17 18:43:05,152 - INFO - Extracting data from: https://help.gcash.com/hc/en-us/articles/41422642490905 (Attempt 1/4)
+2025-05-17 18:43:05,152 - ERROR - Error extracting data from https://help.gcash.com/hc/en-us/articles/41422642490905: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:43:05,152 - INFO - Retrying in 7.98 seconds...
+2025-05-17 18:43:12,798 - INFO - Extracting data from: https://help.gcash.com/hc/en-us (Attempt 2/4)
+2025-05-17 18:43:12,798 - ERROR - Error extracting data from https://help.gcash.com/hc/en-us: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:43:12,798 - INFO - Retrying in 11.95 seconds...
+2025-05-17 18:43:12,937 - INFO - Extracting data from: https://help.gcash.com/hc/en-us/articles/39714168606105 (Attempt 2/4)
+2025-05-17 18:43:12,937 - ERROR - Error extracting data from https://help.gcash.com/hc/en-us/articles/39714168606105: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:43:12,937 - INFO - Retrying in 11.40 seconds...
+2025-05-17 18:43:13,136 - INFO - Extracting data from: https://help.gcash.com/hc/en-us/articles/41422642490905 (Attempt 2/4)
+2025-05-17 18:43:13,137 - ERROR - Error extracting data from https://help.gcash.com/hc/en-us/articles/41422642490905: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:43:13,137 - INFO - Retrying in 11.93 seconds...
+2025-05-17 18:43:43,991 - INFO - Loaded 837 URLs from gcash_urls.txt
+2025-05-17 18:43:43,991 - INFO - Found 837 unique URLs
+2025-05-17 18:43:43,991 - INFO - Processing batch 1/168 (5 URLs)
+2025-05-17 18:43:43,991 - INFO - Extracting data from: https://help.gcash.com/hc/en-us
+2025-05-17 18:43:43,991 - ERROR - Error extracting data from https://help.gcash.com/hc/en-us: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:43:43,991 - INFO - Extracting data from: https://help.gcash.com/hc/en-us/articles/39714168606105
+2025-05-17 18:43:43,991 - ERROR - Error extracting data from https://help.gcash.com/hc/en-us/articles/39714168606105: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:43:43,991 - INFO - Extracting data from: https://help.gcash.com/hc/en-us/articles/41422642490905
+2025-05-17 18:43:43,991 - ERROR - Error extracting data from https://help.gcash.com/hc/en-us/articles/41422642490905: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:43:43,991 - INFO - Extracting data from: https://help.gcash.com/hc/en-us/articles/43848987281049
+2025-05-17 18:43:43,991 - ERROR - Error extracting data from https://help.gcash.com/hc/en-us/articles/43848987281049: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:43:43,991 - INFO - Extracting data from: https://help.gcash.com/hc/en-us/articles/30283229084185
+2025-05-17 18:43:43,991 - ERROR - Error extracting data from https://help.gcash.com/hc/en-us/articles/30283229084185: module 'firecrawl' has no attribute 'get'
+2025-05-17 18:43:43,991 - INFO - Waiting 3 seconds before next batch...
