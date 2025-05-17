@@ -22,7 +22,7 @@ import { WavRecorder, WavStreamPlayer } from '../lib/wavtools/index.js';
 import { instructions } from '../utils/conversation_config.js';
 import { WavRenderer } from '../utils/wav_renderer';
 
-import { X, Edit, Zap, ArrowUp, ArrowDown } from 'react-feather';
+import { X, Edit, Zap, ArrowUp, ArrowDown, Mic, MicOff, MessageCircle, PhoneCall, Phone, Square } from 'react-feather';
 import { Button } from '../components/button/Button';
 import { Toggle } from '../components/toggle/Toggle';
 import { supabseAuthClient } from '@/lib/supabase/auth';
@@ -398,7 +398,7 @@ export function ConsolePage() {
               clientCanvas,
               clientCtx,
               result.values,
-              '#0099ff',
+              '#0066CC',
               10,
               0,
               8,
@@ -420,7 +420,7 @@ export function ConsolePage() {
               serverCanvas,
               serverCtx,
               result.values,
-              '#009900',
+              '#0066CC',
               10,
               0,
               8,
@@ -637,6 +637,106 @@ export function ConsolePage() {
    * Render the application
    */
   return (
+    <div data-component="ConsolePage" className="flex flex-col min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      {/* GCash Header styled like in agent.tsx */}
+      <header className="w-full p-5 border-b border-gray-200 flex justify-between items-center bg-blue-600 text-white">
+        <div className="flex items-center space-x-2">
+          <h1 className="text-xl font-bold">GCash Support Center</h1>
+          <div className="bg-white text-blue-600 text-xs font-medium px-2 py-0.5 rounded-full">AI-Powered</div>
+        </div>
+        <div className="flex items-center space-x-2">
+          <div className="w-3 h-3 bg-green-400 rounded-full"></div>
+          <span>Online</span>
+        </div>
+      </header>
+      
+      <div className="flex flex-col items-center justify-center flex-1 py-8">
+        {/* Wave Visualization Container with GCASH styling */}
+        <div className="w-64 max-w-md mb-8">
+          <div className="rounded-lg shadow-lg overflow-hidden border-2 border-blue-500">
+            <div className="h-48 bg-blue-900 rounded relative">
+              <div className="bg-blue-700 text-white px-3 py-2 flex items-center justify-between">
+                <span className="font-medium">
+                  {isRecording ? "Listening..." : "GCash Virtual Assistant"}
+                </span>
+                <div className="flex items-center space-x-2">
+                  <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-400 animate-pulse' : 'bg-gray-400'}`}></div>
+                </div>
+              </div>
+              
+              {/* Keep both canvases but show/hide based on recording state */}
+              <div className={`absolute inset-0 pt-10 ${isRecording ? 'block' : 'hidden'}`}>
+                <canvas ref={clientCanvasRef} className="w-full h-full" />
+              </div>
+              
+              <div className={`absolute inset-0 pt-10 ${!isRecording ? 'block' : 'hidden'}`}>
+                <canvas ref={serverCanvasRef} className="w-full h-full" />
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Control Buttons with GCash styling */}
+        <div className="flex flex-col items-center space-y-4">
+          {!isConnected ? (
+            <button
+              onClick={connectConversation}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full px-8 py-3 flex items-center shadow-lg transition duration-300"
+            >
+              <PhoneCall className="h-5 w-5 mr-2" />
+              <span>Connect to GCash Support</span>
+            </button>
+          ) : (
+            <div className="flex flex-col items-center space-y-4">
+              <div className="flex items-center space-x-3">
+                {canPushToTalk && (
+                  <button
+                    onClick={toggleRecording}
+                    disabled={!isRecording && isWaitingForAIResponse}
+                    className={`${isRecording 
+                      ? 'bg-red-500 hover:bg-red-600' 
+                      : isWaitingForAIResponse 
+                        ? 'bg-gray-400 cursor-not-allowed' 
+                        : 'bg-blue-600 hover:bg-blue-700'
+                    } text-white font-medium rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition duration-300`}
+                  >
+                    {isRecording ? <Square className="h-6 w-6" /> : <Mic className="h-6 w-6" />}
+                  </button>
+                )}
+                
+                <button
+                  onClick={disconnectConversation}
+                  className="bg-gray-600 hover:bg-gray-700 text-white font-medium rounded-full w-14 h-14 flex items-center justify-center shadow-lg transition duration-300"
+                >
+                  <Phone className="h-6 w-6 transform rotate-135" />
+                </button>
+              </div>
+              
+              {/* Status Indicator */}
+              <div className="text-sm text-blue-700 font-medium">
+                {isWaitingForAIResponse ? 
+                  <span className="flex items-center">
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Processing your request...
+                  </span> : 
+                  <span className="flex items-center">
+                    <span className="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
+                    Ready to help
+                  </span>
+                }
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+      
+      {/* Conversation Log Button - Keep in same position */}
+      <div className="fixed bottom-4 right-4">
+        <button 
+          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center transition duration-300"
     <div data-component="ConsolePage" className="flex flex-col items-center justify-center min-h-screen">
       {/* Single Wave Renderer Visualization that switches based on recording state */}
       <div className="w-full max-w-2xl mb-8">
@@ -693,10 +793,8 @@ export function ConsolePage() {
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full shadow-lg flex items-center"
           onClick={() => setIsConversationLogOpen(!isConversationLogOpen)}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
-          </svg>
-          Call History
+          <MessageCircle className="h-5 w-5 mr-2" />
+          Call Logs
         </button>
       </div>
 
@@ -704,7 +802,10 @@ export function ConsolePage() {
       {isConversationLogOpen && (
         <div className="fixed bottom-20 right-4 w-96 md:w-1/3 max-w-2xl max-h-96 bg-white rounded-lg shadow-xl overflow-hidden">
           <div className="bg-gray-800 text-white p-3 flex justify-between items-center">
-            <h3 className="font-medium">Conversation History</h3>
+            <h3 className="font-medium flex items-center">
+              <MessageCircle className="h-4 w-4 mr-2" />
+              GCash Support Chat History
+            </h3>
             <div className="flex items-center space-x-2">
               <button
                 onClick={sendToAgent}
@@ -725,16 +826,34 @@ export function ConsolePage() {
           </div>
           <div className="overflow-y-auto max-h-80 p-3 bg-gray-50">
             {items.length === 0 ? (
-              <div className="text-center text-gray-500 py-4">No conversation yet</div>
+              <div className="text-center text-gray-500 py-6 flex flex-col items-center">
+                <MessageCircle className="h-8 w-8 text-blue-300 mb-2" />
+                <p>No conversation yet</p>
+                <p className="text-xs text-blue-500 mt-1">Connect to start calling with GCash support</p>
+              </div>
             ) : (
               items.map((item) => (
-                <div key={item.id} className={`mb-3 p-2 rounded ${item.role === 'user' ? 'bg-blue-100' : 'bg-gray-200'}`}>
-                  <div className="font-semibold text-xs text-gray-700 mb-1">
-                    {item.role === 'user' ? 'You' : 'AI'}
+                <div key={item.id} className={`mb-3 p-3 rounded-lg ${
+                  item.role === 'user' 
+                    ? 'bg-blue-100 ml-4' 
+                    : 'bg-white border border-blue-200 mr-4 shadow-sm'
+                }`}>
+                  <div className="font-semibold text-xs mb-1 flex items-center">
+                    {item.role === 'user' ? (
+                      <>
+                        <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center mr-1 text-xs">U</div>
+                        <span className="text-blue-800">You</span>
+                      </>
+                    ) : (
+                      <>
+                        <div className="w-6 h-6 rounded-full bg-blue-800 text-white flex items-center justify-center mr-1 text-xs">G</div>
+                        <span className="text-blue-800">GCash Support</span>
+                      </>
+                    )}
                   </div>
-                  <div>
-                    {item.role === 'user'
-                      ? (item.formatted.transcript || item.formatted.text || '(awaiting transcript)')
+                  <div className="text-gray-800">
+                    {item.role === 'user' 
+                      ? (item.formatted.transcript || item.formatted.text || '(processing...)')
                       : (item.formatted.transcript || item.formatted.text || '(generating response...)')
                     }
                   </div>
