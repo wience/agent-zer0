@@ -91,9 +91,9 @@ export default function PdfUploader() {
     multiple: false,
     maxSize: bucketConfigs.fileSizeLimit,
     onDropRejected(fileRejections) {
-     const rejection = fileRejections.at(0)
-     const errors = rejection?.errors.at(0)
-     toast.error(errors?.message || "Something wrong with file")
+      const rejection = fileRejections.at(0)
+      const errors = rejection?.errors.at(0)
+      toast.error(errors?.message || "Something wrong with file")
     },
   });
 

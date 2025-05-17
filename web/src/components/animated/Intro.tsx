@@ -1,115 +1,98 @@
-import Image from "next/image";
 import React from "react";
-import { Timeline } from "@/components/ui/timeline";
 import { cn } from "@/lib/utils";
 import DotPattern from "../ui/dot-pattern";
-import Link from "next/link";
 import { AppDock } from "../navigation/AppDock";
-import uploadImg from "../../../public/onboarding/upload.png"
-import embeddingsImg from "../../../public/onboarding/embed.png"
-import searchImg from "../../../public/onboarding/search.png"
-import { Badge } from "../ui/badge";
-
+import Link from "next/link";
 
 export function Intro() {
-    const data = [
-        {
-            title: <Link href="/upload" className="text-[#A855F7]">Upload Documents</Link>,
-            content: (
-                <div>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-lg font-normal mb-2">
-                        Step 1: Upload your documents
-
-                    </p>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-                        <Badge variant="warning">Disclaimer: The documents uploaded will be stored on public bucket, hence refrain from uploading sensitive documents</Badge>
-                    </p>
-                    <div className="grid grid-cols-2 gap-4">
-                        <Image
-                            src={uploadImg}
-                            alt="Upload Documents"
-                            className="rounded-lg h-20 md:h-44 lg:h-72 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <video autoPlay className="rounded-lg h-20 md:h-44 lg:h-72 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" width="500" height="500" controls preload="none">
-                            <source src={"/onboarding/upload.mp4"} type="video/mp4" />
-
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-            ),
-        },
-        {
-            title: <h1 className="text-[#A855F7]">Generate Embeddings</h1>,
-            content: (
-                <div>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-lg font-normal mb-8">
-                        Step 2: Once documents are uploaded, you can generate embeddings, which will allow the data to be stored in vector database, and this data will be queried when you speak to the voice agent
-                    </p>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-lg font-normal mb-8">
-                        <Badge variant="error">Note: We recommend keeping smaller chunks of data to keep your openai api usage in check</Badge>
-                    </p>
-                    <div className="grid grid-cols-2 gap-4">
-                        <Image
-                            src={embeddingsImg}
-                            alt="Generate Embeddings"
-                            className="rounded-lg h-20 md:h-44 lg:h-72 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <video autoPlay className="rounded-lg h-20 md:h-44 lg:h-72 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" width="500" height="500" controls preload="none">
-                            <source src={"/onboarding/embed.mp4"} type="video/mp4" />
-
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-            ),
-        },
-        {
-            title: <h1 className="text-[#A855F7]">Save your search configs</h1>,
-            content: (
-                <div>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-lg font-normal mb-4">
-                        Step 3: Once the embeddings are generated, you can save your search configs, which will allow you to query the data stored in vector database
-                    </p>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-                    <Badge variant="error">Note: We recommend keeping smaller top K values to keep your openai api usage in check</Badge>
-                    </p>
-                    <div className="grid grid-cols-2 gap-4">
-                        <Image
-                            src={searchImg}
-                            alt="Search Configs"
-                            className="rounded-lg h-72 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        
-                    </div>
-                </div>
-            ),
-        },
-        {
-            title: <Link href="/console" className="text-[#A855F7]">Speak to your documents in playground</Link>,
-            content: (
-                <div>
-                    <p className="text-neutral-800 dark:text-neutral-200 text-lg font-normal mb-4">
-                        Step 4: Once you complete all steps above, you will be able to ask questions regarding the uploaded documents.
-                    </p>
-                    <div className="grid grid-cols-2 gap-4">
-                    <video autoPlay className="rounded-lg h-20 md:h-44 lg:h-72 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]" width="500" height="500" controls preload="none">
-                            <source src={"/onboarding/talk.mp4"} type="video/mp4" />
-
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                </div>
-            ),
-        },
-    ];
     return (
-        <div className="w-full">
+        <div className="w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800">
             <AppDock />
-            <Timeline data={data as any[]} />
+
+            <div className="max-w-4xl w-full px-4 py-12 grid gap-8">
+                <h1 className="text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-blue-500">
+                    Agent Zero Platform
+                </h1>
+
+                <p className="text-lg text-center text-gray-600 dark:text-gray-300 mb-8">
+                    Choose your path to get started
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {/* Agent Card */}
+                    <Link href="/agent" className="group">
+                        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 h-full flex flex-col transform hover:-translate-y-1">
+                            <div className="h-12 w-12 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-600 dark:text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                Agent
+                            </h2>
+                            <p className="text-gray-600 dark:text-gray-300 flex-grow">
+                                Hello World! Manage your AI agents and workflows.
+                            </p>
+                            <div className="mt-4 text-indigo-600 dark:text-indigo-400 flex items-center text-sm font-medium">
+                                Get started
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                    </Link>
+
+                    {/* Customer Card */}
+                    <Link href="/customer" className="group">
+                        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 h-full flex flex-col transform hover:-translate-y-1">
+                            <div className="h-12 w-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-600 dark:text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </div>
+                            <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-2 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
+                                Customer
+                            </h2>
+                            <p className="text-gray-600 dark:text-gray-300 flex-grow">
+                                Hello World! View and manage your customer interactions.
+                            </p>
+                            <div className="mt-4 text-green-600 dark:text-green-400 flex items-center text-sm font-medium">
+                                Get started
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                    </Link>
+
+                    {/* Business Card */}
+                    <Link href="/upload" className="group">
+                        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 h-full flex flex-col transform hover:-translate-y-1">
+                            <div className="h-12 w-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center mb-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-purple-600 dark:text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                                Business
+                            </h2>
+                            <p className="text-gray-600 dark:text-gray-300 flex-grow">
+                                Hello World! Upload and manage your business documents.
+                            </p>
+                            <div className="mt-4 text-purple-600 dark:text-purple-400 flex items-center text-sm font-medium">
+                                Get started
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+            </div>
+
             <DotPattern
                 className={cn(
-                    "[mask-image:radial-gradient(1500px_circle_at_center,white,transparent)]",
+                    "absolute inset-0 -z-10 [mask-image:radial-gradient(1500px_circle_at_center,white,transparent)]",
                 )}
             />
         </div>

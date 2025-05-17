@@ -141,7 +141,7 @@ export function AppDock() {
                     )}
                   >
                     <social.icon className="size-4" />
-                  </Link>: (social as any).shareButton}
+                  </Link> : (social as any).shareButton}
                 </TooltipTrigger>
                 <TooltipContent>
                   <p>{name}</p>
