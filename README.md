@@ -8,6 +8,10 @@ Meet Agent-Zer0 - the customer service platform that's like having a team of sup
 
 [http://www.agent-zer0.vercel.app/](https://agent-zer0.vercel.app/)
 
+Demo account:
+user: delafuentewince@gmail.com
+pass: demo123
+
 ### What's in the Box? 🎁
 
 #### Web Application (`/web`) - Your Command Center
