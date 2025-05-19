@@ -95,6 +95,10 @@ def extract_content(markdown_content):
     # Remove iframes
     markdown_content = re.sub(r'\[iframe\].*?(\n|$)', '', markdown_content)
     
+    # Remove image references
+    markdown_content = re.sub(r'!\[.*?\]\(.*?\)', '', markdown_content)  # Remove markdown images
+    markdown_content = re.sub(r'<img.*?>', '', markdown_content)  # Remove HTML images
+    
     return markdown_content.strip()
 
 def process_help_center_file(data, filename):

@@ -66,6 +66,14 @@ export default async function handler(
       }
     );
 
+    console.log(`[context] Retrieved ${qdrantResponse.length} documents from Qdrant`);
+    qdrantResponse.forEach((doc, index) => {
+      console.log(`[context] Document ${index + 1}:`, {
+        content: doc.pageContent.substring(0, 100) + '...', // Log first 100 chars
+        metadata: doc.metadata
+      });
+    });
+
     const documentChunks = qdrantResponse.map((doc) => {
       return doc.pageContent
     })
@@ -77,6 +85,10 @@ export default async function handler(
         topN: rerankingResults,
         returnDocuments: false,
       });
+      console.log(`[context] Reranked results:`, rerankedDocumentResults.results.map(r => ({
+        index: r.index,
+        relevanceScore: r.relevanceScore
+      })));
       const rerankedDocumentChunks = rerankedDocumentResults.results.map((result) => documentChunks[result.index]);
       finalChunkText = rerankedDocumentChunks.join('\n');
     } else {
